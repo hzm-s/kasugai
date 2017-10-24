@@ -1,44 +1,28 @@
-.rq-Discussion {
+.rq-Page_Main {
   padding: 1rem;
   background-color: $gray-100;
   border-radius: .3rem;
 }
 
-.rq-Discussion_Title {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
 .rq-Request {
-  @extend .d-flex;
-
   background-color: #fff;
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-200;
 
-  padding: 1rem .5rem;
+  padding: 2rem 3rem;
 }
 
-.rq-Request_Content {
-  margin: 1.5rem 0 0;
+.rq-Request_Header {
 }
 
-.rq-Request_CheckList {
-}
-
-.rq-Request_Content-combined {
-  @extend .col-sm-12, .col-lg-6;
-}
-
-.rq-Request_CheckList-combined {
-  @extend .col-sm-12, .col-lg-6;
-  border-left: 1px solid $gray-200;
+.rq-Request_Divider {
+  color: $gray-100;
 }
 
 .rq-Request_CheckListTitle {
   font-size: .75rem;
   font-weight: bold;
-  color: $purple;
+  color: $red;
 }
 
 .cl-List {
