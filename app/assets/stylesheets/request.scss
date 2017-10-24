@@ -1,0 +1,62 @@
+.rq-Discussion {
+  padding: 1rem;
+  background-color: $gray-100;
+  border-radius: .3rem;
+}
+
+.rq-Discussion_Title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.rq-Request {
+  @extend .d-flex;
+
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-200;
+
+  padding: 1rem .5rem;
+}
+
+.rq-Request_Content {
+  margin: 1.5rem 0 0;
+}
+
+.rq-Request_CheckList {
+}
+
+.rq-Request_Content-combined {
+  @extend .col-sm-12, .col-lg-6;
+}
+
+.rq-Request_CheckList-combined {
+  @extend .col-sm-12, .col-lg-6;
+  border-left: 1px solid $gray-200;
+}
+
+.rq-Request_CheckListTitle {
+  font-size: .75rem;
+  font-weight: bold;
+  color: $purple;
+}
+
+.cl-List {
+  @extend .custom-controls-stacked;
+}
+
+.cl-Item {
+  @extend .custom-control, .custom-checkbox, .align-items-center;
+}
+
+.cl-Item_Input {
+  @extend .custom-control-input;
+}
+
+.cl-Item_Indicator {
+  @extend .custom-control-indicator;
+}
+
+.cl-Item_Content {
+  @extend .custom-control-description;
+}
