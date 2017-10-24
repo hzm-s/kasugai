@@ -13,16 +13,26 @@
 }
 
 .rq-Request_Header {
+  margin-bottom: .5rem;
+}
+
+.rq-Request_Content {
+  padding: 1rem 1.75rem .5rem;
+  font-size: 1rem;
 }
 
 .rq-Request_Divider {
   color: $gray-100;
 }
 
-.rq-Request_CheckListTitle {
+.rq-CheckList_Title {
   font-size: .75rem;
   font-weight: bold;
   color: $red;
+}
+
+.rq-CheckList {
+  padding: 0 1.75rem;
 }
 
 .cl-List {
