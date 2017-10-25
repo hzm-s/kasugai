@@ -1,0 +1,89 @@
+.rq-Detail {
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+  padding: 1.5rem 0 .5rem;
+}
+
+.rq-Detail_Header {
+  margin: 0 2rem 1rem;
+}
+
+.rq-Detail_ContentWrapper {
+  @extend .d-flex;
+  margin: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+.rq-Detail_Content {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.rq-Detail_EditLink {
+  @extend .ml-auto;
+  font-size: .75rem;
+}
+
+.rq-Detail_Divider {
+  width: 90%;
+  color: $gray-100;
+}
+
+.rq-Detail_CheckList {
+  margin: 0 2rem;
+  padding: 0 1.5rem 1rem;
+}
+
+.rq-Detail_CheckListTitle {
+  font-size: .75rem;
+  font-weight: bold;
+}
+
+.rq-CheckList {
+  @extend .custom-controls-stacked;
+}
+
+.rq-CheckPoint {
+  @extend .custom-control, .custom-checkbox, .align-items-center;
+}
+
+.rq-CheckPoint_Check {
+  @extend .custom-control-input;
+}
+
+.rq-CheckPoint_Indicator {
+  @extend .custom-control-indicator;
+}
+
+.rq-CheckPoint_Content {
+  @extend .custom-control-description;
+}
+
+.rq-NewCheckPoint {
+  @extend .d-flex, .align-items-center;
+  width: 100%;
+}
+
+.rq-NewCheckPoint_Indicator {
+  @extend .fa, .fa-plus;
+  display: block;
+  font-size: 1rem;
+  padding: .125rem;
+  margin-right: .5rem;
+  color: theme-color('success');
+}
+
+.rq-NewCheckPoint_Input {
+  @extend .form-control;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+  }
+}
