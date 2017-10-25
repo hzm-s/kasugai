@@ -3,29 +3,11 @@
 }
 
 .sw-RequestStatus {
-  @extend .d-inline-flex, .align-items-center;
-  padding: .25rem .75rem .25rem .5rem;
+  display: inline-block;
+  padding: .25rem .75rem;
+  margin: 0;
   background-color: $gray-300;
   border-radius: 1.5rem;
-}
-
-.sw-RequestStatus_Indicator {
-  @extend .fa, .fa-circle;
-  font-size: 1rem;
-  margin-right: .5rem;
-}
-
-.sw-RequestStatus_Indicator-stop {
-  color: $red;
-}
-.sw-RequestStatus_Indicator-wip {
-  color: $yellow;
-}
-.sw-RequestStatus_Indicator-ready {
-  color: $green;
-}
-
-.sw-ReuestStatus_Text {
   font-weight: bold;
 }
 

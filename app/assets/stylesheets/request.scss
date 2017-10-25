@@ -54,3 +54,12 @@
 .cl-Item_Content {
   @extend .custom-control-description;
 }
+
+.rq-Comment {
+  padding: .5rem;
+}
+
+.rq-Comment_Title {
+  font-size: .875rem;
+  font-weight: bold;
+}

@@ -1,0 +1,58 @@
+.cmt-Comment {
+  @extend .d-flex;
+  margin-bottom: 1.5rem;
+
+  &:first-child {
+    margin-top: 1.5rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+
+    .cmt-Comment_Body {
+      border-bottom: none;
+    }
+  }
+}
+
+.cmt-Comment_Avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.cmt-Comment_Header {
+  margin-right: 1rem;
+}
+
+.cmt-Comment_Body {
+  width: 100%;
+  padding: .25rem 0;
+  border-bottom: 1px solid $gray-300;
+}
+
+.cmt-Comment_Content {
+  margin: 0;
+}
+
+.cmt-Comment_Info {
+  margin-top: .75rem;
+}
+
+.cmt-Comment_Timestamp {
+  font-size: .75rem;
+}
+
+.cmt-Form {
+  @extend .d-flex;
+  margin-top: 1rem;
+}
+
+.cmt-Form_Header {
+  margin-right: 1rem;
+}
+
+.cmt-Form_Form {
+  width: 100%;
+  padding: .25rem 0;
+}

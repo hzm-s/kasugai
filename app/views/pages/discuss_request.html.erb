@@ -19,12 +19,9 @@
         <div class="col-sm-10">
           <div class="rq-Request">
             <div class="rq-Request_Header">
-              <div class="sw-RequestStatus">
-                <i class="sw-RequestStatus_Indicator sw-RequestStatus_Indicator-wip"></i>
-                <span class="sw-ReuestStatus_Text">
-                  準備中
-                </span>
-              </div>
+              <p class="sw-RequestStatus">
+                準備中
+              </p>
             </div>
             <p class="rq-Request_Content">
             セキュリティ管理者として<br>
@@ -74,6 +71,69 @@
                 <%= link_to '削除する', '#' %>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-9 offset-lg-1">
+          <div class="rq-Comment">
+            <h3 class="sw-Break">
+              <span class="rq-Comment_Title">
+                コメント
+              </span>
+            </h3>
+            <div class="rq-Comment_List">
+              <div class="cmt-Comment">
+                <div class="cmt-Comment_Header">
+                  <%= image_tag 'avatars/user_a.png', class: 'cmt-Comment_Avatar' %>
+                </div>
+                <div class="cmt-Comment_Body">
+                  <p class="cmt-Comment_Content">
+                    全てのページで記録が必要ですか？
+                  </p>
+                  <div class="cmt-Comment_Info">
+                    <span class="cmt-Comment_Timestamp">
+                      末吉 哉が3時間前に投稿
+                    <span>
+                  </div>
+                </div>
+              </div>
+              <div class="cmt-Comment">
+                <div class="cmt-Comment_Header">
+                  <%= image_tag 'avatars/user_b.png', class: 'cmt-Comment_Avatar' %>
+                </div>
+                <div class="cmt-Comment_Body">
+                  <p class="cmt-Comment_Content">
+                    今の管理画面だと<br>
+                    - ログイン<br>
+                    - 一覧<br>
+                    - 詳細<br>
+                    - ダウンロード<br>
+                    です
+                  </p>
+                  <div class="cmt-Comment_Info">
+                    <span class="cmt-Comment_Timestamp">
+                      末吉 哉が1時間前に投稿
+                    <span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cmt-Form">
+              <div class="cmt-Form_Header">
+                <%= image_tag 'avatars/user_c.png', class: 'cmt-Comment_Avatar' %>
+              </div>
+              <div class="cmt-Form_Form">
+                <form>
+                  <div class="form-group">
+                    <textarea class="form-control"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-success">
+                    投稿する
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
