@@ -71,13 +71,14 @@
   font-size: 1rem;
   padding: .125rem;
   margin-right: .5rem;
-  color: $gray-400;
+  color: theme-color('success');
 }
 
 .rq-CheckPoint_Input {
-  display: block;
+  @extend .form-control;
   width: 30rem;
-  border-style: none;
-  border-bottom: 1px solid $gray-400;
-  padding: .25rem 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0px;
 }
