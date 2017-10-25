@@ -9,15 +9,18 @@
 
 .dsc-Body {
   padding: 1rem;
-  background-color: $gray-200;
+  background-color: $body-bg-sub;
   border-radius: .3rem;
 }
 
 .dsc-Body_CommentWrapper {
+  margin-top: .75rem;
   padding: .5rem;
 }
 
 .dsc-Comment_Title {
+  color: $body-color-sub;
   font-size: .875rem;
   font-weight: bold;
+  margin: 0;
 }

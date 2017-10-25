@@ -1,6 +1,6 @@
 .cmt-Comment {
   @extend .d-flex;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 
   &:first-child {
     margin-top: 1.5rem;
@@ -27,7 +27,7 @@
 
 .cmt-Comment_Body {
   width: 100%;
-  padding: .25rem 0;
+  padding: .25rem 0 .25rem;
   border-bottom: 1px solid $gray-300;
 }
 
@@ -41,6 +41,7 @@
 
 .cmt-Comment_Timestamp {
   font-size: .75rem;
+  color: $body-color-sub;
 }
 
 .cmt-Form {
