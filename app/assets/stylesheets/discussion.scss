@@ -1,0 +1,23 @@
+.dsc-Header {
+  margin-bottom: .5rem;
+}
+
+.dsc-ProjectName {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.dsc-Body {
+  padding: 1rem;
+  background-color: $gray-200;
+  border-radius: .3rem;
+}
+
+.dsc-Body_CommentWrapper {
+  padding: .5rem;
+}
+
+.dsc-Comment_Title {
+  font-size: .875rem;
+  font-weight: bold;
+}

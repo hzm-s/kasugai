@@ -1,137 +1,130 @@
-<div class="rq-Page">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="rq-Page_Header">
-          <h1 class="sw-ProjectName">
-            Gaiax Community
-          </h1>
-          <div class="rq-Page_Nav">
-            <%= link_to 'リクエスト一覧へ', '#' %>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-10 mx-auto">
+      <div class="dsc-Header">
+        <h1 class="dsc-ProjectName">
+          Gaiax Community
+        </h1>
+        <div class="dsc-Header_Nav">
+          <%= link_to 'リクエスト一覧へ', '#' %>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="rq-Page_Main">
-      <div class="row">
-        <div class="col-sm-10">
-          <div class="rq-Request">
-            <div class="rq-Request_Header">
+  <div class="row">
+    <div class="col-sm-12 col-lg-10 mx-auto">
+      <div class="dsc-Body">
+        <div class="dsc-Body_Request">
+          <div class="rq-Detail">
+            <div class="rq-Detail_Header">
               <p class="sw-RequestStatus">
                 準備中
               </p>
             </div>
-            <p class="rq-Request_Content">
-            セキュリティ管理者として<br>
-            誰がいつメンバー情報にアクセスしたか知りたい<br>
-            それは監査に必要だから
-            </p>
-            <hr class="rq-Request_Divider">
-            <div class="rq-CheckList">
-              <h3 class="rq-CheckList_Title">
+            <div class="rq-Detail_ContentWrapper">
+              <p class="rq-Detail_Content">
+              セキュリティ管理者として<br>
+              誰がいつメンバー情報にアクセスしたか知りたい<br>
+              それは監査で必要だから
+              </p>
+              <%= link_to '編集する', '', class: 'rq-Detail_EditLink' %>
+            </div>
+            <hr class="rq-Detail_Divider">
+            <div class="rq-Detail_CheckList">
+              <h3 class="rq-Detail_CheckListTitle">
                 チェックリスト
               </h3>
-              <div class="rq-CheckList_Body">
-                <div class="cl-List">
-                  <label class="cl-Item">
-                    <input type="checkbox" class="cl-Item_Input">
-                    <span class="cl-Item_Indicator"></span>
-                    <span class="cl-Item_Content">
-                      アクセスしたメンバーの名前が記録されていること
-                    </span>
-                  </label>
-                  <label class="cl-Item">
-                    <input type="checkbox" class="cl-Item_Input">
-                    <span class="cl-Item_Indicator"></span>
-                    <span class="cl-Item_Content">
-                      アクセスした時間が記録されていること
-                    </span>
-                  </label>
-                  <label class="cl-Item">
-                    <input type="checkbox" class="cl-Item_Input">
-                    <span class="cl-Item_Indicator"></span>
-                    <span class="cl-Item_Content">
-                      アクセスしたページが記録されていること
-                    </span>
-                  </label>
-                </div>
+              <div class="rq-CheckList">
+                <label class="rq-CheckPoint">
+                  <input type="checkbox" class="rq-CheckPoint_Check">
+                  <span class="rq-CheckPoint_Indicator"></span>
+                  <span class="rq-CheckPoint_Content">
+                    アクセスしたメンバーの名前が記録されていること
+                  </span>
+                </label>
+                <label class="rq-CheckPoint">
+                  <input type="checkbox" class="rq-CheckPoint_Check">
+                  <span class="rq-CheckPoint_Indicator"></span>
+                  <span class="rq-CheckPoint_Content">
+                    アクセスした時間が記録されていること
+                  </span>
+                </label>
+                <label class="rq-CheckPoint">
+                  <input type="checkbox" class="rq-CheckPoint_Check">
+                  <span class="rq-CheckPoint_Indicator"></span>
+                  <span class="rq-CheckPoint_Content">
+                    アクセスしたページが記録されていること
+                  </span>
+                </label>
+                <label class="rq-CheckList_Add">
+                  <i class="rq-CheckList_AddSymbol"></i>
+                  <form>
+                    <input type="text" placeholder="チェック項目を入力" class="rq-CheckPoint_Input">
+                  </form>
+                </label>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-2">
-          <div class="req-Request_ActionArea">
-            <ul>
-              <li>
-                <%= link_to '編集する', '#' %>
-              </li>
-              <li>
-                <%= link_to '削除する', '#' %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-lg-9 offset-lg-1">
-          <div class="rq-Comment">
-            <h3 class="sw-Break">
-              <span class="rq-Comment_Title">
-                コメント
-              </span>
-            </h3>
-            <div class="rq-Comment_List">
-              <div class="cmt-Comment">
-                <div class="cmt-Comment_Header">
-                  <%= image_tag 'avatars/user_a.png', class: 'cmt-Comment_Avatar' %>
+        <div class="row">
+          <div class="col-sm-12 col-lg-10 mx-auto">
+            <div class="dsc-Body_CommentWrapper">
+              <h3 class="sw-Break">
+                <span class="dsc-Comment_Title">
+                  コメント
+                </span>
+              </h3>
+              <div class="dsc-Comment_List">
+                <div class="cmt-Comment">
+                  <div class="cmt-Comment_Header">
+                    <%= image_tag 'avatars/user_a.png', class: 'cmt-Comment_Avatar' %>
+                  </div>
+                  <div class="cmt-Comment_Body">
+                    <p class="cmt-Comment_Content">
+                      全てのページで記録が必要ですか？
+                    </p>
+                    <div class="cmt-Comment_Info">
+                      <span class="cmt-Comment_Timestamp">
+                        末吉 哉が3時間前に投稿
+                      <span>
+                    </div>
+                  </div>
                 </div>
-                <div class="cmt-Comment_Body">
-                  <p class="cmt-Comment_Content">
-                    全てのページで記録が必要ですか？
-                  </p>
-                  <div class="cmt-Comment_Info">
-                    <span class="cmt-Comment_Timestamp">
-                      末吉 哉が3時間前に投稿
-                    <span>
+                <div class="cmt-Comment">
+                  <div class="cmt-Comment_Header">
+                    <%= image_tag 'avatars/user_b.png', class: 'cmt-Comment_Avatar' %>
+                  </div>
+                  <div class="cmt-Comment_Body">
+                    <p class="cmt-Comment_Content">
+                      今の管理画面だと<br>
+                      - ログイン<br>
+                      - 一覧<br>
+                      - 詳細<br>
+                      - ダウンロード<br>
+                      です
+                    </p>
+                    <div class="cmt-Comment_Info">
+                      <span class="cmt-Comment_Timestamp">
+                        末吉 哉が1時間前に投稿
+                      <span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="cmt-Comment">
-                <div class="cmt-Comment_Header">
-                  <%= image_tag 'avatars/user_b.png', class: 'cmt-Comment_Avatar' %>
+              <div class="cmt-Form">
+                <div class="cmt-Form_Header">
+                  <%= image_tag 'avatars/user_c.png', class: 'cmt-Comment_Avatar' %>
                 </div>
-                <div class="cmt-Comment_Body">
-                  <p class="cmt-Comment_Content">
-                    今の管理画面だと<br>
-                    - ログイン<br>
-                    - 一覧<br>
-                    - 詳細<br>
-                    - ダウンロード<br>
-                    です
-                  </p>
-                  <div class="cmt-Comment_Info">
-                    <span class="cmt-Comment_Timestamp">
-                      末吉 哉が1時間前に投稿
-                    <span>
-                  </div>
+                <div class="cmt-Form_Form">
+                  <form>
+                    <div class="form-group">
+                      <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                      投稿する
+                    </button>
+                  </form>
                 </div>
-              </div>
-            </div>
-            <div class="cmt-Form">
-              <div class="cmt-Form_Header">
-                <%= image_tag 'avatars/user_c.png', class: 'cmt-Comment_Avatar' %>
-              </div>
-              <div class="cmt-Form_Form">
-                <form>
-                  <div class="form-group">
-                    <textarea class="form-control"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-success">
-                    投稿する
-                  </button>
-                </form>
               </div>
             </div>
           </div>

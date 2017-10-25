@@ -1,65 +1,83 @@
-.rq-Page_Main {
-  padding: 1rem;
-  background-color: $gray-100;
-  border-radius: .3rem;
-}
-
-.rq-Request {
+.rq-Detail {
   background-color: #fff;
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-200;
-
-  padding: 2rem 3rem;
+  padding: 1.5rem 0 0;
 }
 
-.rq-Request_Header {
-  margin-bottom: .5rem;
+.rq-Detail_Header {
+  margin: 0 2rem 1rem;
 }
 
-.rq-Request_Content {
-  padding: 1rem 1.75rem .5rem;
+.rq-Detail_ContentWrapper {
+  @extend .d-flex;
+  margin: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+.rq-Detail_Content {
+  margin: 0;
   font-size: 1rem;
 }
 
-.rq-Request_Divider {
+.rq-Detail_EditLink {
+  @extend .ml-auto;
+  font-size: .75rem;
+}
+
+.rq-Detail_Divider {
+  width: 90%;
   color: $gray-100;
 }
 
-.rq-CheckList_Title {
+.rq-Detail_CheckList {
+  margin: 0 2rem;
+  padding: 0 1.5rem 1rem;
+}
+
+.rq-Detail_CheckListTitle {
   font-size: .75rem;
   font-weight: bold;
-  color: $red;
 }
 
 .rq-CheckList {
-  padding: 0 1.75rem;
-}
-
-.cl-List {
   @extend .custom-controls-stacked;
 }
 
-.cl-Item {
+.rq-CheckPoint {
   @extend .custom-control, .custom-checkbox, .align-items-center;
 }
 
-.cl-Item_Input {
+.rq-CheckPoint_Check {
   @extend .custom-control-input;
 }
 
-.cl-Item_Indicator {
+.rq-CheckPoint_Indicator {
   @extend .custom-control-indicator;
 }
 
-.cl-Item_Content {
+.rq-CheckPoint_Content {
   @extend .custom-control-description;
 }
 
-.rq-Comment {
-  padding: .5rem;
+.rq-CheckList_Add {
+  @extend .d-flex, .align-items-center;
+  width: 100%;
 }
 
-.rq-Comment_Title {
-  font-size: .875rem;
-  font-weight: bold;
+.rq-CheckList_AddSymbol {
+  @extend .fa, .fa-plus;
+  display: block;
+  font-size: 1rem;
+  padding: .125rem;
+  margin-right: .5rem;
+  color: $gray-400;
+}
+
+.rq-CheckPoint_Input {
+  display: block;
+  width: 30rem;
+  border-style: none;
+  border-bottom: 1px solid $gray-400;
+  padding: .25rem 0;
 }
