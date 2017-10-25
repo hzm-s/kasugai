@@ -34,14 +34,14 @@ $grays: map-merge((
   "900": $gray-900
 ), $grays);
 
-$blue:    #007bff !default;
+$blue:    #357BA3 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
-$green:   #28a745 !default;
+$green:   #488E2A !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
@@ -135,7 +135,7 @@ $sizes: (
 // Settings for the `<body>` element.
 
 $body-bg:                   $white !default;
-$body-color:                #001101 !default;
+$body-color:                #171D19 !default;
 
 $body-bg-sub: #F1F5E3;
 $body-color-sub: #6F6D67;
