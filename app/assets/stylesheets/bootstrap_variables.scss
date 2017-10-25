@@ -145,9 +145,9 @@ $body-color-sub: #6F6D67;
 // Style anchor elements.
 
 $link-color:                theme-color("primary") !default;
-$link-decoration:           none !default;
-$link-hover-color:          darken($link-color, 15%) !default;
-$link-hover-decoration:     underline !default;
+$link-decoration:           underline !default;
+$link-hover-color:          darken($link-color, 5%) !default;
+$link-hover-decoration:     none !default;
 
 // Paragraphs
 //
