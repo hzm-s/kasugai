@@ -2,7 +2,7 @@
   background-color: #fff;
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-200;
-  padding: 1.5rem 0 0;
+  padding: 1.5rem 0 .5rem;
 }
 
 .rq-Detail_Header {
@@ -60,12 +60,12 @@
   @extend .custom-control-description;
 }
 
-.rq-CheckList_Add {
+.rq-NewCheckPoint {
   @extend .d-flex, .align-items-center;
   width: 100%;
 }
 
-.rq-CheckList_AddSymbol {
+.rq-NewCheckPoint_Indicator {
   @extend .fa, .fa-plus;
   display: block;
   font-size: 1rem;
@@ -74,11 +74,16 @@
   color: theme-color('success');
 }
 
-.rq-CheckPoint_Input {
+.rq-NewCheckPoint_Input {
   @extend .form-control;
-  width: 30rem;
+
   border-top: none;
   border-right: none;
   border-left: none;
-  border-radius: 0px;
+  border-radius: 0;
+
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+  }
 }
