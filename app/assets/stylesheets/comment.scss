@@ -28,7 +28,6 @@
 .cmt-Comment_Body {
   width: 100%;
   padding: .25rem 0 .25rem;
-  border-bottom: 1px solid $gray-300;
 }
 
 .cmt-Comment_Content {
@@ -36,12 +35,21 @@
 }
 
 .cmt-Comment_Info {
+  @extend .d-flex;
   margin-top: .75rem;
 }
 
 .cmt-Comment_Timestamp {
   font-size: .75rem;
   color: $body-color-sub;
+}
+
+.cmt-Comment_Actions {
+  @extend .ml-auto;
+}
+
+.cmt-Comment_ActionLink {
+  font-size: .75rem;
 }
 
 .cmt-Form {
