@@ -1,0 +1,14 @@
+@mixin btn-shadow($width: 3px){
+  border-style: solid;
+  border-width: 0 0 $width 0;
+}
+
+.btn,
+.btn-sm,
+.btn-lg {
+  @include btn-shadow;
+}
+
+.btn-success {
+  border-color: darken(theme-color('success'), 10%);
+}

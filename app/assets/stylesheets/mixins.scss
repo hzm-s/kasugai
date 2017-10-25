@@ -6,6 +6,14 @@
   }
 }
 
+@mixin xxunderline {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 @mixin pill {
   display: inline-block;
   padding: .25rem .75rem;
