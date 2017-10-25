@@ -1,1 +1,136 @@
-list
+<div class="container">
+  <div class="row">
+    <div class="col-sm-18 col-lg-15 mx-auto">
+      <div class="rqls-Header">
+        <h1 class="rqls-ProjectName">
+          Gaiax Community
+        </h1>
+        <h2 class="rqls-Header_Title">
+          リクエスト
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-18 col-lg-3">
+      <aside class="rqls-Sub">
+        <h3 class="rqls-Sub_Title">
+          新しいリクエスト
+        </h3>
+        <hr class="rqls-Sub_Divider">
+        <%= link_to '追加する', '', class: 'rqls-Add' %>
+      </aside>
+      <aside class="rqls-Sub">
+        <h3 class="rqls-Sub_Title">
+          絞り込み
+        </h3>
+        <hr class="rqls-Sub_Divider">
+        <ul class="rqls-Filter_Options">
+          <li class="rqls-Filter_Option">
+            <%= link_to 'すべて', '#', class: 'rqls-Filter_Link rqls-Filter_Link-active' %>
+          </li>
+          <li class="rqls-Filter_Option">
+            <%= link_to '下書き', '#', class: 'rqls-Filter_Link' %>
+          </li>
+          <li class="rqls-Filter_Option">
+            <%= link_to '準備中', '#', class: 'rqls-Filter_Link' %>
+          </li>
+          <li class="rqls-Filter_Option">
+            <%= link_to '準備完了', '#', class: 'rqls-Filter_Link' %>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <div class="col-sm-18 col-lg-15">
+      <div class="rqls-Body">
+        <div class="rqls-List">
+          <div class="rqls-Item">
+            <i class="rqls-Item_Handle"></i>
+            <%= link_to '', class: 'rqls-Item_Content' do %>
+            セキュリティ管理者として<br>
+            誰がいつメンバー情報にアクセスしたか知りたい<br>
+            それは監査で必要だから
+            <% end -%>
+            <%= link_to '3コメント', page_url(:discuss_request), class: 'rqls-Item_CommentCount' %>
+            <span class="rqls-Item_UpdatedAt">
+              2017-11-23
+            </span>
+            <div class="rqls-Item_Anchor">
+              <span class="sw-RequestStatus-sm">
+                準備中
+              </span>
+            </div>
+          </div>
+          <div class="rqls-Item">
+            <i class="rqls-Item_Handle"></i>
+            <%= link_to '', class: 'rqls-Item_Content' do %>
+            管理者として<br>
+            管理画面にログインしたい<br>
+            それは管理したいから
+            <% end -%>
+            <%= link_to '3コメント', page_url(:discuss_request), class: 'rqls-Item_CommentCount' %>
+            <span class="rqls-Item_UpdatedAt">
+              2017-11-23
+            </span>
+            <div class="rqls-Item_Anchor">
+              <span class="sw-RequestStatus-sm">
+                準備完了
+              </span>
+            </div>
+          </div>
+          <div class="rqls-Item">
+            <i class="rqls-Item_Handle"></i>
+            <%= link_to '', class: 'rqls-Item_Content' do %>
+            管理者として<br>
+            登録しているメンバーのメールアドレスをCSVでダウンロードしたい<br>
+            それはメール配信をしたいから
+            <% end -%>
+            <%= link_to '3コメント', page_url(:discuss_request), class: 'rqls-Item_CommentCount' %>
+            <span class="rqls-Item_UpdatedAt">
+              2017-11-23
+            </span>
+            <div class="rqls-Item_Anchor">
+              <span class="sw-RequestStatus-sm">
+                準備完了
+              </span>
+            </div>
+          </div>
+          <div class="rqls-Item">
+            <i class="rqls-Item_Handle"></i>
+            <%= link_to '', class: 'rqls-Item_Content' do %>
+            セキュリティ管理者として<br>
+            誰がいつメンバー情報にアクセスしたか知りたい<br>
+            それは監査で必要だから
+            <% end -%>
+            <%= link_to '21コメント', page_url(:discuss_request), class: 'rqls-Item_CommentCount' %>
+            <span class="rqls-Item_UpdatedAt">
+              2017-11-23
+            </span>
+            <div class="rqls-Item_Anchor">
+              <span class="sw-RequestStatus-sm">
+                下書き
+              </span>
+            </div>
+          </div>
+          <div class="rqls-Item">
+            <i class="rqls-Item_Handle"></i>
+            <%= link_to '', class: 'rqls-Item_Content' do %>
+            セキュリティ管理者として<br>
+            誰がいつメンバー情報にアクセスしたか知りたい<br>
+            それは監査で必要だから
+            <% end -%>
+            <%= link_to '3コメント', page_url(:discuss_request), class: 'rqls-Item_CommentCount' %>
+            <span class="rqls-Item_UpdatedAt">
+              2017-11-23
+            </span>
+            <div class="rqls-Item_Anchor">
+              <span class="sw-RequestStatus-sm">
+                下書き
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

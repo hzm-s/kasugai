@@ -191,8 +191,8 @@ $container-max-widths: (
 //
 // Set the number of columns and specify the width of the gutters.
 
-$grid-columns:                12 !default;
-$grid-gutter-width:           30px !default;
+$grid-columns:                18 !default;
+$grid-gutter-width:           1rem !default;
 
 // Components
 //
@@ -204,8 +204,8 @@ $line-height-sm:              1.5 !default;
 $border-width:                1px !default;
 $border-color:                $gray-200 !default;
 
-$border-radius:               .25rem !default;
-$border-radius-lg:            .3rem !default;
+$border-radius:               .325rem !default;
+$border-radius-lg:            .5rem !default;
 $border-radius-sm:            .2rem !default;
 
 $component-active-color:      $white !default;
@@ -248,7 +248,7 @@ $h6-font-size:                $font-size-base !default;
 
 $headings-margin-bottom:      ($spacer / 2) !default;
 $headings-font-family:        inherit !default;
-$headings-font-weight:        500 !default;
+$headings-font-weight:        700 !default;
 $headings-line-height:        1.2 !default;
 $headings-color:              inherit !default;
 
