@@ -8,9 +8,20 @@
   margin: 0 2rem 1rem;
 }
 
+.rq-Detail_Creation {
+  color: $body-color-sub;
+  font-size: $font-size-sm;
+}
+
+.rq-Detail_CreatorAvator {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+}
+
 .rq-Detail_ContentWrapper {
   @extend .d-flex;
-  margin: 0 2rem;
+  margin: 1.5rem 2rem;
   padding: 0 1.5rem;
 }
 
