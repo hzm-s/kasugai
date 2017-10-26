@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
-      <div class="dsc-Header">
-        <h1 class="dsc-ProjectName">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName">
           Gaiax Community
         </h1>
-        <div class="dsc-Header_Nav">
-          <%= link_to 'リクエスト一覧へ', page_url(:request_list) %>
+        <div class="prj-Header_Nav">
+          <div class="breadcrumbs">
+            <%= link_to 'ホーム', pages_url %>
+            <%= link_to 'リクエスト', page_url(:request_list) %>
+            <span class="current">リクエスト詳細</span>
+          </div>
         </div>
       </div>
     </div>

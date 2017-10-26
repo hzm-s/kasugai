@@ -1,3 +1,31 @@
+.breadcrumbs {
+  @include pill;
+  padding: .3rem 1rem .3rem 1.5rem;
+  background-color: $gray-300;
+  font-weight: bold;
+}
+.breadcrumbs a {
+  @include xxunderline;
+
+  color: $gray-700;
+
+  &:after {
+    @include fa-content('\f054');
+    color: $gray-500;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+.breadcrumbs .current {
+  color: $gray-700;
+
+  &:after {
+    @include fa-content('\f111');
+    color: $gray-100;
+    margin-left: .5rem;
+  }
+}
+
 .sw-RequestStatus {
   @include pill;
   background-color: $gray-300;
