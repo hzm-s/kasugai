@@ -33,4 +33,8 @@
     @include fa-content('\f014');
     margin-right: .25rem;
   }
+
+  &:hover {
+    color: theme-color('danger');
+  }
 }
