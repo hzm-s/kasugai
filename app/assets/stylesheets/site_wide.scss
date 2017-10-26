@@ -1,10 +1,14 @@
 .sw-RequestStatus {
-  display: inline-block;
-  padding: .25rem .75rem;
-  margin: 0;
+  @include pill;
   background-color: $gray-300;
-  border-radius: 1.5rem;
   font-weight: bold;
+}
+
+.sw-RequestStatus-sm {
+  @include pill;
+  background-color: $gray-300;
+  font-weight: bold;
+  font-size: .75rem;
 }
 
 .sw-Break {

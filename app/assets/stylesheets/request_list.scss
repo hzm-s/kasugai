@@ -1,0 +1,81 @@
+.rqls-Header {
+  margin-bottom: .5rem;
+}
+
+.rqls-Header_Title {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.rqls-ProjectName {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.rqls-Body {
+  padding: 1.5rem 0;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+}
+
+.rqls-List {
+  margin-top: 1.5rem;
+}
+
+.rqls-Item {
+  @extend .d-flex, .align-items-center;
+  padding: 1rem;
+  border-bottom: 1px solid $gray-300;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.rqls-Item_Handle {
+  @extend .fa, .fa-bars;
+  margin-right: 1rem;
+  color: $gray-500;
+}
+
+.rqls-Item_Content {
+  @include xunderline;
+
+  min-width: 80%;
+  margin: 0 1rem 0 0;
+  padding-right: .5rem;
+
+  font-size: .75rem;
+  color: $body-color;
+  border-right: 1px solid $gray-200;
+
+  &:hover {
+    color: $body-color;
+  }
+}
+
+.rqls-Item_Stauts {
+  @extend .mx-auto;
+}
+
+.rqls-Nav_FilterLabel {
+  color: $body-color-sub;
+  margin-right: .5rem;
+  font-size: .75rem;
+  font-weight: bold;
+}
+
+.rqls-Nav_Filter {
+  @extend .custom-select;
+  border-radius: 1.25rem;
+}
+
+.rqls-Nav_Add {
+  text-align: right;
+}
+
+.rqls-Add {
+  @extend .btn, .btn-success;
+  @include xxunderline;
+}

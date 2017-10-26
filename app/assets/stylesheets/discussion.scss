@@ -8,9 +8,10 @@
 }
 
 .dsc-Body {
-  padding: 1rem;
-  background-color: $body-bg-sub;
-  border-radius: .3rem;
+  padding: .75rem;
+  background-color: rgba(245,255,245,.5);
+  border-radius: .5rem;
+  box-shadow: 0 0 5px $gray-500;
 }
 
 .dsc-Body_CommentWrapper {
