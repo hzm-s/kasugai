@@ -13,16 +13,24 @@
 }
 
 .rqls-Body {
-  margin-top: 1rem;
+  padding: 1.5rem 0;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+}
+
+.rqls-List {
+  margin-top: 1.5rem;
 }
 
 .rqls-Item {
   @extend .d-flex, .align-items-center;
-  background-color: #fff;
-  border-radius: .3rem;
-  box-shadow: 0 0 6px $gray-300;
   padding: 1rem;
-  margin-bottom: .25rem;
+  border-bottom: 1px solid $gray-300;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .rqls-Item_Handle {
@@ -34,7 +42,7 @@
 .rqls-Item_Content {
   @include xunderline;
 
-  width: 58%;
+  min-width: 80%;
   margin: 0 1rem 0 0;
   padding-right: .5rem;
 
@@ -47,53 +55,27 @@
   }
 }
 
-.rqls-Item_CommentCount {
-  font-size: .75rem;
-  margin-right: 1rem;
+.rqls-Item_Stauts {
+  @extend .mx-auto;
 }
 
-.rqls-Item_UpdatedAt {
+.rqls-Nav_FilterLabel {
   color: $body-color-sub;
+  margin-right: .5rem;
   font-size: .75rem;
+  font-weight: bold;
 }
 
-.rqls-Item_Anchor {
-  @extend .ml-auto;
+.rqls-Nav_Filter {
+  @extend .custom-select;
+  border-radius: 1.25rem;
 }
 
-.rqls-Sub {
-  margin-bottom: 1.5rem;
-}
-
-.rqls-Sub_Title {
-  color: $body-color-sub;
-  font-size: .75rem;
-  margin: 0;
-}
-
-.rqls-Sub_Divider {
-  margin-top: .25rem;
+.rqls-Nav_Add {
+  text-align: right;
 }
 
 .rqls-Add {
   @extend .btn, .btn-success;
   @include xxunderline;
-}
-
-.rqls-Filter_Options {
-  @extend .nav, .nav-pills, .flex-column;
-}
-
-.rqls-Filter_Option {
-  @extend .nav-item;
-}
-
-.rqls-Filter_Link {
-  @extend .nav-link;
-  @include xunderline;
-  font-size: .75rem;
-}
-
-.rqls-Filter_Link-active {
-  @extend .active;
 }
