@@ -1,15 +1,19 @@
-.rqls-Body {
+.issl-Body {
   padding: 1.5rem 0;
   background-color: #fff;
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-500;
 }
 
-.rqls-List {
-  margin-top: 1.5rem;
+.issl-Nav_Add {
+  @extend .mx-auto;
 }
 
-.rqls-Item {
+.issl-List {
+  margin-top: 1rem;
+}
+
+.issl-Item {
   @extend .d-flex, .align-items-center;
   padding: 1rem;
   border-bottom: 1px solid $gray-300;
@@ -19,49 +23,39 @@
   }
 }
 
-.rqls-Item_Handle {
+.issl-Item_Handle {
   @extend .fa, .fa-bars;
   margin-right: 1rem;
   color: $gray-500;
 }
 
-.rqls-Item_Content {
+.issl-Item_Content {
   @include xunderline;
 
-  min-width: 80%;
-  margin: 0 1rem 0 0;
+  min-width: 73%;
   padding-right: .5rem;
 
   font-size: $font-size-sm;
   color: $body-color;
-  border-right: 1px solid $gray-200;
 
   &:hover {
     color: $body-color;
   }
 }
 
-.rqls-Item_Stauts {
-  @extend .mx-auto;
+.issl-Item_Tail {
+  @extend .ml-auto;
+  @extend .d-flex, .align-items-center;
+  height: 3rem;
+  border-left: 1px solid $gray-200;
+  padding-left: 1rem;
+
+  span {
+    margin: 0 .25rem;
+  }
 }
 
-.rqls-Nav_FilterLabel {
-  color: $body-color-sub;
-  margin-right: .5rem;
-  font-size: $font-size-sm;
-  font-weight: bold;
-}
-
-.rqls-Nav_Filter {
-  @extend .custom-select;
-  border-radius: 1.25rem;
-}
-
-.rqls-Nav_Add {
-  text-align: right;
-}
-
-.rqls-Add {
+.issl-Add {
   @extend .btn, .btn-success;
   @include xxunderline;
 }

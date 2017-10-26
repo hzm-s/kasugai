@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName">
+          Gaiax Community
+        </h1>
+        <div class="prj-Header_Nav">
+          <div class="breadcrumbs">
+            <%= link_to 'ホーム', pages_url %>
+            <span class="current">課題</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="issl-Body">
+        <div class="row">
+          <div class="issl-Nav_Add">
+            <%= link_to '課題を作成する', '', class: 'issl-Add' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-22 col-lg-20 offset-lg-1">
+            <div class="issl-List">
+              <div class="issl-Item">
+                <i class="issl-Item_Handle"></i>
+                <%= link_to page_url(:issue_detail), class: 'issl-Item_Content' do %>
+                セキュリティ管理者として<br>
+                誰がいつメンバー情報にアクセスしたか知りたい<br>
+                それは監査で必要だから
+                <% end -%>
+                <div class="issl-Item_Tail">
+                  <ul class="sw-LinkList">
+                    <li>
+                    <%= link_to '編集する', '#', class: 'sw-Link' %>
+                    </li>
+                    <li>
+                    <%= link_to '削除する', '#', class: 'sw-Link' %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="issl-Item">
+                <i class="issl-Item_Handle"></i>
+                <%= link_to '', class: 'issl-Item_Content' do %>
+                管理者として<br>
+                登録しているメンバーのメールアドレスをCSVでダウンロードしたい<br>
+                それはメール配信をしたいから
+                <% end -%>
+                <div class="issl-Item_Tail">
+                  <ul class="sw-LinkList">
+                    <li>
+                    <%= link_to '編集する', '#', class: 'sw-Link' %>
+                    </li>
+                    <li>
+                    <%= link_to '削除する', '#', class: 'sw-Link' %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <% 10.times do %>
+                <div class="issl-Item">
+                  <i class="issl-Item_Handle"></i>
+                  <%= link_to '', class: 'issl-Item_Content' do %>
+                  管理者として<br>
+                  管理画面にログインしたい<br>
+                  それは管理したいから
+                  <% end -%>
+                  <div class="issl-Item_Tail">
+                    <ul class="sw-LinkList">
+                      <li>
+                      <%= link_to '編集する', '#', class: 'sw-Link' %>
+                      </li>
+                      <li>
+                      <%= link_to '削除する', '#', class: 'sw-Link' %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

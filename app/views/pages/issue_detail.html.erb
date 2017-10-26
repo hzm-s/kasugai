@@ -8,8 +8,8 @@
         <div class="prj-Header_Nav">
           <div class="breadcrumbs">
             <%= link_to 'ホーム', pages_url %>
-            <%= link_to 'リクエスト', page_url(:request_list) %>
-            <span class="current">リクエスト詳細</span>
+            <%= link_to '課題', page_url(:issue_list) %>
+            <span class="current">課題の詳細</span>
           </div>
         </div>
       </div>
@@ -18,52 +18,53 @@
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
       <div class="dsc-Body">
-        <div class="dsc-Body_Request">
-          <div class="rq-Detail">
-            <div class="rq-Detail_Header">
-              <span class="sw-RequestStatus">
-                準備中
+        <div class="dsc-Body_Issue">
+          <div class="iss-Detail">
+            <div class="iss-Detail_Header">
+              <%= image_tag 'avatars/user_b.png', class: 'iss-Detail_CreatorAvator' %>
+              <span class="iss-Detail_Creation">
+                末吉 哉が2017.10.23に作成
               </span>
             </div>
-            <div class="rq-Detail_ContentWrapper">
-              <p class="rq-Detail_Content">
+            <div class="iss-Detail_ContentWrapper">
+              <p class="iss-Detail_Content">
               セキュリティ管理者として<br>
               誰がいつメンバー情報にアクセスしたか知りたい<br>
               それは監査で必要だから
               </p>
-              <%= link_to '編集する', '', class: 'rq-Detail_EditLink' %>
+              <%= link_to '編集する', '', class: 'iss-Detail_EditLink' %>
             </div>
-            <hr class="rq-Detail_Divider">
-            <div class="rq-Detail_CheckList">
-              <h3 class="rq-Detail_CheckListTitle">
+            <hr class="iss-Detail_Divider">
+            <div class="iss-Detail_CheckList">
+              <h3 class="iss-Detail_CheckListTitle">
                 チェックリスト
               </h3>
-              <div class="rq-CheckList">
-                <label class="rq-CheckPoint">
-                  <input type="checkbox" class="rq-CheckPoint_Check">
-                  <span class="rq-CheckPoint_Indicator"></span>
-                  <span class="rq-CheckPoint_Content">
+              <div class="iss-CheckList">
+                <label class="iss-CheckPoint">
+                  <input type="checkbox" class="iss-CheckPoint_Check">
+                  <span class="iss-CheckPoint_Indicator"></span>
+                  <span class="iss-CheckPoint_Content">
                     アクセスしたメンバーの名前が記録されていること
                   </span>
                 </label>
-                <label class="rq-CheckPoint">
-                  <input type="checkbox" class="rq-CheckPoint_Check">
-                  <span class="rq-CheckPoint_Indicator"></span>
-                  <span class="rq-CheckPoint_Content">
+                <label class="iss-CheckPoint">
+                  <input type="checkbox" class="iss-CheckPoint_Check">
+                  <span class="iss-CheckPoint_Indicator"></span>
+                  <span class="iss-CheckPoint_Content">
                     アクセスした時間が記録されていること
                   </span>
                 </label>
-                <label class="rq-CheckPoint">
-                  <input type="checkbox" class="rq-CheckPoint_Check">
-                  <span class="rq-CheckPoint_Indicator"></span>
-                  <span class="rq-CheckPoint_Content">
+                <label class="iss-CheckPoint">
+                  <input type="checkbox" class="iss-CheckPoint_Check">
+                  <span class="iss-CheckPoint_Indicator"></span>
+                  <span class="iss-CheckPoint_Content">
                     アクセスしたページが記録されていること
                   </span>
                 </label>
                 <form>
-                  <div class="rq-NewCheckPoint">
-                    <i class="rq-NewCheckPoint_Indicator"></i>
-                    <input type="text" placeholder="チェック項目を入力" class="rq-NewCheckPoint_Input">
+                  <div class="iss-NewCheckPoint">
+                    <i class="iss-NewCheckPoint_Indicator"></i>
+                    <input type="text" placeholder="チェック項目を入力" class="iss-NewCheckPoint_Input">
                   </div>
                 </form>
               </div>
@@ -90,8 +91,14 @@
                         末吉 哉が3時間前に投稿
                       </span>
                       <div class="cmt-Comment_Actions">
-                        <%= link_to '編集する', '', class: 'cmt-Comment_ActionLink' %>
-                        <%= link_to '削除する', '', class: 'cmt-Comment_ActionLink' %>
+                        <ul class="sw-LinkList">
+                          <li>
+                            <%= link_to '編集する', '', class: 'sw-Link sw-Link-sub' %>
+                          </li>
+                          <li>
+                            <%= link_to '削除する', '', class: 'sw-Link sw-Link-sub' %>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -114,8 +121,14 @@
                         末吉 哉が1時間前に投稿
                       </span>
                       <div class="cmt-Comment_Actions">
-                        <%= link_to '編集する', '', class: 'cmt-Comment_ActionLink' %>
-                        <%= link_to '削除する', '', class: 'cmt-Comment_ActionLink' %>
+                        <ul class="sw-LinkList">
+                          <li>
+                            <%= link_to '編集する', '', class: 'sw-Link sw-Link-sub' %>
+                          </li>
+                          <li>
+                            <%= link_to '削除する', '', class: 'sw-Link sw-Link-sub' %>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -140,7 +153,7 @@
           </div>
         </div>
         <div class="dsc-Footer">
-          <%= link_to 'このリクエストを削除する', '', class: 'dsc-DeleteLink' %>
+          <%= link_to 'この課題を削除する', '', class: 'dsc-DeleteLink' %>
         </div>
       </div>
     </div>

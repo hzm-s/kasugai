@@ -20,10 +20,21 @@
 .dsc-Footer {
   margin-top: 2.5rem;
   text-align: right;
-  border-top: 1px solid $gray-200;
-  padding-top: .75rem;
 }
 
 .dsc-DeleteLink {
-  font-size: $font-size-sm;
+  @include pill;
+  @include xxunderline;
+  font-size: $font-size-xs;
+  background-color: $gray-700;
+  color: $white;
+
+  &:before {
+    @include fa-content('\f014');
+    margin-right: .25rem;
+  }
+
+  &:hover {
+    color: theme-color('danger');
+  }
 }
