@@ -5,8 +5,12 @@
   box-shadow: 0 0 10px $gray-500;
 }
 
+.rqls-Nav_Add {
+  @extend .mx-auto;
+}
+
 .rqls-List {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .rqls-Item {
@@ -28,37 +32,27 @@
 .rqls-Item_Content {
   @include xunderline;
 
-  min-width: 80%;
-  margin: 0 1rem 0 0;
+  min-width: 73%;
   padding-right: .5rem;
 
   font-size: $font-size-sm;
   color: $body-color;
-  border-right: 1px solid $gray-200;
 
   &:hover {
     color: $body-color;
   }
 }
 
-.rqls-Item_Stauts {
-  @extend .mx-auto;
-}
+.rqls-Item_Tail {
+  @extend .ml-auto;
+  @extend .d-flex, .align-items-center;
+  height: 3rem;
+  border-left: 1px solid $gray-200;
+  padding-left: 1rem;
 
-.rqls-Nav_FilterLabel {
-  color: $body-color-sub;
-  margin-right: .5rem;
-  font-size: $font-size-sm;
-  font-weight: bold;
-}
-
-.rqls-Nav_Filter {
-  @extend .custom-select;
-  border-radius: 1.25rem;
-}
-
-.rqls-Nav_Add {
-  text-align: right;
+  span {
+    margin: 0 .25rem;
+  }
 }
 
 .rqls-Add {
