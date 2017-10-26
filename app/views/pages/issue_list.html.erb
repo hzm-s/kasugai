@@ -8,7 +8,7 @@
         <div class="prj-Header_Nav">
           <div class="breadcrumbs">
             <%= link_to 'ホーム', pages_url %>
-            <span class="current">リクエスト</span>
+            <span class="current">課題</span>
           </div>
         </div>
       </div>
@@ -16,23 +16,23 @@
   </div>
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
-      <div class="rqls-Body">
+      <div class="issl-Body">
         <div class="row">
-          <div class="rqls-Nav_Add">
-            <%= link_to 'リクエストを作成する', '', class: 'rqls-Add' %>
+          <div class="issl-Nav_Add">
+            <%= link_to '課題を作成する', '', class: 'issl-Add' %>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-22 col-lg-20 offset-lg-1">
-            <div class="rqls-List">
-              <div class="rqls-Item">
-                <i class="rqls-Item_Handle"></i>
-                <%= link_to page_url(:discuss_request), class: 'rqls-Item_Content' do %>
+            <div class="issl-List">
+              <div class="issl-Item">
+                <i class="issl-Item_Handle"></i>
+                <%= link_to page_url(:issue_detail), class: 'issl-Item_Content' do %>
                 セキュリティ管理者として<br>
                 誰がいつメンバー情報にアクセスしたか知りたい<br>
                 それは監査で必要だから
                 <% end -%>
-                <div class="rqls-Item_Tail">
+                <div class="issl-Item_Tail">
                   <ul class="sw-LinkList">
                     <li>
                     <%= link_to '編集する', '#', class: 'sw-Link' %>
@@ -43,14 +43,14 @@
                   </ul>
                 </div>
               </div>
-              <div class="rqls-Item">
-                <i class="rqls-Item_Handle"></i>
-                <%= link_to '', class: 'rqls-Item_Content' do %>
+              <div class="issl-Item">
+                <i class="issl-Item_Handle"></i>
+                <%= link_to '', class: 'issl-Item_Content' do %>
                 管理者として<br>
                 登録しているメンバーのメールアドレスをCSVでダウンロードしたい<br>
                 それはメール配信をしたいから
                 <% end -%>
-                <div class="rqls-Item_Tail">
+                <div class="issl-Item_Tail">
                   <ul class="sw-LinkList">
                     <li>
                     <%= link_to '編集する', '#', class: 'sw-Link' %>
@@ -62,14 +62,14 @@
                 </div>
               </div>
               <% 10.times do %>
-                <div class="rqls-Item">
-                  <i class="rqls-Item_Handle"></i>
-                  <%= link_to '', class: 'rqls-Item_Content' do %>
+                <div class="issl-Item">
+                  <i class="issl-Item_Handle"></i>
+                  <%= link_to '', class: 'issl-Item_Content' do %>
                   管理者として<br>
                   管理画面にログインしたい<br>
                   それは管理したいから
                   <% end -%>
-                  <div class="rqls-Item_Tail">
+                  <div class="issl-Item_Tail">
                     <ul class="sw-LinkList">
                       <li>
                       <%= link_to '編集する', '#', class: 'sw-Link' %>

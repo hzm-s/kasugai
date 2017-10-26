@@ -55,19 +55,6 @@
   }
 }
 
-.sw-RequestStatus {
-  @include pill;
-  background-color: $gray-300;
-  font-weight: bold;
-}
-
-.sw-RequestStatus-sm {
-  @include pill;
-  background-color: $gray-300;
-  font-weight: bold;
-  font-size: $font-size-sm;
-}
-
 .sw-Break {
   position: relative;
   z-index: 0;
