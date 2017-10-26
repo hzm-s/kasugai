@@ -1,3 +1,6 @@
+$body-bg-sub: #FFF;
+$body-color-sub: #6F6D67;
+
 @mixin btn-shadow($width: 3px){
   border-style: solid;
   border-width: 0 0 $width 0;

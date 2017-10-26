@@ -4,7 +4,7 @@
 
 .rqls-Header_Title {
   text-align: center;
-  font-size: 1rem;
+  font-size: $font-size-base;
 }
 
 .rqls-ProjectName {
@@ -46,7 +46,7 @@
   margin: 0 1rem 0 0;
   padding-right: .5rem;
 
-  font-size: .75rem;
+  font-size: $font-size-sm;
   color: $body-color;
   border-right: 1px solid $gray-200;
 
@@ -62,7 +62,7 @@
 .rqls-Nav_FilterLabel {
   color: $body-color-sub;
   margin-right: .5rem;
-  font-size: .75rem;
+  font-size: $font-size-sm;
   font-weight: bold;
 }
 

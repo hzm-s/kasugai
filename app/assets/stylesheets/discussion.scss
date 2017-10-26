@@ -21,7 +21,7 @@
 
 .dsc-Comment_Title {
   color: $body-color-sub;
-  font-size: .875rem;
+  font-size: $font-size-base;
   font-weight: bold;
   margin: 0;
 }
@@ -34,5 +34,5 @@
 }
 
 .dsc-DeleteLink {
-  font-size: .75rem;
+  font-size: $font-size-sm;
 }

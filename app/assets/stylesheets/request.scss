@@ -20,7 +20,7 @@
 
 .rq-Detail_EditLink {
   @extend .ml-auto;
-  font-size: .75rem;
+  font-size: $font-size-sm;
 }
 
 .rq-Detail_Divider {
@@ -34,7 +34,7 @@
 }
 
 .rq-Detail_CheckListTitle {
-  font-size: .75rem;
+  font-size: $font-size-sm;
   font-weight: bold;
 }
 
@@ -66,7 +66,7 @@
 .rq-NewCheckPoint_Indicator {
   @extend .fa, .fa-plus;
   display: block;
-  font-size: 1rem;
+  font-size: $font-size-base;
   padding: .125rem;
   margin-right: .5rem;
   color: theme-color('success');

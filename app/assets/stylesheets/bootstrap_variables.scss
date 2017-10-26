@@ -137,9 +137,6 @@ $sizes: (
 $body-bg:                   #F4F3E8 !default;
 $body-color:                #171D19 !default;
 
-$body-bg-sub: #FFF;
-$body-color-sub: #6F6D67;
-
 // Links
 //
 // Style anchor elements.
@@ -229,8 +226,8 @@ $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
 $font-size-base:              0.875rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                ($font-size-base * 1.25) !default;
-$font-size-sm:                ($font-size-base * .875) !default;
+$font-size-lg:                1rem !default;
+$font-size-sm:                .75rem !default;
 
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
