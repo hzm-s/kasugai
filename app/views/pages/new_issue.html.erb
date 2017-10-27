@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName">
+          Gaiax Community
+        </h1>
+        <div class="prj-Header_Nav">
+          <div class="breadcrumbs">
+            <%= link_to 'ホーム', pages_url %>
+            <%= link_to '課題', page_url(:issue_list) %>
+            <span class="current">課題の作成</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-14 mx-auto">
+      <div class="iss-Create">
+        <form>
+          <div class="form-group">
+            <label class="frm-Label">
+              新しい課題:
+            </label>
+            <textarea rows="7" class="frm-Input frm-Input-noborder" placeholder="課題を入力"></textarea>
+          </div>
+          <div class="frm-Actions">
+            <button class="btn btn-success">
+              作成する
+            </button>
+            <%= link_to 'キャンセル', page_url(:issue_list), class: 'frm-Actions_Cancel' %>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.frm-Label {
+  font-weight: bold;
+  color: $body-color-sub;
+}
+
+.frm-Input {
+  @extend .form-control;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+
+  &:focus {
+    outline: 0 none;
+    box-shadow: none;
+  }
+}
+
+.frm-Input-noborder {
+  padding: 0;
+  border-bottom: none;
+}
+
+.frm-Actions_Cancel {
+  @include xunderline;
+  border-left: 1px solid $gray-500;
+  padding-left: .75rem;
+  margin-left: .75rem;
+  color: $gray-700;
+  font-weight: bold;
+
+  &:hover {
+    color: $gray-800;
+  }
+}
