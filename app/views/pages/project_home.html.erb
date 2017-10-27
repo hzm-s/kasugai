@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName">
+          Gaiax Community
+        </h1>
+        <p class="prj-Description">
+          GXのファンを育てる・増やす
+        </p>
+        <div class="prj-TopNav">
+          <%= link_to '課題リスト', page_url(:issue_list), class: 'prj-TopNav_Link' %>
+          <%= link_to 'メンバー管理', page_url(:issue_list), class: 'prj-TopNav_Link' %>
+          <%= link_to '設定', page_url(:issue_list), class: 'prj-TopNav_Link' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-Section">
+        <h2 class="prj-Section_Title">
+          最近更新された課題
+        </h2>
+        <div class="prj-Issue_Body">
+          <div class="prj-IssueItem">
+            <%= link_to '管理画面の操作ログ', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
+            <div class="prj-IssueItem_Tail">
+              <ul class="sw-LinkList">
+                <li>
+                  <%= link_to '3コメント', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+                <li>
+                  <%= link_to '30分前', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="prj-IssueItem">
+            <%= link_to 'メールアドレスのダウンロード', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
+            <div class="prj-IssueItem_Tail">
+              <ul class="sw-LinkList">
+                <li>
+                  <%= link_to '5コメント', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+                <li>
+                  <%= link_to '2時間前', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="prj-IssueItem">
+            <%= link_to '管理者ログイン', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
+            <div class="prj-IssueItem_Tail">
+              <ul class="sw-LinkList">
+                <li>
+                  <%= link_to '10コメント', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+                <li>
+                  <%= link_to '2017-10-12', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="prj-IssueItem">
+            <%= link_to '管理者登録', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
+            <div class="prj-IssueItem_Tail">
+              <ul class="sw-LinkList">
+                <li>
+                  <%= link_to '20コメント', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+                <li>
+                  <%= link_to '2017-10-10', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="prj-IssueItem">
+            <%= link_to '管理者登録', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
+            <div class="prj-IssueItem_Tail">
+              <ul class="sw-LinkList">
+                <li>
+                  <%= link_to '20コメント', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+                <li>
+                  <%= link_to '2017-10-10', page_url(:issue_detail), class: 'sw-Link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prj-Section">
+        <h3 class="prj-Section_Title">
+          プロジェクトのメンバー
+        </h3>
+        <div class="prj-Members_Body">
+          <%= image_tag 'avatars/user_a.png', class: 'prj-Member' %>
+          <%= image_tag 'avatars/user_b.png', class: 'prj-Member' %>
+          <%= image_tag 'avatars/user_c.png', class: 'prj-Member' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
