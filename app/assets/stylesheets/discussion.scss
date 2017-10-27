@@ -17,24 +17,17 @@
   margin: 0;
 }
 
-.dsc-Footer {
-  margin-top: 2.5rem;
-  text-align: right;
+.dsc-Terminate {
+  @extend .d-flex;
+  margin-top: 2rem;
 }
 
-.dsc-DeleteLink {
-  @include pill;
-  @include xxunderline;
-  font-size: $font-size-xs;
-  background-color: $gray-700;
-  color: $white;
+.dsc-Terminate_Option {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid $gray-400;
 
-  &:before {
-    @include fa-content('\f014');
-    margin-right: .25rem;
-  }
-
-  &:hover {
-    color: theme-color('danger');
+  &:last-child {
+    border-right: none;
   }
 }
