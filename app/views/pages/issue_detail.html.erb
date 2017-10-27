@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-22 col-lg-18 mx-auto">
+    <div class="col-sm-22 col-lg-19 mx-auto">
       <div class="prj-Header">
-        <h1 class="prj-ProjectName">
+        <h2 class="prj-ProjectName">
           Gaiax Community
-        </h1>
+        </h2>
         <div class="prj-Header_Nav">
           <div class="breadcrumbs">
             <%= link_to 'ホーム', pages_url %>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-22 col-lg-18 mx-auto">
+    <div class="col-sm-22 col-lg-19 mx-auto">
       <div class="dsc-Body">
         <div class="dsc-Body_Issue">
           <div class="iss-Detail">
@@ -26,47 +26,20 @@
                 末吉 哉が2017.10.23に作成
               </span>
             </div>
-            <div class="iss-Detail_ContentWrapper">
-              <p class="iss-Detail_Content">
-              セキュリティ管理者として<br>
-              誰がいつメンバー情報にアクセスしたか知りたい<br>
-              それは監査で必要だから
-              </p>
-              <%= link_to '編集する', '', class: 'iss-Detail_EditLink' %>
-            </div>
-            <hr class="iss-Detail_Divider">
-            <div class="iss-Detail_CheckList">
-              <h3 class="iss-Detail_CheckListTitle">
-                チェックリスト
-              </h3>
-              <div class="iss-CheckList">
-                <label class="iss-CheckPoint">
-                  <input type="checkbox" class="iss-CheckPoint_Check">
-                  <span class="iss-CheckPoint_Indicator"></span>
-                  <span class="iss-CheckPoint_Content">
-                    アクセスしたメンバーの名前が記録されていること
-                  </span>
-                </label>
-                <label class="iss-CheckPoint">
-                  <input type="checkbox" class="iss-CheckPoint_Check">
-                  <span class="iss-CheckPoint_Indicator"></span>
-                  <span class="iss-CheckPoint_Content">
-                    アクセスした時間が記録されていること
-                  </span>
-                </label>
-                <label class="iss-CheckPoint">
-                  <input type="checkbox" class="iss-CheckPoint_Check">
-                  <span class="iss-CheckPoint_Indicator"></span>
-                  <span class="iss-CheckPoint_Content">
-                    アクセスしたページが記録されていること
-                  </span>
-                </label>
-                <form>
-                  <div class="iss-NewCheckPoint">
-                    <i class="iss-NewCheckPoint_Indicator"></i>
-                    <input type="text" placeholder="チェック項目を入力" class="frm-InlineInput">
-                  </div>
-                </form>
+            <div class="iss-Detail_Body">
+              <div class="iss-Detail_TitleWrapper">
+                <h1 class="iss-Detail_Title">
+                  管理画面の操作ログ
+                </h1>
+                <%= link_to '編集する', '', class: 'iss-Detail_EditLink' %>
+              </div>
+              <div class="iss-Detail_ContentWrapper">
+                <p class="iss-Detail_Content">
+                セキュリティ管理者として<br>
+                誰がいつメンバー情報にアクセスしたか知りたい<br>
+                それは監査で必要だから
+                </p>
+                <%= link_to '編集する', '', class: 'iss-Detail_EditLink' %>
               </div>
             </div>
           </div>
