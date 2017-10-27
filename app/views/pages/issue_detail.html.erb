@@ -152,8 +152,23 @@
             </div>
           </div>
         </div>
-        <div class="dsc-Footer">
-          <%= link_to 'この課題を削除する', '', class: 'dsc-DeleteLink' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="dsc-Terminate">
+        <div class="dsc-Terminate_Option">
+          <p class="iss-Terminate_Description">
+            課題リストに表示されなくなります
+          </p>
+          <%= link_to 'この課題をアーカイブする', '', class: 'iss-ArchiveLink' %>
+        </div>
+        <div class="dsc-Terminate_Option">
+          <p class="iss-Terminate_Description">
+            削除すると元に戻せません
+          </p>
+          <%= link_to 'この課題を削除する', '', class: 'iss-DeleteLink' %>
         </div>
       </div>
     </div>

@@ -89,3 +89,48 @@
   padding: 1.5rem 2rem;
   margin-top: 1.5rem;
 }
+
+.iss-ArchiveLink {
+  @include pill;
+  @include xxunderline;
+  font-size: $font-size-sm;
+  background-color: $gray-300;
+  color: $gray-800;
+  border: 1px solid $gray-600;
+
+  &:before {
+    @include fa-content('\f187');
+    margin-right: .25rem;
+  }
+
+  &:hover {
+    color: theme-color('success');
+  }
+}
+
+.iss-DeleteLink {
+  @include pill;
+  @include xxunderline;
+  font-size: $font-size-sm;
+  background-color: $gray-700;
+  color: $white;
+
+  &:before {
+    @include fa-content('\f014');
+    margin-right: .25rem;
+  }
+
+  &:hover {
+    color: theme-color('danger');
+  }
+}
+
+.iss-Terminate_Description {
+  font-size: $font-size-sm;
+  color: $body-color-sub;
+  margin-bottom: .5rem;
+
+  &:before {
+    content: '\2022';
+  }
+}
