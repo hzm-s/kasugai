@@ -35,8 +35,8 @@
   min-width: 73%;
   padding-right: .5rem;
 
-  font-size: $font-size-sm;
-  color: $body-color;
+  font-weight: bold;
+  color: $gray-800;
 
   &:hover {
     color: $body-color;
@@ -46,7 +46,6 @@
 .issl-Item_Tail {
   @extend .ml-auto;
   @extend .d-flex, .align-items-center;
-  height: 3rem;
   border-left: 1px solid $gray-200;
   padding-left: 1rem;
 
