@@ -3,13 +3,14 @@
   color: $body-color-sub;
 }
 
-.frm-Input {
+.frm-InlineInput {
   @extend .form-control;
 
   border-top: none;
   border-right: none;
   border-left: none;
   border-radius: 0;
+  padding-left: .25rem;
 
   &:focus {
     outline: 0 none;
@@ -17,7 +18,7 @@
   }
 }
 
-.frm-Input-noborder {
+.frm-InlineInput-noborder {
   padding: 0;
   border-bottom: none;
 }

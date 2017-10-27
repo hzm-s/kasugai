@@ -75,26 +75,12 @@
 }
 
 .iss-NewCheckPoint_Indicator {
-  @extend .fa, .fa-plus;
+  @extend .fa, .fa-plus-circle;
   display: block;
-  font-size: $font-size-base;
+  font-size: $font-size-lg;
   padding: .125rem;
   margin-right: .5rem;
-  color: theme-color('success');
-}
-
-.iss-NewCheckPoint_Input {
-  @extend .form-control;
-
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-radius: 0;
-
-  &:focus {
-    outline: 0 none;
-    box-shadow: none;
-  }
+  color: $gray-700;
 }
 
 .iss-Create {
