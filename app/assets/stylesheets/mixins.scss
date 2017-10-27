@@ -24,3 +24,27 @@
   font-family: 'FontAwesome';
   content: $content;
 }
+
+@mixin break-center($text-color, $line-color) {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: $text-color;
+
+  &:before,
+  &:after {
+    border-top: 1px solid $line-color;
+    content: '';
+    display: inline;
+    flex-grow: 1;
+  }
+
+  &:before {
+    margin-right: .5rem;
+  }
+
+  &:after {
+    margin-left: .5rem;
+  }
+}
