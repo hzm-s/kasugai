@@ -19,7 +19,8 @@
 }
 
 .frm-InlineInput-noborder {
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   border-bottom: none;
 }
 
@@ -28,10 +29,10 @@
   border-left: 1px solid $gray-500;
   padding-left: .75rem;
   margin-left: .75rem;
-  color: $gray-700;
+  color: $gray-600;
   font-weight: bold;
 
   &:hover {
-    color: $gray-800;
+    color: $gray-700;
   }
 }

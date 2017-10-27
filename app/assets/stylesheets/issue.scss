@@ -5,7 +5,11 @@
 }
 
 .iss-Detail_Header {
-  margin: 0 2rem 1rem;
+  padding: 0 1.5rem;
+}
+
+.iss-Detail_Body {
+  padding: 1.5rem 3rem;
 }
 
 .iss-Detail_Creation {
@@ -19,10 +23,24 @@
   border-radius: 50%;
 }
 
+.iss-Detail_TitleWrapper {
+  @extend .d-flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid $gray-200;
+}
+
 .iss-Detail_ContentWrapper {
   @extend .d-flex;
-  margin: 1.5rem 2rem;
-  padding: 0 1.5rem;
+}
+
+.iss-Detail_Divider {
+  margin-top: .5rem;
+}
+
+.iss-Detail_Title {
+  margin: 0;
+  font-size: $font-size-lg;
 }
 
 .iss-Detail_Content {
@@ -32,55 +50,6 @@
 .iss-Detail_EditLink {
   @extend .ml-auto;
   font-size: $font-size-sm;
-}
-
-.iss-Detail_Divider {
-  width: 90%;
-  color: $gray-100;
-}
-
-.iss-Detail_CheckList {
-  margin: 0 2rem;
-  padding: 0 1.5rem 1rem;
-}
-
-.iss-Detail_CheckListTitle {
-  font-size: $font-size-sm;
-  font-weight: bold;
-}
-
-.iss-CheckList {
-  @extend .custom-controls-stacked;
-}
-
-.iss-CheckPoint {
-  @extend .custom-control, .custom-checkbox, .align-items-center;
-}
-
-.iss-CheckPoint_Check {
-  @extend .custom-control-input;
-}
-
-.iss-CheckPoint_Indicator {
-  @extend .custom-control-indicator;
-}
-
-.iss-CheckPoint_Content {
-  @extend .custom-control-description;
-}
-
-.iss-NewCheckPoint {
-  @extend .d-flex, .align-items-center;
-  width: 100%;
-}
-
-.iss-NewCheckPoint_Indicator {
-  @extend .fa, .fa-plus-circle;
-  display: block;
-  font-size: $font-size-lg;
-  padding: .125rem;
-  margin-right: .5rem;
-  color: $gray-700;
 }
 
 .iss-Create {
