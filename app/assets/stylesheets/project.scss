@@ -23,6 +23,10 @@
   margin: 1rem 0 1.5rem;
 }
 
+.prj-TopNavDivider {
+  width: 30rem;
+}
+
 .prj-TopNav_Link {
   @include pill;
   @include xxunderline($white, $white);
