@@ -13,6 +13,7 @@
 }
 
 .iss-Detail_Creation {
+  @include nf;
   color: $body-color-sub;
   font-size: $font-size-sm;
 }
@@ -27,7 +28,7 @@
   @extend .d-flex;
   margin-bottom: 1.5rem;
   padding-bottom: .5rem;
-  border-bottom: 1px solid $gray-200;
+  border-bottom: 1px solid $gray-300;
 }
 
 .iss-Detail_ContentWrapper {
@@ -39,11 +40,13 @@
 }
 
 .iss-Detail_Title {
+  @include nf;
   margin: 0;
   font-size: $font-size-lg;
 }
 
 .iss-Detail_Content {
+  @include nf;
   margin: 0;
 }
 

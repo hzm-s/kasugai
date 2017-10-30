@@ -19,6 +19,7 @@
 
 .tl-Item {
   @extend .d-flex, .align-items-center;
+  @include nf;
   margin-bottom: .5rem;
   padding: .5rem .75rem;
   background-color: $white;

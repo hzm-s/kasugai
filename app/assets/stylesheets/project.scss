@@ -10,11 +10,13 @@
 }
 
 .prj-ProjectName {
+  @include nf;
   text-align: center;
   font-size: 1.5rem;
 }
 
 .prj-Description {
+  @include nf;
   color: $body-color-sub;
 }
 

@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>Kasugai</title>
+    <% unless Rails.env.test? -%>
+      <%= stylesheet_link_tag 'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end -%>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
