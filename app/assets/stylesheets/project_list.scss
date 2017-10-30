@@ -17,8 +17,7 @@
 }
 
 .prjl-Project_Name {
-  @include xunderline;
-  color: $body-color;
+  @include xunderline($body-color, $body-color);
   font-weight: bold;
   font-size: 1.25rem;
 }
