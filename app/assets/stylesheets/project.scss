@@ -25,10 +25,14 @@
 
 .prj-TopNav_Link {
   @include pill;
-  @include xxunderline($white, lighten($link-color, 50%));
+  @include xxunderline($white, $white);
   margin: .25rem;
   background-color: $link-color;
   margin-bottom: .5rem;
+
+  &:hover {
+    background-color: darken($link-color, 15%);
+  }
 
   &:after {
     @include fa-content('\f0a9');
