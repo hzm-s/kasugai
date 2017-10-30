@@ -40,6 +40,21 @@
   }
 }
 
+.prj-ListHeader {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.prj-ListHeader_Title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prj-ListHeader_Divider {
+  width: 8rem;
+}
+
 .prj-TimeLine_Title {
   @include break-center($body-color-sub, lighten($body-color-sub, 15%));
   font-size: $font-size-base;
