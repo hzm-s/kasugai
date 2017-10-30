@@ -1,0 +1,80 @@
+.tl-Day {
+  @extend .d-flex;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid $gray-300;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.tl-Day_Head {
+  margin-right: 2rem;
+}
+
+.tl-Day_Body {
+  flex-grow: 1;
+}
+
+.tl-Item {
+  @extend .d-flex, .align-items-center;
+  margin-bottom: .5rem;
+  padding: .5rem .75rem;
+  background-color: $white;
+  border-radius: .3rem;
+}
+
+.tl-Item_Time {
+  @extend .ml-auto;
+  color: $body-color-sub;
+}
+
+.tl-Item_Avatar {
+  margin-right: .25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+}
+
+.tl-Item_Link {
+  margin: 0 .25rem;
+}
+
+.tl-Date {
+  width: 5rem;
+}
+
+.tl-Date_Month {
+  display: block;
+  padding: .15rem 0;
+  text-align: center;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  background-color: $gray-400;
+  color: $body-color-sub;
+  font-size: $font-size-sm;
+}
+
+.tl-Date_Day {
+  text-align: center;
+  background-color: $white;
+  border: 2px solid $gray-400;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  padding: .1rem 0;
+}
+
+.tl-Date_DayNumber {
+  display: block;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: $gray-700;
+  line-height: 2rem;
+}
+
+.tl-Date_DayName {
+  display: block;
+  line-height: 1rem;
+  font-size: $font-size-xs;
+}
