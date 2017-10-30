@@ -53,8 +53,3 @@
     margin: 0 .25rem;
   }
 }
-
-.issl-Add {
-  @extend .btn, .btn-success;
-  @include xxunderline;
-}

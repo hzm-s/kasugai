@@ -6,6 +6,11 @@
   color: $body-color-sub;
 }
 
+.sw-ButtonLink {
+  @extend .btn, .btn-success;
+  @include xxunderline;
+}
+
 .sw-LinkList {
   list-style-type: none;
   margin: 0;

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName">
+          プロジェクト
+        </h1>
+        <%= link_to '新しいプロジェクトを作成する', '', class: 'sw-ButtonLink' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prjl-List">
+        <div class="prjl-Project">
+          <div class="prjl-Project_Head">
+            <%= link_to 'Gaiax Community', page_url(:project_home), class: 'prjl-Project_Name' %>
+            <p class="prjl-Project_Description">
+              GXのファンを増やす・育てる
+            </p>
+          </div>
+          <div class="prjl-Project_Tail">
+            <div class="prjl-Project_Members">
+              <%= image_tag 'avatars/user_a.png', class: 'prjl-Project_Member' %>
+              <%= image_tag 'avatars/user_b.png', class: 'prjl-Project_Member' %>
+              <%= image_tag 'avatars/user_c.png', class: 'prjl-Project_Member' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
