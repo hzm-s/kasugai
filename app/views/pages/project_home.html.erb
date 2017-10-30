@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-22 col-lg-16 mx-auto">
+    <div class="col-sm-22 col-lg-18 mx-auto">
       <div class="prj-Header">
         <h1 class="prj-ProjectName">
           Gaiax Community
@@ -17,87 +17,45 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-22 col-lg-16 mx-auto">
-      <div class="prj-Section">
-        <h2 class="prj-Section_Title">
-          最近更新された課題
-        </h2>
-        <div class="prj-Issue_Body">
-          <div class="prj-IssueItem">
-            <%= link_to '管理画面の操作ログ', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
-            <div class="prj-IssueItem_Tail">
-              <ul class="sw-LinkList">
-                <li>
-                  <%= link_to '3コメント', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-                <li>
-                  <%= link_to '30分前', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="prj-IssueItem">
-            <%= link_to 'メールアドレスのダウンロード', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
-            <div class="prj-IssueItem_Tail">
-              <ul class="sw-LinkList">
-                <li>
-                  <%= link_to '5コメント', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-                <li>
-                  <%= link_to '2時間前', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="prj-IssueItem">
-            <%= link_to '管理者ログイン', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
-            <div class="prj-IssueItem_Tail">
-              <ul class="sw-LinkList">
-                <li>
-                  <%= link_to '10コメント', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-                <li>
-                  <%= link_to '2017-10-12', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="prj-IssueItem">
-            <%= link_to '管理者登録', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
-            <div class="prj-IssueItem_Tail">
-              <ul class="sw-LinkList">
-                <li>
-                  <%= link_to '20コメント', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-                <li>
-                  <%= link_to '2017-10-10', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="prj-IssueItem">
-            <%= link_to '管理者登録', page_url(:issue_detail), class: 'prj-IssueItem_Title' %>
-            <div class="prj-IssueItem_Tail">
-              <ul class="sw-LinkList">
-                <li>
-                  <%= link_to '20コメント', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-                <li>
-                  <%= link_to '2017-10-10', page_url(:issue_detail), class: 'sw-Link' %>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="prj-Section">
-        <h3 class="prj-Section_Title">
-          プロジェクトのメンバー
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prj-TimeLine">
+        <h3 class="prj-TimeLine_Title">
+          タイムライン
         </h3>
-        <div class="prj-Members_Body">
-          <%= image_tag 'avatars/user_a.png', class: 'prj-Member' %>
-          <%= image_tag 'avatars/user_b.png', class: 'prj-Member' %>
-          <%= image_tag 'avatars/user_c.png', class: 'prj-Member' %>
+        <div class="prj-TimeLine_Body">
+          <% [23,22,21].each do |d| %>
+            <div class="tl-Day">
+              <div class="tl-Day_Head">
+                <div class="tl-Date">
+                  <span class="tl-Date_Month">
+                    10月
+                  </span>
+                  <div class="tl-Date_Day">
+                    <span class="tl-Date_DayNumber">
+                      <%= d %>
+                    </span>
+                    <span class="tl-Date_DayName">
+                      水曜日
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="tl-Day_Body">
+                <% 5.times do %>
+                  <% time = [('09'..'20').to_a.sample, ('00'..'59').to_a.sample].join(':') %>
+                  <p class="tl-Item">
+                    <%= image_tag 'avatars/user_a.png', class: 'tl-Item_Avatar' %>
+                    末吉 哉が
+                    <%= link_to '管理画面の操作ログ', page_url(:issue_detail), class: 'tl-Item_Link' %>
+                    にコメントしました
+                    <span class="tl-Item_Time">
+                      <%= time %>
+                    </span>
+                  </p>
+                <% end -%>
+              </div>
+            </div>
+          <% end -%>
         </div>
       </div>
     </div>
