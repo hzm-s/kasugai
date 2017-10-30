@@ -15,7 +15,9 @@
 @import 'issue_list';
 @import 'issue';
 @import 'comment';
+@import 'navigation';
 
 body {
+  padding-top: 3.5rem;
   padding-bottom: 3rem;
 }

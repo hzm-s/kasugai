@@ -18,14 +18,16 @@
 
 .prjl-Project_Name {
   @include xunderline($body-color, $body-color);
+  @include nf;
   font-weight: bold;
   font-size: 1.25rem;
 }
 
 .prjl-Project_Description {
+  @include nf;
   font-size: $font-size-sm;
   color: $body-color-sub;
-  margin: .5rem 0 0;
+  margin: .25rem 0 0;
 }
 
 .prjl-Project_Member {

@@ -10,17 +10,23 @@
 }
 
 .prj-ProjectName {
+  @include nf;
   text-align: center;
   font-size: 1.5rem;
 }
 
 .prj-Description {
+  @include nf;
   color: $body-color-sub;
 }
 
 .prj-TopNav {
   @extend .d-flex, .justify-content-center;
   margin: 1rem 0 1.5rem;
+}
+
+.prj-TopNavDivider {
+  width: 30rem;
 }
 
 .prj-TopNav_Link {
@@ -38,6 +44,21 @@
     @include fa-content('\f0a9');
     margin-left: .5rem;
   }
+}
+
+.prj-ListHeader {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.prj-ListHeader_Title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prj-ListHeader_Divider {
+  width: 8rem;
 }
 
 .prj-TimeLine_Title {
