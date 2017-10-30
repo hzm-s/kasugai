@@ -25,14 +25,9 @@
 }
 
 .frm-Actions_Cancel {
-  @include xunderline;
+  @include xunderline($gray-600, $gray-700);
   border-left: 1px solid $gray-500;
   padding-left: .75rem;
   margin-left: .75rem;
-  color: $gray-600;
   font-weight: bold;
-
-  &:hover {
-    color: $gray-700;
-  }
 }

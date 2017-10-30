@@ -1,0 +1,35 @@
+.prjl-Project {
+  @extend .d-flex;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+}
+
+.prjl-Project_Head {
+  width: 80%;
+  border-right: 1px solid $gray-300;
+}
+
+.prjl-Project_Tail {
+  width: 20%;
+  padding-left: 1rem;
+}
+
+.prjl-Project_Name {
+  @include xunderline($body-color, $body-color);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.prjl-Project_Description {
+  font-size: $font-size-sm;
+  color: $body-color-sub;
+  margin: .5rem 0 0;
+}
+
+.prjl-Project_Member {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+}

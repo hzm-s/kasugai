@@ -30,17 +30,10 @@
 }
 
 .issl-Item_Content {
-  @include xunderline;
-
+  @include xunderline($gray-800, $body-color);
   min-width: 73%;
   padding-right: .5rem;
-
   font-weight: bold;
-  color: $gray-800;
-
-  &:hover {
-    color: $body-color;
-  }
 }
 
 .issl-Item_Tail {
@@ -52,9 +45,4 @@
   span {
     margin: 0 .25rem;
   }
-}
-
-.issl-Add {
-  @extend .btn, .btn-success;
-  @include xxunderline;
 }

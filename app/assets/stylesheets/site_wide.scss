@@ -6,6 +6,11 @@
   color: $body-color-sub;
 }
 
+.sw-ButtonLink {
+  @extend .btn, .btn-success;
+  @include xxunderline($white, $white);
+}
+
 .sw-LinkList {
   list-style-type: none;
   margin: 0;
@@ -34,9 +39,7 @@
   font-size: $font-size-sm;
 }
 .breadcrumbs a {
-  @include xxunderline;
-
-  color: $gray-700;
+  @include xxunderline($gray-700);
 
   &:after {
     @include fa-content('\f054');

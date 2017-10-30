@@ -1,16 +1,20 @@
-@mixin xunderline {
+@mixin xunderline($color: $link-color, $hover-color: $link-hover-color) {
   text-decoration: none;
+  color: $color;
 
   &:hover {
     text-decoration: underline;
+    color: $hover-color;
   }
 }
 
-@mixin xxunderline {
+@mixin xxunderline($color: $link-color, $hover-color: $link-hover-color) {
   text-decoration: none;
+  color: $color;
 
   &:hover {
     text-decoration: none;
+    color: $hover-color;
   }
 }
 
