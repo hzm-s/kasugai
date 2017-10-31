@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-ListHeader">
+        <h1 class="prj-ListHeader_Title">
+          新しいプロジェクト
+        </h1>
+        <hr class="prj-ListHeader_Divider">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-Create">
+        <form>
+          <div class="form-group">
+            <label class="frm-label">
+              プロジェクト名
+            </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="frm-label">
+              説明
+            </label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="frm-Actions">
+            <button type="submit" class="btn btn-success">
+              作成する
+            </button>
+            <%= link_to 'キャンセル', page_url(:project_list), class: 'frm-Actions_Cancel' %>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
