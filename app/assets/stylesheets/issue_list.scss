@@ -15,7 +15,6 @@
 
 .issl-Item {
   @extend .d-flex, .align-items-center;
-  @include nf;
 
   padding: 1rem;
   border-bottom: 1px solid $gray-300;
@@ -33,6 +32,7 @@
 
 .issl-Item_Content {
   @include xunderline($gray-800, $body-color);
+  @include nf;
   min-width: 73%;
   padding-right: .5rem;
   font-weight: bold;
