@@ -27,9 +27,14 @@
             <div class="issl-List">
               <div class="issl-Item">
                 <i class="issl-Item_Handle"></i>
-                <%= link_to page_url(:issue_detail), class: 'issl-Item_Content' do %>
-                  <span>管理画面の操作ログ</span>
-                <% end -%>
+                <div class="issl-Item_Body">
+                  <%= link_to page_url(:issue_detail), class: 'issl-Item_Content' do %>
+                    管理画面の操作ログ
+                  <% end -%>
+                  <%= link_to '', class: 'issl-Item_Bookmark' do %>
+                    <i class="iss-Bookmark iss-Bookmark-on"></i>
+                  <% end -%>
+                </div>
                 <div class="issl-Item_Tail">
                   <ul class="sw-LinkList">
                     <li>
@@ -43,9 +48,14 @@
               </div>
               <div class="issl-Item">
                 <i class="issl-Item_Handle"></i>
-                <%= link_to '', class: 'issl-Item_Content' do %>
-                メールアドレスのダウンロード
-                <% end -%>
+                <div class="issl-Item_Body">
+                  <%= link_to '', class: 'issl-Item_Content' do %>
+                  メールアドレスのダウンロード
+                  <% end -%>
+                  <%= link_to '', class: 'issl-Item_Bookmark' do %>
+                    <i class="iss-Bookmark iss-Bookmark-off"></i>
+                  <% end -%>
+                </div>
                 <div class="issl-Item_Tail">
                   <ul class="sw-LinkList">
                     <li>
@@ -60,9 +70,14 @@
               <% 10.times do %>
                 <div class="issl-Item">
                   <i class="issl-Item_Handle"></i>
-                  <%= link_to '', class: 'issl-Item_Content' do %>
-                  管理者ログイン
-                  <% end -%>
+                  <div class="issl-Item_Body">
+                    <%= link_to '', class: 'issl-Item_Content' do %>
+                    管理者ログイン
+                    <% end -%>
+                    <%= link_to '', class: 'issl-Item_Bookmark' do %>
+                      <i class="iss-Bookmark iss-Bookmark-off"></i>
+                    <% end -%>
+                  </div>
                   <div class="issl-Item_Tail">
                     <ul class="sw-LinkList">
                       <li>

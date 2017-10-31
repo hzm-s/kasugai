@@ -5,11 +5,19 @@
 }
 
 .iss-Detail_Header {
+  @extend .d-flex, .align-items-center;
   padding: 0 1.5rem;
 }
 
 .iss-Detail_Body {
   padding: 1.5rem 3rem;
+}
+
+.iss-Detail_CreatorAvator {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  margin-right: .25rem;
 }
 
 .iss-Detail_Creation {
@@ -18,10 +26,8 @@
   font-size: $font-size-sm;
 }
 
-.iss-Detail_CreatorAvator {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
+.iss-Detail_Bookmark {
+  @extend .ml-auto;
 }
 
 .iss-Detail_TitleWrapper {
@@ -94,4 +100,18 @@
   &:before {
     content: '\2022';
   }
+}
+
+.iss-Bookmark {
+  font-size: 1.25rem;
+}
+
+.iss-Bookmark-off {
+  @extend .fa, .fa-bookmark-o;
+  color: $gray-600;
+}
+
+.iss-Bookmark-on {
+  @extend .fa, .fa-bookmark;
+  color: $yellow;
 }
