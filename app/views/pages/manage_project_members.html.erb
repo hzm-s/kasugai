@@ -35,10 +35,25 @@
                   <%= member[:name] %>
                 </span>
                 <div class="prj-Member_Actions">
-                  <%= link_to '削除する', '', class: 'sw-Link' %>
+                  <%= link_to 'プロジェクトから外れる', '', class: 'sw-Link' %>
                 </div>
               </div>
             <% end -%>
+          </div>
+        </div>
+      </div>
+      <div class="prj-Setting">
+        <div class="prj-Setting_Header">
+          <h2 class="prj-Setting_Title">
+            プロジェクトへ招待
+          </h2>
+        </div>
+        <div class="prj-Setting_Body">
+          <div class="form-group">
+            <label class="frm-Label">
+              このURLを招待したい人に共有してください
+            </label>
+            <input type="text" class="form-control" value="https://kasugai.com/project/12345678/joins/new" readonly>
           </div>
         </div>
       </div>

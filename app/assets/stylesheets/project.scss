@@ -88,8 +88,13 @@
 
 .prj-Setting_Title {
   font-size: $font-size-base;
-  color: $body-color-sub;
   margin: 0;
+  color: $gray-700;
+
+  &:before {
+    @include fa-content('\f1db');
+    color: $gray-500;
+  }
 }
 
 .prj-Setting_Body {
