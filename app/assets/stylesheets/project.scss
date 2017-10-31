@@ -61,6 +61,23 @@
   width: 8rem;
 }
 
+.prj-BookmarkedIssues {
+  margin-bottom: 2rem;
+}
+
+.prj-BookmarkedIssues_Title {
+  @include break-center($body-color-sub, lighten($body-color-sub, 15%));
+  font-size: $font-size-base;
+  margin-bottom: 1rem;
+}
+
+.prj-BookmarkedIssues_Body {
+  padding: .25rem 1rem;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 5px $gray-500;
+}
+
 .prj-TimeLine_Title {
   @include break-center($body-color-sub, lighten($body-color-sub, 15%));
   font-size: $font-size-base;
