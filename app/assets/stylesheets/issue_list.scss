@@ -30,21 +30,27 @@
   color: $gray-500;
 }
 
+.issl-Item_Body {
+  @extend .d-flex, .align-items-center;
+  padding-right: 1rem;
+  flex-grow: 1;
+}
+
 .issl-Item_Content {
   @include xunderline($gray-800, $body-color);
   @include nf;
-  min-width: 73%;
-  padding-right: .5rem;
   font-weight: bold;
+}
+
+.issl-Item_Bookmark {
+  @extend .ml-auto;
+  @extend .fa, .fa-bookmark-o;
+  color: $gray-600;
+  font-size: 1rem;
 }
 
 .issl-Item_Tail {
   @extend .ml-auto;
-  @extend .d-flex, .align-items-center;
   border-left: 1px solid $gray-200;
   padding-left: 1rem;
-
-  span {
-    margin: 0 .25rem;
-  }
 }
