@@ -16,7 +16,7 @@
 .issl-Item {
   @extend .d-flex, .align-items-center;
 
-  padding: 1rem;
+  padding: .75rem .5rem;
   border-bottom: 1px solid $gray-300;
 
   &:last-child {
@@ -44,9 +44,6 @@
 
 .issl-Item_Bookmark {
   @extend .ml-auto;
-  @extend .fa, .fa-bookmark-o;
-  color: $gray-600;
-  font-size: 1rem;
 }
 
 .issl-Item_Tail {

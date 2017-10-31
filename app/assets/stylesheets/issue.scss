@@ -95,3 +95,17 @@
     content: '\2022';
   }
 }
+
+.iss-Bookmark {
+  font-size: 1rem;
+}
+
+.iss-Bookmark-off {
+  @extend .fa, .fa-bookmark-o;
+  color: $gray-600;
+}
+
+.iss-Bookmark-on {
+  @extend .fa, .fa-bookmark;
+  color: $yellow;
+}
