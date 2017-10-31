@@ -73,3 +73,29 @@
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-500;
 }
+
+.prj-Setting {
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+  margin-bottom: 1rem;
+}
+
+.prj-Setting_Header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $gray-300;
+}
+
+.prj-Setting_Title {
+  font-size: $font-size-base;
+  color: $body-color-sub;
+  margin: 0;
+}
+
+.prj-Setting_Body {
+  padding: 1.5rem 2rem;
+}
+
+.prj-Delete_Description {
+  @include nf;
+}

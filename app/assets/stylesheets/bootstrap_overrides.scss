@@ -16,6 +16,10 @@ $body-color-sub: #6F6D67;
   border-color: darken(theme-color('success'), 10%);
 }
 
+.btn-danger {
+  border-color: darken(theme-color('danger'), 10%);
+}
+
 input,
 textarea {
   @include nf;
