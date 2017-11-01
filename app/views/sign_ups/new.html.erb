@@ -1,0 +1,5 @@
+<%= form_with model: @sign_up, url: sign_ups_url, local: true do |f| -%>
+  <%= f.text_field :name %>
+  <%= f.text_field :email %>
+  <%= f.submit t('.submit') %>
+<% end -%>

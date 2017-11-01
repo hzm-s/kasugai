@@ -1,0 +1,5 @@
+<%=t '.user', name: @name %>
+
+<%=t '.message' %>
+
+<%= link_to t('.link_text'), email_callback_url(token: @token) %>

@@ -38,6 +38,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'capybara'
+  gem 'capybara-email'
+  gem 'dotenv-rails'
 end
 
 group :development do
