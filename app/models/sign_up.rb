@@ -1,10 +1,9 @@
 class SignUp < ApplicationRecord
-  has_secure_token
 
-  def continue
+  def commit(email)
     User.new(name: name) do |u|
-      u.build_email_sign_in(email: email)
-      u.save
+      u.build_registration(email: email)
+      u.save!
     end
   end
 end

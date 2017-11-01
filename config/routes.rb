@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
 
-  resources :sign_ups, only: [:new, :create]
-  get '/sign_ups/ready', to: 'sign_ups#ready', as: :ready_sign_up
-  get '/email_callback/:token', to: 'email_callbacks#create', as: :email_callback
+  resources :sign_up_requests, only: [:new, :create]
+
+  get '/sign_up/:token', to: 'sign_ups#create', as: :sign_ups
 
   resource :home, only: [:show]
 

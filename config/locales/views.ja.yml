@@ -1,7 +1,7 @@
 ja:
-  sign_ups:
+  sign_up_requests:
     new:
       submit: 登録する
-    ready:
+    create:
       title: ユーザー登録
       guide: ユーザー登録確認メールを送信しました。
