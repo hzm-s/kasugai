@@ -4,4 +4,4 @@ ja:
       submit: 登録する
     ready:
       title: ユーザー登録
-      guide: メールを送信しました。
+      guide: ユーザー登録確認メールを送信しました。
