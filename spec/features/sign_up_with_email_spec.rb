@@ -31,10 +31,10 @@ describe 'メールアドレスで登録する' do
         click_on '登録する'
       end
 
-      expect(page).to have_content('メールを送信しました')
+      expect(page).to have_content('ログイン確認メールを送信しました。')
 
       open_email(email)
-      current_email.click_link 'こちらから登録を完了してください'
+      current_email.click_link 'こちらからログインしてください'
 
       expect(page).to have_content(name)
     end
