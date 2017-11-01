@@ -14,12 +14,24 @@ class Reception < ApplicationRecord
       end
     end
 
+    def create_for_sign_in(email)
+      create!(email: email)
+    end
+
     def find_for_sign_up_by_token(token)
       includes(:sign_up).find_by(token: token)
+    end
+
+    def find_for_sign_in_by_token(token)
+      find_by(token: token)
     end
   end
 
   def commit_sign_up
     sign_up.commit(email)
+  end
+
+  def authenticate
+    User.find_by_email(email)
   end
 end

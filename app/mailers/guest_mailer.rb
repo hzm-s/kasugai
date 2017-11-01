@@ -1,8 +1,13 @@
 class GuestMailer < ApplicationMailer
 
-  def sign_up(sign_up)
-    @name = sign_up.name
-    @token = sign_up.token
-    mail(to: sign_up.email)
+  def sign_up(reception)
+    @name = reception.name
+    @token = reception.token
+    mail(to: reception.email)
+  end
+
+  def sign_in(reception)
+    @token = reception.token
+    mail(to: reception.email)
   end
 end

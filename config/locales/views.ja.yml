@@ -2,6 +2,9 @@ ja:
   sign_up_requests:
     new:
       submit: 登録する
-    create:
+    create_for_sign_up:
       title: ユーザー登録
       guide: ユーザー登録確認メールを送信しました。
+    create_for_sign_in:
+      title: ログイン
+      guide: ログイン確認メールを送信しました。

@@ -22,7 +22,13 @@ describe 'メールアドレスで登録する' do
     end
   end
 
-  xcontext '登録済みの場合' do
+  context '登録済みの場合' do
+    before do
+      Reception
+        .create_for_sign_up(name: name, email: email)
+        .commit_sign_up
+    end
+
     it do
       visit new_sign_up_request_path
       fill_in 'sign_up_request[name]', with: name
@@ -34,7 +40,7 @@ describe 'メールアドレスで登録する' do
       expect(page).to have_content('ログイン確認メールを送信しました。')
 
       open_email(email)
-      current_email.click_link 'こちらからログインしてください'
+      current_email.click_link 'ログインする'
 
       expect(page).to have_content(name)
     end
