@@ -16,7 +16,7 @@ module GuestHelper
     end
   end
 
-  def sign_up(attrs = {})
+  def sign_up(attrs = nil)
     form = SignUpForm.new(attrs || generate_sign_up_attributes)
 
     service = GuestService.new(mailer: MockMailer)

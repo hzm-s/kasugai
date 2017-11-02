@@ -1,4 +1,5 @@
 ja:
+
   sign_ups:
     new:
       submit: 登録する
@@ -11,3 +12,7 @@ ja:
     verify_error:
       message: ユーザー登録できませんでした
       help: もう一度お試しください。
+
+  sign_ins:
+    new:
+      submit: ログインする

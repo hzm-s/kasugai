@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get :verify, on: :member
   end
 
+  resources :sign_ins, only: [:new, :create]
+
   get '/sign_in/:token', to: 'sessions#create', as: :sign_in
 
   resource :home, only: [:show]
