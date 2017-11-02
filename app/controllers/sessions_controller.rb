@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
 
   def create
-    sign_in = SignIn.find_by_token(params[:token])
-    user = sign_in.authenticate
-    sign_in(user)
-    redirect_to home_url
+    result = GuestService.sign_in(params[:token])
+    if result.succeeded?
+      sign_in(result.user)
+      redirect_to home_url
+    else
+      render :error
+    end
   end
 end

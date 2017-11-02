@@ -35,4 +35,12 @@ class GuestService < ApplicationService
     user = sign_up.complete
     success(user: user)
   end
+
+  def sign_in(token)
+    sign_in = SignIn.find_available(token)
+    return failure unless sign_in
+
+    user = sign_in.authenticate
+    success(user: user)
+  end
 end

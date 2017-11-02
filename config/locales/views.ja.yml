@@ -16,3 +16,8 @@ ja:
   sign_ins:
     new:
       submit: ログインする
+
+  sessions:
+    error:
+      message: ログインできませんでした
+      help: もう一度お試しください。

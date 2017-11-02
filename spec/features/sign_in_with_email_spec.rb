@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe 'メールでログイン' do
+  let(:user) { sign_up }
+
   context '登録済みの場合' do
     it do
-      user = sign_up
-
       submit_form do
         fill_in 'form[email]', with: user.email
       end
@@ -39,6 +39,25 @@ describe 'メールでログイン' do
     it do
       submit_form {}
       expect(page).to have_content('入力してください')
+    end
+  end
+
+  context '15分より後にアクセスした場合' do
+    it do
+      now = Time.current
+
+      Timecop.travel(now) do
+        submit_form do
+          fill_in 'form[email]', with: user.email
+        end
+      end
+
+      Timecop.travel(now + 15.minutes + 1.second) do
+        open_email(user.email)
+        current_email.click_link 'ログインする'
+      end
+
+      expect(page).to have_content('もう一度お試しください')
     end
   end
 
