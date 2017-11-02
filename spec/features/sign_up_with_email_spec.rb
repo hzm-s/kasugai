@@ -6,9 +6,9 @@ describe 'メールアドレスで登録する' do
 
   context '未登録の場合' do
     it do
-      visit new_sign_up_request_path
-      fill_in 'sign_up_request[name]', with: name
-      fill_in 'sign_up_request[email]', with: email
+      visit new_sign_up_path
+      fill_in 'form[name]', with: name
+      fill_in 'form[email]', with: email
       perform_enqueued_jobs do
         click_on '登録する'
       end
@@ -22,17 +22,17 @@ describe 'メールアドレスで登録する' do
     end
   end
 
-  xcontext '登録済みの場合' do
+  context '登録済みの場合' do
     before do
-      Reception
-        .create_for_sign_up(name: name, email: email)
-        .commit_sign_up
+      SignUp
+        .create(name: name, email: email)
+        .complete
     end
 
     it do
-      visit new_sign_up_request_path
-      fill_in 'sign_up_request[name]', with: name
-      fill_in 'sign_up_request[email]', with: email
+      visit new_sign_up_path
+      fill_in 'form[name]', with: name
+      fill_in 'form[email]', with: email
       perform_enqueued_jobs do
         click_on '登録する'
       end

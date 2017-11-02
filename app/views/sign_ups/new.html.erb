@@ -1,4 +1,4 @@
-<%= form_with model: @sign_up_request, url: sign_up_requests_url, local: true do |f| -%>
+<%= form_with model: @form, scope: :form, url: sign_ups_url, local: true do |f| -%>
   <%= f.text_field :name %>
   <%= f.text_field :email %>
   <%= f.submit t('.submit') %>

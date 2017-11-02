@@ -1,13 +1,13 @@
 class User < ApplicationRecord
-  has_one :registration
+  has_one :credential
 
-  delegate :email, to: :registration
+  delegate :email, to: :credential
 
   class << self
 
     def find_by_email(email)
-      includes(:registration)
-        .where(registrations: { email: email })
+      includes(:credential)
+        .where(credentials: { email: email })
         .first
     end
   end
