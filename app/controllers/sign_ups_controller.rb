@@ -6,7 +6,7 @@ class SignUpsController < ApplicationController
 
   def create
     form = SignUpForm.new(form_params)
-    result = HandleGuestService.call(form)
+    result = GuestService.accept(form)
     if result.succeeded?
       render_created(result)
     else

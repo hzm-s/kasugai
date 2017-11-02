@@ -38,13 +38,12 @@ module ActionService
     include ActionService::Persistence
 
     class << self
-      def call(*args)
-        new.call(*args)
-      end
-    end
 
-    def call
-      raise '`call` must be implemented'
+      def method_missing(method, *args, &block)
+        service = new
+        return super unless service.respond_to?(method)
+        service.send(method, *args, &block)
+      end
     end
   end
 end
