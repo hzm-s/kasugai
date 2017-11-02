@@ -22,9 +22,7 @@ describe 'メールアドレスで登録する' do
 
   context '登録済みの場合' do
     before do
-      SignUp
-        .create(name: name, email: email)
-        .complete
+      sign_up(name: name, email: email)
     end
 
     it do
