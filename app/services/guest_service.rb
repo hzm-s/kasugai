@@ -13,6 +13,8 @@ class GuestService < ApplicationService
   end
 
   def start_sign_in(params)
+    return failure(params: params) unless params.valid?
+
     sign_in = SignIn.create!(email: params.email)
     @mailer.sign_in(sign_in).deliver_later!
     success(sign_up?: false)

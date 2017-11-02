@@ -7,10 +7,15 @@ class SignInsController < ApplicationController
   def create
     form = SignInForm.new(form_params)
     result = GuestService.accept(form)
-    if result.sign_up?
-      render template: 'sign_ups/create_for_sign_up'
+    if result.succeeded?
+      if result.sign_up?
+        render template: 'sign_ups/create_for_sign_up'
+      else
+        render template: 'sign_ups/create_for_sign_in'
+      end
     else
-      render template: 'sign_ups/create_for_sign_in'
+      @form = result.params
+      render :new
     end
   end
 
