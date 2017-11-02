@@ -69,7 +69,7 @@ describe 'メールアドレスで登録する' do
     end
   end
 
-  context '複数回ユーザー登録しようとした場合' do
+  context '複数回登録しようとした場合' do
     it do
       submit_form do
         fill_in 'form[name]', with: name
