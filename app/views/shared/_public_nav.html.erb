@@ -3,4 +3,17 @@
     <i class="nav-Global_AppLogo"></i>
     <%= link_to 'Kasugai', '/', class: 'nav-Global_AppName' %>
   <% end -%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to t('navs.sign_in'), new_sign_in_url, class: 'nav-Global_Link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('navs.sign_up'), new_sign_up_url, class: 'nav-Global_Link' %>
+      </li>
+    </ul>
+  </div>
 </nav>
