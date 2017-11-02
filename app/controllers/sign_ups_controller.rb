@@ -5,10 +5,12 @@ class SignUpsController < ApplicationController
   end
 
   def create
-    @form = SignUpForm.new(form_params)
-    if @form.valid?
-      sign_up_or_sign_in(@form)
+    form = SignUpForm.new(form_params)
+    result = HandleGuestService.call(form)
+    if result.succeeded?
+      render_created(result)
     else
+      @form = result.params
       render :new
     end
   end
@@ -22,15 +24,11 @@ class SignUpsController < ApplicationController
 
   private
 
-    def sign_up_or_sign_in(form)
-      if user = User.find_by_email(form.email)
-        sign_in = SignIn.create!(email: form.email)
-        GuestMailer.sign_in(sign_in).deliver_later
-        render :create_for_sign_in
-      else
-        sign_up = SignUp.create!(name: form.name, email: form.email)
-        GuestMailer.sign_up(sign_up).deliver_later
+    def render_created(result)
+      if result.sign_up?
         render :create_for_sign_up
+      else
+        render :create_for_sign_in
       end
     end
 
