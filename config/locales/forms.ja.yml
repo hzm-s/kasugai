@@ -4,3 +4,5 @@ ja:
       sign_up_form:
         name: 名前
         email: メールアドレス
+      sign_in_form:
+        email: メールアドレス
