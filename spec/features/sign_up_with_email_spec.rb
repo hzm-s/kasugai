@@ -6,11 +6,9 @@ describe 'メールアドレスで登録する' do
 
   context '未登録の場合' do
     it do
-      visit new_sign_up_path
-      fill_in 'form[name]', with: name
-      fill_in 'form[email]', with: email
-      perform_enqueued_jobs do
-        click_on '登録する'
+      submit_form do
+        fill_in 'form[name]', with: name
+        fill_in 'form[email]', with: email
       end
 
       expect(page).to have_content('ユーザー登録確認メールを送信しました。')
@@ -21,34 +19,12 @@ describe 'メールアドレスで登録する' do
       expect(page).to have_content(name)
     end
 
-    context '名前が未入力' do
+    context '入力エラー' do
       it do
-        visit new_sign_up_path
-        fill_in 'form[name]', with: name
-        click_on '登録する'
-
+        submit_form do
+          fill_in 'form[name]', with: name
+        end
         expect(page).to have_content('入力してください')
-      end
-    end
-
-    context 'メールアドレスが未入力' do
-      it do
-        visit new_sign_up_path
-        fill_in 'form[email]', with: email
-        click_on '登録する'
-
-        expect(page).to have_content('入力してください')
-      end
-    end
-
-    context '不正なメールアドレス' do
-      it do
-        visit new_sign_up_path
-        fill_in 'form[name]', with: name
-        fill_in 'form[email]', with: 'wrong.email'
-        click_on '登録する'
-
-        expect(page).to have_content('正しいメールアドレスではありません')
       end
     end
   end
@@ -61,11 +37,9 @@ describe 'メールアドレスで登録する' do
     end
 
     it do
-      visit new_sign_up_path
-      fill_in 'form[name]', with: name
-      fill_in 'form[email]', with: email
-      perform_enqueued_jobs do
-        click_on '登録する'
+      submit_form do
+        fill_in 'form[name]', with: name
+        fill_in 'form[email]', with: email
       end
 
       expect(page).to have_content('ログイン確認メールを送信しました。')
@@ -75,5 +49,24 @@ describe 'メールアドレスで登録する' do
 
       expect(page).to have_content(name)
     end
+
+    context '入力エラー' do
+      it do
+        submit_form do
+          fill_in 'form[name]', with: name
+        end
+        expect(page).to have_content('入力してください')
+      end
+    end
   end
+
+  private
+
+    def submit_form
+      visit new_sign_up_path
+      yield
+      perform_enqueued_jobs do
+        click_on '登録する'
+      end
+    end
 end
