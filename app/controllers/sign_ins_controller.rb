@@ -9,9 +9,9 @@ class SignInsController < ApplicationController
     result = GuestService.accept(form)
     if result.succeeded?
       if result.sign_up?
-        render template: 'sign_ups/create_for_sign_up'
+        render template: 'sign_ups/create'
       else
-        render template: 'sign_ups/create_for_sign_in'
+        render
       end
     else
       @form = result.params

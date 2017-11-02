@@ -1,14 +1,10 @@
 ja:
-
   sign_ups:
     new:
       submit: 登録する
-    create_for_sign_up:
+    create:
       title: ユーザー登録
       guide: ユーザー登録確認メールを送信しました。
-    create_for_sign_in:
-      title: ログイン
-      guide: ログイン確認メールを送信しました。
 
   users:
     error:
@@ -18,6 +14,9 @@ ja:
   sign_ins:
     new:
       submit: ログインする
+    create:
+      title: ログイン
+      guide: ログイン確認メールを送信しました。
 
   sessions:
     error:

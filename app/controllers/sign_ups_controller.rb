@@ -19,9 +19,9 @@ class SignUpsController < ApplicationController
 
     def render_created(result)
       if result.sign_up?
-        render :create_for_sign_up
+        render
       else
-        render :create_for_sign_in
+        render template: 'sign_ins/create'
       end
     end
 
