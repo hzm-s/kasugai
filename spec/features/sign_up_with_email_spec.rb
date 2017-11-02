@@ -18,15 +18,6 @@ describe 'メールアドレスで登録する' do
 
       expect(page).to have_content(name)
     end
-
-    context '入力エラー' do
-      it do
-        submit_form do
-          fill_in 'form[name]', with: name
-        end
-        expect(page).to have_content('入力してください')
-      end
-    end
   end
 
   context '登録済みの場合' do
@@ -49,14 +40,14 @@ describe 'メールアドレスで登録する' do
 
       expect(page).to have_content(name)
     end
+  end
 
-    context '入力エラー' do
-      it do
-        submit_form do
-          fill_in 'form[name]', with: name
-        end
-        expect(page).to have_content('入力してください')
+  context '入力エラー' do
+    it do
+      submit_form do
+        fill_in 'form[name]', with: name
       end
+      expect(page).to have_content('入力してください')
     end
   end
 
