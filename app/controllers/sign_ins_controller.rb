@@ -1,4 +1,5 @@
 class SignInsController < ApplicationController
+  include GuestHandler
 
   def new
     @form = SignInForm.new
@@ -8,11 +9,7 @@ class SignInsController < ApplicationController
     form = SignInForm.new(form_params)
     result = GuestService.accept(form)
     if result.succeeded?
-      if result.sign_up?
-        render template: 'sign_ups/create'
-      else
-        render
-      end
+      render_success_to_sign_up_or_in(result)
     else
       @form = result.params
       render :new
