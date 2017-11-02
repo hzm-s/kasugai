@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module GuestHelper
   module MockMail
     def self.deliver_later!
@@ -14,11 +16,21 @@ module GuestHelper
     end
   end
 
-  def sign_up(name:, email:)
+  def sign_up(attrs = {})
+    form = SignUpForm.new(attrs || generate_sign_up_attributes)
+
     service = GuestService.new(mailer: MockMailer)
-    form = SignUpForm.new(name: name, email: email)
     token = service.start_sign_up(form).token
-    service.sign_up(token)
+
+    service.sign_up(token).user
+  end
+
+  def generate_sign_up_attributes
+    name_chunks = ['User', SecureRandom.hex(8)]
+    {
+      name: name_chunks.join(' '),
+      email: "#{name_chunks.join('.')}@example.com"
+    }
   end
 end
 
