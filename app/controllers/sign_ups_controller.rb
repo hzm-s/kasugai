@@ -17,8 +17,12 @@ class SignUpsController < ApplicationController
 
   def verify
     result = GuestService.sign_up(params[:token])
-    sign_in(result.user)
-    redirect_to home_url
+    if result.succeeded?
+      sign_in(result.user)
+      redirect_to home_url
+    else
+      render :verify_error
+    end
   end
 
   private

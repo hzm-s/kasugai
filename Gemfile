@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'dotenv-rails'
+  gem 'timecop'
 end
 
 group :development do

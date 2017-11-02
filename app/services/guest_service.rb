@@ -23,7 +23,9 @@ class GuestService < ApplicationService
   end
 
   def sign_up(token)
-    sign_up = SignUp.find_by(token: token)
+    sign_up = SignUp.find_available(token)
+    return failure unless sign_up
+
     user = sign_up.complete
     success(user: user)
   end

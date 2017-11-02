@@ -60,6 +60,26 @@ describe 'メールアドレスで登録する' do
     end
   end
 
+  context '15分より後にアクセスした場合' do
+    it do
+      now = Time.current
+
+      Timecop.travel(now) do
+        submit_form do
+          fill_in 'form[name]', with: name
+          fill_in 'form[email]', with: email
+        end
+      end
+
+      Timecop.travel(now + 15.minutes + 1.second) do
+        open_email(email)
+        current_email.click_link 'こちらから登録を完了してください'
+      end
+
+      expect(page).to have_content('もう一度お試しください')
+    end
+  end
+
   private
 
     def submit_form
