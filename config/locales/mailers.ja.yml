@@ -1,0 +1,11 @@
+ja:
+  guest_mailer:
+    sign_up:
+      subject: 'Kasugai - ようこそ'
+      user: '%{name}さん'
+      message: 'ユーザー登録の準備ができました。'
+      link_text: 'こちらから登録を完了してください'
+    sign_in:
+      subject: 'Kasugai - ログイン'
+      message: 'ログインしてください'
+      link_text: 'ログインする'
