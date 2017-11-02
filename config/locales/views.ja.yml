@@ -9,7 +9,9 @@ ja:
     create_for_sign_in:
       title: ログイン
       guide: ログイン確認メールを送信しました。
-    verify_error:
+
+  users:
+    error:
       message: ユーザー登録できませんでした
       help: もう一度お試しください。
 
