@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20171101102155) do
     t.string "token", null: false
     t.string "email", null: false
     t.datetime "created_at", null: false
+    t.index ["email"], name: "index_sign_ins_on_email", unique: true
+    t.index ["token"], name: "index_sign_ins_on_token", unique: true
   end
 
   create_table "sign_ups", force: :cascade do |t|
@@ -32,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171101102155) do
     t.string "name", null: false
     t.string "email", null: false
     t.datetime "created_at", null: false
+    t.index ["email"], name: "index_sign_ups_on_email", unique: true
+    t.index ["token"], name: "index_sign_ups_on_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|

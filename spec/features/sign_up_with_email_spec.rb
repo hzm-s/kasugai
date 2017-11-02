@@ -71,6 +71,27 @@ describe 'メールアドレスで登録する' do
     end
   end
 
+  context '複数回ユーザー登録しようとした場合' do
+    it do
+      submit_form do
+        fill_in 'form[name]', with: name
+        fill_in 'form[email]', with: email
+      end
+      open_email(email)
+      mail1 = current_email
+
+      submit_form do
+        fill_in 'form[name]', with: name
+        fill_in 'form[email]', with: email
+      end
+      open_email(email)
+      mail2 = current_email
+
+      mail1.click_link 'こちらから登録を完了してください'
+      expect(page).to have_content('もう一度お試しください')
+    end
+  end
+
   private
 
     def submit_form
