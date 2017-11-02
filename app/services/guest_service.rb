@@ -21,4 +21,10 @@ class GuestService < ApplicationService
     GuestMailer.sign_up(sign_up).deliver_later!
     success(sign_up?: true)
   end
+
+  def sign_up(token)
+    sign_up = SignUp.find_by(token: token)
+    user = sign_up.complete
+    success(user: user)
+  end
 end

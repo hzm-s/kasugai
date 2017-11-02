@@ -16,9 +16,8 @@ class SignUpsController < ApplicationController
   end
 
   def verify
-    sign_up = SignUp.find_by(token: params[:token])
-    user = sign_up.complete
-    sign_in(user)
+    result = GuestService.sign_up(params[:token])
+    sign_in(result.user)
     redirect_to home_url
   end
 
