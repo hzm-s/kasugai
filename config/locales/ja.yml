@@ -146,6 +146,12 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+  navs:
+    error: エラー
+    sign_up: ユーザー登録
+    sign_in: ログイン
+    sign_out: ログアウト
+    retry: やり直す
   number:
     currency:
       format:

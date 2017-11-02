@@ -1,6 +1,8 @@
 class SignInsController < ApplicationController
   include GuestHandler
 
+  layout 'public'
+
   def new
     @form = SignInForm.new
   end

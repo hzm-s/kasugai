@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout 'public'
 
   def create
     result = GuestService.sign_in(params[:token])
