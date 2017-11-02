@@ -35,6 +35,13 @@ describe 'メールでログイン' do
     end
   end
 
+  context '入力エラー' do
+    it do
+      submit_form {}
+      expect(page).to have_content('入力してください')
+    end
+  end
+
   private
 
     def submit_form
