@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+    def sign_in(user)
+      session[:user_id] = user.id
+    end
+
     def current_user
       @current_user ||= fetch_user
     end
