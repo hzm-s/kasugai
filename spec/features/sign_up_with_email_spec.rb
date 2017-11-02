@@ -22,7 +22,7 @@ describe 'メールアドレスで登録する' do
     end
   end
 
-  context '登録済みの場合' do
+  xcontext '登録済みの場合' do
     before do
       Reception
         .create_for_sign_up(name: name, email: email)
