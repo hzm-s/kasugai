@@ -1,6 +1,8 @@
 class SignUpsController < ApplicationController
   include GuestHandler
 
+  layout 'public'
+
   def new
     @form = SignUpForm.new
   end

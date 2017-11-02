@@ -1,5 +1,5 @@
 .rcpt-Main {
-  margin-top: 3rem;
+  margin-top: 2rem;
   background-color: #fff;
   border-radius: .3rem;
   box-shadow: 0 0 10px $gray-500;
@@ -23,6 +23,11 @@
 .rcpt-Main_Body {
   padding: 1.5rem 2rem;
   text-align: center;
+}
+
+.rcpt-Main_Body-left {
+  padding: 1.5rem 2rem;
+  text-align: left;
 }
 
 .rcpt-Error_Message {

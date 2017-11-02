@@ -1,5 +1,24 @@
-<%= form_with model: @form, scope: :form, url: sign_ups_url, local: true do |f| -%>
-  <%= f.text_field :name %>
-  <%= f.text_field :email %>
-  <%= f.submit t('.submit') %>
-<% end -%>
+<div class="row">
+  <div class="col-sm-22 col-lg-12 mx-auto">
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t 'navs.sign_up' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body-left">
+        <%= form_with model: @form, scope: :form, url: sign_ups_url, local: true do |f| -%>
+          <div class="form-group">
+            <%= f.label :name, class: 'frm-Label' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, class: 'frm-Label' %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          <%= f.submit t('.submit'), class: 'btn btn-success' %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>
