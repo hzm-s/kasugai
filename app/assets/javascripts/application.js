@@ -16,3 +16,16 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+var loading = function() {
+  $('[data-behavior="loader"]').each(function(i, el) {
+    var width = $(el).outerWidth();
+    $(el).on('click', function(e) {
+      $(e.target).css('width', width);
+    });
+  });
+}
+
+$(document).on('turbolinks:load', function() {
+  loading();
+});
