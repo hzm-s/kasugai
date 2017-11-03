@@ -17,6 +17,8 @@ ja:
   sign_ins:
     new:
       submit: 続ける
+      helps:
+        email: このメールアドレスにログインリンクをお送りします。
     create:
       title: ログイン
       guide: ログインメールを送信しました。

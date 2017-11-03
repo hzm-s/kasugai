@@ -18,6 +18,7 @@
 .frm-Help {
   @extend .form-text;
   @include nf;
+  font-size: $font-size-sm;
   color: $gray-800;
 }
 
