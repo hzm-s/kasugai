@@ -31,7 +31,7 @@ describe 'メールアドレスで登録する' do
         fill_in 'form[email]', with: email
       end
 
-      expect(page).to have_content('ログイン確認メールを送信しました。')
+      expect(page).to have_content('ログインメールを送信しました。')
 
       open_email(email)
       current_email.click_link 'ログインする'
@@ -96,7 +96,7 @@ describe 'メールアドレスで登録する' do
       visit new_sign_up_path
       yield
       perform_enqueued_jobs do
-        click_on '登録する'
+        click_on '続ける'
       end
     end
 end

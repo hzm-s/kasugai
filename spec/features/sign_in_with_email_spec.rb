@@ -9,7 +9,7 @@ describe 'メールでログイン' do
         fill_in 'form[email]', with: user.email
       end
 
-      expect(page).to have_content('ログイン確認メールを送信しました。')
+      expect(page).to have_content('ログインメールを送信しました。')
 
       open_email(user.email)
       current_email.click_link 'ログインする'
@@ -86,7 +86,7 @@ describe 'メールでログイン' do
       visit new_sign_in_path
       yield
       perform_enqueued_jobs do
-        click_on 'ログインする'
+        click_on '続ける'
       end
     end
 end

@@ -4,6 +4,7 @@
   }
 
   .invalid-feedback {
+    @include nf;
     display: block;
     color: theme-color('danger') !important;
   }

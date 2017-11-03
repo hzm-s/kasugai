@@ -1,7 +1,7 @@
 ja:
   sign_ups:
     new:
-      submit: 登録する
+      submit: 続ける
     create:
       title: ユーザー登録
       guide: ユーザー登録確認メールを送信しました。
@@ -13,10 +13,10 @@ ja:
 
   sign_ins:
     new:
-      submit: ログインする
+      submit: 続ける
     create:
       title: ログイン
-      guide: ログイン確認メールを送信しました。
+      guide: ログインメールを送信しました。
 
   sessions:
     error:
