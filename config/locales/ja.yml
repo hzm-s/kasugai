@@ -147,6 +147,7 @@ ja:
       submit: 保存する
       update: 更新する
   navs:
+    ok: OK
     error: エラー
     sign_up: ユーザー登録
     sign_in: ログイン

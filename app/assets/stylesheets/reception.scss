@@ -30,6 +30,38 @@
   text-align: left;
 }
 
+.rcpt-Main_Message {
+  @include nf;
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+  background-color: lighten($green, 55%);
+  border-radius: .2rem;
+  padding: 1rem;
+}
+
+.rcpt-Main_Help {
+  @include nf;
+  color: $body-color-sub;
+  font-size: $font-size-base;
+  margin-bottom: 1rem;
+}
+
+.rcpt-Main_Link {
+  @include pill;
+  @include xxunderline($white, $white);
+  background-color: $link-color;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background-color: darken($link-color, 15%);
+  }
+
+  &:after {
+    @include fa-content('\f00c');
+    margin-left: .5rem;
+  }
+}
+
 .rcpt-Error_Message {
   @include nf;
   font-size: $font-size-lg;

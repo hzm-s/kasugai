@@ -1,6 +1,20 @@
-<h1>
-  <%=t '.title' %>
-</h1>
-<p>
-  <%=t '.guide' %>
-</p>
+<div class="row">
+  <div class="col-sm-22 col-lg-12 mx-auto">
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t 'navs.sign_in' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body">
+        <h2 class="rcpt-Main_Message">
+          <%=t '.message' %>
+        </h2>
+        <p class="rcpt-Main_Help">
+          <%=t '.help' %>
+        </p>
+        <%= link_to t('navs.ok'), root_url, class: 'rcpt-Main_Link' %>
+      </div>
+    </div>
+  </div>
+</div>
