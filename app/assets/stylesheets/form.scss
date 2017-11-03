@@ -15,6 +15,12 @@
   color: $body-color-sub;
 }
 
+.frm-Help {
+  @extend .form-text;
+  @include nf;
+  color: $gray-800;
+}
+
 .frm-InlineInput {
   @extend .form-control;
 
