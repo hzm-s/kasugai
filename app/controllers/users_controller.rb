@@ -1,8 +1,7 @@
-class SessionsController < ApplicationController
-  layout 'public'
+class UsersController < ApplicationController
 
   def create
-    result = GuestService.sign_in(params[:token])
+    result = GuestService.sign_up(params[:token])
     if result.succeeded?
       sign_in(result.user)
       redirect_to home_url

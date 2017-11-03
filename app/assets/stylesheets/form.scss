@@ -1,6 +1,25 @@
+.field_with_errors {
+  .form-control {
+    border-color: theme-color('danger');
+  }
+
+  .invalid-feedback {
+    @include nf;
+    display: block;
+    color: theme-color('danger') !important;
+  }
+}
+
 .frm-Label {
   font-weight: bold;
   color: $body-color-sub;
+}
+
+.frm-Help {
+  @extend .form-text;
+  @include nf;
+  font-size: $font-size-sm;
+  color: $gray-800;
 }
 
 .frm-InlineInput {

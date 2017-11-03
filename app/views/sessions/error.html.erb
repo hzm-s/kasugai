@@ -1,0 +1,3 @@
+<%= render layout: 'layouts/error', locals: { message: t('.message'), help: t('.help') } do -%>
+  <%= link_to t('navs.retry'), new_sign_in_url, class: 'rcpt-Error_Retry' %>
+<% end -%>

@@ -35,5 +35,10 @@ describe 'Find SignUp' do
         expect(SignUp.find_available(sign_up.token)).to be_nil
       end
     end
+
+    it 'トークンが違う' do
+      sign_up = SignUp.create!(name: 'name', email: 'email')
+      expect(SignUp.find_available("#{sign_up.token}x")).to be_nil
+    end
   end
 end

@@ -110,7 +110,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: 入力してください
+      blank: を入力してください
       present: は入力しないでください
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
@@ -133,7 +133,7 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
-      invalid_email_address: 正しいメールアドレスではありません
+      invalid_email_address: は正しいメールアドレスではありません
     template:
       body: 次の項目を確認してください
       header:
@@ -146,6 +146,13 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+  navs:
+    ok: OK
+    error: エラー
+    sign_up: ユーザー登録
+    sign_in: ログイン
+    sign_out: ログアウト
+    retry: やり直す
   number:
     currency:
       format:

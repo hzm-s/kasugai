@@ -10,6 +10,12 @@
   font-size: 2rem;
 }
 
+.nav-Global_AppName {
+  @extend .navbar-brand;
+  @include xxunderline;
+  font-weight: bold;
+}
+
 .nav-Global_Link {
   @extend .nav-link;
   @include xunderline($body-color-sub);

@@ -3,18 +3,11 @@
     <div class="rcpt-Main">
       <div class="rcpt-Main_Header">
         <h1 class="rcpt-Main_Title">
-          <%=t 'navs.sign_up' %>
+          <%=t 'navs.sign_in' %>
         </h1>
       </div>
       <div class="rcpt-Main_Body-left">
-        <%= form_with model: @form, scope: :form, url: sign_ups_url, local: true do |f| -%>
-          <div class="form-group">
-            <%= f.label :name, class: 'frm-Label' %>
-            <%= f.text_field :name, class: 'form-control' %>
-            <small class="frm-Help">
-              <%=t '.helps.name' %>
-            </small>
-          </div>
+        <%= form_with model: @form, scope: :form, url: sign_ins_url, local: true do |f| -%>
           <div class="form-group">
             <%= f.label :email, class: 'frm-Label' %>
             <%= f.text_field :email, class: 'form-control' %>

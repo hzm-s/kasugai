@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
 
-  resources :sign_ups, param: :token, only: [:new, :create] do
-    get :verify, on: :member
-  end
+  get '/sign_up/:token', to: 'users#create', as: :verify_sign_up
+  resources :sign_ups, param: :token, only: [:new, :create]
 
   get '/sign_in/:token', to: 'sessions#create', as: :sign_in
+  resources :sign_ins, only: [:new, :create]
 
   resource :home, only: [:show]
 

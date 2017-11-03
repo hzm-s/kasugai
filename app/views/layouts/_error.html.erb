@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-22 col-lg-12 mx-auto">
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t 'navs.error' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body">
+        <h2 class="rcpt-Error_Message">
+          <%= message %>
+        </h2>
+        <p class="rcpt-Error_Help">
+          <%= help %>
+        </p>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>

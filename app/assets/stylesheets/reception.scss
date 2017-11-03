@@ -1,0 +1,95 @@
+.rcpt-Main {
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+}
+
+.rcpt-Main_Header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $gray-300;
+}
+
+.rcpt-Main_Title {
+  font-size: $font-size-base;
+  margin: 0;
+
+  &:before {
+    @include fa-content('\f1db');
+    color: $gray-500;
+  }
+}
+
+.rcpt-Main_Body {
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.rcpt-Main_Body-left {
+  padding: 1.5rem 2rem;
+  text-align: left;
+}
+
+.rcpt-Main_Message {
+  @include nf;
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+  background-color: lighten($green, 55%);
+  border-radius: .2rem;
+  padding: 1rem;
+}
+
+.rcpt-Main_Help {
+  @include nf;
+  color: $body-color-sub;
+  font-size: $font-size-base;
+  margin-bottom: 1rem;
+}
+
+.rcpt-Main_Link {
+  @include pill;
+  @include xxunderline($white, $white);
+  background-color: $link-color;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background-color: darken($link-color, 15%);
+  }
+
+  &:after {
+    @include fa-content('\f00c');
+    margin-left: .5rem;
+  }
+}
+
+.rcpt-Error_Message {
+  @include nf;
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+  background-color: $gray-100;
+  border-radius: .2rem;
+  padding: 1rem;
+}
+
+.rcpt-Error_Help {
+  @include nf;
+  color: $body-color-sub;
+  font-size: $font-size-base;
+  margin-bottom: 1rem;
+}
+
+.rcpt-Error_Retry {
+  @include pill;
+  @include xxunderline($white, $white);
+  background-color: $link-color;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background-color: darken($link-color, 15%);
+  }
+
+  &:after {
+    @include fa-content('\f112');
+    margin-left: .5rem;
+  }
+}
