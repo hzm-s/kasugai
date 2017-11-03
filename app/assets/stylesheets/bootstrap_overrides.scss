@@ -6,6 +6,15 @@ $body-color-sub: #6F6D67;
   border-width: 0 0 $width 0;
 }
 
+.btn:disabled {
+  opacity: 1;
+  animation: btn-bg .5s ease-in-out infinite alternate;
+}
+@keyframes btn-bg {
+  0% { background-color: lighten($green, 3%); }
+  100% { background-color: darken($green, 3%); }
+}
+
 .btn,
 .btn-sm,
 .btn-lg {
