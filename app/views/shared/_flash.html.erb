@@ -1,12 +1,13 @@
 <% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
+  <% if msg.is_a?(String) -%>
     <% alert_type = name == 'notice' ? 'success' : 'danger' %>
-    <div id="flash" class="alert alert-<%= alert_type %> alert-dismissible fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <div id="flash" class="alert sw-Flash sw-Flash-<%= alert_type %> alert-dismissible" role="alert">
+      <div class="sw-Flash_Message">
+        <%= msg %>
+      </div>
+      <a href="#" class="sw-Flash_Close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
-        <span class="sr-only">Close</span>
-      </button>
-      <span id="flash-message"><i class="i-<%= alert_type %>"></i> <%= msg %></span>
+      </a>
     </div>
-  <% end %>
+  <% end -%>
 <% end %>
