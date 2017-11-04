@@ -1,0 +1,40 @@
+.usr-Profile_Title {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.usr-Page_Body {
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  border-radius: .3rem;
+  box-shadow: 0 0 10px $gray-500;
+}
+
+.usr-Avatar_Wrapper {
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+
+.usr-Avatar_Image {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  padding: .25rem;
+  border: 1px solid $gray-300;
+}
+
+.usr-Avatar_ChangeLink {
+  display: block;
+  font-size: $font-size-sm;
+}
+
+.usr-Profile_Divider {
+  margin: 0;
+}
+
+.usr-Information_Wrapper {
+  padding-top: 1rem;
+}
