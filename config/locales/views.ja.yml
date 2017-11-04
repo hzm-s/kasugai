@@ -1,4 +1,8 @@
 ja:
+  shared:
+    user_menu:
+      edit_profile: プロフィールを変更する
+
   sign_ups:
     new:
       submit: 続ける

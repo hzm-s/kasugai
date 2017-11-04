@@ -23,7 +23,7 @@
 }
 
 .nav-Global_UserMenuTrigger {
-  @extend .nav-link, .dropdown-toggle;
+  @extend .nav-item, .nav-link, .dropdown-toggle;
   @include xxunderline;
 }
 
@@ -36,4 +36,19 @@
 .nav-Global_UserLink {
   @extend .dropdown-item;
   @include xxunderline($gray-800);
+}
+
+.nav-User_Name {
+  @extend .dropdown-header;
+  @include nf;
+  font-size: $font-size-base;
+  margin: 0;
+}
+
+.nav-UserIcon_Profile {
+  @extend .fa, .fa-address-card-o;
+}
+
+.nav-UserIcon_SignOut {
+  @extend .fa, .fa-sign-out;
 }

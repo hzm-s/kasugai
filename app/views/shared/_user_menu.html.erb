@@ -1,0 +1,22 @@
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item dropdown">
+    <a class="nav-Global_UserMenuTrigger" href="#" id="navUserMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= image_tag 'avatars/user_b.png', class: 'nav-Global_UserAvatar' %>
+    </a>
+    <div style="margin-right:.25rem;" class="dropdown-menu" aria-labelledby="navUserMenuLink">
+      <h5 class="nav-User_Name">
+        <%= current_user.name %>
+      </h5>
+      <div class="dropdown-divider"></div>
+      <a class="nav-Global_UserLink" href="#">
+        <i class="nav-UserIcon_Profile"></i>
+        <%=t '.edit_profile' %>
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="nav-Global_UserLink" href="#">
+        <i class="nav-UserIcon_SignOut"></i>
+        <%=t 'navs.sign_out' %>
+      </a>
+    </div>
+  </li>
+</ul>
