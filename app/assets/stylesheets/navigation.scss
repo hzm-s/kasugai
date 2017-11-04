@@ -27,18 +27,6 @@
   @include xxunderline;
 }
 
-.nav-Global_UserAvatar {
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 50%;
-}
-
-.nav-Global_UserAvatar-auto {
-  @include avatar(1.75rem);
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .nav-Global_UserLink {
   @extend .dropdown-item;
   @include xxunderline($gray-800);

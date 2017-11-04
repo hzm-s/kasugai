@@ -75,3 +75,9 @@
     font-weight: bold;
   }
 }
+
+@mixin circle-image($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}

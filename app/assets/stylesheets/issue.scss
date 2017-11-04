@@ -13,17 +13,11 @@
   padding: 1.5rem 3rem;
 }
 
-.iss-Detail_CreatorAvator {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  margin-right: .25rem;
-}
-
 .iss-Detail_Creation {
   @include nf;
   color: $body-color-sub;
   font-size: $font-size-sm;
+  margin-left: .25rem;
 }
 
 .iss-Detail_Bookmark {
