@@ -68,8 +68,10 @@
                 <% 5.times do %>
                   <% time = [('09'..'20').to_a.sample, ('00'..'59').to_a.sample].join(':') %>
                   <p class="tl-Item">
-                    <%= image_tag 'avatars/user_a.png', class: 'tl-Item_Avatar' %>
-                    末吉 哉が
+                    <%= image_tag 'avatars/user_a.png', class: 'sw-Avatar-sm' %>
+                    <span class="tl-Item_Actor">
+                      末吉 哉が
+                    </span>
                     <%= link_to '管理画面の操作ログ', page_url(:issue_detail), class: 'tl-Item_Link' %>
                     にコメントしました
                     <span class="tl-Item_Time">

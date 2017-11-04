@@ -57,3 +57,22 @@
     margin-left: .5rem;
   }
 }
+
+.sw-Avatar {
+  @include circle-image(1.75rem);
+}
+.sw-AutoAvatar {
+  @include avatar(1.75rem);
+}
+.sw-Avatar-sm {
+  @include circle-image(1.25rem);
+}
+.sw-AutoAvatar-sm {
+  @include avatar(1.25rem);
+}
+.sw-Avatar-lg {
+  @include circle-image(2.25rem);
+}
+.sw-AutoAvatar-lg {
+  @include avatar(2.25rem);
+}
