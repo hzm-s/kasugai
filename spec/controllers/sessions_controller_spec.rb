@@ -21,9 +21,7 @@ describe SessionsController do
     context 'ログイン済み' do
       it do
         sign_in(user.email)
-
-        get :create, params: { token: get_sign_in_token(user.email) }
-
+        get :create, params: { token: 'dummy' }
         expect_already_signed_in
       end
     end
