@@ -32,27 +32,3 @@ body {
   transform: translate(-50%, -50%);
   margin: 0;
 }
-
-.sw-Flash_Message {
-  @include nf;
-  margin-right: .75rem;
-}
-
-.sw-Flash_Close {
-  @include xxunderline($gray-200, $white);
-  font-size: 1.25rem;
-  font-weight: bold;
-  opacity: .8;
-}
-
-.sw-Flash {
-  @extend .d-flex, .align-items-center;
-  @include pill;
-  padding: .25rem 1rem .25rem 1.25rem;
-  background-color: rgba(0,0,0,.7);
-  color: $white;
-}
-
-.sw-Flash-success {
-  box-shadow: 0 0 7px theme-color('success');
-}
