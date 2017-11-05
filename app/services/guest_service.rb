@@ -16,9 +16,13 @@ class GuestService < ApplicationService
     return failure(not_signed_up?: false, params: params) unless params.valid?
     return failure(not_signed_up?: true) unless signed_up?(params.email)
 
-    sign_in = SignIn.create!(email: params.email)
+    sign_in = start_sign_in_by_email(params.email)
     @mailer.sign_in(sign_in).deliver_later!
     success(sign_up?: false)
+  end
+
+  def start_sign_in_by_email(email)
+    SignIn.create!(email: email)
   end
 
   def start_sign_up(params)
