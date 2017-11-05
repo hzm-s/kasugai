@@ -149,7 +149,7 @@ ja:
   navs:
     ok: OK
     error: エラー
-    sign_up: ユーザー登録
+    sign_up: アカウント作成
     sign_in: ログイン
     sign_out: ログアウト
     retry: やり直す

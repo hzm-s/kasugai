@@ -3,8 +3,8 @@ ja:
     sign_up:
       subject: 'Kasugai - ようこそ'
       user: '%{name}さん'
-      message: 'ユーザー登録の準備ができました。'
-      link_text: 'こちらから登録を完了してください'
+      message: 'アカウント作成の準備ができました。'
+      link_text: 'アカウントを作成する'
     sign_in:
       subject: 'Kasugai - ログイン'
       message: 'ログインしてください'
