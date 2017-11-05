@@ -1,6 +1,8 @@
 class SignUpsController < ApplicationController
   layout 'public'
 
+  before_action :ensure_signed_out
+
   def new
     @form = SignUpForm.new
   end

@@ -1,2 +1,0 @@
-class Credential < ApplicationRecord
-end

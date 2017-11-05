@@ -5,7 +5,20 @@ class ApplicationController < ActionController::Base
 
   private
 
+    def ensure_signed_in
+      unless signed_in?
+        redirect_to new_sign_in_url, alert: t('navs.messages.ensure_signed_in')
+      end
+    end
+
+    def ensure_signed_out
+      if signed_in?
+        redirect_to home_url, notice: t('navs.messages.already_signed_in')
+      end
+    end
+
     def sign_in(user)
+      reset_session
       session[:user_id] = user.id
     end
 

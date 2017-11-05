@@ -14,7 +14,7 @@ class SignUp < ApplicationRecord
 
   def complete
     User.new(name: name) do |u|
-      u.build_credential(email: email)
+      u.build_account(email: email)
       u.save!
     end
   end
