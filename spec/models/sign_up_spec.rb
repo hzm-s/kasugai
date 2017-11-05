@@ -22,4 +22,25 @@ describe SignUp do
       end
     end
   end
+
+  describe '.sweep' do
+    it do
+      now = Time.current
+      Timecop.freeze(Time.zone.parse('2017-01-23 00:00:00')) do
+        SignUp.create!(name: 'name', email: 'email')
+      end
+      Timecop.freeze(Time.zone.parse('2017-01-23 00:15:00')) do
+        expect { SignUp.sweep }.to change { SignUp.count }.by(0)
+      end
+    end
+
+    it do
+      Timecop.freeze(Time.zone.parse('2017-01-23 00:00:00')) do
+        SignUp.create!(name: 'name', email: 'email')
+      end
+      Timecop.freeze(Time.zone.parse('2017-01-23 00:15:01')) do
+        expect { SignUp.sweep }.to change { SignUp.count }.by(-1)
+      end
+    end
+  end
 end
