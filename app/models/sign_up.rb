@@ -14,6 +14,7 @@ class SignUp < ApplicationRecord
 
   def complete
     User.new(name: name) do |u|
+      u.initials = email[0..1].upcase
       u.build_account(email: email)
       u.save!
     end
