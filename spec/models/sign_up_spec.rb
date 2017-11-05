@@ -7,7 +7,8 @@ describe SignUp do
     let(:sign_up) { SignUp.create!(name: name, email: email) }
 
     it do
-      expect { sign_up.complete }.to change { User.count }.by(1)
+      expect { sign_up.complete }
+        .to change { User.count }.by(1)
     end
 
     it do
