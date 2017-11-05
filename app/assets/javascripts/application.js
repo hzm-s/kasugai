@@ -17,7 +17,7 @@
 //= require bootstrap
 //= require_tree .
 
-var loading = function() {
+var setupLoading = function() {
   $('[data-behavior="loader"]').each(function(i, el) {
     var width = $(el).outerWidth();
     $(el).on('click', function(e) {
@@ -26,6 +26,11 @@ var loading = function() {
   });
 }
 
+var setupFlash = function() {
+  $('.sw-Flash-success').delay(3000).fadeOut(200, function() { $(this).remove(); });
+}
+
 $(document).on('turbolinks:load', function() {
-  loading();
+  setupLoading();
+  setupFlash();
 });

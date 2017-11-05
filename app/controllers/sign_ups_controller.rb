@@ -1,6 +1,4 @@
 class SignUpsController < ApplicationController
-  include GuestHandler
-
   layout 'public'
 
   def new
@@ -11,7 +9,7 @@ class SignUpsController < ApplicationController
     form = SignUpForm.new(form_params)
     result = GuestService.accept(form)
     if result.succeeded?
-      render_success_to_sign_up_or_in(result)
+      render_sign_up_or_in(result)
     else
       @form = result.params
       render :new
@@ -22,5 +20,13 @@ class SignUpsController < ApplicationController
 
     def form_params
       params.require(:form).permit(:name, :email)
+    end
+
+    def render_sign_up_or_in(result)
+      if result.sign_up?
+        render :create
+      else
+        render template: 'sign_ins/create'
+      end
     end
 end

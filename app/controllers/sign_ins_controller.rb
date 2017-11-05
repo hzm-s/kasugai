@@ -1,6 +1,4 @@
 class SignInsController < ApplicationController
-  include GuestHandler
-
   layout 'public'
 
   def new
@@ -9,12 +7,11 @@ class SignInsController < ApplicationController
 
   def create
     form = SignInForm.new(form_params)
-    result = GuestService.accept(form)
+    result = GuestService.start_sign_in(form)
     if result.succeeded?
-      render_success_to_sign_up_or_in(result)
+      render
     else
-      @form = result.params
-      render :new
+      render_error(result)
     end
   end
 
@@ -22,5 +19,14 @@ class SignInsController < ApplicationController
 
     def form_params
       params.require(:form).permit(:email)
+    end
+
+    def render_error(result)
+      if result.not_signed_up?
+        redirect_to new_sign_up_url, notice: t('sign_ins.new.helps.not_signed_up')
+      else
+        @form = result.params
+        render :new
+      end
     end
 end

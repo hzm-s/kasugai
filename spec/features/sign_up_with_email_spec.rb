@@ -1,26 +1,26 @@
 require 'rails_helper'
 
-describe 'メールアドレスで登録する' do
+describe 'メールアドレスでアカウント作成する' do
   let(:name) { 'ユーザーA' }
   let(:email) { 'user.a@gmail.com' }
 
-  context '未登録の場合' do
+  context '未作成の場合' do
     it do
       submit_form do
         fill_in 'form[name]', with: name
         fill_in 'form[email]', with: email
       end
 
-      expect(page).to have_content('ユーザー登録確認メールを送信しました。')
+      expect(page).to have_content('アカウント作成確認メールを送信しました。')
 
       open_email(email)
-      current_email.click_link 'こちらから登録を完了してください'
+      current_email.click_link 'アカウントを作成する'
 
       expect(page).to have_content(name)
     end
   end
 
-  context '登録済みの場合' do
+  context 'アカウント作成済みの場合' do
     before do
       sign_up(name: name, email: email)
     end
@@ -62,7 +62,7 @@ describe 'メールアドレスで登録する' do
 
       Timecop.travel(now + 15.minutes + 1.second) do
         open_email(email)
-        current_email.click_link 'こちらから登録を完了してください'
+        current_email.click_link 'アカウントを作成する'
       end
 
       expect(page).to have_content('もう一度お試しください')
@@ -85,7 +85,7 @@ describe 'メールアドレスで登録する' do
       open_email(email)
       mail2 = current_email
 
-      mail1.click_link 'こちらから登録を完了してください'
+      mail1.click_link 'アカウントを作成する'
       expect(page).to have_content('もう一度お試しください')
     end
   end

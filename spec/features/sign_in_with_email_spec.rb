@@ -26,12 +26,7 @@ describe 'メールでログイン' do
         fill_in 'form[email]', with: email
       end
 
-      expect(page).to have_content('ユーザー登録確認メールを送信しました。')
-
-      open_email(email)
-      current_email.click_link 'こちらから登録を完了してください'
-
-      expect(page).to have_content(email)
+      expect(page).to have_content('ユーザー登録をお願いします')
     end
   end
 
