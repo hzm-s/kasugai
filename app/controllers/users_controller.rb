@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_signed_out
 
   def create
     result = GuestService.sign_up(params[:token])
