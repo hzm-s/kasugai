@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'メールでログイン' do
   let(:user) { sign_up }
 
-  context '登録済みの場合' do
+  context 'アカウント作成済みの場合' do
     it do
       submit_form do
         fill_in 'form[email]', with: user.email
@@ -18,7 +18,7 @@ describe 'メールでログイン' do
     end
   end
 
-  context '未登録の場合' do
+  context 'アカウント未作成の場合' do
     let(:email) { 'user.a@gmail.com' }
 
     it do
@@ -26,7 +26,7 @@ describe 'メールでログイン' do
         fill_in 'form[email]', with: email
       end
 
-      expect(page).to have_content('ユーザー登録をお願いします')
+      expect(page).to have_content('アカウントを作成してください')
     end
   end
 
