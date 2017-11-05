@@ -153,6 +153,7 @@ ja:
     sign_in: ログイン
     sign_out: ログアウト
     retry: やり直す
+    already_signed_in: ログインしています
   number:
     currency:
       format:

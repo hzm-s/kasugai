@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/sign_in/:token', to: 'sessions#create', as: :sign_in
   resources :sign_ins, only: [:new, :create]
 
-  resource :home, only: [:show]
+  get '/home', to: 'home#show', as: :home
 
   # ui
   resources :pages, only: [:index, :show]

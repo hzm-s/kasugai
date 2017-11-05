@@ -5,7 +5,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+    def ensure_signed_out
+      if signed_in?
+        redirect_to home_url, notice: t('navs.already_signed_in')
+      end
+    end
+
     def sign_in(user)
+      reset_session
       session[:user_id] = user.id
     end
 
