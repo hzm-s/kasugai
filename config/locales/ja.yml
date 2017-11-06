@@ -143,7 +143,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: 作成する
       submit: 保存する
       update: 更新する
   navs:
@@ -153,6 +153,7 @@ ja:
     sign_in: ログイン
     sign_out: ログアウト
     retry: やり直す
+    cancel: キャンセル
     messages:
       already_signed_in: ログインしています
       ensure_signed_in: ログインしてください

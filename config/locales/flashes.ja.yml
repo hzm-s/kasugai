@@ -6,3 +6,6 @@ ja:
 
     sessions:
       destroy: ログアウトしました
+
+    projects:
+      create: プロジェクトを作成しました

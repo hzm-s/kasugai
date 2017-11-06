@@ -32,3 +32,7 @@ ja:
     error:
       message: ログインできませんでした
       help: もう一度お試しください。
+
+  projects:
+    new:
+      title: 新しいプロジェクト
