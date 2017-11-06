@@ -1,11 +1,32 @@
-<%= form_with model: @form, scope: :form, url: profile_url, method: :patch, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :initials %>
-    <%= f.text_field :initials, id: :form_initials, class: 'form-control' %>
+<div class="row">
+  <div class="col-sm-22 col-lg-10 mx-auto">
+    <div class="usr-Page_Header">
+      <h1 class="usr-Profile_Title">
+        プロフィール
+      </h1>
+    </div>
+    <div class="usr-Page_Body">
+      <div class="usr-Avatar_Wrapper">
+        <div class="usr-AutoAvatar">
+          <span class="initials">
+            <%= current_user.initials %>
+          </span>
+        </div>
+      </div>
+      <hr class="usr-Profile_Divider">
+      <div class="usr-Information_Wrapper">
+        <%= form_with model: @form, scope: :form, url: profile_url, method: :patch, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :initials, class: 'frm-Label' %>
+            <%= f.text_field :initials, id: :form_initials, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, class: 'frm-Label' %>
+            <%= f.text_field :name, id: :form_name, class: 'form-control' %>
+          </div>
+          <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
+        <% end -%>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, id: :form_name, class: 'form-control' %>
-  </div>
-  <%= f.submit t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
-<% end -%>
+</div>
