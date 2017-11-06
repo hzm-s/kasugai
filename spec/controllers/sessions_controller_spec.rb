@@ -26,4 +26,23 @@ describe SessionsController do
       end
     end
   end
+
+  describe '#destroy' do
+    let(:user) { sign_up }
+
+    context '未ログイン' do
+      it do
+        delete :destroy
+        expect_ensure_signed_in
+      end
+    end
+
+    context 'ログイン済み' do
+      it do
+        sign_in(user)
+        delete :destroy
+        expect(session[:user_id]).to be_nil
+      end
+    end
+  end
 end

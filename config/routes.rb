@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/sign_in/:token', to: 'sessions#create', as: :sign_in
   resources :sign_ins, only: [:new, :create]
 
+  delete '/sign_out', to: 'sessions#destroy', as: :sign_out
+
   get '/home', to: 'home#show', as: :home
 
   get '/profile/edit', to: 'profile#edit', as: :edit_profile

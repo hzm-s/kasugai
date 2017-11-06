@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  before_action :ensure_signed_in
 
   def edit
     @form = EditProfileForm.fill(current_user)
