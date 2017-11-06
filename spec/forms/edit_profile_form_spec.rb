@@ -41,4 +41,16 @@ describe EditProfileForm do
     expect(form).to_not be_valid
     expect(form.errors[:initials]).to include('は英字のみ入力できます')
   end
+
+  it do
+    form = described_class.new(valid.merge(name: ''))
+    expect(form).to_not be_valid
+    expect(form.errors[:name]).to include('を入力してください')
+  end
+
+  it do
+    form = described_class.new(valid.merge(name: 'あ' * 101))
+    expect(form).to_not be_valid
+    expect(form.errors[:name]).to include('は100文字以内で入力してください')
+  end
 end

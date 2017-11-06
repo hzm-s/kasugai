@@ -8,6 +8,10 @@ class EditProfileForm
     length: { is: 2 },
     format: { with: /[A-Za-z]/, message: I18n.t('errors.messages.not_an_alphabetic') }
 
+  validates :name,
+    presence: true,
+    length: { maximum: 100 }
+
   def self.fill(user)
     new(
       initials: user.initials,
