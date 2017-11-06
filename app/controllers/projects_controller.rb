@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @projects = Project.for_user(current_user.id)
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
     @form = ProjectForm.new
   end
