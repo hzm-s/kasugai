@@ -12,3 +12,7 @@ ja:
       edit_profile_form:
         initials: イニシャル
         name: 名前
+
+  errors:
+    messages:
+      not_an_alphabetic: は英字のみ入力できます
