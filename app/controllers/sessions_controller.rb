@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   layout 'public'
 
   before_action :ensure_signed_out, only: [:new, :create]
+  before_action :ensure_signed_in, only: [:destroy]
 
   def create
     result = GuestService.sign_in(params[:token])
