@@ -9,4 +9,8 @@ class Project < ApplicationRecord
         .order(:created_at)
     end
   end
+
+  def member?(user)
+    members.any? { |member| member.same_user?(user) }
+  end
 end

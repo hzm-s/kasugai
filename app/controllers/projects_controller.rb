@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :ensure_signed_in
+  before_action :ensure_project_member, only: [:show]
 
   def index
     @projects = Project.for_user(current_user.id)
@@ -28,5 +29,12 @@ class ProjectsController < ApplicationController
 
     def form_params
       params.require(:form).permit(:name, :description)
+    end
+
+    def ensure_project_member
+      project = Project.find(params[:id])
+      unless project.member?(current_user)
+        redirect_to projects_url
+      end
     end
 end
