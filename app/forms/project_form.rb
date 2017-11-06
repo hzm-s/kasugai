@@ -4,5 +4,9 @@ class ProjectForm
   attr_accessor :name, :description
 
   validates :name,
-    presence: true
+    presence: true,
+    length: { maximum: 50 }
+
+  validates :description,
+    length: { maximum: 100 }
 end
