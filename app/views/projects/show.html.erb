@@ -9,39 +9,20 @@
           <%= @project.description %>
         </p>
         <hr class="prj-TopNavDivider">
-        <div class="prj-TopNav">
-          <%= link_to '課題リスト', page_url(:issue_list), class: 'prj-TopNav_Link' %>
-          <%= link_to 'メンバー管理', page_url(:manage_project_members), class: 'prj-TopNav_Link' %>
-          <%= link_to '設定', page_url(:project_setting), class: 'prj-TopNav_Link' %>
-        </div>
       </div>
     </div>
   </div>
+  <!--
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
       <div class="prj-BookmarkedIssues">
         <h3 class="prj-BookmarkedIssues_Title">
-          ブックマークした課題
+          <%=#t '.bookmarked_issues' %>
         </h3>
         <div class="prj-BookmarkedIssues_Body">
-          <% 3.times do %>
-            <div class="issl-BookmarkedItem">
-              <div class="issl-BookmarkedItem_Body">
-                <%= link_to page_url(:issue_detail), class: 'issl-BookmarkedItem_Content' do %>
-                  管理画面の操作ログ
-                <% end -%>
-                <%= link_to '', class: 'issl-BookmarkedItem_Bookmark' do %>
-                  <i class="iss-Bookmark iss-Bookmark-on"></i>
-                <% end -%>
-              </div>
-              <%= link_to '3コメント', '#', class: 'issl-BookmarkedItem_CommentCount' %>
-              <span class="issl-BookmarkedItem_UpdatedAt">
-                2時間前に更新
-              </span>
-            </div>
-          <% end -%>
         </div>
       </div>
     </div>
   </div>
+  -->
 </div>

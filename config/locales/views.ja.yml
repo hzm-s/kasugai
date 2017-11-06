@@ -43,3 +43,5 @@ ja:
       blank: まだプロジェクトはありません
     new:
       title: 新しいプロジェクト
+    show:
+      bookmarked_issues: ブックマークした課題
