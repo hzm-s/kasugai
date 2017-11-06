@@ -1,5 +1,6 @@
 module ApplicationHelper
   WEB_FONT_URL = 'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css'.freeze
+  LOADING_ICON = '<i class="fa fa-spinner fa-spin"></i>'.freeze
 
   def web_font_link_tag
     return if Rails.env.test?
@@ -9,7 +10,11 @@ module ApplicationHelper
   def loading_indicator(options = {})
     options.merge({
       behavior: 'loader',
-      disable_with: '<i class="fa fa-spinner fa-spin"></i>'.html_safe
+      disable_with: LOADING_ICON.html_safe
     })
+  end
+
+  def loading_partial
+    "<div>#{LOADING_ICON} loading ...</div>".html_safe
   end
 end

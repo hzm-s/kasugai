@@ -1,0 +1,12 @@
+<div class="prj-BookmarkedIssues">
+  <h3 class="prj-BookmarkedIssues_Title">
+    <%=t '.title' %>
+  </h3>
+  <%= render layout: 'shared/blank', locals: { message: t('.blank') } do %>
+    <div class="prj-BookmarkedIssues_Body">
+      <% 3.times do %>
+        <%= render partial: 'project/bookmarked_issues/sample_issue' %>
+      <% end %>
+    </div>
+  <% end -%>
+</div>

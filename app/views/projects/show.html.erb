@@ -14,18 +14,9 @@
   </div>
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
-      <div class="prj-BookmarkedIssues">
-        <h3 class="prj-BookmarkedIssues_Title">
-          <%=t '.bookmarked_issues' %>
-        </h3>
-        <%= render layout: 'shared/blank', locals: { message: 'not bookmarked issues' } do %>
-          <div class="prj-BookmarkedIssues_Body">
-            <% 3.times do %>
-              <%= render partial: 'projects/bookmarked_issues/sample_issue' %>
-            <% end %>
-          </div>
-        <% end -%>
-      </div>
+      <%= render_async project_bookmarked_issues_url(project_id: @project) do %>
+        <%= loading_partial %>
+      <% end -%>
     </div>
   </div>
 </div>
