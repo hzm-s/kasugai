@@ -1,5 +1,8 @@
 ja:
   shared:
+    global_nav:
+      project: プロジェクト
+
     user_menu:
       edit_profile: プロフィールを変更する
 
@@ -34,5 +37,8 @@ ja:
       help: もう一度お試しください。
 
   projects:
+    index:
+      title: あなたのプロジェクト
+      new: プロジェクトを作成する
     new:
       title: 新しいプロジェクト
