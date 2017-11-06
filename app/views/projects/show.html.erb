@@ -12,17 +12,20 @@
       </div>
     </div>
   </div>
-  <!--
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
       <div class="prj-BookmarkedIssues">
         <h3 class="prj-BookmarkedIssues_Title">
-          <%#=t '.bookmarked_issues' %>
+          <%=t '.bookmarked_issues' %>
         </h3>
-        <div class="prj-BookmarkedIssues_Body">
-        </div>
+        <%= render layout: 'shared/blank', locals: { message: 'not bookmarked issues' } do %>
+          <div class="prj-BookmarkedIssues_Body">
+            <% 3.times do %>
+              <%= render partial: 'projects/bookmarked_issues/sample_issue' %>
+            <% end %>
+          </div>
+        <% end -%>
       </div>
     </div>
   </div>
-  -->
 </div>
