@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#show', as: :home
 
+  get '/profile/edit', to: 'profile#edit', as: :edit_profile
+  patch '/profile', to: 'profile#update', as: :profile
+
   # ui
   resources :pages, only: [:index, :show]
 end

@@ -42,7 +42,7 @@ module GuestHelper
   module Feature
     def sign_in(user)
       token = get_sign_in_token(user.email)
-      visit sign_in_url(token)
+      visit sign_in_path(token)
     end
   end
 
