@@ -20,7 +20,7 @@ describe SessionsController do
 
     context 'ログイン済み' do
       it do
-        sign_in(user.email)
+        sign_in(user)
         get :create, params: { token: 'dummy' }
         expect_already_signed_in
       end

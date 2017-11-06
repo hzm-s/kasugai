@@ -39,9 +39,15 @@ module GuestHelper
     end
   end
 
+  module Feature
+    def sign_in(user)
+      token = get_sign_in_token(user.email)
+      visit sign_in_path(token)
+    end
+  end
+
   module Controller
-    def sign_in(email)
-      user = User.find_by_email(email)
+    def sign_in(user)
       session[:user_id] = user.id
     end
   end
@@ -49,5 +55,6 @@ end
 
 RSpec.configure do |c|
   c.include GuestHelper::Common
+  c.include GuestHelper::Feature, type: :feature
   c.include GuestHelper::Controller, type: :controller
 end

@@ -13,7 +13,7 @@
 
 .usr-Avatar_Wrapper {
   text-align: center;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .usr-Avatar_Image {
@@ -37,4 +37,11 @@
 
 .usr-Information_Wrapper {
   padding-top: 1rem;
+}
+
+.usr-AutoAvatar {
+  @include avatar(5rem);
+  .initials {
+    top: 5rem*0.25;
+  }
 }

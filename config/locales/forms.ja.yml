@@ -1,8 +1,18 @@
 ja:
   activemodel:
     attributes:
+
       sign_up_form:
         name: 名前
         email: メールアドレス
+
       sign_in_form:
         email: メールアドレス
+
+      edit_profile_form:
+        initials: イニシャル
+        name: 名前
+
+  errors:
+    messages:
+      not_an_alphabetic: は英字のみ入力できます

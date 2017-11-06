@@ -11,4 +11,8 @@ class User < ApplicationRecord
         .first
     end
   end
+
+  def initials=(string)
+    super(string.to_s[0..1].upcase)
+  end
 end
