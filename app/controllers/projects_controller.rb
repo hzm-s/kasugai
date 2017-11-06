@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :ensure_signed_in
 
   def index
     @projects = Project.for_user(current_user.id)
