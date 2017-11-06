@@ -41,7 +41,4 @@
 
 .usr-AutoAvatar {
   @include avatar(5rem);
-  .initials {
-    top: 5rem*0.25;
-  }
 }
