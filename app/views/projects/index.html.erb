@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-16 mx-auto">
+      <div class="prj-ListHeader">
+        <h1 class="prj-ListHeader_Title">
+          <%=t '.title' %>
+        </h1>
+        <hr class="prj-ListHeader_Divider">
+        <%= link_to t('.new'), new_project_url, class: 'sw-ButtonLink' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prjl-List">
+        <% if @projects.any? %>
+          <%= render @projects %>
+        <% else -%>
+          <%= render layout: 'shared/blank', locals: { message: t('.blank') } do %>
+            <% 3.times do %>
+              <%= render partial: 'sample_project' %>
+            <% end %>
+          <% end -%>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

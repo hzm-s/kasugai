@@ -1,0 +1,19 @@
+<div class="prjl-Project">
+  <div class="prjl-Project_Head">
+    <%= link_to project.name, '#', class: 'prjl-Project_Name' %>
+    <p class="prjl-Project_Description">
+      <%= project.description %>
+    </p>
+  </div>
+  <div class="prjl-Project_Tail">
+    <div class="prjl-Project_Members">
+      <% project.members.each do |member| %>
+        <div class="sw-AutoAvatar-sm app-member" data-user-name="<%= member.name %>">
+          <span class="initials">
+            <%= member.initials %>
+          </span>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>

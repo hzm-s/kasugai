@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'profile#edit', as: :edit_profile
   patch '/profile', to: 'profile#update', as: :profile
 
+  resources :projects, only: [:index, :new, :create]
+
   # ui
   resources :pages, only: [:index, :show]
 end

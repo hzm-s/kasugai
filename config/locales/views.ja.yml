@@ -1,5 +1,8 @@
 ja:
   shared:
+    global_nav:
+      project: プロジェクト
+
     user_menu:
       edit_profile: プロフィールを変更する
 
@@ -32,3 +35,11 @@ ja:
     error:
       message: ログインできませんでした
       help: もう一度お試しください。
+
+  projects:
+    index:
+      title: あなたのプロジェクト
+      new: プロジェクトを作成する
+      blank: まだプロジェクトはありません
+    new:
+      title: 新しいプロジェクト
