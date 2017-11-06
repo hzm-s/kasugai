@@ -13,6 +13,10 @@ ja:
         initials: イニシャル
         name: 名前
 
+      project_form:
+        name: プロジェクト名
+        description: プロジェクトの説明(任意)
+
   errors:
     messages:
       not_an_alphabetic: は英字のみ入力できます

@@ -5,13 +5,18 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @form = CreateProjectForm.new
+    @form = ProjectForm.new
   end
 
   def create
-    form = CreateProjectForm.new(form_params)
-    ProjectService.create(current_user, form)
-    redirect_to projects_url, notice: flash_message
+    form = ProjectForm.new(form_params)
+    result = ProjectService.create(current_user, form)
+    if result.succeeded?
+      redirect_to projects_url, notice: flash_message
+    else
+      @form = result.params
+      render :new
+    end
   end
 
   private

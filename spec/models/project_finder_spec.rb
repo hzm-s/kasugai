@@ -5,8 +5,8 @@ describe Project do
   let(:user_b) { sign_up }
 
   it do
-    user_a_project = ProjectService.create(user_a, CreateProjectForm.new(name: 'A'))
-    user_b_project = ProjectService.create(user_b, CreateProjectForm.new(name: 'B'))
+    user_a_project = create_project(user_a, name: 'A')
+    user_b_project = create_project(user_b, name: 'B')
 
     aggregate_failures do
       expect(described_class.for_user(user_a.id)).to eq([user_a_project])

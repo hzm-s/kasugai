@@ -1,10 +1,15 @@
 class ProjectService < ApplicationService
 
   def create(user, params)
-    id = SecureRandom.hex(8)
-    Project.new(id: id, name: params.name, description: params.description) do |p|
-      p.members.build(user_id: user.id)
-      p.save!
-    end
+    return failure(params: params) unless params.valid?
+
+    project =
+      Project.new(name: params.name, description: params.description) do |p|
+        p.id = SecureRandom.hex(8)
+        p.members.build(user_id: user.id)
+        p.save!
+      end
+
+    success(project: project)
   end
 end
