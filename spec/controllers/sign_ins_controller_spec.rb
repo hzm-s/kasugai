@@ -4,7 +4,7 @@ describe SignInsController do
   describe '#new' do
     context 'ログイン済み' do
       it do
-        sign_in(sign_up.email)
+        sign_in(sign_up)
         get :new
         expect_already_signed_in
       end
@@ -14,7 +14,7 @@ describe SignInsController do
   describe '#create' do
     context 'ログイン済み' do
       it do
-        sign_in(sign_up.email)
+        sign_in(sign_up)
         post :create, params: { dummy: 1 }
         expect_already_signed_in
       end
