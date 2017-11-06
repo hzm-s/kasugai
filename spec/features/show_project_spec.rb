@@ -8,13 +8,18 @@ describe 'プロジェクトホーム' do
 
   before do
     sign_in(user)
-    visit project_path(project)
   end
 
   it do
+    visit project_path(project)
     aggregate_failures do
       expect(find('#app-project-name')).to have_content(name)
       expect(find('#app-project-description')).to have_content(description)
     end
+  end
+
+  it do
+    visit project_path('not_exists')
+    expect(page).to have_content('あなたのプロジェクト')
   end
 end

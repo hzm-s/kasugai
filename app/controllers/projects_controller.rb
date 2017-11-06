@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :ensure_signed_in
+  before_action :ensure_project_existence, only: [:show]
   before_action :ensure_project_member, only: [:show]
 
   def index
@@ -32,7 +33,13 @@ class ProjectsController < ApplicationController
     end
 
     def current_project
-      @current_project ||= Project.find(params[:id])
+      @current_project ||= Project.find_by(id: params[:id])
+    end
+
+    def ensure_project_existence
+      unless current_project.present?
+        redirect_to projects_url
+      end
     end
 
     def ensure_project_member
