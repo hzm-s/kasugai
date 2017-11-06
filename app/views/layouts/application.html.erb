@@ -10,6 +10,7 @@
   <body>
     <%= render 'shared/global_nav' %>
     <%= render 'shared/flash' %>
+    <%= content_for :render_async %>
     <%= yield %>
   </body>
 </html>

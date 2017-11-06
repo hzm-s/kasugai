@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <div class="prj-Header">
+        <h1 class="prj-ProjectName" id="app-project-name">
+          <%= @project.name %>
+        </h1>
+        <p class="prj-Description" id="app-project-description">
+          <%= @project.description %>
+        </p>
+        <hr class="prj-TopNavDivider">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-22 col-lg-18 mx-auto">
+      <%= render_async project_bookmarked_issues_url(project_id: @project) do %>
+        <%= loading_partial %>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -58,6 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'validates_email_format_of'
 gem 'activerecord-session_store'
+gem 'render_async'
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
