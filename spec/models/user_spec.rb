@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+  describe '#initials=' do
+    it do
+      user = described_class.new
+      user.initials = 'user@example.com'
+      expect(user.initials).to eq('US')
+    end
+  end
 end
