@@ -1,4 +1,4 @@
-<%= form_with model: @form, scope: :form, url: profile_url, local: true do |f| %>
+<%= form_with model: @form, scope: :form, url: profile_url, method: :patch, local: true do |f| %>
   <div class="form-group">
     <%= f.label :initials %>
     <%= f.text_field :initials, id: :form_initials, class: 'form-control' %>
@@ -7,4 +7,5 @@
     <%= f.label :name %>
     <%= f.text_field :name, id: :form_name, class: 'form-control' %>
   </div>
+  <%= f.submit t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
 <% end -%>

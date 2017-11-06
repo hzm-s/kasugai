@@ -3,6 +3,8 @@ class EditProfileForm
 
   attr_accessor :initials, :name
 
+  validates :initials, presence: true
+
   def self.fill(user)
     new(
       initials: user.initials,

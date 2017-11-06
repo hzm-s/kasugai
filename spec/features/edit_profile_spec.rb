@@ -18,9 +18,20 @@ describe 'プロフィールの編集' do
   end
 
   it do
+    fill_in 'form[initials]', with: 'UN'
+    fill_in 'form[name]', with: 'New Username'
+    click_on '保存する'
+
     aggregate_failures do
-      expect(find('#form_initials').value).to eq('US')
-      expect(find('#form_name').value).to eq(name)
+      expect(find('#form_initials').value).to eq('UN')
+      expect(find('#form_name').value).to eq('New Username')
     end
+  end
+
+  it do
+    fill_in 'form[initials]', with: ''
+    click_on '保存する'
+
+    expect(page).to have_content('イニシャルを入力してください')
   end
 end
