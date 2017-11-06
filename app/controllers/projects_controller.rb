@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = current_project
   end
 
   def new
@@ -31,9 +31,12 @@ class ProjectsController < ApplicationController
       params.require(:form).permit(:name, :description)
     end
 
+    def current_project
+      @current_project ||= Project.find(params[:id])
+    end
+
     def ensure_project_member
-      project = Project.find(params[:id])
-      unless project.member?(current_user)
+      unless current_project.member?(current_user)
         redirect_to projects_url
       end
     end
