@@ -23,6 +23,7 @@ describe 'プロフィールの編集' do
     click_on '保存する'
 
     aggregate_failures do
+      expect(page).to have_content('プロフィールを更新しました')
       expect(find('#form_initials').value).to eq('UN')
       expect(find('#form_name').value).to eq('New Username')
     end
@@ -31,7 +32,6 @@ describe 'プロフィールの編集' do
   it do
     fill_in 'form[initials]', with: ''
     click_on '保存する'
-
     expect(page).to have_content('イニシャルを入力してください')
   end
 end
