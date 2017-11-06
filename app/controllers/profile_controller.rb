@@ -8,7 +8,7 @@ class ProfileController < ApplicationController
     form = EditProfileForm.new(form_params)
     result = ProfileService.update(current_user, form)
     if result.succeeded?
-      redirect_to edit_profile_url, notice: t('flashes.profile.update')
+      redirect_to edit_profile_url, notice: flash_message
     else
       @form = result.params
       render :edit
