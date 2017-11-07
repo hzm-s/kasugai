@@ -1,7 +1,26 @@
 <div class="row">
-  <div class="col-sm-22 col-lg-20 offset-lg-1">
-    <div class="issl-List">
-      <%= render partial: 'project/issues/summary', collection: @issues %>
+  <div class="col-sm-22 col-lg-18 mx-auto">
+    <div class="issl-Body">
+      <div class="row">
+        <div class="issl-Nav_Add">
+          <%= link_to t('.new'), new_project_issue_url(current_project), class: 'sw-ButtonLink' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-22 col-lg-20 offset-lg-1">
+          <% if @issues.any? %>
+            <div class="issl-List">
+              <%= render partial: 'project/issues/summary', collection: @issues %>
+            </div>
+          <% else -%>
+            <div class="sw-Blank">
+              <p class="sw-Blank_Message">
+                <%=t ('.blank') %>
+              </p>
+            </div>
+          <% end -%>
+        </div>
+      </div>
     </div>
   </div>
 </div>

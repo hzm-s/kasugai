@@ -19,6 +19,7 @@ ja:
 
       issue_form:
         title: タイトル
+        content: 本文
 
   errors:
     messages:

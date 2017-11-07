@@ -11,6 +11,6 @@
     <%= render 'shared/global_nav' %>
     <%= render 'shared/flash' %>
     <%= content_for :render_async %>
-    <%= yield %>
+    <%= content_for?(:page) ? yield(:page) : yield %>
   </body>
 </html>

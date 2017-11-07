@@ -1,12 +1,18 @@
-<%= form_with model: @form, scope: :form, url: project_issues_url(current_project.id), local: true do |f| %>
-  <div class="form-group">
-    <%= f.text_field :title, class: 'frm-InlineInput', placeholder: t('.placeholders.title') %>
+<div class="row">
+  <div class="col-sm-22 col-lg-16 mx-auto">
+    <div class="iss-Create">
+      <%= form_with model: @form, scope: :form, url: project_issues_url(current_project.id), local: true do |f| %>
+        <div class="form-group">
+          <%= f.text_field :title, class: 'frm-InlineInput', placeholder: t('.placeholders.title') %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :content, rows: 7, class: 'frm-InlineInput frm-InlineInput-noborder', placeholder: t('.placeholders.content') %>
+        </div>
+        <div class="frm-Actions">
+          <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
+          <%= link_to t('navs.cancel'), project_issues_url(current_project), class: 'frm-Actions_Cancel' %>
+        </div>
+      <% end -%>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.text_area :content, class: 'frm-InlineInput frm-InlineInput-noborder', placeholder: t('.placeholders.content') %>
-  </div>
-  <div class="frm-Actions">
-    <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
-    <%= link_to t('navs.cancel'), '#', class: 'frm-Actions_Cancel' %>
-  </div>
-<% end -%>
+</div>

@@ -43,8 +43,20 @@ ja:
       blank: まだプロジェクトはありません
     new:
       title: 新しいプロジェクト
+    show:
+      navs:
+        issue_list: 課題リスト
 
   project:
+    issues:
+      index:
+        new: 新しい課題を作成する
+        blank: まだ課題はありません
+      new:
+        placeholders:
+          title: 課題のタイトル
+          content: 課題の内容（省略できます）
+
     bookmarked_issues:
       index:
         title: ブックマークした課題

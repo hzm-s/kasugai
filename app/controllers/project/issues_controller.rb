@@ -1,4 +1,6 @@
 class Project::IssuesController < Project::BaseController
+  layout 'project'
+
   before_action :ensure_signed_in
   before_action :ensure_project_member
 
