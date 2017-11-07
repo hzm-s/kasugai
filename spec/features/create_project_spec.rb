@@ -17,9 +17,6 @@ describe 'プロジェクトの作成' do
       expect(page).to have_content('プロジェクトを作成しました')
       expect(page).to have_content('Project A')
       expect(page).to have_content('New project')
-
-      members = all('.app-member').map {|e| e['data-user-name'] }
-      expect(members).to match_array([user.name])
     end
   end
 
