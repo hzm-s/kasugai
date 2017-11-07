@@ -1,8 +1,8 @@
 class Project::IssuesController < Project::BaseController
   layout 'project'
 
-  before_action :ensure_signed_in, only: [:new, :create, :index]
-  before_action :ensure_project_member, only: [:new, :create, :index]
+  before_action :ensure_signed_in, only: [:new, :create, :index, :edit, :update]
+  before_action :ensure_project_member, only: [:new, :create, :index, :edit, :update]
 
   helper_method :current_issue
 
