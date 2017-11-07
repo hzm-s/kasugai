@@ -104,3 +104,24 @@
 .sw-Flash-danger {
   box-shadow: 0 0 7px theme-color('danger');
 }
+
+.sw-Blank {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.sw-Blank_Message {
+  @include pill;
+  @include nf;
+
+  margin: 0;
+  padding: .5rem 1rem;
+
+  color: $body-color-sub;
+  background-color: $white;
+
+  &:before {
+    @include fa-content('\f05a');
+    color: $body-color-sub;
+  }
+}
