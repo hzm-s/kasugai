@@ -30,4 +30,10 @@ describe '課題の編集' do
       expect(page).to have_content(new[:title])
     end
   end
+
+  it do
+    fill_in 'form[title]', with: ''
+    click_on '保存する'
+    expect(page).to have_content('タイトルを入力してください')
+  end
 end

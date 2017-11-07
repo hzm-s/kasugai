@@ -14,6 +14,9 @@ class IssueService < ApplicationService
   end
 
   def update(issue, params)
+    return failure(params: params) unless params.valid?
+
     issue.update!(title: params.title, content: params.content)
+    success
   end
 end
