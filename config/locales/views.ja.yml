@@ -46,6 +46,7 @@ ja:
 
   project:
     bookmarked_issues:
-      list:
+      index:
         title: ブックマークした課題
+      list:
         blank: ブックマークしている課題はありません
