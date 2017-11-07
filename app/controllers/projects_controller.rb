@@ -31,8 +31,4 @@ class ProjectsController < Project::BaseController
     def form_params
       params.require(:form).permit(:name, :description)
     end
-
-    def current_project
-      @current_project ||= Project.find_by(id: params[:id])
-    end
 end
