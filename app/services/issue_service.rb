@@ -5,6 +5,7 @@ class IssueService < ApplicationService
 
     issue =
       Issue.create!(
+        id: SecureRandom.hex(8),
         project: project,
         author: user,
         title: params.title,
