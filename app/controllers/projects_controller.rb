@@ -41,10 +41,4 @@ class ProjectsController < ApplicationController
         redirect_to projects_url
       end
     end
-
-    def ensure_project_member
-      unless current_project.member?(current_user)
-        redirect_to projects_url
-      end
-    end
 end

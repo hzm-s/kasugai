@@ -1,4 +1,6 @@
 class Project::IssuesController < ApplicationController
+  before_action :ensure_signed_in
+  before_action :ensure_project_member
 
   def index
     @issues = Issue.all
