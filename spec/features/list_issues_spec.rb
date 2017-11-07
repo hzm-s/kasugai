@@ -5,8 +5,8 @@ describe '課題一覧' do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
     it do
-      issue_a = IssueService.create(user_a, project_a, IssueForm.new(title: '課題A')).issue
-      issue_b = IssueService.create(user_b, project_b, IssueForm.new(title: '課題B')).issue
+      issue_a = create_issue(user_a, project_a, title: '課題A')
+      issue_b = create_issue(user_b, project_b, title: '課題B')
 
       sign_in(user_a)
       visit project_issues_path(project_id: project_a)
