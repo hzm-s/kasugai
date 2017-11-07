@@ -1,4 +1,9 @@
 ja:
+  project_navs:
+    home: ホーム
+    issues: 課題リスト
+    new_issue: 新しい課題
+
   shared:
     global_nav:
       project: プロジェクト
