@@ -1,8 +1,8 @@
 class Project::IssuesController < Project::BaseController
   layout 'project'
 
-  before_action :ensure_signed_in
-  before_action :ensure_project_member
+  before_action :ensure_signed_in, only: [:new, :create, :index]
+  before_action :ensure_project_member, only: [:new, :create, :index]
 
   helper_method :current_issue
 
@@ -27,6 +27,12 @@ class Project::IssuesController < Project::BaseController
 
   def edit
     @form = IssueForm.fill(current_issue)
+  end
+
+  def update
+    form = IssueForm.new(form_params)
+    IssueService.update(current_issue, form)
+    redirect_to project_issues_url, notice: flash_message
   end
 
   private

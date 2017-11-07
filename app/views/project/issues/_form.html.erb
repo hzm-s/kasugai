@@ -6,7 +6,6 @@
     <%= f.text_area :content, id: 'app-issue-content', rows: 7, class: 'frm-InlineInput frm-InlineInput-noborder', placeholder: t('.placeholders.content') %>
   </div>
   <div class="frm-Actions">
-    <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
-    <%= link_to t('navs.cancel'), project_issues_url(current_project), class: 'frm-Actions_Cancel' %>
+    <%= yield(f) %>
   </div>
 <% end -%>

@@ -12,4 +12,8 @@ class IssueService < ApplicationService
       )
     success(issue: issue)
   end
+
+  def update(issue, params)
+    issue.update!(title: params.title, content: params.content)
+  end
 end
