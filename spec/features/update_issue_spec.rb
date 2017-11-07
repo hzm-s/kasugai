@@ -15,8 +15,8 @@ describe '課題の編集' do
 
   it do
     aggregate_failures do
-      expect(find('#app-issue-title').value).to eq(old[:title])
-      expect(find('#app-issue-content').value).to eq(old[:content])
+      expect(find('#app_issue_title').value).to eq(old[:title])
+      expect(find('#app_issue_content').value).to eq(old[:content])
     end
   end
 

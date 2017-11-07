@@ -12,7 +12,7 @@ describe '課題一覧' do
       visit project_issues_path(project_id: project_a)
 
       aggregate_failures do
-        expect(first('.app-issue-title').text).to eq(issue_a.title)
+        expect(first('.app_issue_title').text).to eq(issue_a.title)
         expect(page).to_not have_content(issue_b.title)
       end
     end
