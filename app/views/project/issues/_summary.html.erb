@@ -14,7 +14,7 @@
         <%= link_to t('navs.edit'), edit_project_issue_url(current_project, summary), class: 'sw-Link' %>
       </li>
       <li>
-        <%= link_to t('navs.delete'), project_issue_url(current_project, summary), method: :delete, class: 'sw-Link', data: { confirm: 'OK?' } %>
+        <%= link_to t('navs.delete'), project_issue_url(current_project, summary), method: :delete, class: 'sw-Link', data: { confirm: t('.confirm_delete', title: summary.title) } %>
       </li>
     </ul>
   </div>
