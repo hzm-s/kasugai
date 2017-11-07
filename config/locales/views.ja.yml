@@ -3,6 +3,7 @@ ja:
     home: ホーム
     issues: 課題リスト
     new_issue: 新しい課題
+    edit_issue: 課題の編集
 
   shared:
     global_nav:
@@ -57,7 +58,7 @@ ja:
       index:
         new: 新しい課題を作成する
         blank: まだ課題はありません
-      new:
+      form:
         placeholders:
           title: 課題のタイトル
           content: 課題の内容（省略できます）

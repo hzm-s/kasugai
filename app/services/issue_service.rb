@@ -5,11 +5,19 @@ class IssueService < ApplicationService
 
     issue =
       Issue.create!(
+        id: SecureRandom.hex(8),
         project: project,
         author: user,
         title: params.title,
         content: params.content
       )
     success(issue: issue)
+  end
+
+  def update(issue, params)
+    return failure(params: params) unless params.valid?
+
+    issue.update!(title: params.title, content: params.content)
+    success
   end
 end

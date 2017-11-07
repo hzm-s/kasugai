@@ -9,4 +9,8 @@ class IssueForm
 
   validates :content,
     length: { maximum: 10_000, allow_blank: true }
+
+  def self.fill(issue)
+    new(title: issue.title, content: issue.content)
+  end
 end

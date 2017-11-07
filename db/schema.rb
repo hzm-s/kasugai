@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171107050129) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
-  create_table "issues", force: :cascade do |t|
+  create_table "issues", id: :string, force: :cascade do |t|
     t.string "project_id", null: false
     t.bigint "user_id", null: false
     t.string "title", null: false

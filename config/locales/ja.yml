@@ -154,6 +154,8 @@ ja:
     sign_out: ログアウト
     retry: やり直す
     cancel: キャンセル
+    edit: 編集する
+    delete: 削除する
     messages:
       already_signed_in: ログインしています
       ensure_signed_in: ログインしてください

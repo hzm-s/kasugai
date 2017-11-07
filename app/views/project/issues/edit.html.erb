@@ -1,0 +1,11 @@
+<% breadcrumb :edit_issue, current_project, current_issue %>
+<div class="row">
+  <div class="col-sm-22 col-lg-16 mx-auto">
+    <div class="iss-Create">
+      <%= render 'form', form: @form, method: :patch, url: project_issue_url(project_id: current_project, id: current_issue) do |f| %>
+        <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
+        <%= link_to t('navs.cancel'), project_issues_url(current_project), class: 'frm-Actions_Cancel' %>
+      <% end -%>
+    </div>
+  </div>
+</div>

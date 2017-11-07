@@ -1,6 +1,6 @@
 class CreateIssues < ActiveRecord::Migration[5.1]
   def change
-    create_table :issues do |t|
+    create_table :issues, id: :string do |t|
       t.string :project_id, null: false
       t.references :user, null: false, foreign_key: true
       t.string :title, null: false

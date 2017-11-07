@@ -16,6 +16,16 @@ describe Project::IssuesController do
     expect_ensure_signed_in
   end
 
+  it do
+    get :edit, params: { project_id: 'dummy', id: 'dummy' }
+    expect_ensure_signed_in
+  end
+
+  it do
+    patch :update, params: { project_id: 'dummy', id: 'dummy' }
+    expect_ensure_signed_in
+  end
+
   context do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
@@ -35,6 +45,16 @@ describe Project::IssuesController do
 
     it do
       get :index, params: { project_id: project_a.id }
+      expect(response).to redirect_to(projects_url)
+    end
+
+    it do
+      get :edit, params: { project_id: project_a.id, id: 'dummy' }
+      expect(response).to redirect_to(projects_url)
+    end
+
+    it do
+      patch :update, params: { project_id: project_a.id, id: 'dummy' }
       expect(response).to redirect_to(projects_url)
     end
   end
