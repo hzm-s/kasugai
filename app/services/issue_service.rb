@@ -1,5 +1,5 @@
 class IssueService < ApplicationService
-  
+
   def create(user, project, params)
     return failure(params: params) unless params.valid?
 
