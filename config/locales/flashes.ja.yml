@@ -1,6 +1,5 @@
 ja:
   flashes:
-
     profile:
       update: プロフィールを更新しました
 
@@ -9,3 +8,6 @@ ja:
 
     projects:
       create: プロジェクトを作成しました
+
+    project/issues:
+        create: 課題を作成しました

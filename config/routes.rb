@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   patch '/profile', to: 'profile#update', as: :profile
 
   resources :projects, only: [:index, :new, :create, :show]
+
   scope '/projects/:project_id', as: :project, only: [:index, :new, :create, :show], module: :project do
+    resources :issues, only: [:new, :create, :index]
     resources :bookmarked_issues, only: [:index]
   end
 

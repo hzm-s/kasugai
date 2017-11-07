@@ -1,0 +1,12 @@
+<%= form_with model: @form, scope: :form, url: project_issues_url(current_project.id), local: true do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, class: 'frm-InlineInput', placeholder: t('.placeholders.title') %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :content, class: 'frm-InlineInput frm-InlineInput-noborder', placeholder: t('.placeholders.content') %>
+  </div>
+  <div class="frm-Actions">
+    <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
+    <%= link_to t('navs.cancel'), '#', class: 'frm-Actions_Cancel' %>
+  </div>
+<% end -%>

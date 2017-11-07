@@ -1,0 +1,19 @@
+<div class="issl-Item">
+  <i class="issl-Item_Handle"></i>
+  <div class="issl-Item_Body">
+    <%= link_to summary.title, '#', class: 'issl-Item_Content' %>
+    <%= link_to '#', class: 'issl-Item_Bookmark' do %>
+      <i class="iss-Bookmark iss-Bookmark-on"></i>
+    <% end -%>
+  </div>
+  <div class="issl-Item_Tail">
+    <ul class="sw-LinkList">
+      <li>
+        <%= link_to t('navs.edit'), '#', class: 'sw-Link' %>
+      </li>
+      <li>
+        <%= link_to t('navs.delete'), '#', class: 'sw-Link' %>
+      </li>
+    </ul>
+  </div>
+</div>
