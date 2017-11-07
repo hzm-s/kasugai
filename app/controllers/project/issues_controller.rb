@@ -3,7 +3,7 @@ class Project::IssuesController < Project::BaseController
   before_action :ensure_project_member
 
   def index
-    @issues = Issue.all
+    @issues = Issue.for_project(current_project.id)
   end
 
   def new
