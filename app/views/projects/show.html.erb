@@ -9,6 +9,9 @@
           <%= @project.description %>
         </p>
         <hr class="prj-TopNavDivider">
+        <div class="prj-TopNav">
+          <%= link_to t('.navs.issue_list'), project_issues_url(@project), class: 'prj-TopNav_Link' %>
+        </div>
       </div>
     </div>
   </div>

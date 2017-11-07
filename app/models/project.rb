@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-  has_many :members, class_name: :ProjectMember, dependent: :destroy
+  has_many :members, class_name: 'ProjectMember', dependent: :destroy
+  has_many :issues, dependent: :destroy
 
   class << self
 

@@ -21,14 +21,13 @@ describe ProjectsController do
     expect_ensure_signed_in
   end
 
-  it do
-    user = sign_up
-    project = create_project(user, name: 'abc')
+  context do
+    include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
-    other_user = sign_up
-    sign_in(other_user)
-
-    get :show, params: { id: project.id }
-    expect(response).to redirect_to(projects_url)
+    it do
+      sign_in(user_b)
+      get :show, params: { id: project_a.id }
+      expect(response).to redirect_to(projects_url)
+    end
   end
 end
