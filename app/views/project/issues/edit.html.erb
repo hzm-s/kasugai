@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-22 col-lg-16 mx-auto">
     <div class="iss-Create">
-      <%= render 'form', form: @form, method: :post, url: project_issues_url(current_project) %>
+      <%= render 'form', form: @form, method: :patch, url: project_issue_url(project_id: current_project, id: current_issue) %>
     </div>
   </div>
 </div>
