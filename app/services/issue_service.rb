@@ -1,5 +1,5 @@
 class IssueService < ApplicationService
-  
+
   def create(user, project, params)
     return failure(params: params) unless params.valid?
 
@@ -19,5 +19,9 @@ class IssueService < ApplicationService
 
     issue.update!(title: params.title, content: params.content)
     success
+  end
+
+  def delete(issue)
+    issue.destroy!
   end
 end

@@ -4,7 +4,7 @@ describe 'ログアウト' do
   it do
     user = sign_up
     sign_in(user)
-    find('#app-sign-out').click
+    find('#app_sign_out').click
 
     aggregate_failures do
       expect(page).to have_content('ログアウトしました')

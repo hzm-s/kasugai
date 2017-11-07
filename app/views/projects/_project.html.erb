@@ -1,6 +1,6 @@
 <div class="prjl-Project">
   <div class="prjl-Project_Head">
-    <%= link_to project.name, project_url(project), class: 'prjl-Project_Name app-project-name' %>
+    <%= link_to project.name, project_url(project), class: 'prjl-Project_Name app_project_name' %>
     <p class="prjl-Project_Description">
       <%= project.description %>
     </p>
@@ -8,7 +8,7 @@
   <div class="prjl-Project_Tail">
     <div class="prjl-Project_Members">
       <% project.members.each do |member| %>
-        <div class="sw-AutoAvatar-sm app-member" data-user-name="<%= member.name %>">
+        <div class="sw-AutoAvatar-sm app_member" data-user-name="<%= member.name %>">
           <span class="initials">
             <%= member.initials %>
           </span>

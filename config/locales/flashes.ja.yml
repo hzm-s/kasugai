@@ -12,3 +12,4 @@ ja:
     project/issues:
         create: 課題を作成しました
         update: 課題を更新しました
+        destroy: 課題を削除しました

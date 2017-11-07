@@ -1,7 +1,7 @@
-<div class="issl-Item">
+<div class="issl-Item" id="<%= app_dom_id(summary) %>">
   <i class="issl-Item_Handle"></i>
   <div class="issl-Item_Body">
-    <%= link_to summary.title, '#', class: 'issl-Item_Content app-issue-title' %>
+    <%= link_to summary.title, '#', class: 'issl-Item_Content app_issue_title' %>
     <%#= link_to '#', class: 'issl-Item_Bookmark' do %>
       <!--
       <i class="iss-Bookmark iss-Bookmark-on"></i>
@@ -14,7 +14,7 @@
         <%= link_to t('navs.edit'), edit_project_issue_url(current_project, summary), class: 'sw-Link' %>
       </li>
       <li>
-        <%= link_to t('navs.delete'), '#', class: 'sw-Link' %>
+        <%= link_to t('navs.delete'), project_issue_url(current_project, summary), method: :delete, class: 'sw-Link', data: { confirm: t('.confirm_delete', title: summary.title) } %>
       </li>
     </ul>
   </div>

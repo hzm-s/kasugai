@@ -13,6 +13,9 @@ module Expectations
         expect(response).to redirect_to(new_sign_in_url)
       end
     end
+
+    def expect_redirect_to_project_list
+    end
   end
 end
 

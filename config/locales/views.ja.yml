@@ -58,6 +58,8 @@ ja:
       index:
         new: 新しい課題を作成する
         blank: まだ課題はありません
+      summary:
+        confirm_delete: '課題「%{title}」を削除してよろしいですか?'
       form:
         placeholders:
           title: 課題のタイトル

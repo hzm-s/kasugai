@@ -1,8 +1,8 @@
 class Project::IssuesController < Project::BaseController
   layout 'project'
 
-  before_action :ensure_signed_in, only: [:new, :create, :index, :edit, :update]
-  before_action :ensure_project_member, only: [:new, :create, :index, :edit, :update]
+  before_action :ensure_signed_in
+  before_action :ensure_project_member
 
   helper_method :current_issue
 
@@ -38,6 +38,11 @@ class Project::IssuesController < Project::BaseController
       @form = result.params
       render :edit
     end
+  end
+
+  def destroy
+    IssueService.delete(current_issue)
+    redirect_to project_issues_url, notice: flash_message
   end
 
   private

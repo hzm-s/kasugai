@@ -13,8 +13,8 @@ describe 'プロジェクトホーム' do
   it do
     visit project_path(project)
     aggregate_failures do
-      expect(find('#app-project-name')).to have_content(name)
-      expect(find('#app-project-description')).to have_content(description)
+      expect(find('#app_project_name')).to have_content(name)
+      expect(find('#app_project_description')).to have_content(description)
     end
   end
 
