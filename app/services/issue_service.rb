@@ -1,6 +1,8 @@
 class IssueService < ApplicationService
   
   def create(user, project, params)
+    return failure(params: params) unless params.valid?
+
     issue =
       Issue.create!(
         project: project,
@@ -8,5 +10,6 @@ class IssueService < ApplicationService
         title: params.title,
         content: params.content
       )
+    success
   end
 end

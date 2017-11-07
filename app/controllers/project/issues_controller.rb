@@ -10,8 +10,13 @@ class Project::IssuesController < ApplicationController
 
   def create
     form = IssueForm.new(form_params)
-    IssueService.create(current_user, current_project, form)
-    redirect_to project_issues_url(project_id: current_project.id), notice: flash_message
+    result = IssueService.create(current_user, current_project, form)
+    if result.succeeded?
+      redirect_to project_issues_url(project_id: current_project.id), notice: flash_message
+    else
+      @form = result.params
+      render :new
+    end
   end
 
   helper_method :current_project
