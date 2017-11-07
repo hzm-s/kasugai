@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show]
 
-  scope '/projects/:project_id', as: :project, only: [:index, :new, :create, :show], module: :project do
-    resources :issues, only: [:new, :create, :index, :edit, :update]
+  scope '/projects/:project_id', as: :project, module: :project do
+    resources :issues
     resources :bookmarked_issues, only: [:index]
   end
 

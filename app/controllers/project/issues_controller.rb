@@ -40,6 +40,11 @@ class Project::IssuesController < Project::BaseController
     end
   end
 
+  def destroy
+    IssueService.delete(current_issue)
+    redirect_to project_issues_url, notice: flash_message
+  end
+
   private
 
     def form_params

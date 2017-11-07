@@ -20,4 +20,8 @@ class IssueService < ApplicationService
     issue.update!(title: params.title, content: params.content)
     success
   end
+
+  def delete(issue)
+    issue.destroy!
+  end
 end

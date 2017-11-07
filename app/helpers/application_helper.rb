@@ -17,4 +17,8 @@ module ApplicationHelper
   def loading_partial
     "<div>#{LOADING_ICON} loading ...</div>".html_safe
   end
+
+  def app_dom_id(resource)
+    dom_id(resource, 'app')
+  end
 end
