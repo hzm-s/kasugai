@@ -1,4 +1,4 @@
-class Project::IssuesController < ApplicationController
+class Project::IssuesController < Project::BaseController
   before_action :ensure_signed_in
   before_action :ensure_project_member
 
@@ -21,13 +21,7 @@ class Project::IssuesController < ApplicationController
     end
   end
 
-  helper_method :current_project
-
   private
-
-    def current_project
-      @current_project ||= Project.find(params[:project_id])
-    end
 
     def form_params
       params.require(:form).permit(:title, :content)
