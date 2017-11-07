@@ -10,6 +10,6 @@ class IssueService < ApplicationService
         title: params.title,
         content: params.content
       )
-    success
+    success(issue: issue)
   end
 end
