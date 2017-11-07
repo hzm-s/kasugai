@@ -21,16 +21,3 @@
   background-color: $white;
   box-shadow: 0 0 5px $gray-300;
 }
-
-.st-Blank_Content {
-  @include nf;
-  font-size: $font-size-lg;
-  font-weight: bold;
-  color: $body-color-sub;
-  margin: 0;
-
-  &:before {
-    @include fa-content('\f05a');
-    color: $body-color-sub;
-  }
-}
