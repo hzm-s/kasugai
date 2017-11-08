@@ -17,19 +17,6 @@
 //= require bootstrap
 //= require_tree .
 
-var setupLoading = function() {
-  $('[data-behavior="loader"]').each(function(i, el) {
-    var width = $(el).outerWidth();
-    $(el).on('click', function(e) {
-      $(e.target).css('width', width);
-    });
-  });
-}
-
-var setupFlash = function() {
-  $('.sw-Flash-success').delay(3000).fadeOut(200, function() { $(this).remove(); });
-}
-
 $(document).on('turbolinks:load', function() {
   setupLoading();
   setupFlash();
