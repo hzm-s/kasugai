@@ -6,7 +6,6 @@ var setupSortable = function() {
 
   Sortable.create(list, {
     handle: '.js-sortable-handle',
-    draggable: 'js-sortable-item',
     ghostClass: 'sw-Sortable-ghost',
     scroll: true,
     onEnd: function(e) {

@@ -14,7 +14,8 @@
 }
 
 .issl-Item {
-  @extend .d-flex, .align-items-center;
+  display: flex;
+  align-items: center;
 
   padding: .75rem .5rem;
   border-bottom: 1px solid $gray-300;
