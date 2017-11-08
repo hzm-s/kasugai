@@ -51,10 +51,18 @@ module GuestHelper
       session[:user_id] = user.id
     end
   end
+
+  module Request
+    def sign_in(user)
+      token = get_sign_in_token(user.email)
+      get sign_in_path(token)
+    end
+  end
 end
 
 RSpec.configure do |c|
   c.include GuestHelper::Common
   c.include GuestHelper::Feature, type: :feature
+  c.include GuestHelper::Request, type: :request
   c.include GuestHelper::Controller, type: :controller
 end

@@ -14,7 +14,8 @@
 }
 
 .issl-Item {
-  @extend .d-flex, .align-items-center;
+  display: flex;
+  align-items: center;
 
   padding: .75rem .5rem;
   border-bottom: 1px solid $gray-300;
@@ -28,6 +29,10 @@
   @extend .fa, .fa-bars;
   margin-right: 1rem;
   color: $gray-500;
+
+  &:hover {
+    cursor: move;
+  }
 }
 
 .issl-Item_Body {

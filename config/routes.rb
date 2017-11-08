@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     resources :bookmarked_issues, only: [:index]
   end
 
+  scope '/issues/:issue_id', as: :issue, module: :issue do
+    resource :priority, only: [:update]
+  end
+
   # ui
   resources :pages, only: [:index, :show]
 end

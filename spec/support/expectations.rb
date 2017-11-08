@@ -15,6 +15,11 @@ module Expectations
     end
 
     def expect_redirect_to_project_list
+      expect(response).to redirect_to(projects_url)
+    end
+
+    def expect_xhr_ensure_signed_in
+      expect(response.body).to have_content(new_sign_in_url)
     end
   end
 end

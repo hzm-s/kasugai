@@ -24,4 +24,8 @@ class IssueService < ApplicationService
   def delete(issue)
     issue.destroy!
   end
+
+  def change_priority(issue, new_position)
+    issue.change_priority_to(new_position)
+  end
 end

@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171107050129) do
     t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "content"
+    t.integer "priority_order"
     t.datetime "created_at", null: false
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
