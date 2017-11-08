@@ -5,6 +5,7 @@ class CreateIssues < ActiveRecord::Migration[5.1]
       t.references :user, null: false, foreign_key: true
       t.string :title, null: false
       t.text :content
+      t.integer :priority_order
       t.datetime :created_at, null: false
     end
 
