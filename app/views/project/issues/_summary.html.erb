@@ -1,12 +1,7 @@
-<div class="issl-Item" id="<%= app_dom_id(summary) %>">
-  <i class="issl-Item_Handle"></i>
+<div id="<%= app_dom_id(summary) %>" class="issl-Item js-sortable-item" data-sort-url="<%= issue_priority_url(summary) %>">
+  <i class="issl-Item_Handle js-sortable-handle"></i>
   <div class="issl-Item_Body">
     <%= link_to summary.title, '#', class: 'issl-Item_Content app_issue_title' %>
-    <%#= link_to '#', class: 'issl-Item_Bookmark' do %>
-      <!--
-      <i class="iss-Bookmark iss-Bookmark-on"></i>
-      -->
-    <%# end -%>
   </div>
   <div class="issl-Item_Tail">
     <ul class="sw-LinkList">

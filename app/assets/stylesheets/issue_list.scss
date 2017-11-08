@@ -28,6 +28,10 @@
   @extend .fa, .fa-bars;
   margin-right: 1rem;
   color: $gray-500;
+
+  &:hover {
+    cursor: move;
+  }
 }
 
 .issl-Item_Body {

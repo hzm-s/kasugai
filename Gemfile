@@ -66,3 +66,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'popper_js', '~> 1.12.3'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-Sortable'
+end

@@ -10,7 +10,7 @@ describe '課題の優先順位変更' do
 
     patch issue_priority_path(issue),
       xhr: true,
-      params: { new_position: 0 }
+      params: { new_position: 0, format: :json }
 
     aggregate_failures do
       expect(response).to have_http_status(:ok)
