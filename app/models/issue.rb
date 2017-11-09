@@ -5,7 +5,7 @@ class Issue < ApplicationRecord
 
   belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: :user_id
-  has_one :bookmarked_issue, dependent: :destroy
+  has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
 
   class << self
 
@@ -20,10 +20,14 @@ class Issue < ApplicationRecord
   end
 
   def bookmark
-    create_bookmarked_issue!
+    create_bookmarked!
   end
 
   def bookmarked?
-    bookmarked_issue.present?
+    bookmarked.present?
+  end
+
+  def unbookmark
+    bookmarked.destroy!
   end
 end

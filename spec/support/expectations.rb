@@ -14,12 +14,16 @@ module Expectations
       end
     end
 
-    def expect_redirect_to_project_list
+    def expect_ensure_project_member
       expect(response).to redirect_to(projects_url)
     end
 
     def expect_xhr_ensure_signed_in
-      expect(response.body).to have_content(new_sign_in_url)
+      expect(response).to have_http_status(:forbidden)
+    end
+
+    def expect_xhr_ensure_project_member
+      expect(response).to have_http_status(:forbidden)
     end
   end
 end

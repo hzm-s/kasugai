@@ -1,12 +1,26 @@
 class Project::BookmarkedIssuesController < Project::BaseController
+  before_action :ensure_signed_in, only: [:index, :create, :destroy]
+  before_action :ensure_project_member, only: [:index, :create, :destroy]
 
   def index
-    @bookmarked_issues = BookmarkedIssue.for_project(current_project.id)
+    @bookmarked_issues = Issue.includes(:bookmarked).for_project(current_project.id)
     render partial: 'list'
   end
 
   def create
     issue = Issue.find(params[:issue_id])
-    ProjectService.bookmark_issue(issue)
+    IssueService.bookmark(issue)
+  end
+
+  def destroy
+    issue = Issue.find(params[:id])
+    IssueService.unbookmark(issue)
+    @redirect_url =
+      case params[:from].to_sym
+      when :bookmarks
+        project_url(current_project)
+      else
+        project_issues_url(current_project)
+      end
   end
 end

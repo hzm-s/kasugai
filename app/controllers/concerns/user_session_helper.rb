@@ -7,7 +7,10 @@ module UserSessionHelper
 
   def ensure_signed_in
     unless signed_in?
-      redirect_to new_sign_in_url, alert: t('navs.messages.ensure_signed_in')
+      respond_to do |f|
+        f.html { redirect_to new_sign_in_url, alert: t('navs.messages.ensure_signed_in') }
+        f.js { head :forbidden }
+      end
     end
   end
 

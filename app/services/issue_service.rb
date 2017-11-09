@@ -28,4 +28,12 @@ class IssueService < ApplicationService
   def change_priority(issue, new_position)
     issue.change_priority_to(new_position)
   end
+
+  def bookmark(issue)
+    issue.bookmark
+  end
+
+  def unbookmark(issue)
+    issue.unbookmark
+  end
 end
