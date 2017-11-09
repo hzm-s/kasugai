@@ -63,6 +63,7 @@ end
 RSpec.configure do |c|
   c.include GuestHelper::Common
   c.include GuestHelper::Feature, type: :feature
+  c.include GuestHelper::Feature, type: :system
   c.include GuestHelper::Request, type: :request
   c.include GuestHelper::Controller, type: :controller
 end

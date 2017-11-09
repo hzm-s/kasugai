@@ -48,7 +48,7 @@
 }
 
 .issl-Item_Bookmark {
-  @extend .ml-auto;
+  @include icon-button;
 }
 
 .issl-Item_Tail {
