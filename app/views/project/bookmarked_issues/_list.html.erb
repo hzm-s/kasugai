@@ -4,7 +4,7 @@
       <div id="<%= app_dom_id(i.issue) %>" class="issl-BookmarkedItem">
         <div class="issl-BookmarkedItem_Body">
           <%= link_to i.title, '#', class: 'issl-BookmarkedItem_Content' %>
-          <%= render partial: 'project/issues/bookmark', locals: { issue: i.issue, from: :bookmarks } %>
+          <%= render partial: 'project/issues/bookmarked', locals: { issue: i.issue, from: :bookmarks } %>
         </div>
       </div>
     <% end -%>
