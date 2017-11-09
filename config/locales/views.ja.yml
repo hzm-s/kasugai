@@ -70,3 +70,7 @@ ja:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
+
+    members:
+      new:
+        create_account: アカウントを作成する
