@@ -1,6 +1,7 @@
 class Project::BookmarkedIssuesController < Project::BaseController
 
   def index
+    @bookmarked_issues = BookmarkedIssue.for_project(current_project.id)
     render partial: 'list'
   end
 

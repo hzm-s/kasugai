@@ -15,5 +15,10 @@ describe '課題のブックマーク', type: :system do
       first('.app_bookmark').click
       expect(page).to have_css('.iss-Bookmark-on')
     end
+
+    visit project_path(project)
+    within("#app_bookmarked_issues") do
+      expect(page).to have_content(issue_b.title)
+    end
   end
 end

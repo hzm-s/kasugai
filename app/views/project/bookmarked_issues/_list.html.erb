@@ -1,5 +1,20 @@
-<div class="sw-Blank">
-  <p class="sw-Blank_Message">
-    <%=t ('.blank') %>
-  </p>
-</div>
+<% if @bookmarked_issues.any? -%>
+  <div class="prj-BookmarkedIssues_Body">
+    <% @bookmarked_issues.each do |i| -%>
+      <div class="issl-BookmarkedItem">
+        <div class="issl-BookmarkedItem_Body">
+          <%= link_to i.title, '#', class: 'issl-BookmarkedItem_Content' %>
+          <%= link_to '#', class: 'issl-BookmarkedItem_Bookmark' do %>
+            <i class="iss-Bookmark iss-Bookmark-on"></i>
+          <% end -%>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+<% else -%>
+  <div class="sw-Blank">
+    <p class="sw-Blank_Message">
+      <%=t ('.blank') %>
+    </p>
+  </div>
+<% end -%>
