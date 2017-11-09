@@ -3,7 +3,7 @@ class Project::BookmarkedIssuesController < Project::BaseController
   before_action :ensure_project_member, only: [:index, :create, :destroy]
 
   def index
-    @bookmarked_issues = BookmarkedIssue.for_project(current_project.id)
+    @bookmarked_issues = Issue.includes(:bookmarked).for_project(current_project.id)
     render partial: 'list'
   end
 
