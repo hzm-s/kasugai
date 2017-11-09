@@ -144,3 +144,18 @@
 .prj-Member_Actions {
   @extend .ml-auto;
 }
+
+.prj-Invite_Message {
+  @include nf;
+  display: inline-block;
+  font-size: $font-size-lg;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $yellow;
+  padding-bottom: .5rem;
+}
+
+.prj-Invite_Confirm {
+  @include nf;
+  color: $body-color-sub;
+  margin-bottom: 2rem;
+}

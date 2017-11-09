@@ -1,1 +1,22 @@
-<%= button_to t('.join'), project_members_url(current_project) %>
+<div class="row">
+  <div class="col-sm-22 col-lg-12 mx-auto">
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t '.title' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body">
+        <h2 class="prj-Invite_Message">
+          <%=t '.message', project: current_project.name %>
+        </h2>
+        <p class="prj-Invite_Confirm">
+          <%=t '.confirm' %>
+        </p>
+        <%= button_to project_members_url(current_project), class: 'btn btn-success', data: loading_indicator do %>
+          <%= t('.join') %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

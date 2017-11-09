@@ -74,4 +74,7 @@ ja:
 
     members:
       new:
+        title: プロジェクトへの招待
+        message: '%{project}へ招待されています'
+        confirm: プロジェクトに参加しますか？
         join: プロジェクトに参加する
