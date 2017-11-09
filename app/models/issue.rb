@@ -13,6 +13,12 @@ class Issue < ApplicationRecord
       where(project_id: project_id)
         .order(:priority_order, :created_at)
     end
+
+    def bookmarked(project_id)
+      includes(:bookmarked)
+        .merge(for_project(project_id))
+        .where.not(bookmarked_issues: { id: nil })
+    end
   end
 
   def change_priority_to(new_position)

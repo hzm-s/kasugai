@@ -23,6 +23,7 @@ describe '課題のブックマークを削除', type: :system do
     within("#app_issue_#{issue_a.id}") do
       first('.app_unbookmark').click
     end
-    expect(page).to_not have_css(issue_a.title)
+    find("#app_issue_#{issue_b.id}")
+    expect(page).to_not have_content(issue_a.title)
   end
 end
