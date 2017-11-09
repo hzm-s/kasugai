@@ -31,6 +31,7 @@ ja:
     new:
       submit: 続ける
       create_account: アカウントを作成する
+      sign_up_guide: アカウントをお持ちでない場合
       helps:
         email: このメールアドレスにログインリンクをお送りします。
         not_signed_up: アカウントを作成してください

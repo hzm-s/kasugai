@@ -93,3 +93,13 @@
     margin-left: .5rem;
   }
 }
+
+.rcpt-SignUp_guide {
+  @include nf;
+  font-size: $font-size-sm;
+  color: $body-color-sub;
+
+  &:after {
+    @include fa-content('\f0a9');
+  }
+}
