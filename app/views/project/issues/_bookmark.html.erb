@@ -1,0 +1,9 @@
+<% if issue.bookmarked? -%>
+  <%= button_to project_bookmarked_issue_url(current_project, issue, from: from), method: :delete, remote: true, class: 'issl-Item_Bookmark app_unbookmark', form_class: 'ml-auto' do %>
+    <i class="iss-Bookmark iss-Bookmark-on"></i>
+  <% end -%>
+<% else -%>
+  <%= button_to project_bookmarked_issues_url(current_project), method: :post, params: { issue_id: issue.id }, remote: true, class: 'issl-Item_Bookmark app_bookmark', form_class: 'ml-auto' do %>
+    <i class="iss-Bookmark iss-Bookmark-off"></i>
+  <% end -%>
+<% end -%>

@@ -1,2 +1,2 @@
 Turbolinks.clearCache();
-Turbolinks.visit("<%= project_issues_url(current_project) %>", { action: 'replace' });
+Turbolinks.visit("<%= @redirect_url %>", { action: 'replace' });

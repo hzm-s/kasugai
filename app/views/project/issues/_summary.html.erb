@@ -2,17 +2,7 @@
   <i class="issl-Item_Handle js-sortable-handle"></i>
   <div class="issl-Item_Body">
     <%= link_to summary.title, '#', class: 'issl-Item_Content app_issue_title' %>
-
-    <% if summary.bookmarked? -%>
-      <%= button_to project_bookmarked_issue_url(current_project, summary), method: :delete, remote: true, class: 'issl-Item_Bookmark app_unbookmark', form_class: 'ml-auto' do %>
-        <i class="iss-Bookmark iss-Bookmark-on"></i>
-      <% end -%>
-    <% else -%>
-      <%= button_to project_bookmarked_issues_url(current_project), method: :post, params: { issue_id: summary.id }, remote: true, class: 'issl-Item_Bookmark app_bookmark', form_class: 'ml-auto' do %>
-        <i class="iss-Bookmark iss-Bookmark-off"></i>
-      <% end -%>
-    <% end -%>
-
+    <%= render partial: 'bookmark', locals: { issue: summary, from: :list } %>
   </div>
   <div class="issl-Item_Tail">
     <ul class="sw-LinkList">

@@ -18,5 +18,11 @@ describe '課題のブックマークを削除', type: :system do
       first('.app_unbookmark').click
       expect(page).to have_css('.iss-Bookmark-off')
     end
+
+    visit project_path(project)
+    within("#app_issue_#{issue_a.id}") do
+      first('.app_unbookmark').click
+    end
+    expect(page).to_not have_css(issue_a.title)
   end
 end
