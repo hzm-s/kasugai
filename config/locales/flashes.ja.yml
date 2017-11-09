@@ -10,6 +10,10 @@ ja:
       create: プロジェクトを作成しました
 
     project/issues:
-        create: 課題を作成しました
-        update: 課題を更新しました
-        destroy: 課題を削除しました
+      create: 課題を作成しました
+      update: 課題を更新しました
+      destroy: 課題を削除しました
+
+    project/members:
+      create: プロジェクトに参加しました
+      already_joined: プロジェクトに既に参加しています

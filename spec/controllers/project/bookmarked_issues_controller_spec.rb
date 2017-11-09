@@ -19,9 +19,7 @@ describe Project::BookmarkedIssuesController do
   context do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
-    before do
-      sign_in(user_b)
-    end
+    before { sign_in(user_b) }
 
     it do
       get :index, xhr: true, params: { project_id: project_a }

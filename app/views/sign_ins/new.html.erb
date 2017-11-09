@@ -17,6 +17,11 @@
           </div>
           <%= f.button t('.submit'), class: 'btn btn-success', data: loading_indicator %>
         <% end -%>
+        <hr>
+        <span class="rcpt-SignUp_guide">
+          <%=t '.sign_up_guide' %>
+        </span>
+        <%= link_to t('.create_account'), new_sign_up_url %>
       </div>
     </div>
   </div>

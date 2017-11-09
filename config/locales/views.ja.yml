@@ -30,6 +30,8 @@ ja:
   sign_ins:
     new:
       submit: 続ける
+      create_account: アカウントを作成する
+      sign_up_guide: アカウントをお持ちでない場合
       helps:
         email: このメールアドレスにログインリンクをお送りします。
         not_signed_up: アカウントを作成してください
@@ -70,3 +72,10 @@ ja:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
+
+    members:
+      new:
+        title: プロジェクトへの招待
+        message: '%{project}へ招待されています'
+        confirm: プロジェクトに参加しますか？
+        join: プロジェクトに参加する

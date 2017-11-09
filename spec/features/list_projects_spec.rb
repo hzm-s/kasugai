@@ -4,6 +4,12 @@ describe 'プロジェクト一覧' do
   context do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
+    let(:user_c) { sign_up }
+
+    before do
+      ProjectService.add_member(project_a, user_c.id)
+    end
+
     it do
       sign_in(user_a)
       visit projects_path
@@ -13,7 +19,7 @@ describe 'プロジェクト一覧' do
         expect(page).to_not have_content(project_b.name)
 
         members = all('.app_member').map {|e| e['data-user-name'] }
-        expect(members).to match_array([user_a.name])
+        expect(members).to match_array([user_a.name, user_c.name])
         expect(page).to_not have_content(user_b.name)
       end
     end

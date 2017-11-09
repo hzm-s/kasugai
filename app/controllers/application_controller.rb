@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def flash_message
-      t("flashes.#{controller_path}.#{action_name}")
+    def flash_message(key = action_name)
+      t("flashes.#{controller_path}.#{key}")
     end
 end

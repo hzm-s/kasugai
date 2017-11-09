@@ -7,8 +7,9 @@ class SessionsController < ApplicationController
   def create
     result = GuestService.sign_in(params[:token])
     if result.succeeded?
+      redirect_url = session[:redirect_to_after_sign_in]
       sign_in(result.user)
-      redirect_to home_url
+      redirect_to redirect_url || home_url
     else
       render :error
     end
