@@ -16,3 +16,4 @@ ja:
 
     project/members:
       create: プロジェクトに参加しました
+      already_joined: プロジェクトに既に参加しています

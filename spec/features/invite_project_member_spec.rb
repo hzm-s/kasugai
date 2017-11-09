@@ -34,9 +34,11 @@ describe 'プロジェクトメンバーの招待' do
   context 'ログイン済みの場合' do
     let(:invited_user) { sign_up }
 
-    it do
+    before do
       sign_in(invited_user)
+    end
 
+    it do
       visit new_project_member_path(project)
       click_on 'プロジェクトに参加する'
 
@@ -44,6 +46,17 @@ describe 'プロジェクトメンバーの招待' do
         expect(page).to have_content('プロジェクトに参加しました')
         members = all('.app_member').map {|e| e['data-user-name'] }
         expect(members).to include(invited_user.name)
+      end
+    end
+
+    context '既に参加している場合' do
+      before do
+        ProjectService.add_member(project, invited_user.id)
+      end
+
+      it do
+        visit new_project_member_path(project)
+        expect(page).to have_content('プロジェクトに既に参加しています')
       end
     end
   end
