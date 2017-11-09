@@ -12,12 +12,4 @@ class ProjectService < ApplicationService
 
     success(project: project)
   end
-
-  def bookmark_issue(issue)
-    issue.bookmark
-  end
-
-  def unbookmark_issue(issue)
-    issue.unbookmark
-  end
 end

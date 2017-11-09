@@ -7,9 +7,9 @@ describe '課題のブックマークを削除', type: :system do
     issue_a = create_issue(user, project, title: '課題A')
     issue_b = create_issue(user, project, title: '課題B')
     issue_c = create_issue(user, project, title: '課題C')
-    ProjectService.bookmark_issue(issue_a)
-    ProjectService.bookmark_issue(issue_b)
-    ProjectService.bookmark_issue(issue_c)
+    IssueService.bookmark(issue_a)
+    IssueService.bookmark(issue_b)
+    IssueService.bookmark(issue_c)
 
     sign_in(user)
     visit project_issues_path(project)

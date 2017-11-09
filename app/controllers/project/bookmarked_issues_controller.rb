@@ -9,12 +9,12 @@ class Project::BookmarkedIssuesController < Project::BaseController
 
   def create
     issue = Issue.find(params[:issue_id])
-    ProjectService.bookmark_issue(issue)
+    IssueService.bookmark(issue)
   end
 
   def destroy
     issue = Issue.find(params[:id])
-    ProjectService.unbookmark_issue(issue)
+    IssueService.unbookmark(issue)
     @redirect_url =
       case params[:from].to_sym
       when :bookmarks
