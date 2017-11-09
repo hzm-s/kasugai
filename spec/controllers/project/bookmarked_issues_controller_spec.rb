@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Project::BookmarkedIssuesController do
   it do
     get :index, xhr: true, params: { project_id: 'dummy' }
-    expect_ensure_signed_in
+    expect_xhr_ensure_signed_in
   end
 
   it do

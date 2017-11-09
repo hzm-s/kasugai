@@ -19,7 +19,7 @@ module Expectations
     end
 
     def expect_xhr_ensure_signed_in
-      expect(response.body).to have_content(new_sign_in_url)
+      expect(response).to have_http_status(:forbidden)
     end
   end
 end
