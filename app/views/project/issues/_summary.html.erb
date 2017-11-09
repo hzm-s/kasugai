@@ -2,6 +2,13 @@
   <i class="issl-Item_Handle js-sortable-handle"></i>
   <div class="issl-Item_Body">
     <%= link_to summary.title, '#', class: 'issl-Item_Content app_issue_title' %>
+    <%= button_to project_bookmarked_issues_url(project_id: current_project), method: :post, params: { issue_id: summary.id }, remote: true, class: 'issl-Item_Bookmark app_bookmark', form_class: 'ml-auto' do %>
+      <% if summary.bookmarked? -%>
+        <i class="iss-Bookmark iss-Bookmark-on"></i>
+      <% else -%>
+        <i class="iss-Bookmark iss-Bookmark-off"></i>
+      <% end -%>
+    <% end -%>
   </div>
   <div class="issl-Item_Tail">
     <ul class="sw-LinkList">

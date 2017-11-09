@@ -41,6 +41,8 @@ group :development, :test do
   gem 'capybara-email'
   gem 'dotenv-rails'
   gem 'timecop'
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
 end
 
 group :development do

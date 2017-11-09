@@ -12,4 +12,8 @@ class ProjectService < ApplicationService
 
     success(project: project)
   end
+
+  def bookmark_issue(issue)
+    issue.bookmark
+  end
 end
