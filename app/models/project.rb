@@ -5,8 +5,9 @@ class Project < ApplicationRecord
   class << self
 
     def for_user(user_id)
-      includes(:members)
-        .where(project_members: { user_id: user_id })
+      project_ids = joins(:members).where(project_members: { user_id: user_id }).pluck(:id)
+      includes(members: :user)
+        .where(id: project_ids)
         .order(:created_at)
     end
   end
