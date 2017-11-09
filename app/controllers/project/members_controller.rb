@@ -1,4 +1,9 @@
 class Project::MembersController < Project::BaseController
+  before_action :ensure_signed_in, only: [:index, :create]
+  before_action :ensure_project_member, only: [:index]
+
+  def index
+  end
 
   def new
     if signed_in?
