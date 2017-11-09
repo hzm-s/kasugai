@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ブックマークした課題リスト' do
+describe 'ブックマークした課題リスト', type: :system do
   context do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
