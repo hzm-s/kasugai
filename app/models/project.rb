@@ -14,4 +14,8 @@ class Project < ApplicationRecord
   def member?(user)
     members.any? { |member| member.same_user?(user) }
   end
+
+  def add_member(user_id)
+    members.create!(user_id: user_id)
+  end
 end

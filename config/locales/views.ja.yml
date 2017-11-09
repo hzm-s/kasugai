@@ -30,6 +30,7 @@ ja:
   sign_ins:
     new:
       submit: 続ける
+      create_account: アカウントを作成する
       helps:
         email: このメールアドレスにログインリンクをお送りします。
         not_signed_up: アカウントを作成してください
@@ -73,4 +74,4 @@ ja:
 
     members:
       new:
-        create_account: アカウントを作成する
+        join: プロジェクトに参加する
