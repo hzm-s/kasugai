@@ -26,4 +26,8 @@ class Issue < ApplicationRecord
   def bookmarked?
     bookmarked_issue.present?
   end
+
+  def unbookmark
+    bookmarked_issue.destroy!
+  end
 end

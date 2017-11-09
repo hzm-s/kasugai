@@ -12,5 +12,7 @@ class Project::BookmarkedIssuesController < Project::BaseController
   end
 
   def destroy
+    issue = Issue.find(params[:id])
+    ProjectService.unbookmark_issue(issue)
   end
 end
