@@ -1,5 +1,6 @@
 class Project::BookmarkedIssuesController < Project::BaseController
   before_action :ensure_signed_in, only: [:index, :create, :destroy]
+  before_action :ensure_project_member, only: [:index, :create, :destroy]
 
   def index
     @bookmarked_issues = BookmarkedIssue.for_project(current_project.id)

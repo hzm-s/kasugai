@@ -21,6 +21,10 @@ module Expectations
     def expect_xhr_ensure_signed_in
       expect(response).to have_http_status(:forbidden)
     end
+
+    def expect_xhr_ensure_project_member
+      expect(response).to have_http_status(:forbidden)
+    end
   end
 end
 
