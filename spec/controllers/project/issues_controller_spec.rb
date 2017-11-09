@@ -40,32 +40,32 @@ describe Project::IssuesController do
 
     it do
       get :new, params: { project_id: project_a.id }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
 
     it do
       post :create, params: { project_id: project_a.id }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
 
     it do
       get :index, params: { project_id: project_a.id }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
 
     it do
       get :edit, params: { project_id: project_a.id, id: 'dummy' }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
 
     it do
       patch :update, params: { project_id: project_a.id, id: 'dummy' }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
 
     it do
       delete :destroy, params: { project_id: project_a.id, id: 'dummy' }
-      expect_redirect_to_project_list
+      expect_ensure_project_member
     end
   end
 end
