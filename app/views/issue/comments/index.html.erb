@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-22 col-lg-18 mx-auto">
+    <div class="dsc-Body_CommentWrapper">
+      <h3 class="dsc-Comment_Title">
+        コメント
+      </h3>
+      <div class="dsc-Comment_List" id="js-issue-comments">
+      </div>
+      <% @comments.each do |comment| -%>
+        <%= comment.content %>
+      <% end -%>
+      <div class="cmt-Form">
+        <div class="cmt-Form_Header">
+          <div class="sw-AutoAvatar-lg">
+            <%= current_issue.author_initials %>
+          </div>
+        </div>
+        <div class="cmt-Form_Form">
+          <%= form_with model: @comment_form, scope: :form, url: issue_comments_url(current_issue), remote: true do |f| -%>
+            <div class="form-group">
+              <%= f.text_area :content, rows: 3, class: 'form-control' %>
+            </div>
+            <%= f.button t('helpers.submit.post'), class: 'btn btn-success', data: loading_indicator %>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

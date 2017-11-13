@@ -1,0 +1,2 @@
+$('#js-issue-comments').append("<%=j render partial: 'comment', locals: { comment: @comment } %>");
+$('<%= app_dom_id(@comment) %>').highlight();

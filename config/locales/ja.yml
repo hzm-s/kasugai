@@ -146,6 +146,7 @@ ja:
       create: 作成する
       submit: 保存する
       update: 更新する
+      post: 投稿する
   navs:
     ok: OK
     error: エラー

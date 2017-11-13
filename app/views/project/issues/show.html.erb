@@ -29,6 +29,9 @@
           </div>
         </div>
       </div>
+      <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
+        <%= loading_partial %>
+      <% end -%>
     </div>
   </div>
 </div>
