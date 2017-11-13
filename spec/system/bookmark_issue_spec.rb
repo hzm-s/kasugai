@@ -9,8 +9,8 @@ describe '課題のブックマーク', type: :system do
     issue_c = create_issue(user, project, title: '課題C')
 
     sign_in(user)
-    visit project_issues_path(project)
 
+    visit project_issues_path(project)
     within("#app_issue_#{issue_b.id}") do
       first('.app_bookmark').click
       expect(page).to have_css('.iss-Bookmark-on')
@@ -20,5 +20,11 @@ describe '課題のブックマーク', type: :system do
     within("#app_bookmarked_issues") do
       expect(page).to have_content(issue_b.title)
     end
+
+    visit project_issue_path(project, issue_a)
+    first('.app_bookmark').click
+    find('#app_issue_content')
+    expect(page.current_path).to eq(project_issue_path(project, issue_a))
+    expect(page).to have_css('.iss-Bookmark-on')
   end
 end
