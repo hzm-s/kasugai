@@ -68,6 +68,8 @@ ja:
         placeholders:
           title: 課題のタイトル
           content: 課題の内容（省略できます）
+      show:
+        creation_html: "<span id='app_issue_author'>%{name}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
 
     bookmarked_issues:
       index:

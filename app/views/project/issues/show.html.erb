@@ -8,18 +8,9 @@
               <%= @issue.author_initials %>
             </div>
             <div class="iss-Detail_Creation">
-              <span id="app_issue_author">
-                <%= @issue.author_name %>
-              </span>
-              が
-              <span id="app_issue_created_at">
-                <%=l @issue.created_at %>
-              </span>
-              に作成
+              <%=t '.creation_html', name: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>
-            <%= link_to '', class: 'iss-Detail_Bookmark' do %>
-              <i class="iss-Bookmark iss-Bookmark-on"></i>
-            <% end -%>
+            <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
           </div>
           <div class="iss-Detail_Body">
             <div class="iss-Detail_TitleWrapper">

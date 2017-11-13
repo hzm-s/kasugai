@@ -14,7 +14,7 @@ describe '課題の詳細' do
       expect(find('#app_issue_title').text).to eq(issue.title)
       expect(find('#app_issue_content').text).to eq(issue.content)
       expect(find('#app_issue_author').text).to eq(user.name)
-      expect(find('#app_issue_created_at').text).to eq(I18n.l(issue.created_at))
+      expect(find('#app_issue_created_at').text).to eq(I18n.l(issue.created_at.to_date))
     end
   end
 end
