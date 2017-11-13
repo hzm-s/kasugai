@@ -2,6 +2,7 @@ ja:
   project_navs:
     home: ホーム
     issues: 課題リスト
+    members: メンバー管理
     new_issue: 新しい課題
     edit_issue: 課題の編集
 
@@ -54,6 +55,7 @@ ja:
     show:
       navs:
         issue_list: 課題リスト
+        manage_members: メンバー管理
 
   project:
     issues:
@@ -79,3 +81,9 @@ ja:
         message: '%{project}へ招待されています'
         confirm: プロジェクトに参加しますか？
         join: プロジェクトに参加する
+      index:
+        list:
+          title: プロジェクトのメンバー
+        invitation:
+          title: プロジェクトへ招待
+          guide: このURLを招待したい人に共有してください
