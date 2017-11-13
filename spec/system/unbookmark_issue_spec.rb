@@ -12,8 +12,8 @@ describe '課題のブックマークを削除', type: :system do
     IssueService.bookmark(issue_c)
 
     sign_in(user)
-    visit project_issues_path(project)
 
+    visit project_issues_path(project)
     within("#app_issue_#{issue_c.id}") do
       first('.app_unbookmark').click
       expect(page).to have_css('.iss-Bookmark-off')
@@ -25,5 +25,10 @@ describe '課題のブックマークを削除', type: :system do
     end
     find("#app_issue_#{issue_b.id}")
     expect(page).to_not have_content(issue_a.title)
+
+    visit project_issue_path(project, issue_b)
+    first('.app_unbookmark').click
+    find('#app_issue_content')
+    expect(page).to have_css("#app_bookmark_off")
   end
 end

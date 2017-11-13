@@ -19,6 +19,8 @@ class Project::BookmarkedIssuesController < Project::BaseController
       case params[:from].to_sym
       when :bookmarks
         project_url(current_project)
+      when :detail
+        project_issue_url(current_project, issue)
       else
         project_issues_url(current_project)
       end

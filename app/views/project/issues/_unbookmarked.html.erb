@@ -1,3 +1,3 @@
 <%= button_to project_bookmarked_issues_url(current_project), method: :post, params: { issue_id: issue.id }, remote: true, class: 'issl-Item_Bookmark app_bookmark', form_class: 'ml-auto', data: loading_indicator do %>
-  <i class="iss-Bookmark iss-Bookmark-off"></i>
+  <i class="iss-Bookmark iss-Bookmark-off" id="app_bookmark_off"></i>
 <% end -%>
