@@ -7,6 +7,9 @@ class Issue < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :user_id
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
 
+  delegate :name, to: :author, prefix: true
+  delegate :initials, to: :author, prefix: true
+
   class << self
 
     def for_project(project_id)

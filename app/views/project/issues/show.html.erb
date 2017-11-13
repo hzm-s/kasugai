@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-22 col-lg-19 mx-auto">
+    <div class="dsc-Body">
+      <div class="dsc-Body_Issue">
+        <div class="iss-Detail">
+          <div class="iss-Detail_Header">
+            <div class="sw-AutoAvatar-sm">
+              <%= @issue.author_initials %>
+            </div>
+            <div class="iss-Detail_Creation">
+              <span id="app_issue_author">
+                <%= @issue.author_name %>
+              </span>
+              が
+              <span id="app_issue_created_at">
+                <%=l @issue.created_at %>
+              </span>
+              に作成
+            </div>
+            <%= link_to '', class: 'iss-Detail_Bookmark' do %>
+              <i class="iss-Bookmark iss-Bookmark-on"></i>
+            <% end -%>
+          </div>
+          <div class="iss-Detail_Body">
+            <div class="iss-Detail_TitleWrapper">
+              <h1 class="iss-Detail_Title" id="app_issue_title">
+                <%= @issue.title %>
+              </h1>
+              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
+            </div>
+            <div class="iss-Detail_ContentWrapper">
+              <p class="iss-Detail_Content" id="app_issue_content">
+                <%= @issue.content %>
+              </p>
+              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

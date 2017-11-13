@@ -11,6 +11,7 @@ class Project::IssuesController < Project::BaseController
   end
 
   def show
+    @issue = current_issue
   end
 
   def new
