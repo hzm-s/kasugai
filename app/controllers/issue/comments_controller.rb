@@ -13,9 +13,13 @@ class Issue::CommentsController < Project::BaseController
 
   def create
     form = IssueCommentForm.new(form_params)
-    result = IssueCommentService.post(current_user, current_issue, form)
-    @comment = result.comment
-    @form = IssueCommentForm.new
+    @result = IssueCommentService.post(current_user, current_issue, form)
+    if @result.succeeded?
+      @comment = @result.comment
+      @form = IssueCommentForm.new
+    else
+      @form = @result.params
+    end
   end
 
   private

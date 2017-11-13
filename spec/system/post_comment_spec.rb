@@ -1,19 +1,26 @@
 require 'rails_helper'
 
 describe 'コメントの投稿', type: :system do
-  it do
-    user = sign_up
-    project = create_project(user, name: 'Project')
-    issue = create_issue(user, project, title: 'Issue')
+  let(:issue) { create_issue(user, project, title: 'Issue') }
+  let(:project) { create_project(user, name: 'Project') }
+  let(:user) { sign_up }
 
+  before do
     sign_in(user)
     visit project_issue_path(project, issue)
+  end
 
+  it do
     content = 'Comment for issue'
 
     fill_in 'form[content]', with: content
     click_on '投稿する'
 
     expect(page).to have_content(content)
+  end
+
+  it do
+    click_on '投稿する'
+    expect(page).to have_content('本文を入力してください')
   end
 end

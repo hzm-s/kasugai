@@ -38,9 +38,7 @@
             <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
               <%= loading_partial %>
             <% end -%>
-            <%= render_async new_issue_comment_url(@issue), 'data-turbolinks-track': 'reload' do %>
-              <%= loading_partial %>
-            <% end -%>
+            <%= render partial: 'issue/comments/form', locals: { form: @form } %>
           </div>
         </div>
       </div>
