@@ -3,6 +3,10 @@ class Issue::CommentsController < Project::BaseController
 
   def index
     @comments = IssueComment.all
+    render layout: false
+  end
+
+  def new
     @form = IssueCommentForm.new
     render layout: false
   end

@@ -29,9 +29,21 @@
           </div>
         </div>
       </div>
-      <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
-        <%= loading_partial %>
-      <% end -%>
+      <div class="row">
+        <div class="col-sm-22 col-lg-18 mx-auto">
+          <div class="dsc-Body_CommentWrapper">
+            <h3 class="dsc-Comment_Title">
+              <%=t '.comments.title' %>
+            </h3>
+            <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
+              <%= loading_partial %>
+            <% end -%>
+            <%= render_async new_issue_comment_url(@issue), 'data-turbolinks-track': 'reload' do %>
+              <%= loading_partial %>
+            <% end -%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
