@@ -10,6 +10,9 @@ class Project::IssuesController < Project::BaseController
     @issues = Issue.for_project(current_project.id)
   end
 
+  def show
+  end
+
   def new
     @form = IssueForm.new
   end
