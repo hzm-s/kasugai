@@ -3,13 +3,15 @@ class Issue::CommentsController < Project::BaseController
 
   def index
     @comments = IssueComment.all
+    @form = IssueCommentForm.new
     render layout: false
   end
 
   def create
-    form = CommentForm.new(form_params)
+    form = IssueCommentForm.new(form_params)
     result = IssueCommentService.post(current_user, current_issue, form)
     @comment = result.comment
+    @form = IssueCommentForm.new
   end
 
   private

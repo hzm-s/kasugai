@@ -12,7 +12,6 @@ class Project::IssuesController < Project::BaseController
 
   def show
     @issue = current_issue
-    @comment_form = CommentForm.new
   end
 
   def new

@@ -1,2 +1,3 @@
-$('#js-issue-comments').append("<%=j render partial: 'comment', locals: { comment: @comment } %>");
-$('<%= app_dom_id(@comment) %>').highlight();
+$("<%=j render partial: 'comment', locals: { comment: @comment } %>")
+  .appendTo($('#js-issue-comments'));
+$('#js-issue-comment-form').replaceWith("<%=j render partial: 'form', locals: { form: @form } %>");
