@@ -1,0 +1,41 @@
+<% breadcrumb :project_members, current_project %>
+<div class="row">
+  <div class="col-sm-22 col-lg-16 mx-auto">
+    <div class="prj-Setting">
+      <div class="prj-Setting_Header">
+        <h2 class="prj-Setting_Title">
+          <%=t '.list.title' %>
+        </h2>
+      </div>
+      <div class="prj-Setting_Body">
+        <div class="prj-Members_List">
+          <% @members.each do |member| -%>
+            <div class="prj-Member">
+              <div class="sw-AutoAvatar">
+                <%= member.initials %>
+              </div>
+              <span class="prj-Member_Name app_member_name">
+                <%= member.name %>
+              </span>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+    <div class="prj-Setting">
+      <div class="prj-Setting_Header">
+        <h2 class="prj-Setting_Title">
+          <%=t '.invitation.title' %>
+        </h2>
+      </div>
+      <div class="prj-Setting_Body">
+        <div class="form-group">
+          <label class="frm-Label">
+            <%=t '.invitation.guide' %>
+          </label>
+          <input type="text" class="form-control" value="<%= new_project_member_url(current_project) %>" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

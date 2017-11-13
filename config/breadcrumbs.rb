@@ -16,3 +16,8 @@ crumb :edit_issue do |project, issue|
   link t('project_navs.edit_issue'), edit_project_issue_url(project, issue)
   parent :project_issues, project
 end
+
+crumb :project_members do |project|
+  link t('project_navs.members'), project_members_url(project)
+  parent :project_home, project
+end
