@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   scope '/issues/:issue_id', as: :issue, module: :issue do
     resource :priority, only: [:update]
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :create]
   end
 
   # ui

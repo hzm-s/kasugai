@@ -1,13 +1,11 @@
 class Issue::CommentsController < Project::BaseController
+  before_action :ensure_signed_in, only: [:index, :create]
+  before_action :ensure_project_member, only: [:index, :create]
+
   helper_method :current_issue
 
   def index
     @comments = IssueComment.all
-    render layout: false
-  end
-
-  def new
-    @form = IssueCommentForm.new
     render layout: false
   end
 
@@ -26,6 +24,10 @@ class Issue::CommentsController < Project::BaseController
 
     def form_params
       params.require(:form).permit(:content)
+    end
+
+    def current_project
+      @current_project ||= current_issue.project
     end
 
     def current_issue

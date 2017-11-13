@@ -11,3 +11,15 @@ shared_context '2人のユーザーがそれぞれプロジェクトを作成し
     project_b
   end
 end
+
+shared_context '2人のユーザーがそれぞれのプロジェクトで課題を作成している' do
+  include_context '2人のユーザーがそれぞれプロジェクトを作成している'
+
+  let(:issue_a) { create_issue(user_a, project_a, title: 'Issue for project A') }
+  let(:issue_b) { create_issue(user_b, project_a, title: 'Issue for project B') }
+
+  before do
+    issue_a
+    issue_b
+  end
+end
