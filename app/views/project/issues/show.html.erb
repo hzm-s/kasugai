@@ -9,7 +9,7 @@
               <%= @issue.author_initials %>
             </div>
             <div class="iss-Detail_Creation">
-              <%=t '.creation_html', name: @issue.author_name, date: l(@issue.created_at.to_date) %>
+              <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>
             <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
           </div>

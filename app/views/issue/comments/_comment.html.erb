@@ -1,21 +1,24 @@
-<div class="cmt-Comment">
+<div class="cmt-Comment" id="<%= app_dom_id(comment) %>">
   <div class="cmt-Comment_Header">
+    <div class="sw-AutoAvatar-lg">
+      <%= comment.author_initials %>
+    </div>
   </div>
   <div class="cmt-Comment_Body">
-    <p class="cmt-Comment_Content">
+    <p class="app_issue_comment_content cmt-Comment_Content">
       <%= comment.content %>
     </p>
     <div class="cmt-Comment_Info">
-      <span class="cmt-Comment_Timestamp">
-        末吉 哉が3時間前に投稿
-      </span>
+      <div class="cmt-Comment_Timestamp">
+        <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
+      </div>
       <div class="cmt-Comment_Actions">
         <ul class="sw-LinkList">
           <li>
-            <%= link_to '編集する', '', class: 'sw-Link sw-Link-sub' %>
+            <%= link_to t('navs.edit'), '', class: 'sw-Link sw-Link-sub' %>
           </li>
           <li>
-            <%= link_to '削除する', '', class: 'sw-Link sw-Link-sub' %>
+            <%= link_to t('navs.delete'), '', class: 'sw-Link sw-Link-sub' %>
           </li>
         </ul>
       </div>
