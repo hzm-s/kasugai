@@ -13,22 +13,23 @@ describe '課題のブックマークを削除', type: :system do
 
     sign_in(user)
 
-    visit project_issues_path(project)
-    within("#app_issue_#{issue_c.id}") do
-      first('.app_unbookmark').click
-      expect(page).to have_css('.iss-Bookmark-off')
-    end
+    aggregate_failures do
+      visit project_issues_path(project)
+      within("#app_issue_#{issue_c.id}") do
+        first('.app_unbookmark').click
+        expect(page).to have_css('.iss-Bookmark-off')
+      end
 
-    visit project_path(project)
-    within("#app_issue_#{issue_a.id}") do
-      first('.app_unbookmark').click
-    end
-    find("#app_issue_#{issue_b.id}")
-    expect(page).to_not have_content(issue_a.title)
+      visit project_path(project)
+      within("#app_issue_#{issue_a.id}") do
+        first('.app_unbookmark').click
+        expect(page).to have_css(".iss-Bookmark-off")
+      end
 
-    visit project_issue_path(project, issue_b)
-    first('.app_unbookmark').click
-    find('#app_issue_content')
-    expect(page).to have_css("#app_bookmark_off")
+      visit project_issue_path(project, issue_b)
+      first('.app_unbookmark').click
+      find('#app_issue_content')
+      expect(page).to have_css(".app_bookmark")
+    end
   end
 end
