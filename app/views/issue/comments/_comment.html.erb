@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="cmt-Comment_Body">
-    <p class="app_issue_comment_content cmt-Comment_Content">
-      <%= comment.content %>
-    </p>
+    <div class="app_issue_comment_content cmt-Comment_Content">
+      <%= simple_format(comment.content) %>
+    </div>
     <div class="cmt-Comment_Info">
       <div class="cmt-Comment_Timestamp">
         <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
