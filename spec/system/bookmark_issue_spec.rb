@@ -23,8 +23,6 @@ describe '課題のブックマーク', type: :system do
 
     visit project_issue_path(project, issue_a)
     first('.app_bookmark').click
-    find('#app_issue_content')
-    expect(page.current_path).to eq(project_issue_path(project, issue_a))
     expect(page).to have_css('.iss-Bookmark-on')
   end
 end
