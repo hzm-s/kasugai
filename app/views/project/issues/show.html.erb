@@ -21,9 +21,7 @@
               <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
             </div>
             <div class="iss-Detail_ContentWrapper">
-              <p class="iss-Detail_Content" id="app_issue_content">
-                <%= @issue.content %>
-              </p>
+              <%= simple_format(@issue.content, id: 'app_issue_content', class: 'iss-Detail_Content') %>
               <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
             </div>
           </div>
