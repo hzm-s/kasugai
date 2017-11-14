@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="cmt-Comment_Body">
-    <p class="app_issue_comment_content cmt-Comment_Content">
-      <%= comment.content %>
-    </p>
+    <div class="app_issue_comment_content cmt-Comment_Content">
+      <%= simple_format(comment.content) %>
+    </div>
     <div class="cmt-Comment_Info">
       <div class="cmt-Comment_Timestamp">
         <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
@@ -15,10 +15,7 @@
       <div class="cmt-Comment_Actions">
         <ul class="sw-LinkList">
           <li>
-            <%= link_to t('navs.edit'), '', class: 'sw-Link sw-Link-sub' %>
-          </li>
-          <li>
-            <%= link_to t('navs.delete'), '', class: 'sw-Link sw-Link-sub' %>
+            <%= link_to_if comment.author == current_user, t('navs.delete'), '', class: 'sw-Link sw-Link-sub' %>
           </li>
         </ul>
       </div>

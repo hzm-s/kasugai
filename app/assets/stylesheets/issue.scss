@@ -47,7 +47,9 @@
 
 .iss-Detail_Content {
   @include nf;
-  margin: 0;
+  p {
+    margin: 0;
+  }
 }
 
 .iss-Detail_EditLink {

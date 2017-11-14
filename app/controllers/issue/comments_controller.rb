@@ -5,7 +5,7 @@ class Issue::CommentsController < Project::BaseController
   helper_method :current_issue
 
   def index
-    @comments = IssueComment.all
+    @comments = current_issue.comments
     render layout: false
   end
 
