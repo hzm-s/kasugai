@@ -5,7 +5,11 @@ class Issue < ApplicationRecord
 
   belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: :user_id
+  has_many :comments, class_name: 'IssueComment', foreign_key: :issue_id
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
+
+  delegate :name, to: :author, prefix: true
+  delegate :initials, to: :author, prefix: true
 
   class << self
 

@@ -146,6 +146,7 @@ ja:
       create: 作成する
       submit: 保存する
       update: 更新する
+      post: 投稿する
   navs:
     ok: OK
     error: エラー
@@ -213,7 +214,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
+      default: "%Y/%m/%d %H:%M"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後

@@ -1,7 +1,7 @@
 <div id="<%= app_dom_id(summary) %>" class="issl-Item" data-sort-url="<%= issue_priority_url(summary) %>">
   <i class="issl-Item_Handle js-sortable-handle"></i>
   <div class="issl-Item_Body">
-    <%= link_to summary.title, '#', class: 'issl-Item_Content app_issue_title' %>
+    <%= link_to summary.title, project_issue_url(current_project, summary), class: 'issl-Item_Content app_issue_title' %>
     <%= render partial: 'bookmark', locals: { issue: summary, from: :list } %>
   </div>
   <div class="issl-Item_Tail">

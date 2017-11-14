@@ -5,6 +5,7 @@ ja:
     members: メンバー管理
     new_issue: 新しい課題
     edit_issue: 課題の編集
+    show_issue: 課題の詳細
 
   shared:
     global_nav:
@@ -68,6 +69,10 @@ ja:
         placeholders:
           title: 課題のタイトル
           content: 課題の内容（省略できます）
+      show:
+        creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
+        comments:
+          title: コメント
 
     bookmarked_issues:
       index:
@@ -87,3 +92,8 @@ ja:
         invitation:
           title: プロジェクトへ招待
           guide: このURLを招待したい人に共有してください
+
+  issue:
+    comments:
+      comment:
+        creation_html: "<span class='app_issue_comment_author'>%{author}</span>が<span class='app_issue_comment_created_at'>%{time}</span>に投稿"

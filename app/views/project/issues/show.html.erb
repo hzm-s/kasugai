@@ -1,0 +1,47 @@
+<% breadcrumb :show_issue, current_project, @issue %>
+<div class="row">
+  <div class="col-sm-22 col-lg-19 mx-auto">
+    <div class="dsc-Body">
+      <div class="dsc-Body_Issue">
+        <div class="iss-Detail">
+          <div class="iss-Detail_Header">
+            <div class="sw-AutoAvatar-sm">
+              <%= @issue.author_initials %>
+            </div>
+            <div class="iss-Detail_Creation">
+              <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
+            </div>
+            <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
+          </div>
+          <div class="iss-Detail_Body">
+            <div class="iss-Detail_TitleWrapper">
+              <h1 class="iss-Detail_Title" id="app_issue_title">
+                <%= @issue.title %>
+              </h1>
+              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
+            </div>
+            <div class="iss-Detail_ContentWrapper">
+              <p class="iss-Detail_Content" id="app_issue_content">
+                <%= @issue.content %>
+              </p>
+              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-22 col-lg-18 mx-auto">
+          <div class="dsc-Body_CommentWrapper">
+            <h3 class="dsc-Comment_Title">
+              <%=t '.comments.title' %>
+            </h3>
+            <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
+              <%= loading_partial %>
+            <% end -%>
+            <%= render partial: 'issue/comments/form', locals: { form: @form } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
