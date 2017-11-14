@@ -34,5 +34,7 @@ module Kasugai
       g.view_specs false
       g.controller_specs false
     end
+
+    config.time_zone = 'Tokyo'
   end
 end

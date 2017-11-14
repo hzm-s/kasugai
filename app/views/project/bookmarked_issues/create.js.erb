@@ -1,2 +1,2 @@
-Turbolinks.clearCache();
-Turbolinks.visit("<%= @redirect_url %>", { action: 'replace' });
+$('#js-bookmark-issue-<%= @issue.id %>')
+  .replaceWith("<%=j render partial: 'project/issues/bookmarked', locals: { issue: @issue } %>")
