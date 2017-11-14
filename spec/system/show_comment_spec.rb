@@ -2,14 +2,20 @@ require 'rails_helper'
 
 describe 'コメントの表示' do
   let(:user) { sign_up }
+  let(:other_user) { sign_up }
+
   let(:project) { create_project(user, name: 'Project') }
+
   let(:issue) { create_issue(user, project, title: 'Issue') }
   let(:comment) { post_comment(user, issue, content: 'Comment for issue') }
   let(:comment2) { post_comment(user, issue, content: 'Comment for issue 2') }
+  let(:comment_by_other_user) { post_comment(other_user, issue, content: 'By Other user') }
 
   before do
+    ProjectService.add_member(project, other_user.id)
     comment
     comment2
+    comment_by_other_user
   end
 
   it do
@@ -21,6 +27,10 @@ describe 'コメントの表示' do
       expect(first('.app_issue_comment_content').text).to eq(comment.content)
       expect(first('.app_issue_comment_author').text).to eq(user.name)
       expect(first('.app_issue_comment_created_at').text).to eq(I18n.l(comment.created_at))
+
+      within("#app_issue_comment_#{comment_by_other_user.id}") do
+        expect(page).to_not have_link('削除する')
+      end
     end
   end
 
