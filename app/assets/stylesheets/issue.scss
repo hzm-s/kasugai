@@ -47,7 +47,7 @@
 
 .iss-Detail_Content {
   @include nf;
-  p {
+  p:last-child {
     margin: 0;
   }
 }
