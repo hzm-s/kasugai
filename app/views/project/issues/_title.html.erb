@@ -8,13 +8,9 @@
     </div>
   <% end -%>
   <%= ie.form class: 'sw-InlineEdit' do -%>
-    <%= form_with model: issue, scope: :form, url: project_issue_path(current_project, issue), method: :patch, remote: true do |f| %>
+    <%= render 'inline_edit_form', ie: ie, issue: issue do |f| %>
       <div class="form-group">
         <%= f.text_field :title, class: 'form-control' %>
-      </div>
-      <div class="frm-Actions">
-        <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
-        <%= ie.link_to_toggle t('navs.cancel'), class: 'frm-Actions_Cancel' %>
       </div>
     <% end -%>
   <% end -%>
