@@ -97,3 +97,4 @@ ja:
     comments:
       comment:
         creation_html: "<span class='app_issue_comment_author'>%{author}</span>が<span class='app_issue_comment_created_at'>%{time}</span>に投稿"
+        confirm_delete: 'コメントを削除してよろしいですか?'
