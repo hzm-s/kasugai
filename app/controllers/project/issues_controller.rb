@@ -37,7 +37,10 @@ class Project::IssuesController < Project::BaseController
     form = IssueForm.new(form_params)
     result = IssueService.update(current_issue, form)
     if result.succeeded?
-      redirect_to project_issues_url, notice: flash_message
+      respond_to do |f|
+        f.html { redirect_to project_issues_url, notice: flash_message }
+        f.js
+      end
     else
       @form = result.params
       render :edit

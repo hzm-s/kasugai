@@ -68,6 +68,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'popper_js', '~> 1.12.3'
+gem 'hashigami_rails', github: 'haazime/hashigami_rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-Sortable'
