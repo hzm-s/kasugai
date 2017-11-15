@@ -18,7 +18,7 @@ describe '課題コメントの削除', type: :system do
         click_on '削除する'
       end
     end
-    find('#app_issue_comments')
+    find('#js-issue-comments')
     expect(page).to_not have_content(comment.content)
   end
 end
