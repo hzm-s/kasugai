@@ -45,11 +45,6 @@
   font-size: $font-size-lg;
 }
 
-.iss-Detail_TitleEdit {
-  padding: 0 .5rem .75rem .5rem;
-  border-bottom: 1px solid $gray-300;
-}
-
 .iss-Detail_Content {
   @include nf;
   p:last-child {
@@ -60,6 +55,17 @@
 .iss-Detail_EditLink {
   @extend .ml-auto;
   font-size: $font-size-sm;
+}
+
+.iss-Detail_TitleEdit {
+  padding-right: 5rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid $gray-300;
+}
+
+.iss-Detail_ContentEdit {
+  margin-top: 1.5rem;
+  padding-right: 5rem;
 }
 
 .iss-Create {
