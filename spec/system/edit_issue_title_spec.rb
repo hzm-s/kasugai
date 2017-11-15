@@ -8,11 +8,11 @@ describe '課題タイトルの編集' do
 
     sign_in(user)
     visit project_issue_path(project, issue)
-    find('#js-open-title-editor').click
+    find('#js-open-issue-title-editor').click
     fill_in 'form[title]', with: 'Issue New'
     click_on '保存する'
 
-    find('#js-open-title-editor')
+    find('#js-open-issue-title-editor')
     expect(find('#app_issue_title').text).to eq('Issue New')
   end
 end
