@@ -15,12 +15,7 @@
           </div>
           <div class="iss-Detail_Body">
             <%= render partial: 'title', locals: { issue: @issue } %>
-            <div class="iss-Detail_ContentWrapper">
-              <div class="iss-Detail_Content" id="app_issue_content">
-                <%= simple_format(@issue.content) %>
-              </div>
-              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
-            </div>
+            <%= render partial: 'content', locals: { issue: @issue } %>
           </div>
         </div>
       </div>

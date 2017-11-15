@@ -1,0 +1,22 @@
+<%= inline_edit_with 'js-issue-content-editor' do |ie| %>
+  <%= ie.primary do %>
+    <div class="iss-Detail_ContentWrapper">
+      <div class="iss-Detail_Content" id="app_issue_content">
+        <%= simple_format(issue.content) %>
+      </div>
+      <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-content-editor', class: 'iss-Detail_EditLink' %>
+    </div>
+  <% end -%>
+  <%= ie.form style: 'margin-top:1.5rem;' do -%>
+    <%= form_with model: issue, scope: :form, url: project_issue_path(current_project, issue), method: :patch, remote: true do |f| %>
+      <%= f.hidden_field :title %>
+      <div class="form-group">
+        <%= f.text_area :content, rows: 10, class: 'form-control' %>
+      </div>
+      <div class="frm-Actions">
+        <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
+        <%= ie.link_to_toggle t('navs.cancel'), class: 'frm-Actions_Cancel' %>
+      </div>
+    <% end -%>
+  <% end -%>
+<% end -%>
