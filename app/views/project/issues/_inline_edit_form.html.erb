@@ -1,0 +1,7 @@
+<%= form_with model: issue, scope: :form, url: project_issue_path(current_project, issue), method: :patch, remote: true do |f| %>
+  <%= yield(f) %>
+  <div class="frm-Actions">
+    <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
+    <%= ie.link_to_toggle t('navs.cancel'), class: 'frm-Actions_Cancel' %>
+  </div>
+<% end -%>

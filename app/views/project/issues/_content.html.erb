@@ -1,0 +1,18 @@
+<%= inline_edit_with 'js-issue-content-editor' do |ie| %>
+  <%= ie.primary do %>
+    <div class="iss-Detail_ContentWrapper">
+      <div class="iss-Detail_Content" id="app_issue_content">
+        <%= simple_format(issue.content) %>
+      </div>
+      <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-content-editor', class: 'iss-Detail_EditLink' %>
+    </div>
+  <% end -%>
+  <%= ie.form class: 'iss-Detail_ContentEdit' do -%>
+    <%= render 'inline_edit_form', ie: ie, issue: issue do |f| %>
+      <%= f.hidden_field :title %>
+      <div class="form-group">
+        <%= f.text_area :content, rows: 10, class: 'form-control' %>
+      </div>
+    <% end -%>
+  <% end -%>
+<% end -%>
