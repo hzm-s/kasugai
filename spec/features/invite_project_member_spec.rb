@@ -51,7 +51,7 @@ describe 'プロジェクトメンバーの招待' do
 
     context '既に参加している場合' do
       before do
-        ProjectService.add_member(project, invited_user.id)
+        add_project_member(project, invited_user)
       end
 
       it do
