@@ -7,4 +7,8 @@ class IssueCommentService < ApplicationService
     comment.save!
     success(comment: comment)
   end
+
+  def delete(issue)
+    issue.destroy!
+  end
 end

@@ -15,7 +15,7 @@
       <div class="cmt-Comment_Actions">
         <ul class="sw-LinkList">
           <li>
-            <%= link_to_if comment.author == current_user, t('navs.delete'), '', class: 'sw-Link sw-Link-sub' %>
+          <%= link_to_if comment.author == current_user, t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
           </li>
         </ul>
       </div>

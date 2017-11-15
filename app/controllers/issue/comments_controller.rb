@@ -20,6 +20,11 @@ class Issue::CommentsController < Project::BaseController
     end
   end
 
+  def destroy
+    @comment = IssueComment.find(params[:id])
+    IssueCommentService.delete(@comment)
+  end
+
   private
 
     def form_params
