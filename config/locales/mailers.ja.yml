@@ -9,3 +9,10 @@ ja:
       subject: 'Kasugai - ログイン'
       message: 'ログインしてください'
       link_text: 'ログインする'
+
+  issue_comment_mailer:
+    posted:
+      subject: 'Kasugai - 課題「%{issue_title}」にコメントが投稿されました'
+      recipient: '%{name}さん'
+      message_html: '課題「%{issue_title}」に<br>%{author}さんがコメントを投稿しました。'
+      goto_issue: '課題ページへ'
