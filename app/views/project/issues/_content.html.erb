@@ -1,9 +1,15 @@
 <%= inline_edit_with 'js-issue-content-editor' do |ie| %>
   <%= ie.primary do %>
     <div class="iss-Detail_ContentWrapper">
-      <div class="iss-Detail_Content" id="app_issue_content">
-        <%= simple_format(issue.content) %>
-      </div>
+      <% if issue.content.blank?  -%>
+        <p class="iss-Detail_Content iss-Detail_Content-blank">
+          <%=t '.blank' %>
+        </p>
+      <% else -%>
+        <div class="iss-Detail_Content" id="app_issue_content">
+          <%= simple_format(issue.content) %>
+        </div>
+      <% end -%>
       <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-content-editor', class: 'iss-Detail_EditLink' %>
     </div>
   <% end -%>

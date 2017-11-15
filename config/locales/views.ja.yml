@@ -73,6 +73,8 @@ ja:
         creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
         comments:
           title: コメント
+      content:
+        blank: 本文はありません
 
     bookmarked_issues:
       index:

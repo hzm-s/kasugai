@@ -52,6 +52,11 @@
   }
 }
 
+.iss-Detail_Content-blank {
+  margin: 0;
+  color: $gray-500;
+}
+
 .iss-Detail_EditLink {
   @extend .ml-auto;
   font-size: $font-size-sm;
