@@ -32,6 +32,11 @@ describe Project::IssuesController do
   end
 
   it do
+    patch :update, xhr: true, params: { project_id: 'dummy', id: 'dummy' }
+    expect_xhr_ensure_signed_in
+  end
+
+  it do
     delete :destroy, params: { project_id: 'dummy', id: 'dummy' }
     expect_ensure_signed_in
   end
@@ -69,6 +74,11 @@ describe Project::IssuesController do
     it do
       patch :update, params: { project_id: project_a.id, id: 'dummy' }
       expect_ensure_project_member
+    end
+
+    it do
+      patch :update, xhr: true, params: { project_id: project_a.id, id: 'dummy' }
+      expect_xhr_ensure_project_member
     end
 
     it do
