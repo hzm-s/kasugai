@@ -16,10 +16,12 @@
 //= require popper
 //= require bootstrap
 //= require Sortable
+//= require hashigami/inlineEdit
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
   setupFlash();
   setupLoading();
   setupSortable();
+  setupInlineEdit();
 });

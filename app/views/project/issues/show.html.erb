@@ -14,12 +14,7 @@
             <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
           </div>
           <div class="iss-Detail_Body">
-            <div class="iss-Detail_TitleWrapper">
-              <h1 class="iss-Detail_Title" id="app_issue_title">
-                <%= @issue.title %>
-              </h1>
-              <%= link_to t('navs.edit'), '', class: 'iss-Detail_EditLink' %>
-            </div>
+            <%= render partial: 'title', locals: { issue: @issue } %>
             <div class="iss-Detail_ContentWrapper">
               <div class="iss-Detail_Content" id="app_issue_content">
                 <%= simple_format(@issue.content) %>

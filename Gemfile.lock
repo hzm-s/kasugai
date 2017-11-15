@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/haazime/hashigami_rails.git
+  revision: f92e7cff5cb55365be498d3c8f64ad63c8016598
+  specs:
+    hashigami_rails (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -251,6 +257,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-rails
   gretel
+  hashigami_rails!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
