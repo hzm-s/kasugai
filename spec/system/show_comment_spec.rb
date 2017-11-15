@@ -12,7 +12,7 @@ describe 'コメントの表示' do
   let(:comment_by_other_user) { post_comment(other_user, issue, content: 'By Other user') }
 
   before do
-    ProjectService.add_member(project, other_user.id)
+    add_project_member(project, other_user)
     comment
     comment2
     comment_by_other_user

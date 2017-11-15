@@ -7,7 +7,7 @@ describe 'プロジェクト一覧' do
     let(:user_c) { sign_up }
 
     before do
-      ProjectService.add_member(project_a, user_c.id)
+      add_project_member(project_a, user_c)
     end
 
     it do

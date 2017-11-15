@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe 'コメントの投稿', type: :system do
-  let(:issue) { create_issue(user, project, title: 'Issue') }
-  let(:project) { create_project(user, name: 'Project') }
   let(:user) { sign_up }
+  let(:project) { create_project(user, name: 'Project') }
+  let(:issue) { create_issue(user, project, title: 'Issue') }
 
   before do
     sign_in(user)

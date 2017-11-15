@@ -19,4 +19,8 @@ class Project < ApplicationRecord
   def add_member(user_id)
     members.create!(user_id: user_id)
   end
+
+  def members_without(exclude_user)
+    members.reject { |member| member.same_user?(exclude_user) }
+  end
 end

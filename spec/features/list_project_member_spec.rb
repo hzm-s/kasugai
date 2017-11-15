@@ -7,9 +7,9 @@ describe 'プロジェクトメンバー一覧' do
     let(:user_c) { sign_up }
 
     it do
-      ProjectService.add_member(project_a, user_b.id)
-      ProjectService.add_member(project_a, user_c.id)
-      ProjectService.add_member(project_b, user_c.id)
+      add_project_member(project_a, user_b)
+      add_project_member(project_a, user_c)
+      add_project_member(project_b, user_c)
 
       sign_in(user_a)
       visit project_members_path(project_a)

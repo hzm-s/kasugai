@@ -1,0 +1,7 @@
+<p>
+  <%= t('.recipient', name: @recipient_name) %>
+</p>
+<p>
+  <%= t('.message_html', issue_title: @issue.title, author: @author_name) %>
+</p>
+<%= link_to t('.goto_issue'), project_issue_url(@issue.project, @issue) %>
