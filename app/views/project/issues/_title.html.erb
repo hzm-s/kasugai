@@ -7,7 +7,7 @@
       <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-title-editor', class: 'iss-Detail_EditLink' %>
     </div>
   <% end -%>
-  <%= ie.form class: 'sw-InlineEdit' do -%>
+  <%= ie.form class: 'iss-Detail_TitleEdit' do -%>
     <%= render 'inline_edit_form', ie: ie, issue: issue do |f| %>
       <div class="form-group">
         <%= f.text_field :title, class: 'form-control' %>

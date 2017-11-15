@@ -45,6 +45,11 @@
   font-size: $font-size-lg;
 }
 
+.iss-Detail_TitleEdit {
+  padding: 0 .5rem .75rem .5rem;
+  border-bottom: 1px solid $gray-300;
+}
+
 .iss-Detail_Content {
   @include nf;
   p:last-child {
