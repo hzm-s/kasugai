@@ -1,8 +1,6 @@
 <div class="cmt-Form" id="js-issue-comment-form">
   <div class="cmt-Form_Header">
-    <div class="usr-Avatar-lg">
-      <%= current_issue.author_initials %>
-    </div>
+    <%= show_user_avatar(current_user, size: :lg) %>
   </div>
   <div class="cmt-Form_Form">
     <%= form_with model: form, scope: :form, url: issue_comments_url(current_issue), remote: true do |f| -%>

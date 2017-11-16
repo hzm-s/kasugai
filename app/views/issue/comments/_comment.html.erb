@@ -1,8 +1,6 @@
 <div class="cmt-Comment" id="<%= app_dom_id(comment) %>">
   <div class="cmt-Comment_Header">
-    <div class="usr-Avatar-lg">
-      <%= comment.author_initials %>
-    </div>
+    <%= show_user_avatar(comment.author, size: :lg) %>
   </div>
   <div class="cmt-Comment_Body">
     <div class="app_issue_comment_content cmt-Comment_Content">

@@ -22,11 +22,11 @@ module ApplicationHelper
     dom_id(resource, 'app')
   end
 
-  def current_user_avatar(size: nil)
+  def show_user_avatar(user, size: nil)
     content_tag(
       :div,
-      current_user.initials,
-      class: avatar_css_class(theme: current_user.theme, size: size)
+      user.initials,
+      class: avatar_css_class(theme: user.theme, size: size)
     )
   end
 
