@@ -22,12 +22,13 @@ module ApplicationHelper
     dom_id(resource, 'app')
   end
 
-  def show_user_avatar(user, size: nil)
-    content_tag(
-      :div,
-      user.initials,
-      class: avatar_css_class(theme: user.theme, size: size)
-    )
+  def show_user_avatar(user, options = {})
+    size = options.delete(:size)
+    extra_class = options.delete(:class)
+    _options = {
+      class: avatar_css_class(theme: user.theme, size: size) + " #{extra_class}"
+    }.merge(options)
+    content_tag(:div, user.initials, _options)
   end
 
   def avatar_css_class(theme:, size: nil)
