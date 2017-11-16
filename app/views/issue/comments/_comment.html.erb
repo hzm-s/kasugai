@@ -12,9 +12,11 @@
       </div>
       <div class="cmt-Comment_Actions">
         <ul class="sw-LinkList">
-          <li>
-          <%= link_to_if comment.author == current_user, t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
-          </li>
+          <% if comment.author == current_user %>
+            <li>
+              <%= link_to t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
+            </li>
+          <% end -%>
         </ul>
       </div>
     </div>
