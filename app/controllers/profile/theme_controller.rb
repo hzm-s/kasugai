@@ -1,4 +1,5 @@
 class Profile::ThemeController < ApplicationController
+  before_action :ensure_signed_in
 
   def update
     ProfileService.update_theme(current_user, form_params[:theme])
