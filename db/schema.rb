@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171113074225) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "initials", null: false
+    t.string "theme", null: false
   end
 
   add_foreign_key "accounts", "users"
