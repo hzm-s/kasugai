@@ -20,6 +20,24 @@
   @include avatar(5rem);
 }
 
+.usr-EditAvatar_Themes {
+  @extend .d-flex, .justify-content-center;
+  margin-top: 1.5rem;
+}
+
+.usr-EditAvatar_Theme {
+  @include icon-button;
+  padding: .1rem;
+}
+
+.usr-EditAvatar_ThemeOption {
+  @extend .fa, .fa-square;
+  font-size: 2rem;
+}
+.usr-EditAvatar_ThemeOption-selected {
+  @extend .fa, .fa-check-square;
+}
+
 .usr-Profile_Divider {
   margin: 0;
 }
@@ -38,10 +56,10 @@
   @include avatar(2.25rem);
 }
 
-$user-theme-blue    : #001C55;
+$user-theme-blue    : #006CAA;
 $user-theme-indigo  : #233D4D;
 $user-theme-purple  : #582E5A;
-$user-theme-pink    : #DD99BB;
+$user-theme-pink    : #C98CAA;
 $user-theme-red     : #76221D;
 $user-theme-orange  : #D06825;
 $user-theme-yellow  : #D19C1D;
@@ -54,7 +72,7 @@ $user-theme-black   : $gray-700;
 .usr-Avatar-blue    { background-color: $user-theme-blue; color: $white; }
 .usr-Avatar-indigo  { background-color: $user-theme-indigo; color: $white; }
 .usr-Avatar-purple  { background-color: $user-theme-purple; color: $white; }
-.usr-Avatar-pink    { background-color: $user-theme-pink; color: $gray-600; }
+.usr-Avatar-pink    { background-color: $user-theme-pink; color: $white; }
 .usr-Avatar-red     { background-color: $user-theme-red; color: $white; }
 .usr-Avatar-orange  { background-color: $user-theme-orange; color: $white; }
 .usr-Avatar-yellow  { background-color: $user-theme-yellow; color: $white; }
