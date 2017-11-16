@@ -1,11 +1,7 @@
 <ul class="navbar-nav ml-auto">
   <li class="nav-item dropdown">
     <a class="nav-Global_UserMenuTrigger" href="#" id="navUserMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <div class="sw-AutoAvatar">
-        <span class="initials">
-          <%= current_user.initials %>
-        </span>
-      </div>
+      <%= show_user_avatar(current_user) %>
     </a>
     <div style="margin-right:.25rem;" class="dropdown-menu" aria-labelledby="navUserMenuLink">
       <h5 class="nav-User_Name">

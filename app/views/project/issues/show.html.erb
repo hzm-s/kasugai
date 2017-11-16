@@ -5,9 +5,7 @@
       <div class="dsc-Body_Issue">
         <div class="iss-Detail">
           <div class="iss-Detail_Header">
-            <div class="sw-AutoAvatar-sm">
-              <%= @issue.author_initials %>
-            </div>
+            <%= show_user_avatar(@issue.author, size: :sm) %>
             <div class="iss-Detail_Creation">
               <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>

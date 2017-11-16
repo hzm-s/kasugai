@@ -22,6 +22,7 @@ class SignUp < ApplicationRecord
   def complete
     User.new(name: name) do |u|
       u.initials = email
+      u.theme = UserTheme.detect
       u.build_account(email: email)
       u.save!
     end

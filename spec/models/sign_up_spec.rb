@@ -19,6 +19,7 @@ describe SignUp do
         expect(user.name).to eq(name)
         expect(user.email).to eq(email)
         expect(user.initials).to eq('US')
+        expect(UserTheme.all).to include(user.theme)
       end
     end
   end
