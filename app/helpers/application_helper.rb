@@ -21,4 +21,20 @@ module ApplicationHelper
   def app_dom_id(resource)
     dom_id(resource, 'app')
   end
+
+  def current_user_avatar(size: nil)
+    content_tag(
+      :div,
+      current_user.initials,
+      class: avatar_css_class(theme: current_user.theme, size: size)
+    )
+  end
+
+  def avatar_css_class(theme:, size: nil)
+    size_suffix =
+      if size
+        "-#{size}"
+      end
+    "usr-Avatar#{size_suffix} usr-Avatar-#{theme}"
+  end
 end
