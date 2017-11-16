@@ -38,15 +38,41 @@
   @include avatar(2.25rem);
 }
 
-.usr-Avatar-blue    { background-color: #001C55; color: $white; }
-.usr-Avatar-indigo  { background-color: #233D4D; color: $white; }
-.usr-Avatar-purple  { background-color: #582E5A; color: $white; }
-.usr-Avatar-pink    { background-color: #DD99BB; color: $gray-600; }
-.usr-Avatar-red     { background-color: #76221D; color: $white; }
-.usr-Avatar-orange  { background-color: #D06825; color: $white; }
-.usr-Avatar-yellow  { background-color: #D19C1D; color: $white; }
-.usr-Avatar-green   { background-color: #1B6B3F; color: $white; }
-.usr-Avatar-teal    { background-color: #507F71; color: $white; }
-.usr-Avatar-cyan    { background-color: #5FA6AF; color: $white; }
-.usr-Avatar-gray    { background-color: #B9BAA3; color: $gray-700; }
-.usr-Avatar-black   { background-color: $gray-700; color: $white; }
+$user-theme-blue    : #001C55;
+$user-theme-indigo  : #233D4D;
+$user-theme-purple  : #582E5A;
+$user-theme-pink    : #DD99BB;
+$user-theme-red     : #76221D;
+$user-theme-orange  : #D06825;
+$user-theme-yellow  : #D19C1D;
+$user-theme-green   : #1B6B3F;
+$user-theme-teal    : #507F71;
+$user-theme-cyan    : #5FA6AF;
+$user-theme-gray    : #B9BAA3;
+$user-theme-black   : $gray-700;
+
+.usr-Avatar-blue    { background-color: $user-theme-blue; color: $white; }
+.usr-Avatar-indigo  { background-color: $user-theme-indigo; color: $white; }
+.usr-Avatar-purple  { background-color: $user-theme-purple; color: $white; }
+.usr-Avatar-pink    { background-color: $user-theme-pink; color: $gray-600; }
+.usr-Avatar-red     { background-color: $user-theme-red; color: $white; }
+.usr-Avatar-orange  { background-color: $user-theme-orange; color: $white; }
+.usr-Avatar-yellow  { background-color: $user-theme-yellow; color: $white; }
+.usr-Avatar-green   { background-color: $user-theme-green; color: $white; }
+.usr-Avatar-teal    { background-color: $user-theme-teal; color: $white; }
+.usr-Avatar-cyan    { background-color: $user-theme-cyan; color: $white; }
+.usr-Avatar-gray    { background-color: $user-theme-gray; color: $gray-800; }
+.usr-Avatar-black   { background-color: $user-theme-black; color: $white; }
+
+.usr-Theme-blue    { color: $user-theme-blue; }
+.usr-Theme-indigo  { color: $user-theme-indigo; }
+.usr-Theme-purple  { color: $user-theme-purple; }
+.usr-Theme-pink    { color: $user-theme-pink; }
+.usr-Theme-red     { color: $user-theme-red; }
+.usr-Theme-orange  { color: $user-theme-orange; }
+.usr-Theme-yellow  { color: $user-theme-yellow; }
+.usr-Theme-green   { color: $user-theme-green; }
+.usr-Theme-teal    { color: $user-theme-teal; }
+.usr-Theme-cyan    { color: $user-theme-cyan; }
+.usr-Theme-gray    { color: $user-theme-gray; }
+.usr-Theme-black   { color: $user-theme-black; }

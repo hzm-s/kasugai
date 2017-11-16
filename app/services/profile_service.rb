@@ -9,4 +9,13 @@ class ProfileService < ApplicationService
 
     success
   end
+
+  def update_theme(user, theme)
+    return failure unless UserTheme.exist?(theme)
+
+    user.theme = theme
+    user.save
+
+    success
+  end
 end

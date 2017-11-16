@@ -10,5 +10,9 @@ module UserTheme
     def detect
       all.sample
     end
+
+    def exist?(theme)
+      all.include?(theme)
+    end
   end
 end

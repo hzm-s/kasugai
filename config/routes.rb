@@ -11,9 +11,6 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#show', as: :home
 
-  get '/profile/edit', to: 'profile#edit', as: :edit_profile
-  patch '/profile', to: 'profile#update', as: :profile
-
   resources :projects, only: [:index, :new, :create, :show]
 
   scope '/projects/:project_id', as: :project, module: :project do
@@ -26,6 +23,10 @@ Rails.application.routes.draw do
     resource :priority, only: [:update]
     resources :comments, only: [:index, :create, :destroy]
   end
+
+  get '/profile/edit', to: 'profile#edit', as: :edit_profile
+  patch '/profile', to: 'profile#update', as: :profile
+  patch '/profile/theme', to: 'profile/theme#update', as: :profile_theme
 
   # ui
   resources :pages, only: [:index, :show]

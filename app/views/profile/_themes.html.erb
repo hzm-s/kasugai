@@ -1,0 +1,8 @@
+<div class="usr-EditAvatar_Themes" id="app_themes">
+  <% UserTheme.all.each do |theme| -%>
+    <%= form_with url: profile_theme_url, method: :patch do |f| %>
+      <%= hidden_field_tag 'form[theme]', theme %>
+      <%= f.button 'o', class: "usr-Theme-#{theme}", id: "app_theme_#{theme}" %>
+    <% end -%>
+  <% end -%>
+</div>
