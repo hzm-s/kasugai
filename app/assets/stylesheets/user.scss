@@ -11,24 +11,13 @@
   box-shadow: 0 0 10px $gray-500;
 }
 
-.usr-Avatar_Wrapper {
+.usr-EditAvatar_Wrapper {
   text-align: center;
   padding-bottom: 1rem;
 }
 
-.usr-Avatar_Image {
-  display: block;
-  margin: 0 auto 1rem;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  padding: .25rem;
-  border: 1px solid $gray-300;
-}
-
-.usr-Avatar_ChangeLink {
-  display: block;
-  font-size: $font-size-sm;
+.usr-EditAvatar_Avatar {
+  @include avatar(5rem);
 }
 
 .usr-Profile_Divider {
@@ -39,6 +28,25 @@
   padding-top: 1rem;
 }
 
-.usr-AutoAvatar {
-  @include avatar(5rem);
+.usr-Avatar {
+  @include avatar(1.75rem);
 }
+.usr-Avatar-sm {
+  @include avatar(1.25rem);
+}
+.usr-Avatar-lg {
+  @include avatar(2.25rem);
+}
+
+.usr-Avatar-blue    { background-color: #001C55; color: $white; }
+.usr-Avatar-indigo  { background-color: #233D4D; color: $white; }
+.usr-Avatar-purple  { background-color: #582E5A; color: $white; }
+.usr-Avatar-pink    { background-color: #DD99BB; color: $gray-600; }
+.usr-Avatar-red     { background-color: #76221D; color: $white; }
+.usr-Avatar-orange  { background-color: #D06825; color: $white; }
+.usr-Avatar-yellow  { background-color: #D19C1D; color: $white; }
+.usr-Avatar-green   { background-color: #1B6B3F; color: $white; }
+.usr-Avatar-teal    { background-color: #507F71; color: $white; }
+.usr-Avatar-cyan    { background-color: #5FA6AF; color: $white; }
+.usr-Avatar-gray    { background-color: #B9BAA3; color: $gray-700; }
+.usr-Avatar-black   { background-color: $gray-700; color: $white; }
