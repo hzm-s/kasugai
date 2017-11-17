@@ -17,6 +17,6 @@ class User < ApplicationRecord
   end
 
   def as_member_of(project)
-    ProjectMember.find_by(user_id: id, project_id: project.id)
+    ProjectMember.find_by_user_and_project(id, project.id)
   end
 end
