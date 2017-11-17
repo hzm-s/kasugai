@@ -15,7 +15,10 @@ module Expectations
     end
 
     def expect_ensure_project_member
-      expect(response).to redirect_to(projects_url)
+      aggregate_failures do
+        expect(flash[:notice]).to be_nil
+        expect(response).to redirect_to(projects_url)
+      end
     end
 
     def expect_xhr_ensure_signed_in

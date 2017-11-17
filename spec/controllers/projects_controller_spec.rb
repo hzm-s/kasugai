@@ -31,6 +31,11 @@ describe ProjectsController do
     expect_ensure_signed_in
   end
 
+  it do
+    delete :destroy, params: { id: 'dummy' }
+    expect_ensure_signed_in
+  end
+
   context do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
@@ -49,6 +54,12 @@ describe ProjectsController do
     it do
       sign_in(user_b)
       patch :update, params: { id: project_a.id }
+      expect_ensure_project_member
+    end
+
+    it do
+      sign_in(user_b)
+      delete :destroy, params: { id: project_a.id }
       expect_ensure_project_member
     end
   end
