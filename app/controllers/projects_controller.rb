@@ -32,8 +32,13 @@ class ProjectsController < Project::BaseController
 
   def update
     form = ProjectForm.new(form_params)
-    ProjectService.update(current_project, form)
-    redirect_to edit_project_url(current_project), notice: flash_message
+    result = ProjectService.update(current_project, form)
+    if result.succeeded?
+      redirect_to edit_project_url(current_project), notice: flash_message
+    else
+      @form = result.params
+      render :edit
+    end
   end
 
   private

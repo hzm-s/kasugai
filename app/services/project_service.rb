@@ -18,8 +18,12 @@ class ProjectService < ApplicationService
   end
 
   def update(project, params)
+    return failure(params: params) unless params.valid?
+
     project.name = params.name
     project.description = params.description
     project.save!
+
+    success
   end
 end
