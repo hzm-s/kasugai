@@ -43,6 +43,11 @@ class ProjectsController < Project::BaseController
     end
   end
 
+  def destroy
+    ProjectService.delete(current_project)
+    redirect_to projects_url, notice: flash_message
+  end
+
   private
 
     def form_params

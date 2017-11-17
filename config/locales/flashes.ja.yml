@@ -9,6 +9,7 @@ ja:
     projects:
       create: プロジェクトを作成しました
       update: プロジェクトを更新しました
+      destroy: プロジェクトを削除しました
 
     project/issues:
       create: 課題を作成しました
