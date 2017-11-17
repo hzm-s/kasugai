@@ -33,6 +33,6 @@ class Project::BaseController < ApplicationController
     end
 
     def fetch_project_member
-      ProjectMember.find_by(project_id: current_project.id, user_id: current_user.id)
+      current_user&.as_member_of(current_project)
     end
 end
