@@ -2,7 +2,8 @@
   <i class="issl-Item_Handle js-sortable-handle"></i>
   <div class="issl-Item_Body">
     <%= link_to summary.title, project_issue_url(current_project, summary), class: 'issl-Item_Content app_issue_title' %>
-    <%= render partial: 'bookmark', locals: { issue: summary, from: :list } %>
+    <%= render partial: 'bookmark', locals: { issue: summary } %>
+    <%= render partial: 'comment_count', locals: { issue: summary } %>
   </div>
   <div class="issl-Item_Tail">
     <ul class="sw-LinkList">
