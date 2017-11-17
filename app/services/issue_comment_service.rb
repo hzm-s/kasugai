@@ -10,8 +10,7 @@ class IssueCommentService < ApplicationService
     comment = issue.comments.build(user_id: project_member.user_id, content: params.content)
     comment.save!
 
-    # TODO: pass project_member
-    issue.project.members_without(project_member.user).each do |member|
+    issue.project.members_without(project_member).each do |member|
       @mailer.posted(member.user, comment).deliver_later!
     end
 

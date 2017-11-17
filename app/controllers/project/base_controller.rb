@@ -19,7 +19,7 @@ class Project::BaseController < ApplicationController
     end
 
     def ensure_project_member
-      unless current_project.member?(current_user)
+      unless current_project_member
         respond_to do |f|
           f.html { redirect_to projects_url }
           f.js { head :forbidden }
