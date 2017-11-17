@@ -3,12 +3,17 @@ crumb :project_home do |project|
 end
 
 crumb :project_issues do |project|
-  link t('project_navs.issues'), project_issues_url(project)
+  link t('projects.show.navs.issue_list'), project_issues_url(project)
   parent :project_home, project
 end
 
 crumb :project_members do |project|
-  link t('project_navs.members'), project_members_url(project)
+  link t('projects.show.navs.manage_members'), project_members_url(project)
+  parent :project_home, project
+end
+
+crumb :project_setting do |project|
+  link t('projects.show.navs.setting'), edit_project_url(project)
   parent :project_home, project
 end
 

@@ -1,4 +1,6 @@
 class ProjectsController < Project::BaseController
+  layout 'project', only: [:edit]
+
   before_action :ensure_signed_in
   before_action :ensure_project_existence, only: [:show, :edit, :update]
   before_action :ensure_project_member, only: [:show, :edit, :update]
