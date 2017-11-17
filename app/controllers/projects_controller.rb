@@ -1,7 +1,7 @@
 class ProjectsController < Project::BaseController
   before_action :ensure_signed_in
-  before_action :ensure_project_existence, only: [:show]
-  before_action :ensure_project_member, only: [:show]
+  before_action :ensure_project_existence, only: [:show, :edit, :update]
+  before_action :ensure_project_member, only: [:show, :edit, :update]
 
   def index
     @projects = Project.for_user(current_user.id)
