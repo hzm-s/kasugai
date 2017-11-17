@@ -9,7 +9,9 @@
             <div class="iss-Detail_Creation">
               <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>
-            <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
+            <div class="iss-Detail_Bookmark">
+              <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
+            </div>
           </div>
           <div class="iss-Detail_Body">
             <%= render partial: 'title', locals: { issue: @issue } %>
@@ -26,6 +28,7 @@
             <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
               <%= loading_partial %>
             <% end -%>
+            <div id="anchor-latest-comment"></div>
             <%= render partial: 'issue/comments/form', locals: { form: @form } %>
           </div>
         </div>

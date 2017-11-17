@@ -1,0 +1,1 @@
+<%= link_to issue.comments.size, project_issue_url(current_project, issue, anchor: 'anchor-latest-comment'), class: 'issl-Item_CommentCount app_issue_comment_count', data: tooltip(t('.comments', count: issue.comments.size)) %>

@@ -51,6 +51,21 @@
   @include icon-button;
 }
 
+.issl-Item_Info {
+  @extend .d-flex, .ml-auto;
+}
+
+.issl-Item_CommentCount {
+  @include xxunderline;
+  display: block;
+  text-align: center;
+  padding: 0 .5rem;
+  color: $body-color-sub;
+  background-color: $gray-300;
+  border-radius: .2rem;
+  margin-right: 1rem;
+}
+
 .issl-Item_Tail {
   @extend .d-flex, .align-items-center;
   @extend .ml-auto;
@@ -71,7 +86,6 @@
 
 .issl-BookmarkedItem_Body {
   @extend .d-flex, .align-items-center;
-  padding-right: 1rem;
   flex-grow: 1;
 }
 

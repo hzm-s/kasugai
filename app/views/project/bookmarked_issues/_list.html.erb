@@ -1,12 +1,7 @@
 <% if @bookmarked_issues.any? -%>
   <div class="prj-BookmarkedIssues_Body">
     <% @bookmarked_issues.each do |i| -%>
-      <div id="<%= app_dom_id(i) %>" class="issl-BookmarkedItem">
-        <div class="issl-BookmarkedItem_Body">
-          <%= link_to i.title, project_issue_url(current_project, i), class: 'issl-BookmarkedItem_Content' %>
-          <%= render partial: 'project/issues/bookmarked', locals: { issue: i, from: :bookmarks } %>
-        </div>
-      </div>
+      <%= render partial: 'summary', locals: { issue: i } %>
     <% end -%>
   </div>
 <% else -%>

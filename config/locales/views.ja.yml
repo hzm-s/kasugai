@@ -65,6 +65,8 @@ ja:
         blank: まだ課題はありません
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
+      comment_count:
+        comments: '%{count}コメント'
       form:
         placeholders:
           title: 課題のタイトル
