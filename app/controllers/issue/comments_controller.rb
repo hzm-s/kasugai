@@ -11,7 +11,7 @@ class Issue::CommentsController < Project::BaseController
 
   def create
     form = IssueCommentForm.new(form_params)
-    @result = IssueCommentService.post(current_user, current_issue, form)
+    @result = IssueCommentService.post(current_project_member, current_issue, form)
     if @result.succeeded?
       @comment = @result.comment
       @form = IssueCommentForm.new

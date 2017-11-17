@@ -7,9 +7,9 @@ describe 'コメントの表示' do
   let(:project) { create_project(user, name: 'Project') }
 
   let(:issue) { create_issue(user.as_member_of(project), title: 'Issue') }
-  let(:comment) { post_comment(user, issue, content: 'Comment for issue') }
-  let(:comment2) { post_comment(user, issue, content: 'Comment for issue 2') }
-  let(:comment_by_other_user) { post_comment(other_user, issue, content: 'By Other user') }
+  let(:comment) { post_comment(user.as_member_of(project), issue, content: 'Comment for issue') }
+  let(:comment2) { post_comment(user.as_member_of(project), issue, content: 'Comment for issue 2') }
+  let(:comment_by_other_user) { post_comment(other_user.as_member_of(project), issue, content: 'By Other user') }
 
   before do
     add_project_member(project, other_user)
@@ -42,9 +42,9 @@ describe 'コメントの表示' do
       issue_a2 = create_issue(user_a.as_member_of(project_a), title: 'issueA2')
       issue_b = create_issue(user_b.as_member_of(project_b), title: 'issueB')
 
-      comment_a1 = post_comment(user_a, issue_a1, content: 'Comment for A1')
-      comment_a2 = post_comment(user_a, issue_a2, content: 'Comment for A2')
-      comment_b = post_comment(user_b, issue_b, content: 'Comment for B')
+      comment_a1 = post_comment(user_a.as_member_of(project_a), issue_a1, content: 'Comment for A1')
+      comment_a2 = post_comment(user_a.as_member_of(project_a), issue_a2, content: 'Comment for A2')
+      comment_b = post_comment(user_b.as_member_of(project_b), issue_b, content: 'Comment for B')
 
       sign_in(user_a)
       visit project_issue_path(project_a, issue_a1)

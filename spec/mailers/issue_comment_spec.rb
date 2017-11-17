@@ -10,7 +10,7 @@ RSpec.describe IssueCommentMailer, type: :mailer do
       add_project_member(project, recipient)
 
       issue = create_issue(author.as_member_of(project), title: '課題ABC')
-      comment = post_comment(author, issue, content: 'C')
+      comment = post_comment(author.as_member_of(project), issue, content: 'C')
 
       mail = described_class.posted(recipient, comment)
 

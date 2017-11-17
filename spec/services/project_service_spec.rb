@@ -5,7 +5,7 @@ describe ProjectService do
     let(:user) { sign_up }
     let(:project) { create_project(user, name: 'P') }
     let(:issue) { create_issue(user.as_member_of(project), title: 'I') }
-    let(:comment) { post_comment(user, issue, content: 'C') }
+    let(:comment) { post_comment(user.as_member_of(project), issue, content: 'C') }
 
     before do
       user
