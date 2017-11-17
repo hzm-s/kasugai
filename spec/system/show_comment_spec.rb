@@ -6,7 +6,7 @@ describe 'コメントの表示' do
 
   let(:project) { create_project(user, name: 'Project') }
 
-  let(:issue) { create_issue(user, project, title: 'Issue') }
+  let(:issue) { create_issue(user.as_member_of(project), title: 'Issue') }
   let(:comment) { post_comment(user, issue, content: 'Comment for issue') }
   let(:comment2) { post_comment(user, issue, content: 'Comment for issue 2') }
   let(:comment_by_other_user) { post_comment(other_user, issue, content: 'By Other user') }
@@ -38,9 +38,9 @@ describe 'コメントの表示' do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
     it do
-      issue_a1 = create_issue(user_a, project_a, title: 'issueA1')
-      issue_a2 = create_issue(user_a, project_a, title: 'issueA2')
-      issue_b = create_issue(user_b, project_b, title: 'issueB')
+      issue_a1 = create_issue(user_a.as_member_of(project_a), title: 'issueA1')
+      issue_a2 = create_issue(user_a.as_member_of(project_a), title: 'issueA2')
+      issue_b = create_issue(user_b.as_member_of(project_b), title: 'issueB')
 
       comment_a1 = post_comment(user_a, issue_a1, content: 'Comment for A1')
       comment_a2 = post_comment(user_a, issue_a2, content: 'Comment for A2')

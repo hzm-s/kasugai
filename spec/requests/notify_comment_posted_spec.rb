@@ -9,13 +9,13 @@ describe 'コメントの投稿' do
   let(:project) { create_project(user_a, name: 'Project') }
   let(:other_project) { create_project(user_z, name: 'Other Project') }
 
-  let(:issue) { create_issue(user_a, project, title: 'Issue') }
+  let(:issue) { create_issue(user_a.as_member_of(project), title: 'Issue') }
 
   before do
     add_project_member(project, user_b)
     add_project_member(project, user_c)
 
-    create_issue(user_z, other_project, title: 'Other Project Issue')
+    create_issue(user_z.as_member_of(other_project), title: 'Other Project Issue')
   end
 
   it do

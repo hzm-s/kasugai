@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '課題の削除' do
   let(:user) { sign_up }
   let(:project) { create_project(user, name: 'ABC') }
-  let(:issue) { create_issue(user, project, title: '課題xyz') }
+  let(:issue) { create_issue(user.as_member_of(project), title: '課題xyz') }
 
   it do
     issue

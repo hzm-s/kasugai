@@ -4,7 +4,7 @@ describe ProjectService do
   describe '.delete' do
     let(:user) { sign_up }
     let(:project) { create_project(user, name: 'P') }
-    let(:issue) { create_issue(user, project, title: 'I') }
+    let(:issue) { create_issue(user.as_member_of(project), title: 'I') }
     let(:comment) { post_comment(user, issue, content: 'C') }
 
     before do

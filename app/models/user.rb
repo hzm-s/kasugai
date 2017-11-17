@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def initials=(string)
     super(string.to_s[0..1].upcase)
   end
+
+  def as_member_of(project)
+    ProjectMember.find_by(user_id: id, project_id: project.id)
+  end
 end
