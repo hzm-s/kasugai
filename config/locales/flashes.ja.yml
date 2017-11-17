@@ -8,6 +8,7 @@ ja:
 
     projects:
       create: プロジェクトを作成しました
+      update: プロジェクトを更新しました
 
     project/issues:
       create: 課題を作成しました

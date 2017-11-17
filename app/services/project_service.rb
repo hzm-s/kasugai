@@ -16,4 +16,10 @@ class ProjectService < ApplicationService
   def add_member(project, user_id)
     project.add_member(user_id)
   end
+
+  def update(project, params)
+    project.name = params.name
+    project.description = params.description
+    project.save!
+  end
 end

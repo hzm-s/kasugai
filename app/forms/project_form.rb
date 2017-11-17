@@ -9,4 +9,14 @@ class ProjectForm
 
   validates :description,
     length: { maximum: 100 }
+
+  class << self
+
+    def fill(project)
+      new(
+        name: project.name,
+        description: project.description
+      )
+    end
+  end
 end

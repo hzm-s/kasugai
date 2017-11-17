@@ -26,6 +26,16 @@ class ProjectsController < Project::BaseController
     end
   end
 
+  def edit
+    @form = ProjectForm.fill(current_project)
+  end
+
+  def update
+    form = ProjectForm.new(form_params)
+    ProjectService.update(current_project, form)
+    redirect_to edit_project_url(current_project), notice: flash_message
+  end
+
   private
 
     def form_params
