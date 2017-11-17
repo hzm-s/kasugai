@@ -26,4 +26,9 @@ class ProjectService < ApplicationService
 
     success
   end
+
+  def delete(project)
+    project.destroy!
+    success
+  end
 end

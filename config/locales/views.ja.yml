@@ -59,6 +59,10 @@ ja:
     edit:
       information:
         title: プロジェクト情報
+      delete:
+        title: プロジェクトの削除
+        help: すべての課題、課題へのコメント、メンバーが削除されます。
+      confirm_delete: 'プロジェクト「%{name}」を削除してよろしいですか?'
 
   project:
     issues:

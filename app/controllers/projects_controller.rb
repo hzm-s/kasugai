@@ -2,8 +2,8 @@ class ProjectsController < Project::BaseController
   layout 'project', only: [:edit]
 
   before_action :ensure_signed_in
-  before_action :ensure_project_existence, only: [:show, :edit, :update]
-  before_action :ensure_project_member, only: [:show, :edit, :update]
+  before_action :ensure_project_existence, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_project_member, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.for_user(current_user.id)
@@ -41,6 +41,11 @@ class ProjectsController < Project::BaseController
       @form = result.params
       render :edit
     end
+  end
+
+  def destroy
+    ProjectService.delete(current_project)
+    redirect_to projects_url, notice: flash_message
   end
 
   private

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#show', as: :home
 
-  resources :projects, only: [:index, :new, :create, :show, :edit, :update]
+  resources :projects
 
   scope '/projects/:project_id', as: :project, module: :project do
     resources :issues

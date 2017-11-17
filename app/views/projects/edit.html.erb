@@ -21,5 +21,18 @@
         <% end -%>
       </div>
     </div>
+    <div class="prj-Setting">
+      <div class="prj-Setting_Header">
+        <h2 class="prj-Setting_Title">
+          <%=t '.delete.title' %>
+        </h2>
+      </div>
+      <div class="prj-Setting_Body">
+        <p class="prj-Delete_Description">
+          <%=t '.delete.help' %>
+        </p>
+        <%= button_to t('navs.delete'), project_url(current_project), method: :delete, class: 'btn btn-danger', data: { confirm: t('.confirm_delete', name: current_project.name) } %>
+      </div>
+    </div>
   </div>
 </div>
