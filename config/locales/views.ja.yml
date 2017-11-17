@@ -65,6 +65,8 @@ ja:
         blank: まだ課題はありません
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
+      comment_count:
+        comments: '%{count}コメント'
       form:
         placeholders:
           title: 課題のタイトル
@@ -75,6 +77,10 @@ ja:
           title: コメント
       content:
         blank: 本文はありません
+      bookmarked:
+        unbookmark: ブックマークを削除する
+      unbookmarked:
+        bookmark: ブックマークする
 
     bookmarked_issues:
       index:
