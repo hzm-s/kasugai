@@ -26,7 +26,7 @@ class Project::MembersController < Project::BaseController
   private
 
     def ensure_not_project_member
-      if signed_in? && current_project.member?(current_user)
+      if signed_in? && current_user.as_member_of(current_project)
         redirect_to project_url(current_project), notice: flash_message(:already_joined)
       end
     end

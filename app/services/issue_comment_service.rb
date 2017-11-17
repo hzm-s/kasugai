@@ -4,14 +4,14 @@ class IssueCommentService < ApplicationService
     @mailer = mailer
   end
 
-  def post(user, issue, params)
+  def post(project_member, issue, params)
     return failure(params: params) unless params.valid?
 
-    comment = issue.comments.build(user_id: user.id, content: params.content)
+    comment = issue.comments.build(user_id: project_member.user_id, content: params.content)
     comment.save!
 
-    issue.project.members_without(user).each do |member|
-      @mailer.posted(member.user, comment).deliver_later!
+    issue.project.members_without(project_member).each do |member|
+      @mailer.posted(member, comment).deliver_later!
     end
 
     success(comment: comment)

@@ -20,7 +20,7 @@ class Project::IssuesController < Project::BaseController
 
   def create
     form = IssueForm.new(form_params)
-    result = IssueService.create(current_user, current_project, form)
+    result = IssueService.create(current_project_member, form)
     if result.succeeded?
       redirect_to project_issues_url(project_id: current_project.id), notice: flash_message
     else

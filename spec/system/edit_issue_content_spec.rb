@@ -4,7 +4,7 @@ describe '課題本文の編集' do
   it do
     user = sign_up
     project = create_project(user, name: 'Project')
-    issue = create_issue(user, project, title: 'Issue', content: 'Issue Content Old')
+    issue = create_issue(user.as_member_of(project), title: 'Issue', content: 'Issue Content Old')
 
     sign_in(user)
     visit project_issue_path(project, issue)

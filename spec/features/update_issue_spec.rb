@@ -4,7 +4,7 @@ describe '課題の編集' do
   let(:user) { sign_up }
   let(:project) { create_project(user, name: 'ABC') }
 
-  let(:issue) { create_issue(user, project, title: old[:title], content: old[:content]) }
+  let(:issue) { create_issue(user.as_member_of(project), title: old[:title], content: old[:content]) }
   let(:old) { Hash[title: '課題old', content: '課題本文old'] }
   let(:new) { Hash[title: '課題new', content: '課題本文new'] }
 

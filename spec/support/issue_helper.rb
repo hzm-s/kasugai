@@ -1,10 +1,10 @@
 module IssueHelper
-  def create_issue(user, project, attrs)
-    IssueService.create(user, project, IssueForm.new(attrs)).issue
+  def create_issue(project_member, attrs)
+    IssueService.create(project_member, IssueForm.new(attrs)).issue
   end
 
-  def post_comment(user, issue, attrs)
-    IssueCommentService.post(user, issue, IssueCommentForm.new(attrs)).comment
+  def post_comment(project_member, issue, attrs)
+    IssueCommentService.post(project_member, issue, IssueCommentForm.new(attrs)).comment
   end
 end
 

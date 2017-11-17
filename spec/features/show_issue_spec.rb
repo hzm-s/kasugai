@@ -5,7 +5,7 @@ describe '課題の詳細' do
     user = sign_up
     project = create_project(user, name: 'Project')
 
-    issue = create_issue(user, project, title: '課題のタイトル', content: '課題の本文')
+    issue = create_issue(user.as_member_of(project), title: '課題のタイトル', content: '課題の本文')
 
     sign_in(user)
     visit project_issue_path(project, issue)

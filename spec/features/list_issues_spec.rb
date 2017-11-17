@@ -5,10 +5,10 @@ describe '課題一覧' do
     include_context '2人のユーザーがそれぞれプロジェクトを作成している'
 
     it do
-      issue_a = create_issue(user_a, project_a, title: '課題A')
-      issue_b = create_issue(user_b, project_b, title: '課題B')
+      issue_a = create_issue(user_a.as_member_of(project_a), title: '課題A')
+      issue_b = create_issue(user_b.as_member_of(project_b), title: '課題B')
 
-      post_comment(user_a, issue_a, content: 'Comment')
+      post_comment(user_a.as_member_of(project_a), issue_a, content: 'Comment')
 
       sign_in(user_a)
       visit project_issues_path(project_id: project_a)

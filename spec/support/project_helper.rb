@@ -4,7 +4,7 @@ module ProjectHelper
   end
 
   def add_project_member(project, user)
-    ProjectService.add_member(project, user.id)
+    ProjectService.add_member(project, user.id).member
   end
 end
 

@@ -1,16 +1,16 @@
 class IssueService < ApplicationService
 
-  def create(user, project, params)
+  def create(project_member, params)
     return failure(params: params) unless params.valid?
 
-    issue =
-      Issue.create!(
-        id: SecureRandom.hex(8),
-        project: project,
-        author: user,
-        title: params.title,
-        content: params.content
-      )
+    issue = Issue.create!(
+      id: SecureRandom.hex(8),
+      project: project_member.project,
+      author: project_member.user,
+      title: params.title,
+      content: params.content
+    )
+
     success(issue: issue)
   end
 

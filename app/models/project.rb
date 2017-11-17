@@ -12,15 +12,11 @@ class Project < ApplicationRecord
     end
   end
 
-  def member?(user)
-    members.any? { |member| member.same_user?(user) }
-  end
-
   def add_member(user_id)
     members.create!(user_id: user_id)
   end
 
-  def members_without(exclude_user)
-    members.reject { |member| member.same_user?(exclude_user) }
+  def members_without(exclude_member)
+    members.reject { |member| member == exclude_member }
   end
 end

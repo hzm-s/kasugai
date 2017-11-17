@@ -4,7 +4,7 @@ describe '課題の優先順位変更' do
   it do
     user = sign_up
     project = create_project(user, name: 'Project')
-    issue = create_issue(user, project, title: 'Issue')
+    issue = create_issue(user.as_member_of(project), title: 'Issue')
 
     sign_in(user)
 
