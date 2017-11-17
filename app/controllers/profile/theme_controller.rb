@@ -3,7 +3,7 @@ class Profile::ThemeController < ApplicationController
 
   def update
     ProfileService.update_theme(current_user, form_params[:theme])
-    redirect_to edit_profile_url
+    redirect_to edit_profile_url, notice: t('flashes.profile.update')
   end
 
   private
