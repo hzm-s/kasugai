@@ -1,6 +1,6 @@
 <%= form_with url: project_bookmarked_issues_url(current_project), method: :post, remote: true, id: "js-bookmark-issue-#{issue.id}", class: 'iss-BookmarkWrapper' do |f| %>
   <%= hidden_field_tag :issue_id, issue.id %>
-  <%= f.button class: 'issl-Item_Bookmark app_bookmark', data: loading_indicator do %>
+  <%= f.button class: 'issl-Item_Bookmark app_bookmark', data: loading_indicator.merge(tooltip(t('.bookmark'))) do %>
     <i class="iss-Bookmark iss-Bookmark-off"></i>
   <% end -%>
 <% end -%>

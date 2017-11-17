@@ -75,6 +75,10 @@ ja:
           title: コメント
       content:
         blank: 本文はありません
+      bookmarked:
+        unbookmark: ブックマークを削除する
+      unbookmarked:
+        bookmark: ブックマークする
 
     bookmarked_issues:
       index:
