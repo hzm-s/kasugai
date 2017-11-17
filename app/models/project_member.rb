@@ -6,8 +6,4 @@ class ProjectMember < ApplicationRecord
   delegate :name, to: :user
   delegate :initials, to: :user
   delegate :theme, to: :user
-
-  def same_user?(user)
-    user_id == user.id
-  end
 end
