@@ -3,21 +3,23 @@ require "rails_helper"
 RSpec.describe IssueCommentMailer, type: :mailer do
   describe '#posted' do
     it do
-      author = sign_up
-      recipient = sign_up
+      author_user = sign_up
+      recipient_user = sign_up
 
-      project = create_project(author, name: 'P')
-      add_project_member(project, recipient)
+      project = create_project(author_user, name: 'P')
 
-      issue = create_issue(author.as_member_of(project), title: '課題ABC')
-      comment = post_comment(author.as_member_of(project), issue, content: 'C')
+      author = author_user.as_member_of(project)
+      recipient = add_project_member(project, recipient_user)
+
+      issue = create_issue(author, title: '課題ABC')
+      comment = post_comment(author, issue, content: 'C')
 
       mail = described_class.posted(recipient, comment)
 
       aggregate_failures do
-        expect(mail.to).to match_array([recipient.email])
+        expect(mail.to).to match_array([recipient_user.email])
         expect(mail.subject).to include(issue.title)
-        expect(mail.body).to include("#{recipient.name}さん")
+        expect(mail.body).to include("#{recipient_user.name}さん")
         expect(mail.body).to include(issue.title)
         expect(mail.body).to include(project_issue_path(project, issue))
       end
