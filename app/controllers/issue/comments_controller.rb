@@ -20,10 +20,20 @@ class Issue::CommentsController < Project::BaseController
     end
   end
 
+  def edit
+    @comment = IssueComment.find(params[:id])
+    @form = IssueCommentForm.new(content: @comment.content)
+  end
+
   def update
     form = IssueCommentForm.new(form_params)
     @comment = IssueComment.find(params[:id])
-    IssueCommentService.update(@comment, form)
+    @result = IssueCommentService.update(@comment, form)
+    if @result.succeeded?
+      @comment = @result.comment
+    else
+      @form = @result.params
+    end
   end
 
   def destroy

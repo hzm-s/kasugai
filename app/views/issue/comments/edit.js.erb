@@ -1,0 +1,3 @@
+$('#<%= app_dom_id(@comment) %>')
+  .replaceWith("<%=j render partial: 'edit_form', locals: { form: @form, comment: @comment } %>")
+setupLoading();

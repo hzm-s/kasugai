@@ -8,11 +8,11 @@ describe '課題コメントの編集', type: :system do
 
   before do
     comment
+    sign_in(user)
+    visit project_issue_path(project, issue)
   end
 
   it do
-    sign_in(user)
-    visit project_issue_path(project, issue)
     within("#app_issue_comment_#{comment.id}") do
       click_on '編集する'
       fill_in 'form[content]', with: 'Issue Comment New'
@@ -20,5 +20,14 @@ describe '課題コメントの編集', type: :system do
     end
     find('#js-issue-comments')
     expect(page).to have_content('Issue Comment New')
+  end
+
+  it do
+    within("#app_issue_comment_#{comment.id}") do
+      click_on '編集する'
+      fill_in 'form[content]', with: ''
+      click_on '保存する'
+      expect(page).to have_content('入力してください')
+    end
   end
 end

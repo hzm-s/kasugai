@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   scope '/issues/:issue_id', as: :issue, module: :issue do
     resource :priority, only: [:update]
-    resources :comments, only: [:index, :create, :update, :destroy]
+    resources :comments, only: [:index, :create, :edit, :update, :destroy]
   end
 
   get '/profile/edit', to: 'profile#edit', as: :edit_profile

@@ -3,42 +3,25 @@
     <%= show_user_avatar(comment.author, size: :lg) %>
   </div>
   <div class="cmt-Comment_Body">
-    <%= inline_edit_with "js-issue-comment-editor-#{comment.id}" do |ie| %>
-      <%= ie.primary do %>
-        <div class="app_issue_comment_content cmt-Comment_Content">
-          <%= simple_format(comment.content) %>
-        </div>
-        <div class="cmt-Comment_Info">
-          <div class="cmt-Comment_Timestamp">
-            <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
-          </div>
-          <div class="cmt-Comment_Actions">
-            <ul class="sw-LinkList">
-              <li>
-                <%= ie.link_to_toggle t('navs.edit'), id: "js-open-issue-comment-#{comment.id}", class: 'sw-Link sw-Link-sub' %>
-              </li>
-              <% if comment.author == current_user %>
-                <li>
-                  <%= link_to t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
-                </li>
-              <% end -%>
-            </ul>
-          </div>
-        </div>
-      <% end -%>
-      <%= ie.form do %>
-        <div class="cmt-Form_Form">
-          <%= form_with model: comment, scope: :form, url: issue_comment_url(current_issue, comment), remote: true do |f| -%>
-            <div class="form-group">
-              <%= f.text_area :content, class: 'form-control' %>
-            </div>
-            <div class="frm-Actions">
-              <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
-              <%= ie.link_to_toggle t('navs.cancel'), class: 'frm-Actions_Cancel' %>
-            </div>
+    <div class="app_issue_comment_content cmt-Comment_Content">
+      <%= simple_format(comment.content) %>
+    </div>
+    <div class="cmt-Comment_Info">
+      <div class="cmt-Comment_Timestamp">
+        <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
+      </div>
+      <div class="cmt-Comment_Actions">
+        <ul class="sw-LinkList">
+          <li>
+            <%= link_to t('navs.edit'), edit_issue_comment_url(current_issue, comment), remote: true, class: 'sw-Link sw-Link-sub' %>
+          </li>
+          <% if comment.author == current_user %>
+            <li>
+              <%= link_to t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
+            </li>
           <% end -%>
-        </div>
-      <% end -%>
-    <% end -%>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
