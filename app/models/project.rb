@@ -19,4 +19,8 @@ class Project < ApplicationRecord
   def members_without(exclude_member)
     members.reject { |member| member == exclude_member }
   end
+
+  def delete_member(member)
+    member.destroy!
+  end
 end
