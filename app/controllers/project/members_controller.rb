@@ -1,8 +1,8 @@
 class Project::MembersController < Project::BaseController
   layout 'project'
 
-  before_action :ensure_signed_in, only: [:index, :create]
-  before_action :ensure_project_member, only: [:index]
+  before_action :ensure_signed_in, only: [:index, :create, :destroy]
+  before_action :ensure_project_member, only: [:index, :destroy]
   before_action :ensure_not_project_member, only: [:new, :create]
 
   def index
