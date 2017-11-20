@@ -16,6 +16,16 @@ describe Issue::CommentsController do
     expect_xhr_ensure_signed_in
   end
 
+  it do
+    get :edit, xhr: true, params: { issue_id: 'dummy', id: 'dummy' }
+    expect_xhr_ensure_signed_in
+  end
+
+  it do
+    patch :update, xhr: true, params: { issue_id: 'dummy', id: 'dummy' }
+    expect_xhr_ensure_signed_in
+  end
+
   context do
     include_context '2人のユーザーがそれぞれのプロジェクトで課題を作成している'
 
@@ -33,6 +43,16 @@ describe Issue::CommentsController do
 
     it do
       delete :destroy, xhr: true, params: { issue_id: issue_a, id: 'dummy' }
+      expect_xhr_ensure_project_member
+    end
+
+    it do
+      get :edit, xhr: true, params: { issue_id: issue_a, id: 'dummy' }
+      expect_xhr_ensure_project_member
+    end
+
+    it do
+      patch :update, xhr: true, params: { issue_id: issue_a, id: 'dummy' }
       expect_xhr_ensure_project_member
     end
   end

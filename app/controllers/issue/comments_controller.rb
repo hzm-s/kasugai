@@ -1,6 +1,6 @@
 class Issue::CommentsController < Project::BaseController
-  before_action :ensure_signed_in, only: [:index, :create, :destroy]
-  before_action :ensure_project_member, only: [:index, :create, :destroy]
+  before_action :ensure_signed_in, only: [:index, :create, :edit, :update, :destroy]
+  before_action :ensure_project_member, only: [:index, :create, :edit, :update, :destroy]
 
   helper_method :current_issue
 
