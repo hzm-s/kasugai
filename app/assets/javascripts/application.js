@@ -25,3 +25,7 @@ $(document).on('turbolinks:load', function() {
   setupSortable();
   setupInlineEdit();
 });
+
+$(document).on('issue-comments-loaded', function() {
+  setupInlineEdit();
+});

@@ -20,6 +20,12 @@ class Issue::CommentsController < Project::BaseController
     end
   end
 
+  def update
+    form = IssueCommentForm.new(form_params)
+    @comment = IssueComment.find(params[:id])
+    IssueCommentService.update(@comment, form)
+  end
+
   def destroy
     @comment = IssueComment.find(params[:id])
     IssueCommentService.delete(@comment)
