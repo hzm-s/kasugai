@@ -1,0 +1,2 @@
+class ArchivedIssue < ApplicationRecord
+end

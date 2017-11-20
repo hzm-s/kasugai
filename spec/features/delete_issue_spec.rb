@@ -5,14 +5,26 @@ describe '課題の削除' do
   let(:project) { create_project(user, name: 'ABC') }
   let(:issue) { create_issue(user.as_member_of(project), title: '課題xyz') }
 
-  it do
+  before do
     issue
     sign_in(user)
-    visit project_issues_path(project)
+  end
 
+  it do
+    visit project_issues_path(project)
     within("#app_issue_#{issue.id}") do
       click_on '削除する'
     end
+
+    aggregate_failures do
+      expect(page).to have_content('課題を削除しました')
+      expect(page).to_not have_content(issue.title)
+    end
+  end
+
+  it do
+    visit project_issue_path(project, issue)
+    click_on 'この課題を削除する'
 
     aggregate_failures do
       expect(page).to have_content('課題を削除しました')
