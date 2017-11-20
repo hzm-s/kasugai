@@ -10,11 +10,12 @@
       <div class="prj-Setting_Body">
         <div class="prj-Members_List">
           <% @members.each do |member| -%>
-            <div class="prj-Member">
+            <div class="prj-Member" id="<%= app_dom_id(member) %>">
               <%= show_user_avatar(member.user) %>
               <span class="prj-Member_Name app_member_name">
                 <%= member.name %>
               </span>
+              <%= link_to t('.leave'), project_member_url(current_project, member.id), method: :delete, data: { confirm: t('.confirm_leave') } %>
             </div>
           <% end -%>
         </div>

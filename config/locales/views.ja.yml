@@ -103,6 +103,8 @@ ja:
       index:
         list:
           title: プロジェクトのメンバー
+        leave: メンバーから外れる
+        confirm_leave: プロジェクトのメンバーから外れてよろしいですか?
         invitation:
           title: プロジェクトへ招待
           guide: このURLを招待したい人に共有してください

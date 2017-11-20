@@ -23,6 +23,11 @@ class Project::MembersController < Project::BaseController
     redirect_to projects_url, notice: flash_message
   end
 
+  def destroy
+    ProjectService.delete_member(current_project_member)
+    redirect_to projects_url, notice: flash_message
+  end
+
   private
 
     def ensure_not_project_member

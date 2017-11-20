@@ -32,4 +32,9 @@ class ProjectService < ApplicationService
     project.destroy!
     success
   end
+
+  def delete_member(project_member)
+    project_member.destroy!
+    success
+  end
 end
