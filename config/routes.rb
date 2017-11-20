@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   delete '/sign_out', to: 'sessions#destroy', as: :sign_out
 
+  resource :account, only: [:show, :destroy]
   get '/home', to: 'home#show', as: :home
 
   resources :projects
