@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def as_member_of(project)
     ProjectMember.find_by_user_and_project(id, project.id)
   end
+
+  def can_delete?
+    Project.for_user(id).empty?
+  end
 end

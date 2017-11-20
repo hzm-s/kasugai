@@ -1,6 +1,10 @@
 class AccountsController < ApplicationController
   before_action :ensure_signed_in
 
+  def show
+    @projects = Project.for_user(current_user.id)
+  end
+
   def destroy
     AccountService.delete(current_user)
     sign_out

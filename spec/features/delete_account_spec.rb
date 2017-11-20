@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 describe 'アカウントの削除' do
-  it do
-    user = sign_up
-    other_user = sign_up
+  let(:user) { sign_up }
 
-    project = create_project(user, name: 'P')
-    add_project_member(project, other_user)
-
+  before do
     sign_in(user)
+  end
+
+  it do
     visit account_path
     click_on 'アカウントを削除する'
 
@@ -19,6 +18,17 @@ describe 'アカウントの削除' do
       fill_in 'form[email]', with: user.email
       click_on '続ける'
       expect(page).to have_content('アカウントを作成してください')
+    end
+  end
+
+  it do
+    project = create_project(user, name: 'Project ABC')
+    visit account_path
+
+    aggregate_failures do
+      expect(page).to have_content('プロジェクトのメンバーのため削除できません')
+      expect(page).to have_content(project.name)
+      expect(page).to_not have_content('アカウントを削除する')
     end
   end
 end

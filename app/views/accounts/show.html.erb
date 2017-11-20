@@ -1,1 +1,8 @@
-<%= link_to t('.delete'), account_url, method: :delete, data: { confirm: t('.confirm_delete') } %>
+<% if current_user.can_delete? -%>
+  <%= link_to t('.delete'), account_url, method: :delete, data: { confirm: t('.confirm_delete') } %>
+<% else -%>
+  <%= t('.help') %>
+  <% @projects.each do |p| -%>
+    <%= p.name %>
+  <% end -%>
+<% end -%>

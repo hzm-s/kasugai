@@ -116,5 +116,7 @@ ja:
 
   accounts:
     show:
+      title: アカウントの削除
+      help: プロジェクトのメンバーのため削除できません
       delete: アカウントを削除する
       confirm_delete: アカウントを削除してよろしいですか?
