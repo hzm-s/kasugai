@@ -1,0 +1,25 @@
+<div class="prj-Setting">
+  <div class="prj-Setting_Header">
+    <h2 class="prj-Setting_Title">
+      <%=t '.title' %>
+    </h2>
+  </div>
+  <div class="prj-Setting_Body">
+    <div class="prj-Members_List">
+      <% @members.each do |member| -%>
+        <div class="prj-Member" id="<%= app_dom_id(member) %>">
+          <%= show_user_avatar(member.user) %>
+          <span class="prj-Member_Name app_member_name">
+            <%= member.name %>
+          </span>
+          <div class="prj-Member_Actions">
+            <ul class="sw-LinkList">
+              <li>
+                <%= link_to t('.leave'), project_member_url(current_project, member.id), method: :delete, data: { confirm: t('.confirm_leave') }, class: 'sw-Link sw-Link-sub' %>
+              </li>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>
