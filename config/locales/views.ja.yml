@@ -100,12 +100,13 @@ ja:
         message: '%{project}へ招待されています'
         confirm: プロジェクトに参加しますか？
         join: プロジェクトに参加する
-      index:
-        list:
-          title: プロジェクトのメンバー
-        invitation:
-          title: プロジェクトへ招待
-          guide: このURLを招待したい人に共有してください
+      list:
+        title: プロジェクトのメンバー
+        leave: メンバーから外れる
+        confirm_leave: プロジェクトのメンバーから外れてよろしいですか?
+      invitation:
+        title: プロジェクトへ招待
+        guide: このURLを招待したい人に共有してください
 
   issue:
     comments:

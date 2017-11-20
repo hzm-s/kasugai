@@ -1,0 +1,1 @@
+class ProjectMemberDeletionError < StandardError; end

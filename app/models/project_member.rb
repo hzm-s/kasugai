@@ -14,4 +14,9 @@ class ProjectMember < ApplicationRecord
         .find_by(user_id: user_id, project_id: project_id)
     end
   end
+
+  def can_delete_member?(project_member)
+    return false unless project.can_delete_member?
+    self == project_member
+  end
 end
