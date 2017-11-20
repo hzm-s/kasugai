@@ -20,7 +20,12 @@ class Project < ApplicationRecord
     members.reject { |member| member == exclude_member }
   end
 
+  def can_delete_member?
+    members.size >= 2
+  end
+
   def delete_member(member)
+    raise ProjectMemberDeletionError unless can_delete_member?
     member.destroy!
   end
 end
