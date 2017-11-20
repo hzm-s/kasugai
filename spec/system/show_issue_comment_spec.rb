@@ -29,6 +29,7 @@ describe 'コメントの表示' do
       expect(first('.app_issue_comment_created_at').text).to eq(I18n.l(comment.created_at))
 
       within("#app_issue_comment_#{comment_by_other_user.id}") do
+        expect(page).to_not have_link('編集する')
         expect(page).to_not have_link('削除する')
       end
     end

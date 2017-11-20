@@ -25,7 +25,7 @@
             <h3 class="dsc-Comment_Title">
               <%=t '.comments.title' %>
             </h3>
-            <%= render_async issue_comments_url(@issue), 'data-turbolinks-track': 'reload' do %>
+            <%= render_async issue_comments_url(@issue), event_name: 'issue-comments-loaded', 'data-turbolinks-track': 'reload' do %>
               <%= loading_partial %>
             <% end -%>
             <div id="anchor-latest-comment"></div>

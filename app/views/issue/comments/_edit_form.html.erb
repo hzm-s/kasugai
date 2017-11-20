@@ -1,0 +1,18 @@
+<div class="cmt-Comment" id="<%= app_dom_id(comment) %>">
+  <div class="cmt-Comment_Header">
+    <%= show_user_avatar(comment.author, size: :lg) %>
+  </div>
+  <div class="cmt-Comment_Body">
+    <div class="cmt-Form_Form js-edit-form">
+      <%= form_with model: @form, scope: :form, url: issue_comment_url(current_issue, @comment), method: :patch, remote: true do |f| -%>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <div class="frm-Actions">
+          <%= f.button t('helpers.submit.submit'), class: 'btn btn-success', data: loading_indicator %>
+          <%= link_to t('navs.cancel'), project_issue_url(current_project, current_issue), class: 'frm-Actions_Cancel' %>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class Issue::CommentsController < Project::BaseController
-  before_action :ensure_signed_in, only: [:index, :create, :destroy]
-  before_action :ensure_project_member, only: [:index, :create, :destroy]
+  before_action :ensure_signed_in, only: [:index, :create, :edit, :update, :destroy]
+  before_action :ensure_project_member, only: [:index, :create, :edit, :update, :destroy]
 
   helper_method :current_issue
 
@@ -17,6 +17,23 @@ class Issue::CommentsController < Project::BaseController
       @form = IssueCommentForm.new
     else
       @form = @result.params
+    end
+  end
+
+  def edit
+    @comment = IssueComment.find(params[:id])
+    @form = IssueCommentForm.new(content: @comment.content)
+  end
+
+  def update
+    form = IssueCommentForm.new(form_params)
+    @comment = IssueComment.find(params[:id])
+    result = IssueCommentService.update(@comment, form)
+    if result.succeeded?
+      @comment = result.comment
+    else
+      @form = result.params
+      render :edit
     end
   end
 

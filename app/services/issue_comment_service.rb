@@ -17,7 +17,15 @@ class IssueCommentService < ApplicationService
     success(comment: comment)
   end
 
-  def delete(issue)
-    issue.destroy!
+  def update(comment, params)
+    return failure(params: params) unless params.valid?
+
+    comment.content = params.content
+    comment.save!
+    success(comment: comment)
+  end
+
+  def delete(comment)
+    comment.destroy!
   end
 end
