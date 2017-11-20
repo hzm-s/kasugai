@@ -25,6 +25,10 @@ module UserSessionHelper
     session[:user_id] = user.id
   end
 
+  def sign_out
+    session.delete(:user_id)
+  end
+
   def current_user
     @current_user ||= fetch_user
   end

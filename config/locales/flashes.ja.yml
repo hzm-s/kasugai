@@ -20,3 +20,6 @@ ja:
       create: プロジェクトに参加しました
       already_joined: プロジェクトに既に参加しています
       destroy: プロジェクトのメンバーから外れました
+
+    accounts:
+      destroy: アカウントを削除しました
