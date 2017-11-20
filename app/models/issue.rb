@@ -5,8 +5,10 @@ class Issue < ApplicationRecord
 
   belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: :user_id
+
   has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
+  has_one :archived, dependent: :destroy, class_name: 'ArchivedIssue'
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
@@ -14,7 +16,9 @@ class Issue < ApplicationRecord
   class << self
 
     def for_project(project_id)
-      where(project_id: project_id)
+      left_outer_joins(:archived)
+        .where(archived_issues: { id: nil })
+        .where(project_id: project_id)
         .order(:priority_order, :created_at)
     end
 
@@ -39,5 +43,9 @@ class Issue < ApplicationRecord
 
   def unbookmark
     bookmarked.destroy!
+  end
+
+  def archive
+    create_archived!
   end
 end

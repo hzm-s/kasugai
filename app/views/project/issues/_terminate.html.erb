@@ -5,13 +5,16 @@
         <p class="iss-Terminate_Description">
           <%=t '.help_archive' %>
         </p>
-        <%= link_to t('.archive'), '', class: 'iss-ArchiveLink' %>
+        <%= form_with url: project_archived_issues_url(current_project) do |f| %>
+          <%= hidden_field_tag :issue_id, current_issue.id %>
+          <%= f.button t('.archive'), data: { confirm: t('.confirm_archive', title: current_issue.title) }, class: 'iss-ArchiveLink' %>
+        <% end -%>
       </div>
       <div class="dsc-Terminate_Option">
         <p class="iss-Terminate_Description">
           <%=t '.help_delete' %>
         </p>
-        <%= link_to t('.delete'), project_issue_path(current_project, current_issue), method: :delete, data: { confirm: t('project.issues.summary.confirm_delete', title: current_issue.title) }, class: 'iss-DeleteLink' %>
+        <%= link_to t('.delete'), project_issue_path(current_project, current_issue), method: :delete, data: { confirm: t('.confirm_delete') }, class: 'iss-DeleteLink' %>
       </div>
     </div>
   </div>

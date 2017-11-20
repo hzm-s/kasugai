@@ -95,8 +95,10 @@ ja:
       terminate:
         help_archive: 課題リストに表示されなくなります
         archive: この課題をアーカイブする
+        confirm_archive: この課題をアーカイブしますか?
         help_delete: 削除すると元に戻せません
         delete: この課題を削除する
+        confirm_delete: この課題を削除しますか?
 
     bookmarked_issues:
       index:
