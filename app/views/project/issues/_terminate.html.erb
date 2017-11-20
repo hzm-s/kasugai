@@ -11,7 +11,7 @@
         <p class="iss-Terminate_Description">
           <%=t '.help_delete' %>
         </p>
-        <%= link_to t('.delete'), '', class: 'iss-DeleteLink' %>
+        <%= link_to t('.delete'), project_issue_path(current_project, current_issue), method: :delete, data: { confirm: t('project.issues.summary.confirm_delete', title: current_issue.title) }, class: 'iss-DeleteLink' %>
       </div>
     </div>
   </div>

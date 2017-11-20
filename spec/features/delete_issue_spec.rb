@@ -24,5 +24,11 @@ describe '課題の削除' do
 
   it do
     visit project_issue_path(project, issue)
+    click_on 'この課題を削除する'
+
+    aggregate_failures do
+      expect(page).to have_content('課題を削除しました')
+      expect(page).to_not have_content(issue.title)
+    end
   end
 end
