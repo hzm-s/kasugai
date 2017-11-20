@@ -1,4 +1,6 @@
 class Project::ArchivedIssuesController < Project::BaseController
+  before_action :ensure_signed_in, only: [:create]
+  before_action :ensure_project_member, only: [:create]
 
   def create
     IssueService.archive(current_issue)
