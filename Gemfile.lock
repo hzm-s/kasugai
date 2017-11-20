@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/haazime/hashigami_rails.git
-  revision: f92e7cff5cb55365be498d3c8f64ad63c8016598
+  revision: 667e2b6d0b7e5da13fb50d820ea537970f4a81f3
   specs:
     hashigami_rails (0.1.0)
 
