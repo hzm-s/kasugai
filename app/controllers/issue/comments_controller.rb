@@ -28,11 +28,12 @@ class Issue::CommentsController < Project::BaseController
   def update
     form = IssueCommentForm.new(form_params)
     @comment = IssueComment.find(params[:id])
-    @result = IssueCommentService.update(@comment, form)
-    if @result.succeeded?
-      @comment = @result.comment
+    result = IssueCommentService.update(@comment, form)
+    if result.succeeded?
+      @comment = result.comment
     else
-      @form = @result.params
+      @form = result.params
+      render :edit
     end
   end
 

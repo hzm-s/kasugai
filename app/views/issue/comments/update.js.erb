@@ -1,7 +1,2 @@
-<% if @result.succeeded? -%>
-  $('#<%= app_dom_id(@comment) %>')
-    .replaceWith("<%=j render partial: 'comment', locals: { comment: @comment } %>")
-<% else -%>
-  $('#<%= app_dom_id(@comment) %> .js-edit-form')
-    .replaceWith("<%=j render partial: 'edit_form', locals: { form: @form, comment: @comment } %>")
-<% end -%>
+$('#<%= app_dom_id(@comment) %>')
+  .replaceWith("<%=j render partial: 'comment', locals: { comment: @comment } %>")
