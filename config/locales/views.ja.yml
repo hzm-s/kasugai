@@ -11,6 +11,7 @@ ja:
 
     user_menu:
       edit_profile: プロフィールを変更する
+      account: アカウント設定
 
   sign_ups:
     new:
@@ -43,6 +44,10 @@ ja:
     error:
       message: ログインできませんでした
       help: もう一度お試しください。
+
+  profile:
+    edit:
+      title: プロフィール
 
   projects:
     index:
@@ -116,7 +121,10 @@ ja:
 
   accounts:
     show:
+      title: アカウント設定
+    deletion:
       title: アカウントの削除
-      help: プロジェクトのメンバーのため削除できません
+      help: プロジェクトのメンバーのため削除できません。
       delete: アカウントを削除する
+      description: アカウントを削除すると、元に戻すことはできません。
       confirm_delete: アカウントを削除してよろしいですか?

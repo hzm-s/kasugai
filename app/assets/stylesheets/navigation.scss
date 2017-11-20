@@ -43,6 +43,10 @@
   @extend .fa, .fa-address-card-o;
 }
 
+.nav-UserIcon_Account {
+  @extend .fa, .fa-cog;
+}
+
 .nav-UserIcon_SignOut {
   @extend .fa, .fa-sign-out;
 }

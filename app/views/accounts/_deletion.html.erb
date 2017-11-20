@@ -1,0 +1,26 @@
+<div class="acc-Setting">
+  <div class="acc-Setting_Header">
+    <h2 class="acc-Setting_Title">
+      <%=t '.title' %>
+    </h2>
+  </div>
+  <div class="acc-Setting_Body">
+    <% if current_user.can_delete? -%>
+        <p class="acc-Delete_Description">
+          <%=t '.description' %>
+        </p>
+      <%= button_to t('.delete'), account_url, method: :delete, class: 'btn btn-danger', data: { confirm: t('.confirm_delete') } %>
+    <% else -%>
+      <p class="acc-Delete_Help">
+        <%= t('.help') %>
+      </p>
+      <ul class="acc-Delete_ProjectList">
+        <% @projects.each do |p| -%>
+          <li>
+            <%= p.name %>
+          </li>
+        <% end -%>
+      </ul>
+    <% end -%>
+  </div>
+</div>
