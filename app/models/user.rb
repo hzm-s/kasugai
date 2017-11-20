@@ -23,4 +23,9 @@ class User < ApplicationRecord
   def can_delete?
     Project.for_user(id).empty?
   end
+
+  def delete_account!
+    raise AccountDeletionError unless can_delete?
+    account.destroy!
+  end
 end

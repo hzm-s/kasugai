@@ -1,0 +1,1 @@
+class AccountDeletionError < StandardError; end

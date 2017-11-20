@@ -1,6 +1,6 @@
 class AccountService < ApplicationService
 
   def delete(user)
-    user.account.destroy!
+    user.delete_account!
   end
 end
