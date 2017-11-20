@@ -12,6 +12,7 @@ class Project::IssuesController < Project::BaseController
 
   def show
     @issue = current_issue
+    @form = IssueForm.new(title: @issue.title, content: @issue.content)
   end
 
   def new
@@ -35,15 +36,19 @@ class Project::IssuesController < Project::BaseController
 
   def update
     form = IssueForm.new(form_params)
-    result = IssueService.update(current_issue, form)
-    if result.succeeded?
+    @result = IssueService.update(current_issue, form)
+    if @result.succeeded?
       respond_to do |f|
         f.html { redirect_to project_issues_url, notice: flash_message }
         f.js
       end
     else
-      @form = result.params
-      render :edit
+      @issue = current_issue
+      @form = @result.params
+      respond_to do |f|
+        f.html { render :edit }
+        f.js
+      end
     end
   end
 
