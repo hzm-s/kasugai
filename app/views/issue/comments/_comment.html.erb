@@ -11,11 +11,11 @@
         <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
       </div>
       <div class="cmt-Comment_Actions">
-        <ul class="sw-LinkList">
-          <li>
-            <%= link_to t('navs.edit'), edit_issue_comment_url(current_issue, comment), remote: true, class: 'sw-Link sw-Link-sub' %>
-          </li>
-          <% if comment.author == current_user %>
+        <% if comment.author == current_user %>
+          <ul class="sw-LinkList">
+            <li>
+              <%= link_to t('navs.edit'), edit_issue_comment_url(current_issue, comment), remote: true, class: 'sw-Link sw-Link-sub' %>
+            </li>
             <li>
               <%= link_to t('navs.delete'), issue_comment_url(current_issue, comment), method: :delete, remote: true, class: 'sw-Link sw-Link-sub', data: { confirm: t('.confirm_delete') } %>
             </li>
