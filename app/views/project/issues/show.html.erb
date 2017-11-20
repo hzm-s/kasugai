@@ -14,8 +14,8 @@
             </div>
           </div>
           <div class="iss-Detail_Body">
-            <%= render partial: 'title', locals: { issue: @issue, form: @form, open: false } %>
-            <%= render partial: 'content', locals: { issue: @issue, form: @form, open: false } %>
+            <%= render partial: 'title', locals: { issue: @issue, form: @issue_form, open: false } %>
+            <%= render partial: 'content', locals: { issue: @issue, form: @issue_form, open: false } %>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
               <%= loading_partial %>
             <% end -%>
             <div id="anchor-latest-comment"></div>
-            <%= render partial: 'issue/comments/form', locals: { form: @form } %>
+            <%= render partial: 'issue/comments/form', locals: { form: @comment_form } %>
           </div>
         </div>
       </div>

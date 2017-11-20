@@ -12,7 +12,8 @@ class Project::IssuesController < Project::BaseController
 
   def show
     @issue = current_issue
-    @form = IssueForm.new(title: @issue.title, content: @issue.content)
+    @issue_form = IssueForm.new(title: @issue.title, content: @issue.content)
+    @comment_form = IssueCommentForm.new
   end
 
   def new
