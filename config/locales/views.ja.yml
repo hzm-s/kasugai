@@ -92,6 +92,11 @@ ja:
         unbookmark: ブックマークを削除する
       unbookmarked:
         bookmark: ブックマークする
+      terminate:
+        help_archive: 課題リストに表示されなくなります
+        archive: この課題をアーカイブする
+        help_delete: 削除すると元に戻せません
+        delete: この課題を削除する
 
     bookmarked_issues:
       index:
