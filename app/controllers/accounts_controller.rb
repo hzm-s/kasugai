@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_action :ensure_signed_in
 
   def destroy
     AccountService.delete(current_user)
