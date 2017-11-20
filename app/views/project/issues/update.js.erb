@@ -2,5 +2,5 @@
   Turbolinks.clearCache();
   Turbolinks.visit("<%= project_issue_url(current_project, current_issue) %>", { action: 'replace' });
 <% else -%>
-  $('#js-issue-title-editor').replaceWith("<%=j render partial: 'title', locals: { issue: @issue, form: @form, open: true } %>");
+  $('#js-issue-<%= @form.field %>-editor').replaceWith("<%=j render partial: @form.field, locals: { issue: @issue, form: @form, open: true } %>");
 <% end -%>

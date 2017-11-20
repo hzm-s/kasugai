@@ -60,7 +60,7 @@ class Project::IssuesController < Project::BaseController
   private
 
     def form_params
-      params.require(:form).permit(:title, :content)
+      params.require(:form).permit(:title, :content, :field)
     end
 
     def current_issue

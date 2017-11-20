@@ -1,4 +1,4 @@
-<%= inline_edit_with 'js-issue-content-editor' do |ie| %>
+<%= inline_edit_with 'js-issue-content-editor', open: open do |ie| %>
   <%= ie.primary do %>
     <div class="iss-Detail_ContentWrapper">
       <% if issue.content.blank?  -%>
@@ -16,6 +16,7 @@
   <%= ie.form class: 'iss-Detail_ContentEdit' do -%>
     <%= render 'inline_edit_form', ie: ie, form: form do |f| %>
       <%= f.hidden_field :title %>
+      <%= hidden_field_tag 'form[field]', :content %>
       <div class="form-group">
         <%= f.text_area :content, rows: 10, class: 'form-control' %>
       </div>

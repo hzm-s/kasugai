@@ -1,7 +1,7 @@
 class IssueForm
   include ActiveModel::Model
 
-  attr_accessor :title, :content
+  attr_accessor :title, :content, :field
 
   validates :title,
     presence: true,
