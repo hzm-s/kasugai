@@ -1,4 +1,4 @@
-<%= inline_edit_with 'js-issue-title-editor' do |ie| -%>
+<%= inline_edit_with 'js-issue-title-editor', open: open do |ie| -%>
   <%= ie.primary do %>
     <div class="iss-Detail_TitleWrapper">
       <h1 class="iss-Detail_Title" id="app_issue_title">
@@ -8,7 +8,8 @@
     </div>
   <% end -%>
   <%= ie.form class: 'iss-Detail_TitleEdit' do -%>
-    <%= render 'inline_edit_form', ie: ie, issue: issue do |f| %>
+    <%= render 'inline_edit_form', ie: ie, form: form do |f| %>
+      <%= hidden_field_tag 'form[field]', :title %>
       <div class="form-group">
         <%= f.text_field :title, class: 'form-control' %>
       </div>

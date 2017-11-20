@@ -40,6 +40,7 @@ class Issue::CommentsController < Project::BaseController
   def destroy
     @comment = IssueComment.find(params[:id])
     IssueCommentService.delete(@comment)
+    flash.now[:notice] = flash_message
   end
 
   private

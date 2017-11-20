@@ -10,12 +10,12 @@
               <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>
             <div class="iss-Detail_Bookmark">
-              <%= render partial: 'bookmark', locals: { issue: @issue, from: :detail } %>
+              <%= render partial: 'bookmark', locals: { issue: @issue } %>
             </div>
           </div>
           <div class="iss-Detail_Body">
-            <%= render partial: 'title', locals: { issue: @issue } %>
-            <%= render partial: 'content', locals: { issue: @issue } %>
+            <%= render partial: 'title', locals: { issue: @issue, form: @form, open: false } %>
+            <%= render partial: 'content', locals: { issue: @issue, form: @form, open: false } %>
           </div>
         </div>
       </div>

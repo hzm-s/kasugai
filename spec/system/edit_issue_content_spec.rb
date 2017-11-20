@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 describe '課題本文の編集' do
-  it do
-    user = sign_up
-    project = create_project(user, name: 'Project')
-    issue = create_issue(user.as_member_of(project), title: 'Issue', content: 'Issue Content Old')
+  let(:user) { sign_up }
+  let(:project) { create_project(user, name: 'Project') }
+  let(:issue) { create_issue(user.as_member_of(project), title: 'Issue', content: 'Issue Content Old') }
 
+  before do
     sign_in(user)
     visit project_issue_path(project, issue)
     find('#js-open-issue-content-editor').click
+  end
+
+  it do
     within('#js-issue-content-editor') do
       fill_in 'form[content]', with: 'Issue Content New'
       click_on '保存する'
