@@ -1,6 +1,6 @@
 class Project::ClosedIssuesController < Project::BaseController
-  before_action :ensure_signed_in, only: [:create]
-  before_action :ensure_project_member, only: [:create]
+  before_action :ensure_signed_in, only: [:index, :create]
+  before_action :ensure_project_member, only: [:index, :create]
 
   def index
     @issues = ClosedIssue.for_project(current_project.id)
