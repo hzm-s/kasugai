@@ -13,6 +13,12 @@ class Project::ClosedIssuesController < Project::BaseController
     redirect_to project_issues_url(current_project), notice: flash_message
   end
 
+  def destroy
+    issue = Issue.find(params[:id])
+    IssueService.reopen(issue)
+    redirect_to project_issue_url(current_project, issue), notice: flash_message
+  end
+
   private
 
     def current_issue

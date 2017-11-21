@@ -12,6 +12,7 @@ class Issue < ApplicationRecord
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
+  delegate :id, to: :closed, prefix: true
 
   class << self
 
@@ -51,5 +52,9 @@ class Issue < ApplicationRecord
 
   def closed?
     closed.present?
+  end
+
+  def reopen
+    closed.destroy!
   end
 end

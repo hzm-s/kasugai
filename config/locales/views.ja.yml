@@ -112,6 +112,8 @@ ja:
         help_delete: 削除すると元に戻せません
         delete: この課題を削除する
         confirm_delete: この課題を削除しますか?
+        help_reopen: 解決を取り消します
+        reopen: この課題の解決を取り消す
 
     bookmarked_issues:
       index:

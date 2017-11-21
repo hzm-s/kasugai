@@ -40,4 +40,8 @@ class IssueService < ApplicationService
   def close(issue)
     issue.close
   end
+
+  def reopen(issue)
+    issue.reopen
+  end
 end

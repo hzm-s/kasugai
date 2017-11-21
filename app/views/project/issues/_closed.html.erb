@@ -5,7 +5,7 @@
       <div class="dsc-Body_Issue">
         <div class="iss-Detail">
           <div class="iss-Detail_Header">
-            <span class="iss-Detail_ClosedLabel">
+            <span class="iss-Detail_ClosedLabel" id="app_closed_issue">
               <%=t '.closed' %>
             </span>
             <%= show_user_avatar(@issue.author, size: :sm) %>
@@ -52,4 +52,10 @@
   </div>
 </div>
 <%= render layout: 'terminate' do -%>
+  <div class="dsc-Terminate_Option">
+    <p class="iss-Terminate_Description">
+      <%=t '.help_reopen' %>
+    </p>
+    <%= link_to t('.reopen'), project_closed_issue_url(current_project, @issue), method: :delete, data: { confirm: t('.confirm_reopen', title: current_issue.title) }, class: 'iss-ReopenLink' %>
+  </div>
 <% end -%>

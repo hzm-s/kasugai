@@ -29,3 +29,4 @@ ja:
 
     project/closed_issues:
       create: 課題を解決済みにしました
+      destroy: 課題の解決を取り消しました
