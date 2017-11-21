@@ -9,7 +9,8 @@ class Project::ClosedIssuesController < Project::BaseController
   end
 
   def create
-    IssueService.close(current_issue)
+    issue = Issue.find(params[:issue_id])
+    IssueService.close(issue)
     redirect_to project_issues_url(current_project), notice: flash_message
   end
 
@@ -18,10 +19,4 @@ class Project::ClosedIssuesController < Project::BaseController
     IssueService.reopen(issue)
     redirect_to project_issue_url(current_project, issue), notice: flash_message
   end
-
-  private
-
-    def current_issue
-      Issue.find(params[:issue_id])
-    end
 end
