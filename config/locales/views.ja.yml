@@ -114,6 +114,7 @@ ja:
         confirm_delete: この課題を削除しますか?
         help_reopen: 解決を取り消します
         reopen: この課題の解決を取り消す
+        confirm_reopen: この課題の解決を取り消しますか?
 
     bookmarked_issues:
       index:
