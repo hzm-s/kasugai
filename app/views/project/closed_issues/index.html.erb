@@ -1,0 +1,14 @@
+<% breadcrumb :project_closed_issues, current_project %>
+<div class="row">
+  <div class="col-sm-22 col-lg-18 mx-auto">
+    <div class="issl-Body">
+      <div class="row">
+        <div class="col-sm-22 col-lg-20 offset-lg-1">
+          <div class="issl-ClosedList">
+            <%= render partial: 'issue', collection: @issues %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

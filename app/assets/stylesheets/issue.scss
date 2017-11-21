@@ -73,13 +73,21 @@
   padding-right: 5rem;
 }
 
+.iss-Detail_ClosedLabel {
+  margin-right: 1rem;
+  border-radius: .2rem;
+  padding: .5rem .75rem;
+  background-color: $gray-800;
+  color: $white;
+}
+
 .iss-Create {
   background-color: #fff;
   box-shadow: 0 0 10px $gray-500;
   padding: 1.5rem 2rem;
 }
 
-.iss-ArchiveLink {
+.iss-CloseLink {
   @include pill;
   @include xxunderline($gray-800, theme-color('success'));
   font-size: $font-size-sm;
@@ -100,6 +108,19 @@
 
   &:before {
     @include fa-content('\f014');
+    margin-right: .25rem;
+  }
+}
+
+.iss-ReopenLink {
+  @include pill;
+  @include xxunderline($gray-800, theme-color('info'));
+  font-size: $font-size-sm;
+  background-color: $gray-300;
+  border: 1px solid $gray-600;
+
+  &:before {
+    @include fa-content('\f187');
     margin-right: .25rem;
   }
 }

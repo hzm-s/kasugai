@@ -6,6 +6,10 @@ module IssueHelper
   def post_comment(project_member, issue, attrs)
     IssueCommentService.post(project_member, issue, IssueCommentForm.new(attrs)).comment
   end
+
+  def close_issue(issue)
+    IssueService.close(issue)
+  end
 end
 
 RSpec.configure do |c|

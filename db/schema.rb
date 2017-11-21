@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20171120095211) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
-  create_table "archived_issues", force: :cascade do |t|
+  create_table "bookmarked_issues", force: :cascade do |t|
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
   end
 
-  create_table "bookmarked_issues", force: :cascade do |t|
+  create_table "closed_issues", force: :cascade do |t|
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
   end
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 20171120095211) do
   end
 
   add_foreign_key "accounts", "users"
-  add_foreign_key "archived_issues", "issues"
   add_foreign_key "bookmarked_issues", "issues"
+  add_foreign_key "closed_issues", "issues"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
   add_foreign_key "issues", "projects"

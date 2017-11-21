@@ -8,6 +8,7 @@ class Project::IssuesController < Project::BaseController
 
   def index
     @issues = Issue.for_project(current_project.id)
+    @closed_issues_count = ClosedIssue.count_for_project(current_project.id)
   end
 
   def show
@@ -65,6 +66,6 @@ class Project::IssuesController < Project::BaseController
     end
 
     def current_issue
-      @current_issue ||= Issue.find(params[:id])
+      @current_issue ||= Issue.includes(:closed).find(params[:id])
     end
 end
