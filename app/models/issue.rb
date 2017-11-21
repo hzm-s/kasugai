@@ -8,7 +8,7 @@ class Issue < ApplicationRecord
 
   has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
-  has_one :archived, dependent: :destroy, class_name: 'ArchivedIssue'
+  has_one :closed, dependent: :destroy, class_name: 'ClosedIssue'
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
@@ -16,8 +16,8 @@ class Issue < ApplicationRecord
   class << self
 
     def for_project(project_id)
-      left_outer_joins(:archived)
-        .where(archived_issues: { id: nil })
+      left_outer_joins(:closed)
+        .where(closed_issues: { id: nil })
         .where(project_id: project_id)
         .order(:priority_order, :created_at)
     end
@@ -45,7 +45,7 @@ class Issue < ApplicationRecord
     bookmarked.destroy!
   end
 
-  def archive
-    create_archived!
+  def close
+    create_closed!
   end
 end

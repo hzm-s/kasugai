@@ -37,7 +37,7 @@ class IssueService < ApplicationService
     issue.unbookmark
   end
 
-  def archive(issue)
-    issue.archive
+  def close(issue)
+    issue.close
   end
 end

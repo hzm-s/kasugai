@@ -27,5 +27,5 @@ ja:
     issue/comments:
       destroy: コメントを削除しました
 
-    project/archived_issues:
-      create: 課題をアーカイブしました
+    project/closed_issues:
+      create: 課題を解決にしました

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Project::ArchivedIssuesController do
+describe Project::ClosedIssuesController do
   it do
     post :create, params: { project_id: 'dummy' }
     expect_ensure_signed_in

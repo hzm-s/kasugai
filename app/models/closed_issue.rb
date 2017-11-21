@@ -1,0 +1,2 @@
+class ClosedIssue < ApplicationRecord
+end

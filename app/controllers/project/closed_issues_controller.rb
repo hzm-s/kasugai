@@ -1,9 +1,9 @@
-class Project::ArchivedIssuesController < Project::BaseController
+class Project::ClosedIssuesController < Project::BaseController
   before_action :ensure_signed_in, only: [:create]
   before_action :ensure_project_member, only: [:create]
 
   def create
-    IssueService.archive(current_issue)
+    IssueService.close(current_issue)
     redirect_to project_issues_url(current_project), notice: flash_message
   end
 

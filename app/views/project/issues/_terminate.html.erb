@@ -3,11 +3,11 @@
     <div class="dsc-Terminate">
       <div class="dsc-Terminate_Option">
         <p class="iss-Terminate_Description">
-          <%=t '.help_archive' %>
+          <%=t '.help_close' %>
         </p>
-        <%= form_with url: project_archived_issues_url(current_project) do |f| %>
+        <%= form_with url: project_closed_issues_url(current_project) do |f| %>
           <%= hidden_field_tag :issue_id, current_issue.id %>
-          <%= f.button t('.archive'), data: { confirm: t('.confirm_archive', title: current_issue.title) }, class: 'iss-ArchiveLink' %>
+          <%= f.button t('.close'), data: { confirm: t('.confirm_close', title: current_issue.title) }, class: 'iss-CloseLink' %>
         <% end -%>
       </div>
       <div class="dsc-Terminate_Option">

@@ -79,7 +79,7 @@
   padding: 1.5rem 2rem;
 }
 
-.iss-ArchiveLink {
+.iss-CloseLink {
   @include pill;
   @include xxunderline($gray-800, theme-color('success'));
   font-size: $font-size-sm;
