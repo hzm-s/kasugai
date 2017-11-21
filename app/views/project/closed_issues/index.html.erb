@@ -1,0 +1,10 @@
+<% @issues.each do |i| -%>
+  <div>
+    <span class="app_title">
+      <%= i.title %>
+    </span>
+    <span class="app_closed_on">
+      <%=l i.created_at.to_date %>
+    </span>
+  </div>
+<% end -%>
