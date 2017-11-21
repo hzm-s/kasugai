@@ -113,3 +113,29 @@
   font-size: $font-size-sm;
   color: $body-color-sub;
 }
+
+.issl-Nav_Closed {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.issl-Nav_ClosedLink {
+  @include xxunderline($body-color-sub, $body-color-sub);
+  @include pill;
+  @include nf;
+  background-color: rgba(255,255,255,0.9);
+
+  &:before {
+    @include fa-content('\f187');
+    margin-right: .25rem;
+  }
+
+  &:hover {
+    background-color: $gray-200;
+  }
+}
+
+.issl-Item_ClosedOn {
+  color: $body-color-sub;
+  font-size: $font-size-sm;
+}

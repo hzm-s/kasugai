@@ -4,6 +4,7 @@ ja:
     new_issue: 新しい課題
     edit_issue: 課題の編集
     show_issue: 課題の詳細
+    closed_issue_list: 解決した課題リスト
 
   shared:
     global_nav:
@@ -74,24 +75,33 @@ ja:
       index:
         new: 新しい課題を作成する
         blank: まだ課題はありません
+        closed: '%{count}件の解決した課題'
+
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
+
       comment_count:
         comments: '%{count}コメント'
+
       form:
         placeholders:
           title: 課題のタイトル
           content: 課題の内容（省略できます）
+
       show:
         creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
         comments:
           title: コメント
+
       content:
         blank: 本文はありません
+
       bookmarked:
         unbookmark: ブックマークを削除する
+
       unbookmarked:
         bookmark: ブックマークする
+
       terminate:
         help_close: 課題リストに表示されなくなります
         close: この課題を解決にする

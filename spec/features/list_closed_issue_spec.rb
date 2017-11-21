@@ -19,7 +19,7 @@ describe '解決した課題の一覧' do
       close_issue(closed_b)
 
       sign_in(user_a)
-      visit project_closed_issues_url(project_a)
+      visit project_closed_issues_path(project_a)
     end
 
     it do
@@ -32,12 +32,17 @@ describe '解決した課題の一覧' do
     end
 
     it do
-      issues = all('.app_title').map(&:text)
+      issues = all('.app_issue_title').map(&:text)
       expect(issues).to eq([closed_a2.title, closed_a1.title])
     end
 
     it do
-      expect(first('.app_closed_on').text).to eq(I18n.l(closed_a2.created_at.to_date))
+      expect(first('.app_issue_closed_on').text).to eq(I18n.l(closed_a2.created_at.to_date))
+    end
+
+    it do
+      visit project_issues_path(project_a)
+      expect(page).to have_link('2件の解決した課題')
     end
   end
 end
