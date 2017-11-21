@@ -104,8 +104,8 @@ ja:
 
       terminate:
         help_close: 課題リストに表示されなくなります
-        close: この課題を解決にする
-        confirm_close: この課題を解決にしますか?
+        close: この課題を解決済みにする
+        confirm_close: この課題を解決済みにしますか?
         help_delete: 削除すると元に戻せません
         delete: この課題を削除する
         confirm_delete: この課題を削除しますか?

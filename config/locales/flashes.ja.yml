@@ -28,4 +28,4 @@ ja:
       destroy: コメントを削除しました
 
     project/closed_issues:
-      create: 課題を解決にしました
+      create: 課題を解決済みにしました
