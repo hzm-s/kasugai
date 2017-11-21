@@ -36,3 +36,8 @@ crumb :project_closed_issues do |project|
   link t('project_navs.closed_issue_list'), project_closed_issues_url(project)
   parent :project_issues, project
 end
+
+crumb :show_closed_issue do |project|
+  link t('project_navs.show_issue'), project_closed_issues_url(project)
+  parent :project_closed_issues, project
+end

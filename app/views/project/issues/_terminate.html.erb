@@ -1,18 +1,7 @@
 <div class="row">
   <div class="col-sm-22 col-lg-18 mx-auto">
     <div class="dsc-Terminate">
-      <% if current_issue.closed? -%>
-      <% else -%>
-        <div class="dsc-Terminate_Option">
-          <p class="iss-Terminate_Description">
-            <%=t '.help_close' %>
-          </p>
-          <%= form_with url: project_closed_issues_url(current_project) do |f| %>
-            <%= hidden_field_tag :issue_id, current_issue.id %>
-            <%= f.button t('.close'), data: { confirm: t('.confirm_close', title: current_issue.title) }, class: 'iss-CloseLink' %>
-          <% end -%>
-        </div>
-      <% end -%>
+      <%= yield %>
       <div class="dsc-Terminate_Option">
         <p class="iss-Terminate_Description">
           <%=t '.help_delete' %>

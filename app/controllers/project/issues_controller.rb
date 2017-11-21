@@ -66,6 +66,6 @@ class Project::IssuesController < Project::BaseController
     end
 
     def current_issue
-      @current_issue ||= Issue.find(params[:id])
+      @current_issue ||= Issue.includes(:closed).find(params[:id])
     end
 end

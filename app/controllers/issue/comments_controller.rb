@@ -54,6 +54,6 @@ class Issue::CommentsController < Project::BaseController
     end
 
     def current_issue
-      @current_issue ||= Issue.find(params[:issue_id])
+      @current_issue ||= Issue.includes(:closed).find(params[:issue_id])
     end
 end
