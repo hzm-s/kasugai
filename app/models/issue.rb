@@ -48,4 +48,8 @@ class Issue < ApplicationRecord
   def close
     create_closed!
   end
+
+  def closed?
+    closed.present?
+  end
 end
