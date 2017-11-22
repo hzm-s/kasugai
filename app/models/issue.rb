@@ -28,10 +28,6 @@ class Issue < ApplicationRecord
     end
   end
 
-  def change_priority_to(new_position)
-    opened.update(priority_order_position: new_position)
-  end
-
   def bookmark
     create_bookmarked!
   end

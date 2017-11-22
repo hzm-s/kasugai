@@ -8,5 +8,9 @@ class OpenedIssue < ApplicationRecord
     def add!(issue)
       create!(project_id: issue.project_id, issue_id: issue.id)
     end
+
+    def change_priority_position!(issue, new_position)
+      find_by(issue_id: issue.id).update(priority_order_position: new_position)
+    end
   end
 end
