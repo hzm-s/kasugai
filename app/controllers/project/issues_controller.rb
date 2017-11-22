@@ -19,13 +19,14 @@ class Project::IssuesController < Project::BaseController
 
   def new
     @form = IssueForm.new
+    @form.set_continue if params[:continue]
   end
 
   def create
     form = IssueForm.new(form_params)
     result = IssueService.create(current_project_member, form)
     if result.succeeded?
-      redirect_after_create
+      redirect_after_create(form)
     else
       @form = result.params
       render :new
@@ -62,16 +63,16 @@ class Project::IssuesController < Project::BaseController
   private
 
     def form_params
-      params.require(:form).permit(:title, :content, :field)
+      params.require(:form).permit(:title, :content, :field, :continue)
     end
 
     def current_issue
       @current_issue ||= Issue.includes(:closed).find(params[:id])
     end
 
-    def redirect_after_create
-      if params[:button] == 'continue'
-        redirect_to new_project_issue_url(current_project)
+    def redirect_after_create(form)
+      if form.continue?
+        redirect_to new_project_issue_url(current_project, continue: 1)
       else
         redirect_to project_issues_url(current_project), notice: flash_message
       end
