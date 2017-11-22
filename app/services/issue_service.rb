@@ -42,10 +42,10 @@ class IssueService < ApplicationService
   end
 
   def bookmark(issue)
-    issue.bookmark
+    BookmarkedIssue.add!(issue)
   end
 
   def unbookmark(issue)
-    issue.unbookmark
+    BookmarkedIssue.delete!(issue)
   end
 end

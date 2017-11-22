@@ -28,16 +28,8 @@ class Issue < ApplicationRecord
     end
   end
 
-  def bookmark
-    create_bookmarked!
-  end
-
   def bookmarked?
     bookmarked.present?
-  end
-
-  def unbookmark
-    bookmarked.destroy!
   end
 
   def closed?
