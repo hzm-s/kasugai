@@ -147,6 +147,7 @@ ja:
       submit: 保存する
       update: 更新する
       post: 投稿する
+      continue: '続けて%{action}'
   navs:
     ok: OK
     error: エラー

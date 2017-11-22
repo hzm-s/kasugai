@@ -24,4 +24,24 @@ describe '課題の追加' do
     click_on '作成する'
     expect(page).to have_content('タイトルを入力してください')
   end
+
+  it do
+    fill_in 'form[title]', with: 'Issue 1'
+    check 'app_form_continue'
+    click_on '作成する'
+
+    fill_in 'form[title]', with: 'Issue 2'
+    click_on '作成する'
+
+    fill_in 'form[title]', with: 'Issue 3'
+    uncheck 'app_form_continue'
+    click_on '作成する'
+
+    aggregate_failures do
+      expect(page).to have_content('課題を作成しました')
+      expect(page).to have_content('Issue 1')
+      expect(page).to have_content('Issue 2')
+      expect(page).to have_content('Issue 3')
+    end
+  end
 end

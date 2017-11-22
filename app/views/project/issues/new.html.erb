@@ -3,6 +3,12 @@
   <div class="col-sm-22 col-lg-16 mx-auto">
     <div class="iss-Create">
       <%= render 'form', form: @form, method: :post, url: project_issues_url(current_project) do |f| %>
+        <div class="form-check iss-Create_Continue">
+          <label class="form-check-label">
+            <%= f.check_box :continue, id: 'app_form_continue', class: 'form-check-input' %>
+            <%=t 'helpers.submit.continue', action: t('helpers.submit.create') %>
+          </label>
+        </div>
         <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
         <%= link_to t('navs.cancel'), project_issues_url(current_project), class: 'frm-Actions_Cancel' %>
       <% end -%>
