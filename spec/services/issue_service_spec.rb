@@ -5,6 +5,15 @@ describe IssueService do
   let(:member) { user.as_member_of(project) }
   let(:project) { create_project(user, name: 'P') }
 
+  describe '#create' do
+    it do
+      params = IssueForm.new(title: 'Issue')
+      expect { described_class.create(member, params) }
+        .to change { Issue.count }.by(1)
+        .and change { OpenedIssue.count }.by(1)
+    end
+  end
+
   describe '#change_priority' do
     it do
       issue_a = create_issue(member, title: 'A')
