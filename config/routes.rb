@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :issues
     resources :bookmarked_issues, only: [:index, :create, :destroy]
     resources :members, only: [:index, :new, :create, :destroy]
-    resources :closed_issues, only: [:index, :create, :destroy]
+    resources :closed_issues, only: [:index, :show, :create, :destroy]
   end
 
   scope '/issues/:issue_id', as: :issue, module: :issue do

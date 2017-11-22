@@ -24,6 +24,11 @@ class Issue < ApplicationRecord
       joins(:bookmarked)
         .merge(for_project(project_id))
     end
+
+    def find_closed(issue_id)
+      joins(:closed)
+        .find(issue_id)
+    end
   end
 
   def bookmarked?

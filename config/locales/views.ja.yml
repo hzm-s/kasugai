@@ -93,9 +93,6 @@ ja:
         comments:
           title: コメント
 
-      closed:
-        closed: 解決済み
-
       content:
         blank: 本文はありません
 
@@ -121,6 +118,10 @@ ja:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
+
+    closed_issues:
+      show:
+        closed: 解決済み
 
     members:
       new:

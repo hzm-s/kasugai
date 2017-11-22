@@ -9,7 +9,7 @@ describe '解決した課題の詳細' do
     close_issue(issue)
 
     sign_in(user)
-    visit project_issue_path(project, issue)
+    visit project_closed_issue_path(project, issue.id)
 
     aggregate_failures do
       expect(page).to have_content('解決済み')
