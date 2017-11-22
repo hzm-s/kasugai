@@ -11,7 +11,7 @@ class IssueService < ApplicationService
       content: params.content
     }
     issue = Issue.new(issue_attrs) do |i|
-      i.build_priority(project_id: i.project_id)
+      i.build_opened(project_id: i.project_id)
       i.save!
     end
 

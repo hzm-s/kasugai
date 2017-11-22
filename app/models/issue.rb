@@ -2,24 +2,23 @@ class Issue < ApplicationRecord
   belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
-  has_one :priority, class_name: 'IssuePriority', dependent: :destroy
-  has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
+  has_one :opened, class_name: 'OpenedIssue', dependent: :destroy
+  has_one :closed, class_name: 'ClosedIssue', dependent: :destroy
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
-  has_one :closed, dependent: :destroy, class_name: 'ClosedIssue'
+
+  has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
   delegate :id, to: :closed, prefix: true
-  delegate :priority_order, to: :priority
+  delegate :priority_order, to: :opened
 
   class << self
 
     def for_project(project_id)
-      left_outer_joins(:closed)
-        .joins(:priority)
-        .where(closed_issues: { id: nil })
+      joins(:opened)
         .where(project_id: project_id)
-        .order('issue_priorities.priority_order, issues.created_at')
+        .order('opened_issues.priority_order, issues.created_at')
     end
 
     def bookmarked(project_id)
@@ -30,7 +29,7 @@ class Issue < ApplicationRecord
   end
 
   def change_priority_to(new_position)
-    priority.update(priority_order_position: new_position)
+    opened.update(priority_order_position: new_position)
   end
 
   def bookmark
@@ -48,7 +47,7 @@ class Issue < ApplicationRecord
   def close
     transaction do
       create_closed!
-      priority.destroy!
+      opened.destroy!
     end
   end
 
