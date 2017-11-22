@@ -7,7 +7,7 @@
           <div class="iss-Detail_Header">
             <%= show_user_avatar(@issue.author, size: :sm) %>
             <div class="iss-Detail_Creation">
-              <%=t 'project.issues.opened.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
+              <%=t 'project.issues.show.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
             </div>
             <span class="iss-Detail_ClosedLabel" id="app_closed_issue">
               <%=t '.closed' %>
@@ -37,7 +37,7 @@
         <div class="col-sm-22 col-lg-18 mx-auto">
           <div class="dsc-Body_CommentWrapper">
             <h3 class="dsc-Comment_Title">
-              <%=t 'project.issues.opened.comments.title' %>
+              <%=t 'project.issues.show.comments.title' %>
             </h3>
             <%= render_async issue_comments_url(@issue), event_name: 'issue-comments-loaded', 'data-turbolinks-track': 'reload' do %>
               <%= loading_partial %>
