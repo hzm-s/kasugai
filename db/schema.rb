@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 20171120095211) do
   create_table "bookmarked_issues", force: :cascade do |t|
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
+    t.index ["issue_id"], name: "index_bookmarked_issues_on_issue_id", unique: true
   end
 
   create_table "closed_issues", force: :cascade do |t|
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
+    t.index ["issue_id"], name: "index_closed_issues_on_issue_id", unique: true
   end
 
   create_table "issue_comments", force: :cascade do |t|
@@ -40,12 +42,18 @@ ActiveRecord::Schema.define(version: 20171120095211) do
     t.index ["user_id"], name: "index_issue_comments_on_user_id"
   end
 
+  create_table "issue_priorities", force: :cascade do |t|
+    t.string "project_id", null: false
+    t.string "issue_id", null: false
+    t.integer "priority_order"
+    t.index ["issue_id"], name: "index_issue_priorities_on_issue_id", unique: true
+  end
+
   create_table "issues", id: :string, force: :cascade do |t|
     t.string "project_id", null: false
     t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "content"
-    t.integer "priority_order"
     t.datetime "created_at", null: false
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
@@ -100,6 +108,8 @@ ActiveRecord::Schema.define(version: 20171120095211) do
   add_foreign_key "closed_issues", "issues"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
+  add_foreign_key "issue_priorities", "issues"
+  add_foreign_key "issue_priorities", "projects"
   add_foreign_key "issues", "projects"
   add_foreign_key "issues", "users"
   add_foreign_key "project_members", "projects"
