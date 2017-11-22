@@ -74,7 +74,7 @@
 }
 
 .iss-Detail_ClosedLabel {
-  margin-right: 1rem;
+  @extend .ml-auto;
   border-radius: .2rem;
   padding: .5rem .75rem;
   background-color: $gray-800;

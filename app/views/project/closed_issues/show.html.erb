@@ -1,0 +1,58 @@
+<% breadcrumb :show_closed_issue, current_project %>
+<div class="row">
+  <div class="col-sm-22 col-lg-19 mx-auto">
+    <div class="dsc-Body">
+      <div class="dsc-Body_Issue">
+        <div class="iss-Detail">
+          <div class="iss-Detail_Header">
+            <%= show_user_avatar(@issue.author, size: :sm) %>
+            <div class="iss-Detail_Creation">
+              <%=t 'project.issues.show.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
+            </div>
+            <span class="iss-Detail_ClosedLabel" id="app_closed_issue">
+              <%=t '.closed' %>
+            </span>
+          </div>
+          <div class="iss-Detail_Body">
+            <div class="iss-Detail_TitleWrapper">
+              <h1 class="iss-Detail_Title" id="app_issue_title">
+                <%= @issue.title %>
+              </h1>
+            </div>
+            <div class="iss-Detail_ContentWrapper">
+              <% if @issue.content.blank?  -%>
+                <p class="iss-Detail_Content iss-Detail_Content-blank">
+                  <%=t 'project.issues.content.blank' %>
+                </p>
+              <% else -%>
+                <div class="iss-Detail_Content" id="app_issue_content">
+                  <%= simple_format(@issue.content) %>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-22 col-lg-18 mx-auto">
+          <div class="dsc-Body_CommentWrapper">
+            <h3 class="dsc-Comment_Title">
+              <%=t 'project.issues.show.comments.title' %>
+            </h3>
+            <%= render_async issue_comments_url(@issue), event_name: 'issue-comments-loaded', 'data-turbolinks-track': 'reload' do %>
+              <%= loading_partial %>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render layout: 'project/issues/terminate' do -%>
+  <div class="dsc-Terminate_Option">
+    <p class="iss-Terminate_Description">
+      <%=t '.help_reopen' %>
+    </p>
+    <%= link_to t('.reopen'), project_closed_issue_url(current_project, @issue), method: :delete, data: { confirm: t('.confirm_reopen', title: current_issue.title) }, class: 'iss-ReopenLink' %>
+  </div>
+<% end -%>

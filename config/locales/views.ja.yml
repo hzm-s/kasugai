@@ -80,6 +80,11 @@ ja:
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
 
+      show:
+        creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
+        comments:
+          title: コメント
+
       comment_count:
         comments: '%{count}コメント'
 
@@ -87,14 +92,6 @@ ja:
         placeholders:
           title: 課題のタイトル
           content: 課題の内容（省略できます）
-
-      opened:
-        creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
-        comments:
-          title: コメント
-
-      closed:
-        closed: 解決済み
 
       content:
         blank: 本文はありません
@@ -121,6 +118,10 @@ ja:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
+
+    closed_issues:
+      show:
+        closed: 解決済み
 
     members:
       new:
