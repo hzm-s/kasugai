@@ -39,7 +39,7 @@ class ProjectsController < Project::BaseController
       redirect_to edit_project_url(current_project), notice: flash_message
     else
       @form = result.params
-      render :edit
+      render :edit, layout: 'project'
     end
   end
 

@@ -3,13 +3,11 @@ class IssueService < ApplicationService
   def create(project_member, params)
     return failure(params: params) unless params.valid?
 
-    issue = Issue.create!(
-      id: SecureRandom.hex(8),
-      project: project_member.project,
-      author: project_member.user,
-      title: params.title,
-      content: params.content
-    )
+    issue = IssueFactory.create(project_member, params)
+    transaction do
+      issue.save!
+      OpenedIssue.add!(issue)
+    end
 
     success(issue: issue)
   end
@@ -26,22 +24,28 @@ class IssueService < ApplicationService
   end
 
   def change_priority(issue, new_position)
-    issue.change_priority_to(new_position)
-  end
-
-  def bookmark(issue)
-    issue.bookmark
-  end
-
-  def unbookmark(issue)
-    issue.unbookmark
+    OpenedIssue.change_priority_position!(issue, new_position)
   end
 
   def close(issue)
-    issue.close
+    transaction do
+      OpenedIssue.delete!(issue)
+      ClosedIssue.add!(issue)
+    end
   end
 
   def reopen(issue)
-    issue.reopen
+    transaction do
+      ClosedIssue.delete!(issue)
+      OpenedIssue.add!(issue)
+    end
+  end
+
+  def bookmark(issue)
+    BookmarkedIssue.add!(issue)
+  end
+
+  def unbookmark(issue)
+    BookmarkedIssue.delete!(issue)
   end
 end

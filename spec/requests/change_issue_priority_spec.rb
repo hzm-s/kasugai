@@ -14,7 +14,7 @@ describe '課題の優先順位変更' do
 
     aggregate_failures do
       expect(response).to have_http_status(:ok)
-      expect(issue.priority_order).to_not be_nil
+      expect(issue.opened.priority_order).to_not be_nil
     end
   end
 end
