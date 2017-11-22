@@ -22,9 +22,8 @@ class Issue < ApplicationRecord
     end
 
     def bookmarked(project_id)
-      includes(:bookmarked)
+      joins(:bookmarked)
         .merge(for_project(project_id))
-        .where.not(bookmarked_issues: { id: nil })
     end
   end
 
