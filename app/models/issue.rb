@@ -43,8 +43,4 @@ class Issue < ApplicationRecord
   def closed?
     closed.present?
   end
-
-  def reopen
-    closed.destroy!
-  end
 end

@@ -8,6 +8,7 @@ describe IssueService do
   describe '#create' do
     it do
       params = IssueForm.new(title: 'Issue')
+
       expect { described_class.create(member, params) }
         .to change { Issue.count }.by(1)
         .and change { OpenedIssue.count }.by(1)
@@ -17,11 +18,27 @@ describe IssueService do
   describe '#close' do
     it do
       issue = create_issue(member, title: 'I')
+
       expect { described_class.close(issue) }
         .to change { Issue.count }.by(0)
         .and change { OpenedIssue.count }.by(-1)
         .and change { OpenedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)
         .and change { ClosedIssue.count }.by(1)
+        .and change { ClosedIssue.find_by(issue_id: issue.id).present? }.from(false).to(true)
+    end
+  end
+
+  describe '#reopen' do
+    it do
+      issue = create_issue(member, title: 'I')
+      close_issue(issue)
+
+      expect { described_class.reopen(issue) }
+        .to change { Issue.count }.by(0)
+        .and change { ClosedIssue.count }.by(-1)
+        .and change { ClosedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)
+        .and change { OpenedIssue.count }.by(1)
+        .and change { OpenedIssue.find_by(issue_id: issue.id).present? }.from(false).to(true)
     end
   end
 

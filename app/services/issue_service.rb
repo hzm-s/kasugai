@@ -35,7 +35,10 @@ class IssueService < ApplicationService
   end
 
   def reopen(issue)
-    issue.reopen
+    transaction do
+      ClosedIssue.delete!(issue)
+      OpenedIssue.add!(issue)
+    end
   end
 
   def bookmark(issue)
