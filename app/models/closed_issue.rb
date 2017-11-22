@@ -5,6 +5,10 @@ class ClosedIssue < ApplicationRecord
 
   class << self
 
+    def add!(issue)
+      create!(issue_id: issue.id)
+    end
+
     def for_project(project_id)
       joins(:issue)
         .where(issues: { project_id: project_id })

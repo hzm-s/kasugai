@@ -10,7 +10,11 @@ class OpenedIssue < ApplicationRecord
     end
 
     def change_priority_position!(issue, new_position)
-      find_by(issue_id: issue.id).update(priority_order_position: new_position)
+      find_by(issue_id: issue.id).update!(priority_order_position: new_position)
+    end
+
+    def delete!(issue)
+      find_by(issue_id: issue.id).destroy!
     end
   end
 end

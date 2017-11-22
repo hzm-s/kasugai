@@ -27,19 +27,22 @@ class IssueService < ApplicationService
     OpenedIssue.change_priority_position!(issue, new_position)
   end
 
+  def close(issue)
+    transaction do
+      OpenedIssue.delete!(issue)
+      ClosedIssue.add!(issue)
+    end
+  end
+
+  def reopen(issue)
+    issue.reopen
+  end
+
   def bookmark(issue)
     issue.bookmark
   end
 
   def unbookmark(issue)
     issue.unbookmark
-  end
-
-  def close(issue)
-    issue.close
-  end
-
-  def reopen(issue)
-    issue.reopen
   end
 end

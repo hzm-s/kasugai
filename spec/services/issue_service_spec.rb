@@ -14,6 +14,17 @@ describe IssueService do
     end
   end
 
+  describe '#close' do
+    it do
+      issue = create_issue(member, title: 'I')
+      expect { described_class.close(issue) }
+        .to change { Issue.count }.by(0)
+        .and change { OpenedIssue.count }.by(-1)
+        .and change { OpenedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)
+        .and change { ClosedIssue.count }.by(1)
+    end
+  end
+
   describe '#change_priority' do
     it do
       issue_a = create_issue(member, title: 'A')

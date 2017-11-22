@@ -40,13 +40,6 @@ class Issue < ApplicationRecord
     bookmarked.destroy!
   end
 
-  def close
-    transaction do
-      create_closed!
-      opened.destroy!
-    end
-  end
-
   def closed?
     closed.present?
   end
