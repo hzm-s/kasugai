@@ -87,6 +87,12 @@
   padding: 1.5rem 2rem;
 }
 
+.iss-Create_Continue {
+  background-color: $gray-200;
+  padding: .7rem .75rem .5rem;
+  border-radius: .2rem;
+}
+
 .iss-CloseLink {
   @include pill;
   @include xxunderline($gray-800, theme-color('success'));
