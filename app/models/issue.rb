@@ -11,7 +11,6 @@ class Issue < ApplicationRecord
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
   delegate :id, to: :closed, prefix: true
-  delegate :priority_order, to: :opened
 
   class << self
 
