@@ -25,7 +25,11 @@ class Project::IssuesController < Project::BaseController
     form = IssueForm.new(form_params)
     result = IssueService.create(current_project_member, form)
     if result.succeeded?
-      redirect_to project_issues_url(project_id: current_project.id), notice: flash_message
+      if params[:button] == 'continue'
+        redirect_to new_project_issue_url(current_project)
+      else
+        redirect_to project_issues_url(current_project), notice: flash_message
+      end
     else
       @form = result.params
       render :new

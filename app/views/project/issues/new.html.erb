@@ -4,6 +4,7 @@
     <div class="iss-Create">
       <%= render 'form', form: @form, method: :post, url: project_issues_url(current_project) do |f| %>
         <%= f.button t('helpers.submit.create'), class: 'btn btn-success', data: loading_indicator %>
+        <%= f.button t('helpers.submit.continue', action: t('helpers.submit.create')), value: :continue, class: 'btn btn-success', data: loading_indicator %>
         <%= link_to t('navs.cancel'), project_issues_url(current_project), class: 'frm-Actions_Cancel' %>
       <% end -%>
     </div>
