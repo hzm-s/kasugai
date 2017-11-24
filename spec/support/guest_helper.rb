@@ -47,9 +47,9 @@ module GuestHelper
   end
 
   module Controller
-    def sign_in(user)
-      session[:user_id] = user.id
-    end
+    include UserSessionHelper
+
+    def reset_session(*args); end
   end
 
   module Request
