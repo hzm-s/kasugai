@@ -32,6 +32,7 @@ module UserSessionHelper
 
   def sign_out
     session.delete(:user_id)
+    cookies.delete(:user_id)
     cookies.signed[:user_id] = nil
     @current_user = nil
   end
@@ -45,8 +46,10 @@ module UserSessionHelper
     return @current_user ||= find_user(session_user_id) if session_user_id
 
     user = find_user(cookie_user_id)
-    sign_in(user)
-    @current_user = user
+    if user
+      sign_in(user)
+      @current_user = user
+    end
   end
 
   private
