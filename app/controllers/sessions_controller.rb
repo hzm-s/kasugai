@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    sign_out
     redirect_to new_sign_in_url, notice: flash_message
   end
 end
