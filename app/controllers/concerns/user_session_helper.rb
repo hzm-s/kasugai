@@ -30,7 +30,7 @@ module UserSessionHelper
     reset_session
     RememberedUser.delete(user.id)
     token = RememberedUser.add(user.id)
-    cookies.signed[:remember_token] = { value: token, expires: 14.days.from_now }
+    cookies.signed[:remember_token] = { value: token, expires: RememberedUser::EXPIRATION.from_now }
   end
 
   def sign_out
