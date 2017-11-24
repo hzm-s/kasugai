@@ -45,7 +45,7 @@ describe SessionsController do
 
         aggregate_failures do
           expect(session[:user_id]).to be_nil
-          #expect(cookies.signed[:user_id]).to be_nil
+          expect(cookies.signed[:user_id]).to be_nil
         end
       end
     end

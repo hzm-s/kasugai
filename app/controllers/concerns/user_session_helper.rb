@@ -28,6 +28,7 @@ module UserSessionHelper
 
   def sign_out
     session.delete(:user_id)
+    cookies.signed[:user_id] = nil
     @current_user = nil
   end
 
