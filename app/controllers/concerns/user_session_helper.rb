@@ -20,6 +20,10 @@ module UserSessionHelper
     end
   end
 
+  def signed_in?
+    current_user.present?
+  end
+
   def sign_in(user)
     reset_session
     session[:user_id] = user.id
@@ -33,14 +37,21 @@ module UserSessionHelper
   end
 
   def current_user
-    @current_user ||= fetch_user
+    session_user_id = session[:user_id]
+    cookie_user_id = cookies.signed[:user_id]
+
+    return nil if session_user_id.nil? && cookie_user_id.nil?
+
+    return @current_user ||= find_user(session_user_id) if session_user_id
+
+    user = find_user(cookie_user_id)
+    sign_in(user)
+    @current_user = user
   end
 
-  def signed_in?
-    current_user.present?
-  end
+  private
 
-  def fetch_user
-    User.find_by(id: session[:user_id])
-  end
+    def find_user(user_id)
+      User.find_by(id: user_id)
+    end
 end

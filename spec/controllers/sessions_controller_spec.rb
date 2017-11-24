@@ -17,6 +17,15 @@ describe SessionsController do
           expect(cookies.signed[:user_id]).to eq(user.id)
         end
       end
+
+      it do
+        token = get_sign_in_token(user.email)
+        get :create, params: { token: token }
+
+        session.delete(:user_id)
+
+        expect(signed_in?).to be_truthy
+      end
     end
 
     context 'ログイン済み' do
@@ -44,6 +53,7 @@ describe SessionsController do
         delete :destroy
 
         aggregate_failures do
+          expect(signed_in?).to be_falsey
           expect(session[:user_id]).to be_nil
           expect(cookies.signed[:user_id]).to be_nil
         end
