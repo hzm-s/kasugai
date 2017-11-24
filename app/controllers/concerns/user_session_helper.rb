@@ -23,6 +23,7 @@ module UserSessionHelper
   def sign_in(user)
     reset_session
     session[:user_id] = user.id
+    cookies.signed[:user_id] = { value: user.id, expires: 30.days.from_now }
   end
 
   def sign_out

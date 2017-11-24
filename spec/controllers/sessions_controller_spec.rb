@@ -14,6 +14,7 @@ describe SessionsController do
         aggregate_failures do
           expect(session[:user_id]).to eq(user.id)
           expect(session[:will_remove]).to be_nil
+          expect(cookies.signed[:user_id]).to eq(user.id)
         end
       end
     end
@@ -41,7 +42,11 @@ describe SessionsController do
       it do
         sign_in(user)
         delete :destroy
-        expect(session[:user_id]).to be_nil
+
+        aggregate_failures do
+          expect(session[:user_id]).to be_nil
+          #expect(cookies.signed[:user_id]).to be_nil
+        end
       end
     end
   end
