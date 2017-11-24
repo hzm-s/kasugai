@@ -28,10 +28,12 @@ module UserSessionHelper
 
   def sign_in(user)
     reset_session
+    RememberedUser.add(user.id)
     cookies.signed[:user_id] = { value: user.id, expires: 30.days.from_now }
   end
 
   def sign_out
+    RememberedUser.delete(current_user.id)
     cookies.delete(:user_id)
     cookies.signed[:user_id] = nil
     @current_user = nil
@@ -45,6 +47,6 @@ module UserSessionHelper
   private
 
     def find_user(user_id)
-      User.find_by(id: user_id)
+      RememberedUser.find_user(user_id)
     end
 end

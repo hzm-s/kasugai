@@ -17,6 +17,14 @@ describe SessionsController do
           expect(cookies.signed[:user_id]).to eq(user.id)
         end
       end
+
+      it do
+        token = get_sign_in_token(user.email)
+
+        expect { get :create, params: { token: token } }
+          .to change { RememberedUser.count }.by(1)
+          .and change { RememberedUser.find_by(user_id: user.id).present? }.from(false).to(true)
+      end
     end
 
     context 'ログイン済み' do
@@ -39,14 +47,23 @@ describe SessionsController do
     end
 
     context 'ログイン済み' do
-      it do
+      before do
         sign_in(user)
+      end
+
+      it do
         delete :destroy
 
         aggregate_failures do
           expect(signed_in?).to be_falsey
           expect(cookies.signed[:user_id]).to be_nil
         end
+      end
+
+      it do
+        expect { delete :destroy }
+          .to change { RememberedUser.count }.by(-1)
+          .and change { RememberedUser.find_by(user_id: user.id).present? }.from(true).to(false)
       end
     end
   end
