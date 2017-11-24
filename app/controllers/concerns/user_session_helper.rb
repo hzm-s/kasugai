@@ -28,25 +28,26 @@ module UserSessionHelper
 
   def sign_in(user)
     reset_session
-    RememberedUser.add(user.id)
-    cookies.signed[:user_id] = { value: user.id, expires: 30.days.from_now }
+    RememberedUser.delete(user.id)
+    token = RememberedUser.add(user.id)
+    cookies.signed[:remember_token] = { value: token, expires: 14.days.from_now }
   end
 
   def sign_out
     RememberedUser.delete(current_user.id)
-    cookies.delete(:user_id)
-    cookies.signed[:user_id] = nil
+    cookies.delete(:remember_token)
+    cookies.signed[:remember_token] = nil
     @current_user = nil
   end
 
   def current_user
-    return nil if (user_id = cookies.signed[:user_id]).nil?
-    @current_user ||= find_user(user_id)
+    return nil if (token = cookies.signed[:remember_token]).nil?
+    @current_user ||= find_user(token)
   end
 
   private
 
-    def find_user(user_id)
-      RememberedUser.find_user(user_id)
+    def find_user(remember_token)
+      RememberedUser.find_user_by_token(remember_token)
     end
 end
