@@ -11,7 +11,7 @@ class RememberedUser < ApplicationRecord
 
     def add(user_id)
       transaction do
-        where(user_id: user_id).each(&:destroy!)
+        where(user_id: user_id).destroy_all
         create!(user_id: user_id)
       end
     end
