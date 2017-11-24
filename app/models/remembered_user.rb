@@ -1,4 +1,6 @@
 class RememberedUser < ApplicationRecord
+  EXPIRATION = 14.days
+
   belongs_to :user
 
   has_secure_token
@@ -15,6 +17,10 @@ class RememberedUser < ApplicationRecord
 
     def delete(user_id)
       find_by(user_id: user_id)&.destroy!
+    end
+
+    def sweep
+      where('created_at < ?', EXPIRATION.ago).delete_all
     end
   end
 end
