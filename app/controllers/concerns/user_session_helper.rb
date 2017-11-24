@@ -2,7 +2,9 @@ module UserSessionHelper
   extend ActiveSupport::Concern
 
   included do
-    helper_method :current_user, :signed_in?
+    if respond_to?(:helper_method)
+      helper_method :current_user, :signed_in?
+    end
   end
 
   def ensure_signed_in
@@ -26,30 +28,18 @@ module UserSessionHelper
 
   def sign_in(user)
     reset_session
-    session[:user_id] = user.id
     cookies.signed[:user_id] = { value: user.id, expires: 30.days.from_now }
   end
 
   def sign_out
-    session.delete(:user_id)
     cookies.delete(:user_id)
     cookies.signed[:user_id] = nil
     @current_user = nil
   end
 
   def current_user
-    session_user_id = session[:user_id]
-    cookie_user_id = cookies.signed[:user_id]
-
-    return nil if session_user_id.nil? && cookie_user_id.nil?
-
-    return @current_user ||= find_user(session_user_id) if session_user_id
-
-    user = find_user(cookie_user_id)
-    if user
-      sign_in(user)
-      @current_user = user
-    end
+    return nil if (user_id = cookies.signed[:user_id]).nil?
+    @current_user ||= find_user(user_id)
   end
 
   private

@@ -47,8 +47,6 @@ module GuestHelper
   end
 
   module Controller
-    def self.helper_method(*args); end
-
     include UserSessionHelper
 
     def reset_session(*args); end
