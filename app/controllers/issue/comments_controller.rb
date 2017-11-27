@@ -15,6 +15,7 @@ class Issue::CommentsController < Project::BaseController
     if @result.succeeded?
       @comment = @result.comment
       @form = IssueCommentForm.new
+      IssueCommentBroadcastJob.perform_later(@comment)
     else
       @form = @result.params
     end

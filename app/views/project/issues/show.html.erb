@@ -3,7 +3,7 @@
   <div class="col-sm-22 col-lg-19 mx-auto">
     <div class="dsc-Body">
       <div class="dsc-Body_Issue">
-        <div class="iss-Detail">
+        <div class="iss-Detail" id="js-issue-detail" data-issue-id="<%= @issue.id %>">
           <div class="iss-Detail_Header">
             <%= show_user_avatar(@issue.author, size: :sm) %>
             <div class="iss-Detail_Creation">

@@ -1,5 +1,5 @@
 <% if @result.succeeded? -%>
-  $("<%=j render partial: 'comment', locals: { comment: @comment } %>")
+  $("<%=j render partial: 'unknown_comment', locals: { comment: @comment } %>")
     .appendTo($('#js-issue-comments'));
 <% end -%>
 $('#js-issue-comment-form').replaceWith("<%=j render partial: 'form', locals: { form: @form } %>");
