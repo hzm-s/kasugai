@@ -1,0 +1,5 @@
+<%= render layout: 'issue/comments/comment', locals: { comment: comment } do %>
+  <% unless comment.issue.closed? -%>
+    <%= render partial: 'issue/comments/actions', locals: { comment: comment } %>
+  <% end -%>
+<% end -%>

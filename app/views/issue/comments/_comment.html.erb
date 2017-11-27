@@ -10,9 +10,7 @@
       <div class="cmt-Comment_Timestamp">
         <%=t '.creation_html', author: comment.author_name, time: l(comment.created_at) %>
       </div>
-      <% unless current_issue.closed? -%>
-        <%= render partial: 'actions', locals: { comment: comment } %>
-      <% end -%>
+      <%= yield if block_given? %>
     </div>
   </div>
 </div>
