@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include UserSessionHelper
+  include UserHelper
 
   protect_from_forgery with: :exception
 
