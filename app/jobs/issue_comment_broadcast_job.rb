@@ -6,7 +6,6 @@ class IssueCommentBroadcastJob < ApplicationJob
       ApplicationController
         .renderer
         .render(partial: 'issue/comments/others_comment', locals: { comment: comment })
-
-    ActionCable.server.broadcast "issues:#{comment.issue_id}:comments", html: new_comment_html
+    IssueCommentsChannel.broadcast_to(comment.issue, html: new_comment_html)
   end
 end
