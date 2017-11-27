@@ -1,4 +1,4 @@
-<div class="cmt-Comment" id="<%= app_dom_id(comment) %>">
+<div class="cmt-Comment" id="<%= app_dom_id(comment) %>" data-author-id="<%= comment.author_id %>">
   <div class="cmt-Comment_Header">
     <%= show_user_avatar(comment.author, size: :lg) %>
   </div>

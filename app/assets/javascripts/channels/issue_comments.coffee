@@ -12,8 +12,12 @@ App.issueComments = App.cable.subscriptions.create "IssueCommentsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log('!!!', data.html)
-    @list().append(data.html)
+    @list().append(data.html) unless @userIsCurrentUser(data.html)
+
+  userIsCurrentUser: (html) ->
+    authorId = $(html).attr('data-author-id')
+    currentUserId = $('meta[name=current-user]').attr('id').toString()
+    authorId is currentUserId
 
   start: ->
     console.log('start!!!')
