@@ -1,6 +1,8 @@
 <% if @result.succeeded? -%>
-  $('#js-issue-comments')
-    .append($("<%=j render partial: 'unknown_comment', locals: { comment: @comment } %>"));
+  Helpers.appendNode(
+    $('#js-issue-comments'),
+    $("<%=j render partial: 'unknown_comment', locals: { comment: @comment } %>")
+  );
 <% end -%>
 $('#js-issue-comment-form').replaceWith("<%=j render partial: 'form', locals: { form: @form } %>");
 setupLoading();
