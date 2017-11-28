@@ -47,7 +47,7 @@ module GuestHelper
   end
 
   module Controller
-    include UserSessionHelper
+    include UserHelper
 
     def reset_session(*args); end
   end

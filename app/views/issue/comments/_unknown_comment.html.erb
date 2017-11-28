@@ -1,0 +1,5 @@
+<% if comment.author == current_user -%>
+  <%= render partial: 'my_comment', locals: { comment: comment } %>
+<% else -%>
+  <%= render partial: 'others_comment', locals: { comment: comment } %>
+<% end -%>

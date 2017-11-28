@@ -3,9 +3,13 @@
   <head>
     <title>Kasugai</title>
     <%= web_font_link_tag %>
+    <%= action_cable_meta_tag %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if signed_in? -%>
+      <meta name="current-user" id="<%= current_user.id %>">
+    <% end -%>
   </head>
   <body>
     <%= render 'shared/global_nav' %>
