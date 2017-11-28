@@ -20,12 +20,9 @@ App.issueComments = App.cable.subscriptions.create "IssueCommentsChannel",
     authorId is currentUserId
 
   start: ->
-    console.log('start!!!')
     if issueId = @container().data('issue-id')
-      console.log('follow', issueId)
       @perform 'follow', issue_id: issueId
     else
-      console.log('unfollow')
       @perform 'unfollow'
 
   installPageChangeCallback: ->
