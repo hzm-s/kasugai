@@ -10,6 +10,8 @@ class IssueCommentService < ApplicationService
     comment = issue.comments.build(user_id: project_member.user_id, content: params.content)
     comment.save!
 
+    IssueCommentBroadcastJob.perform_later(comment)
+
     issue.project.members_without(project_member).each do |member|
       @mailer.posted(member, comment).deliver_later!
     end
