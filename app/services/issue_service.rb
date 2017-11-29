@@ -1,5 +1,9 @@
 class IssueService < ApplicationService
 
+  def initialize(notifier: IssueNotificationJob)
+    @notifier = notifier
+  end
+
   def create(project_member, params)
     return failure(params: params) unless params.valid?
 
@@ -8,6 +12,8 @@ class IssueService < ApplicationService
       issue.save!
       OpenedIssue.add!(issue)
     end
+
+    @notifier.perform_later(issue)
 
     success(issue: issue)
   end
