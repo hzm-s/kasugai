@@ -7,6 +7,7 @@ class Issue < ApplicationRecord
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
 
   has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
+  has_many :issue_appearances, dependent: :destroy
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true

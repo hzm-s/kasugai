@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124092834) do
+ActiveRecord::Schema.define(version: 20171129045653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20171124092834) do
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
     t.index ["issue_id"], name: "index_closed_issues_on_issue_id", unique: true
+  end
+
+  create_table "issue_appearances", force: :cascade do |t|
+    t.string "issue_id", null: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["account_id"], name: "index_issue_appearances_on_account_id"
+    t.index ["issue_id", "account_id"], name: "index_issue_appearances_on_issue_id_and_account_id", unique: true
   end
 
   create_table "issue_comments", force: :cascade do |t|
@@ -114,6 +122,8 @@ ActiveRecord::Schema.define(version: 20171124092834) do
   add_foreign_key "accounts", "users"
   add_foreign_key "bookmarked_issues", "issues"
   add_foreign_key "closed_issues", "issues"
+  add_foreign_key "issue_appearances", "accounts"
+  add_foreign_key "issue_appearances", "issues"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
   add_foreign_key "issues", "projects"
