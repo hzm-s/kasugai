@@ -7,6 +7,7 @@ class Issue < ApplicationRecord
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
 
   has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
+  has_many :issue_appearances, -> { includes(:project_member) }, dependent: :destroy
 
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
@@ -37,5 +38,9 @@ class Issue < ApplicationRecord
 
   def closed?
     closed.present?
+  end
+
+  def participants(actor)
+    project.members_without(actor) - issue_appearances.map(&:project_member)
   end
 end

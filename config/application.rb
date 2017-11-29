@@ -32,6 +32,7 @@ module Kasugai
       g.helper false
       g.view_specs false
       g.controller_specs false
+      g.javascript_engine :js
     end
 
     config.time_zone = 'Tokyo'
