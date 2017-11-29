@@ -17,15 +17,7 @@ App.issueComments = App.cable.subscriptions.create("IssueCommentsChannel", {
   disconnected: function() {},
 
   received: function(data) {
-    if (!this.userIsCurrentUser(data.html)) {
-      Helpers.appendNode(this.list(), $(data.html));
-    }
-  },
-
-  userIsCurrentUser: function(html) {
-    var authorId = $(html).attr('data-author-id');
-    var currentUserId = $('meta[name=current-user]').attr('id');
-    return authorId == currentUserId;
+    Helpers.appendNode(this.list(), $(data.html));
   },
 
   start: function() {

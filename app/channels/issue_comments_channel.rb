@@ -3,7 +3,7 @@ class IssueCommentsChannel < ApplicationCable::Channel
   def follow(data)
     stop_all_streams
     issue = Issue.find(data['issue_id'])
-    stream_for issue
+    stream_for_other_users(issue, current_user.id)
   end
 
   def unfollow

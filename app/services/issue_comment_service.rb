@@ -13,7 +13,7 @@ class IssueCommentService < ApplicationService
     IssueCommentBroadcastJob.perform_later(comment)
 
     issue.project.members_without(project_member).each do |member|
-      @mailer.posted(member, comment).deliver_later!
+      #@mailer.posted(member, comment).deliver_later!
     end
 
     success(comment: comment)
