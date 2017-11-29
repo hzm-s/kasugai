@@ -39,4 +39,8 @@ class Issue < ApplicationRecord
   def closed?
     closed.present?
   end
+
+  def participants(actor)
+    #project.members_without(actor) - issue_appearances.map(&:)
+  end
 end

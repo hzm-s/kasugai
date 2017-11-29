@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20171129045653) do
 
   create_table "issue_appearances", force: :cascade do |t|
     t.string "issue_id", null: false
-    t.bigint "account_id", null: false
+    t.bigint "project_member_id", null: false
     t.datetime "created_at", null: false
-    t.index ["account_id"], name: "index_issue_appearances_on_account_id"
-    t.index ["issue_id", "account_id"], name: "index_issue_appearances_on_issue_id_and_account_id", unique: true
+    t.index ["issue_id", "project_member_id"], name: "index_issue_appearances_on_issue_id_and_project_member_id", unique: true
+    t.index ["project_member_id"], name: "index_issue_appearances_on_project_member_id"
   end
 
   create_table "issue_comments", force: :cascade do |t|
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 20171129045653) do
   add_foreign_key "accounts", "users"
   add_foreign_key "bookmarked_issues", "issues"
   add_foreign_key "closed_issues", "issues"
-  add_foreign_key "issue_appearances", "accounts"
   add_foreign_key "issue_appearances", "issues"
+  add_foreign_key "issue_appearances", "project_members"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
   add_foreign_key "issues", "projects"

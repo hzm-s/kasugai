@@ -2,6 +2,8 @@ class ProjectMember < ApplicationRecord
   belongs_to :project
   belongs_to :user
 
+  has_many :issue_appearances, dependent: :destroy
+
   delegate :email, to: :user
   delegate :name, to: :user
   delegate :initials, to: :user
@@ -18,5 +20,10 @@ class ProjectMember < ApplicationRecord
   def can_delete_member?(project_member)
     return false unless project.can_delete_member?
     self == project_member
+  end
+
+  def appear_in_issue(issue)
+    return unless issue.project_id = project_id
+    issue_appearances.create!(issue: issue)
   end
 end
