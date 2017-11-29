@@ -19,10 +19,10 @@ describe 'コメントの投稿' do
 
     create_issue(user_z.as_member_of(other_project), title: 'Other Project Issue')
 
-    user_d.account.issue_appearances.create!(issue: issue)
+    user_d.as_member_of(project).appear_in_issue(issue)
   end
 
-  xit do
+  it do
     sign_in(user_a)
 
     perform_enqueued_jobs do

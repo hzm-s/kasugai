@@ -8,4 +8,12 @@ class IssueComment < ApplicationRecord
   def author_id
     user_id
   end
+
+  def observers
+    issue.participants(author_project_member)
+  end
+
+  def author_project_member
+    author.as_member_of(issue.project)
+  end
 end

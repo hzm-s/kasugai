@@ -1,7 +1,7 @@
 class IssueCommentService < ApplicationService
 
-  def initialize(mailer: IssueCommentMailer, broadcaster: IssueCommentBroadcastJob)
-    @mailer = mailer
+  def initialize(notifier: IssueCommentNotificationJob, broadcaster: IssueCommentBroadcastJob)
+    @notifier = notifier
     @broadcaster = broadcaster
   end
 
@@ -12,11 +12,7 @@ class IssueCommentService < ApplicationService
     comment.save!
 
     @broadcaster.perform_later(comment)
-
-    issue.project.members_without(project_member).each do |member|
-    #issue.participants(project_member).each do |member|
-      @mailer.posted(member, comment).deliver_later!
-    end
+    @notifier.perform_later(comment)
 
     success(comment: comment)
   end
