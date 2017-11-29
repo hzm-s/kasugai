@@ -33,5 +33,8 @@ App.issueComments = App.cable.subscriptions.create("IssueCommentsChannel", {
     $(document).on('turbolinks:load', function() {
       App.issueComments.start();
     });
+    $(window).on('beforeunload', function() {
+      App.issueComments.perform('unfollow');
+    })
   },
 });
