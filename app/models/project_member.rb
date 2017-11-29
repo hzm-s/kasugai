@@ -26,4 +26,8 @@ class ProjectMember < ApplicationRecord
     return unless issue.project_id = project_id
     issue_appearances.create!(issue: issue)
   end
+
+  def away_from_issue(issue)
+    issue_appearances.find_by(issue_id: issue.id).destroy!
+  end
 end
