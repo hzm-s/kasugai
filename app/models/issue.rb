@@ -12,6 +12,7 @@ class Issue < ApplicationRecord
   delegate :name, to: :author, prefix: true
   delegate :initials, to: :author, prefix: true
   delegate :id, to: :closed, prefix: true
+  delegate :name, to: :project, prefix: true
 
   class << self
 
@@ -42,5 +43,9 @@ class Issue < ApplicationRecord
 
   def participants(actor)
     project.members_without(actor) - issue_appearances.map(&:project_member)
+  end
+
+  def author_project_member
+    author.as_member_of(project)
   end
 end
