@@ -1,0 +1,2 @@
+module UpdateDetails
+end
