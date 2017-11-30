@@ -8,6 +8,7 @@ ja:
 
   shared:
     global_nav:
+      timeline: タイムライン
       project: プロジェクト
 
     user_menu:
