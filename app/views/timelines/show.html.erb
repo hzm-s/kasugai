@@ -1,16 +1,19 @@
-<% @updates.each do |u| -%>
+<% @activities.each do |a| -%>
   <div>
     <span>
-      <%= u.project_name %>
+      <%= a.project_name %>
     </span>
     <span>
-      <%= u.user_name %>
+      <%= a.user_name %>
     </span>
     <span>
-      <%= u.description %>
+      <%= t(a.activity, scope: 'activities.projects') %>
     </span>
     <span>
-      <%= u.created_at %>
+      <%= link_to a.link_text, a.link_url %>
+    </span>
+    <span>
+      <%= a.created_at %>
     </span>
   </div>
 <% end -%>

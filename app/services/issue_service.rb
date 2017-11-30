@@ -11,8 +11,7 @@ class IssueService < ApplicationService
     transaction do
       issue.save!
       OpenedIssue.add!(issue)
-
-      record_project_update!('IssueCreated', project_member, issue: issue)
+      ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 
     @notifier.perform_later(issue)
