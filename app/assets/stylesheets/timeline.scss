@@ -17,22 +17,46 @@
   flex-grow: 1;
 }
 
+.tl-ItemGroup {
+  background-color: $white;
+  border-radius: .2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 6px $gray-500;
+}
+
+.tl-ItemGroup_Header {
+  padding: .75rem 1.5rem;
+  border-bottom: 1px solid $gray-300;
+}
+
+.tl-ItemGroup_Body {
+  padding: 1rem 1.5rem;
+}
+
+.tl-ItemGroup_Title {
+  @include xunderline($body-color, $link-color);
+  @include nf;
+  font-size: $font-size-lg;
+  font-weight: bold;
+}
+
 .tl-Item {
   @extend .d-flex, .align-items-center;
   @include nf;
-  margin-bottom: .5rem;
-  padding: .5rem .75rem;
-  background-color: $white;
-  border-radius: .3rem;
+  margin-bottom: .75rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tl-Item_Actor {
+  margin-left: .25rem;
 }
 
 .tl-Item_Time {
   @extend .ml-auto;
   color: $body-color-sub;
-}
-
-.tl-Item_Actor {
-  margin-left: .25rem;
 }
 
 .tl-Item_Link {
