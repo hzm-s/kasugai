@@ -14,7 +14,7 @@ class ProjectActivity < ApplicationRecord
 
     def for_user(user_id)
       records =
-        includes(:issue)
+        includes(:project, :issue)
           .where(project_id: Project.project_ids_for_user(user_id))
           .order(created_at: :desc)
 
@@ -32,8 +32,6 @@ class ProjectActivity < ApplicationRecord
 
     def detail
       @_detail ||=
-        [
-          issue,
-        ].compact.first
+        [issue].compact.first
     end
 end

@@ -36,19 +36,19 @@ RSpec.describe ProjectActivity, type: :model do
           DailyActivities.new(
             Date.parse('2017-01-03'),
             [
-              ProjectActivityList.new(project2.id, [act_P2_0103_2]),
-              ProjectActivityList.new(project1.id, [act_P1_0103_1])
+              ProjectActivityList.new(project2, [act_P2_0103_2]),
+              ProjectActivityList.new(project1, [act_P1_0103_1])
             ]
           ),
           DailyActivities.new(
             Date.parse('2017-01-02'),
-            [ProjectActivityList.new(project1.id, [act_P1_0102_1])]
+            [ProjectActivityList.new(project1, [act_P1_0102_1])]
           ),
           DailyActivities.new(
             Date.parse('2017-01-01'),
             [
-              ProjectActivityList.new(project2.id, [act_P2_0101_1]),
-              ProjectActivityList.new(project1.id, [act_P1_0101_1])
+              ProjectActivityList.new(project2, [act_P2_0101_1]),
+              ProjectActivityList.new(project1, [act_P1_0101_1])
             ]
           ),
         ]
