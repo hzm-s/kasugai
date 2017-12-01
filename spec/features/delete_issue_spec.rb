@@ -19,6 +19,13 @@ describe '課題の削除' do
     aggregate_failures do
       expect(page).to have_content('課題を削除しました')
       expect(page).to_not have_content(issue.title)
+
+      within_last_activity do |link|
+        expect(page).to have_content(user.name)
+        expect(page).to have_content('課題を削除しました')
+        expect(page).to have_content(issue.title)
+        expect(link).to be_nil
+      end
     end
   end
 

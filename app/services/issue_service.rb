@@ -30,8 +30,11 @@ class IssueService < ApplicationService
     success
   end
 
-  def delete(issue)
-    issue.destroy!
+  def delete(project_member, issue)
+    transaction do
+      issue.destroy!
+      ProjectActivities::Issue.record!(:deleted, project_member, issue)
+    end
   end
 
   def change_priority(issue, new_position)

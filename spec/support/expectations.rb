@@ -1,10 +1,11 @@
 module Expectations
   module Features
 
-    def within_last_activity(project)
+    def within_last_activity
       visit timeline_path
-      within("#app_activity_list_project_0_#{project.id}") do
-        yield(first('a'))
+      within("#app_project_activity_#{ProjectActivity.last.id}") do
+        link_to_target = first('a')
+        yield(link_to_target)
       end
     end
 

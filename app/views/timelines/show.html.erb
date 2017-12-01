@@ -1,9 +1,9 @@
 <% @dailies.each do |daily| -%>
   <div>
     <% daily.each do |project| -%>
-      <div id="<%= app_dom_id(project) %>">
+      <div>
         <% project.each do |a| %>
-          <div>
+          <div id="<%= app_dom_id(a) %>" class="app_activity">
             <span>
               <%= a.project_name %>
             </span>

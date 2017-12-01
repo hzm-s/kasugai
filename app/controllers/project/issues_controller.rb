@@ -56,7 +56,7 @@ class Project::IssuesController < Project::BaseController
   end
 
   def destroy
-    IssueService.delete(current_issue)
+    IssueService.delete(current_project_member, current_issue)
     redirect_to project_issues_url, notice: flash_message
   end
 
