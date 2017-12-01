@@ -13,9 +13,18 @@ class ProjectActivity < ApplicationRecord
   class << self
 
     def for_user(user_id)
-      includes(:issue)
-        .where(project_id: Project.project_ids_for_user(user_id))
-        .order(created_at: :desc)
+      records =
+        includes(:issue)
+          .where(project_id: Project.project_ids_for_user(user_id))
+          .order(created_at: :desc)
+
+      records
+        .group_by { |r| r.created_at.to_date }
+        .map { |date, subset| DailyActivities.new(date, subset) }
+    end
+
+    def dailies_for_user(user_id)
+      for_user(user_id)
     end
   end
 
