@@ -18,11 +18,12 @@ describe '課題の追加' do
       expect(page).to have_content('課題を作成しました')
       expect(page).to have_content('課題ABC')
 
-      visit timeline_path
-      expect(page).to have_content(project.name)
-      expect(page).to have_content(user.name)
-      expect(page).to have_content('課題を作成しました')
-      expect(page).to have_content('課題ABC')
+      within_last_activity(project) do |link|
+        expect(page).to have_content(project.name)
+        expect(page).to have_content(user.name)
+        expect(page).to have_content('課題を作成しました')
+        expect_link(link, content: '課題ABC', path: project_issue_path(project, Issue.last))
+      end
     end
   end
 

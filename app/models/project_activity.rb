@@ -5,8 +5,7 @@ class ProjectActivity < ApplicationRecord
   delegate :name, to: :project, prefix: true
   delegate :name, to: :user, prefix: true
   delegate :initials, to: :user, prefix: true
-  delegate :link_text, to: :detail
-  delegate :link_url, to: :detail
+  delegate :link_to_target, to: :detail
 
   has_one :issue, class_name: 'ProjectActivities::Issue', dependent: :destroy
 
@@ -24,7 +23,6 @@ class ProjectActivity < ApplicationRecord
   private
 
     def detail
-      @_detail ||=
-        [issue].compact.first
+      @_detail ||= [issue].compact.first
     end
 end

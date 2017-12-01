@@ -14,7 +14,7 @@
               <%= t(a.activity, scope: 'activities.projects') %>
             </span>
             <span>
-              <%= link_to a.link_text, a.link_url %>
+              <%= a.link_to_target(self) %>
             </span>
             <span>
               <%= a.created_at %>

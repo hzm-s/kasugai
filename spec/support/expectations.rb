@@ -4,8 +4,13 @@ module Expectations
     def within_last_activity(project)
       visit timeline_path
       within("#app_activity_list_project_0_#{project.id}") do
-        yield
+        yield(first('a'))
       end
+    end
+
+    def expect_link(element, content:, path:)
+      expect(element.text).to have_content(content)
+      expect(element[:href]).to have_content(path)
     end
   end
 

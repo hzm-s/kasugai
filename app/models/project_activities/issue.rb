@@ -1,4 +1,7 @@
 class ProjectActivities::Issue < ApplicationRecord
+  belongs_to :project_activity
+
+  delegate :project_id, to: :project_activity
 
   def self.record!(activity, project_member, issue)
     ProjectActivity.new(
@@ -11,11 +14,7 @@ class ProjectActivities::Issue < ApplicationRecord
     end
   end
 
-  def link_text
-    title
-  end
-
-  def link_url
-    '#'
+  def link_to_target(linker)
+    linker.link_to(title, linker.project_issue_url(project_id: project_id, id: issue_id))
   end
 end
