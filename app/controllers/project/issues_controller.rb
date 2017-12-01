@@ -39,7 +39,7 @@ class Project::IssuesController < Project::BaseController
 
   def update
     form = IssueForm.new(form_params)
-    @result = IssueService.update(current_issue, form)
+    @result = IssueService.update(current_project_member, current_issue, form)
     if @result.succeeded?
       respond_to do |f|
         f.html { redirect_to project_issues_url, notice: flash_message }

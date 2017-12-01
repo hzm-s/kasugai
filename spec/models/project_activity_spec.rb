@@ -34,21 +34,24 @@ RSpec.describe ProjectActivity, type: :model do
       expect(dailies).to eq(
         [
           ActivityList::Daily.new(
+            0,
             Date.parse('2017-01-03'),
             [
-              ActivityList::Project.new(project2, [act_P2_0103_2]),
-              ActivityList::Project.new(project1, [act_P1_0103_1])
+              ActivityList::Project.new(0, project2, [act_P2_0103_2]),
+              ActivityList::Project.new(0, project1, [act_P1_0103_1])
             ]
           ),
           ActivityList::Daily.new(
+            1,
             Date.parse('2017-01-02'),
-            [ActivityList::Project.new(project1, [act_P1_0102_1])]
+            [ActivityList::Project.new(1, project1, [act_P1_0102_1])]
           ),
           ActivityList::Daily.new(
+            2,
             Date.parse('2017-01-01'),
             [
-              ActivityList::Project.new(project2, [act_P2_0101_1]),
-              ActivityList::Project.new(project1, [act_P1_0101_1])
+              ActivityList::Project.new(2, project2, [act_P2_0101_1]),
+              ActivityList::Project.new(2, project1, [act_P1_0101_1])
             ]
           ),
         ]

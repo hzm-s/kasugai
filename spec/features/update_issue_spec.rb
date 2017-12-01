@@ -28,6 +28,12 @@ describe '課題の編集' do
     aggregate_failures do
       expect(page).to have_content('課題を更新しました')
       expect(page).to have_content(new[:title])
+      within_last_activity(project) do
+        expect(page).to have_content(project.name)
+        expect(page).to have_content(user.name)
+        expect(page).to have_content('課題を編集しました')
+        expect(page).to have_content(new[:title])
+      end
     end
   end
 

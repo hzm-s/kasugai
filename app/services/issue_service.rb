@@ -19,10 +19,14 @@ class IssueService < ApplicationService
     success(issue: issue)
   end
 
-  def update(issue, params)
+  def update(project_member, issue, params)
     return failure(params: params) unless params.valid?
 
-    issue.update!(title: params.title, content: params.content)
+    transaction do
+      issue.update!(title: params.title, content: params.content)
+      ProjectActivities::Issue.record!(:updated, project_member, issue.reload)
+    end
+
     success
   end
 

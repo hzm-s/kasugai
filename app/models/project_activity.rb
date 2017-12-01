@@ -17,10 +17,7 @@ class ProjectActivity < ApplicationRecord
         includes(:project, :issue)
           .where(project_id: Project.project_ids_for_user(user_id))
           .order(created_at: :desc)
-
-      records
-        .group_by { |r| r.created_at.to_date }
-        .map { |date, subset| ActivityList::Daily.group_by_project(date, subset) }
+      ActivityList.group_by_date(records)
     end
   end
 
