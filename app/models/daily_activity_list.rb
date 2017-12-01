@@ -1,4 +1,4 @@
-DailyActivities = Struct.new(:date, :activities) do
+DailyActivityList = Struct.new(:date, :activities) do
   include Enumerable
 
   class << self
