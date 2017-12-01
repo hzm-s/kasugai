@@ -12,7 +12,7 @@ class ProjectActivity < ApplicationRecord
 
   class << self
 
-    def for_user(user_id)
+    def dailies_for_user(user_id)
       records =
         includes(:project, :issue)
           .where(project_id: Project.project_ids_for_user(user_id))
@@ -21,10 +21,6 @@ class ProjectActivity < ApplicationRecord
       records
         .group_by { |r| r.created_at.to_date }
         .map { |date, subset| DailyActivities.group_by_project(date, subset) }
-    end
-
-    def dailies_for_user(user_id)
-      for_user(user_id)
     end
   end
 
