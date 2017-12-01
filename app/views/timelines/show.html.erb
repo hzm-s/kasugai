@@ -1,19 +1,23 @@
-<% @activities.each do |a| -%>
-  <div>
-    <span>
-      <%= a.project_name %>
-    </span>
-    <span>
-      <%= a.user_name %>
-    </span>
-    <span>
-      <%= t(a.activity, scope: 'activities.projects') %>
-    </span>
-    <span>
-      <%= link_to a.link_text, a.link_url %>
-    </span>
-    <span>
-      <%= a.created_at %>
-    </span>
-  </div>
+<% @dailies.each do |daily| -%>
+  <% daily.each do |project| -%>
+    <% project.each do |a| %>
+      <div>
+        <span>
+          <%= a.project_name %>
+        </span>
+        <span>
+          <%= a.user_name %>
+        </span>
+        <span>
+          <%= t(a.activity, scope: 'activities.projects') %>
+        </span>
+        <span>
+          <%= link_to a.link_text, a.link_url %>
+        </span>
+        <span>
+          <%= a.created_at %>
+        </span>
+      </div>
+    <% end -%>
+  <% end -%>
 <% end -%>
