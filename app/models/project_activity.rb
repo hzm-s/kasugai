@@ -20,7 +20,7 @@ class ProjectActivity < ApplicationRecord
 
       records
         .group_by { |r| r.created_at.to_date }
-        .map { |date, subset| DailyActivityList.group_by_project(date, subset) }
+        .map { |date, subset| ActivityList::Daily.group_by_project(date, subset) }
     end
   end
 
