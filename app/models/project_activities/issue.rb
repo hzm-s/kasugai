@@ -14,9 +14,9 @@ class ProjectActivities::Issue < ApplicationRecord
     end
   end
 
-  def link_to_target(linker)
-    return linker.content_tag(:span, title) if deleted?
-    linker.link_to(title, linker.project_issue_url(project_id: project_id, id: issue_id))
+  def present_target(presenter)
+    return presenter.present_as_text(title) if deleted?
+    presenter.present_as_link(title) { |p| p.project_issue_url(project_id: project_id, id: issue_id) }
   end
 
   private

@@ -3,7 +3,7 @@
     <% daily.each do |project| -%>
       <div>
         <% project.each do |a| %>
-          <div id="<%= app_dom_id(a) %>" class="app_activity">
+          <div id="<%= app_dom_id(a) %>">
             <span>
               <%= a.project_name %>
             </span>
@@ -14,7 +14,7 @@
               <%= t(a.activity, scope: 'activities.projects') %>
             </span>
             <span>
-              <%= a.link_to_target(self) %>
+              <%= a.present_target(self) %>
             </span>
             <span>
               <%= a.created_at %>

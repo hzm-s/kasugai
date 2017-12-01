@@ -2,6 +2,7 @@ module ApplicationHelper
   include LoadingHelper
   include AvatarHelper
   include TooltipHelper
+  include ActivityHelper
 
   WEB_FONT_URL = 'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css'.freeze
 
