@@ -8,6 +8,7 @@ class ProjectActivity < ApplicationRecord
   delegate :present_target, to: :detail
 
   has_one :issue, class_name: 'ProjectActivities::Issue', dependent: :destroy
+  has_one :issue_comment, class_name: 'ProjectActivities::IssueComment', dependent: :destroy
 
   class << self
 
@@ -23,6 +24,6 @@ class ProjectActivity < ApplicationRecord
   private
 
     def detail
-      @_detail ||= [issue].compact.first
+      @_detail ||= [issue, issue_comment].compact.first
     end
 end

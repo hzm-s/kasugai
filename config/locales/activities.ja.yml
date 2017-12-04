@@ -5,3 +5,5 @@ ja:
         created: 課題を作成しました
         updated: 課題を編集しました
         deleted: 課題を削除しました
+      issue_comments:
+        posted: 課題へコメントを投稿しました

@@ -1,6 +1,5 @@
 module Expectations
-  module Features
-
+  module Common
     def within_last_activity
       visit timeline_path
       within("#app_project_activity_#{ProjectActivity.last.id}") do
@@ -13,6 +12,14 @@ module Expectations
       expect(element.text).to have_content(content)
       expect(element[:href]).to have_content(path)
     end
+  end
+
+  module Features
+    include Common
+  end
+
+  module System
+    include Common
   end
 
   module Controllers
@@ -50,4 +57,5 @@ end
 RSpec.configure do |c|
   c.include Expectations::Controllers, type: :controller
   c.include Expectations::Features, type: :feature
+  c.include Expectations::System, type: :system
 end
