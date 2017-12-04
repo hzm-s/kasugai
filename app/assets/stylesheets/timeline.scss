@@ -2,6 +2,12 @@
   margin: 1rem 0;
   font-size: $font-size-lg;
   text-align: center;
+  font-weight: normal;
+  color: $body-color-sub;
+}
+
+.tl-Page_Body {
+  margin-top: 2rem;
 }
 
 .tl-Day {
@@ -16,7 +22,7 @@
 }
 
 .tl-Day_Head {
-  margin-right: 2rem;
+  margin-right: 1.5rem;
 }
 
 .tl-Day_Body {
@@ -47,7 +53,6 @@
 }
 
 .tl-Item {
-  @extend .d-flex, .align-items-center;
   @include nf;
   margin-bottom: .75rem;
 
@@ -56,8 +61,19 @@
   }
 }
 
+.tl-Item_Primary {
+  @extend .d-flex, .align-items-center;
+}
+
 .tl-Item_Actor {
-  margin-left: .25rem;
+  margin-left: .5rem;
+  font-weight: bold;
+  color: $gray-700;
+}
+
+.tl-Item_Activity {
+  font-weight: bold;
+  color: $gray-700;
 }
 
 .tl-Item_Time {
@@ -67,6 +83,11 @@
 
 .tl-Item_Link {
   margin: 0 .25rem;
+}
+
+.tl-Item_OptionalContent {
+  font-size: $font-size-sm;
+  margin: .5rem 0 1.25rem 1.75rem;
 }
 
 .tl-Date {

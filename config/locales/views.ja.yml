@@ -148,7 +148,7 @@ ja:
 
   timelines:
     show:
-      title: タイムライン
+      title: あなたが参加しているプロジェクトに関する更新
       blank: まだプロジェクトに関する更新はありません
     daily:
       month: '%{month}月'

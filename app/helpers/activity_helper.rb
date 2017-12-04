@@ -10,6 +10,6 @@ module ActivityHelper
   end
 
   def add_issue_comment(content)
-    content_tag(:div, truncate(content, length: 50))
+    content_tag(:div, truncate(content, length: 55), class: 'tl-Item_OptionalContent')
   end
 end
