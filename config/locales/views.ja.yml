@@ -8,6 +8,7 @@ ja:
 
   shared:
     global_nav:
+      timeline: タイムライン
       project: プロジェクト
 
     user_menu:
@@ -144,6 +145,14 @@ ja:
 
       actions:
         confirm_delete: 'コメントを削除してよろしいですか?'
+
+  timelines:
+    show:
+      title: タイムライン
+    daily:
+      month: '%{month}月'
+    activity:
+      actor: '%{name}さんが'
 
   accounts:
     show:

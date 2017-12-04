@@ -1,3 +1,9 @@
+.tl-Page_Title {
+  margin: 1rem 0;
+  font-size: $font-size-lg;
+  text-align: center;
+}
+
 .tl-Day {
   @extend .d-flex;
   margin-bottom: 1rem;
@@ -21,7 +27,7 @@
   background-color: $white;
   border-radius: .2rem;
   margin-bottom: 1rem;
-  box-shadow: 0 0 6px $gray-500;
+  box-shadow: 0 0 5px $gray-500;
 }
 
 .tl-ItemGroup_Header {

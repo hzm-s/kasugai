@@ -1,0 +1,20 @@
+<div class="tl-Day">
+  <div class="tl-Day_Head">
+    <div class="tl-Date">
+      <span class="tl-Date_Month">
+        <%=l daily.date, format: :month %>
+      </span>
+      <div class="tl-Date_Day">
+        <span class="tl-Date_DayNumber">
+          <%= daily.date.day %>
+        </span>
+        <span class="tl-Date_DayName">
+          <%=l daily.date, format: :wday %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="tl-Day_Body">
+    <%= render partial: 'project', collection: daily.activities %>
+  </div>
+</div>

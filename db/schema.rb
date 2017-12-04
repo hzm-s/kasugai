@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129045653) do
+ActiveRecord::Schema.define(version: 20171130092915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,22 @@ ActiveRecord::Schema.define(version: 20171129045653) do
     t.string "issue_id", null: false
     t.integer "priority_order"
     t.index ["issue_id"], name: "index_opened_issues_on_issue_id", unique: true
+  end
+
+  create_table "project_activities", force: :cascade do |t|
+    t.string "project_id", null: false
+    t.bigint "user_id", null: false
+    t.string "activity", null: false
+    t.datetime "created_at", null: false
+    t.index ["project_id"], name: "index_project_activities_on_project_id"
+    t.index ["user_id"], name: "index_project_activities_on_user_id"
+  end
+
+  create_table "project_activities_issues", force: :cascade do |t|
+    t.bigint "project_activity_id", null: false
+    t.string "issue_id", null: false
+    t.string "title", null: false
+    t.index ["project_activity_id"], name: "index_project_activities_issues_on_project_activity_id"
   end
 
   create_table "project_members", force: :cascade do |t|
@@ -129,6 +145,9 @@ ActiveRecord::Schema.define(version: 20171129045653) do
   add_foreign_key "issues", "projects"
   add_foreign_key "issues", "users"
   add_foreign_key "opened_issues", "issues"
+  add_foreign_key "project_activities", "projects"
+  add_foreign_key "project_activities", "users"
+  add_foreign_key "project_activities_issues", "project_activities"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
   add_foreign_key "remembered_users", "users"

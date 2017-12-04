@@ -42,6 +42,8 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
+      month: "%b"
+      wday: "%A"
     month_names:
     -
     - 1月
@@ -218,4 +220,5 @@ ja:
       default: "%Y/%m/%d %H:%M"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
+      time: "%H:%M"
     pm: 午後

@@ -1,5 +1,21 @@
 module Expectations
-  module Controller
+  module Features
+
+    def within_last_activity
+      visit timeline_path
+      within("#app_project_activity_#{ProjectActivity.last.id}") do
+        link_to_target = first('a')
+        yield(link_to_target)
+      end
+    end
+
+    def expect_link(element, content:, path:)
+      expect(element.text).to have_content(content)
+      expect(element[:href]).to have_content(path)
+    end
+  end
+
+  module Controllers
     def expect_already_signed_in
       aggregate_failures do
         expect(flash[:notice]).to eq('ログインしています')
@@ -32,5 +48,6 @@ module Expectations
 end
 
 RSpec.configure do |c|
-  c.include Expectations::Controller, type: :controller
+  c.include Expectations::Controllers, type: :controller
+  c.include Expectations::Features, type: :feature
 end

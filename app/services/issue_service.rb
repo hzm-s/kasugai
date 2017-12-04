@@ -11,6 +11,7 @@ class IssueService < ApplicationService
     transaction do
       issue.save!
       OpenedIssue.add!(issue)
+      ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 
     @notifier.perform_later(issue)
@@ -18,15 +19,22 @@ class IssueService < ApplicationService
     success(issue: issue)
   end
 
-  def update(issue, params)
+  def update(project_member, issue, params)
     return failure(params: params) unless params.valid?
 
-    issue.update!(title: params.title, content: params.content)
+    transaction do
+      issue.update!(title: params.title, content: params.content)
+      ProjectActivities::Issue.record!(:updated, project_member, issue.reload)
+    end
+
     success
   end
 
-  def delete(issue)
-    issue.destroy!
+  def delete(project_member, issue)
+    transaction do
+      issue.destroy!
+      ProjectActivities::Issue.record!(:deleted, project_member, issue)
+    end
   end
 
   def change_priority(issue, new_position)
