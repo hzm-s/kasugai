@@ -11,6 +11,10 @@ module ActivityList
       end
     end
 
+    def cache_key
+      @cache_key ||= "#{self.class.to_s.underscore}/#{date.to_s(:number)}_#{activity_count}"
+    end
+
     def today?
       @is_today ||= date.today?
     end

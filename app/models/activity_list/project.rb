@@ -6,7 +6,17 @@ module ActivityList
     delegate :name, to: :project
 
     def id
-      "#{index}_#{project.id}"
+      "#{index}_#{project_id}"
     end
+
+    def cache_key
+      "#{self.class.to_s.underscore}/#{project_id}_#{activities.count}"
+    end
+
+    private
+
+      def project_id
+        @project_id ||= project.id
+      end
   end
 end

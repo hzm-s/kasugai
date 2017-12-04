@@ -6,7 +6,7 @@
       </h3>
       <div class="tl-Page_Body">
         <% if @dailies.any? -%>
-          <%= render partial: 'daily', collection: @dailies %>
+          <%= render partial: 'daily', collection: @dailies, cached: true %>
         <% else -%>
           <div class="sw-Blank">
             <p class="sw-Blank_Message">
