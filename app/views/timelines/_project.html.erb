@@ -1,0 +1,8 @@
+<div class="tl-ItemGroup">
+  <div class="tl-ItemGroup_Header">
+    <%= link_to project.name, project_url(project.project), class: 'tl-ItemGroup_Title' %>
+  </div>
+  <div class="tl-ItemGroup_Body">
+    <%= render partial: 'activity', collection: project.activities %>
+  </div>
+</div>

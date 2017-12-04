@@ -1,0 +1,20 @@
+<div class="tl-Day">
+  <div class="tl-Day_Head">
+    <div class="tl-Date">
+      <span class="tl-Date_Month">
+        10月
+      </span>
+      <div class="tl-Date_Day">
+        <span class="tl-Date_DayNumber">
+          23
+        </span>
+        <span class="tl-Date_DayName">
+          水曜日
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="tl-Day_Body">
+    <%= render partial: 'project', collection: daily.activities %>
+  </div>
+</div>

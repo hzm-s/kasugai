@@ -146,6 +146,12 @@ ja:
       actions:
         confirm_delete: 'コメントを削除してよろしいですか?'
 
+  timelines:
+    show:
+      title: タイムライン
+    activity:
+      actor: '%{name}さんが'
+
   accounts:
     show:
       title: アカウント設定

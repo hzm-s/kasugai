@@ -78,12 +78,6 @@
   box-shadow: 0 0 5px $gray-500;
 }
 
-.prj-TimeLine_Title {
-  @include break-center($body-color-sub, lighten($body-color-sub, 15%));
-  font-size: $font-size-base;
-  margin-bottom: 1rem;
-}
-
 .prj-Create {
   padding: 1.5rem 2rem;
   background-color: #fff;

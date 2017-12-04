@@ -1,27 +1,12 @@
-<% @dailies.each do |daily| -%>
-  <div>
-    <% daily.each do |project| -%>
-      <div>
-        <% project.each do |a| %>
-          <div id="<%= app_dom_id(a) %>">
-            <span>
-              <%= a.project_name %>
-            </span>
-            <span>
-              <%= a.user_name %>
-            </span>
-            <span>
-              <%= t(a.activity, scope: 'activities.projects') %>
-            </span>
-            <span>
-              <%= a.present_target(self) %>
-            </span>
-            <span>
-              <%= a.created_at %>
-            </span>
-          </div>
-        <% end -%>
+<div class="row">
+  <div class="col-sm-22 col-lg-16 mx-auto">
+    <div class="tl-Page">
+      <h3 class="tl-Page_Title">
+        <%=t '.title' %>
+      </h3>
+      <div class="tl-Page_Body">
+        <%= render partial: 'daily', collection: @dailies %>
       </div>
-    <% end -%>
+    </div>
   </div>
-<% end -%>
+</div>

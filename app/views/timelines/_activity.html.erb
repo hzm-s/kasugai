@@ -1,0 +1,15 @@
+<div id="<%= app_dom_id(activity) %>" class="tl-Item">
+  <%= show_user_avatar(activity.user, size: :sm) %>
+  <span class="tl-Item_Actor">
+    <%= t('.actor', name: activity.user_name) %>
+  </span>
+  <span>
+    <%= t(activity.activity, scope: 'activities.projects') %>
+  </span>
+  <span class="tl-Item_Link">
+    <%= activity.present_target(self) %>
+  </span>
+  <span class="tl-Item_Time">
+    <%=l activity.created_at, format: :time %>
+  </span>
+</div>
