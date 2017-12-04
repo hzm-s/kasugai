@@ -1,16 +1,9 @@
 class ProjectActivities::IssueComment < ApplicationRecord
-  belongs_to :project_activity
-
-  delegate :project_id, to: :project_activity
+  include ProjectActivityDetail
 
   def self.record!(activity, project_member, issue)
-    ProjectActivity.new(
-      project_id: project_member.project_id,
-      user_id: project_member.user_id,
-      activity: "issue_comments.#{activity}"
-    ) do |pa|
+    record_with_detail!(project_member, "issue_comments.#{activity}") do |pa|
       pa.build_issue_comment(issue_id: issue.id, issue_title: issue.title)
-      pa.save!
     end
   end
 

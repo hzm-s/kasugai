@@ -19,6 +19,18 @@ class ProjectActivity < ApplicationRecord
           .order(created_at: :desc)
       ActivityList.group_by_date(records)
     end
+
+    def record_with_detail!(project_member, activity)
+      attrs = {
+        project_id: project_member.project_id,
+        user_id: project_member.user_id,
+        activity: activity
+      }
+      ProjectActivity.new(attrs) do |pa|
+        yield(pa)
+        pa.save!
+      end
+    end
   end
 
   private

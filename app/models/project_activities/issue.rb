@@ -1,16 +1,9 @@
 class ProjectActivities::Issue < ApplicationRecord
-  belongs_to :project_activity
-
-  delegate :project_id, to: :project_activity
+  include ProjectActivityDetail
 
   def self.record!(activity, project_member, issue)
-    ProjectActivity.new(
-      project_id: project_member.project_id,
-      user_id: project_member.user_id,
-      activity: "issues.#{activity}"
-    ) do |pa|
+    record_with_detail!(project_member, "issues.#{activity}") do |pa|
       pa.build_issue(issue_id: issue.id, title: issue.title)
-      pa.save!
     end
   end
 
