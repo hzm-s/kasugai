@@ -14,8 +14,6 @@ class IssueService < ApplicationService
       ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 
-    @notifier.perform_later(issue)
-
     success(issue: issue)
   end
 
