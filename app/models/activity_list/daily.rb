@@ -11,6 +11,10 @@ module ActivityList
       end
     end
 
+    def today?
+      @is_today ||= date.today?
+    end
+
     def persisted?
       false
     end

@@ -152,6 +152,7 @@ ja:
       blank: まだプロジェクトに関する更新はありません
     daily:
       month: '%{month}月'
+      today: 今日
     activity:
       actor: '%{name}さんが'
 

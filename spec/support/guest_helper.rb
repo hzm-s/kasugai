@@ -43,6 +43,16 @@ module GuestHelper
     def sign_in(user)
       token = get_sign_in_token(user.email)
       visit sign_in_path(token)
+
+      if block_given?
+        yield
+        sign_out(user)
+      end
+    end
+
+    def sign_out(user)
+      visit root_path
+      find('#app_sign_out', visible: false).click
     end
   end
 
