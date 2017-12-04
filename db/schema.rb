@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20171204043533) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
+  create_table "activity_list_dailies", force: :cascade do |t|
+    t.date "date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_activity_list_dailies_on_date"
+  end
+
+  create_table "activity_list_projects", force: :cascade do |t|
+    t.bigint "activity_list_daily_id", null: false
+    t.string "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_list_daily_id"], name: "index_activity_list_projects_on_activity_list_daily_id"
+    t.index ["project_id"], name: "index_activity_list_projects_on_project_id"
+  end
+
   create_table "bookmarked_issues", force: :cascade do |t|
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
@@ -67,11 +83,11 @@ ActiveRecord::Schema.define(version: 20171204043533) do
   end
 
   create_table "project_activities", force: :cascade do |t|
-    t.string "project_id", null: false
+    t.bigint "activity_list_project_id", null: false
     t.bigint "user_id", null: false
     t.string "activity", null: false
     t.datetime "created_at", null: false
-    t.index ["project_id"], name: "index_project_activities_on_project_id"
+    t.index ["activity_list_project_id"], name: "index_project_activities_on_activity_list_project_id"
     t.index ["user_id"], name: "index_project_activities_on_user_id"
   end
 
@@ -144,6 +160,8 @@ ActiveRecord::Schema.define(version: 20171204043533) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "activity_list_projects", "activity_list_dailies"
+  add_foreign_key "activity_list_projects", "projects"
   add_foreign_key "bookmarked_issues", "issues"
   add_foreign_key "closed_issues", "issues"
   add_foreign_key "issue_appearances", "issues"
@@ -153,7 +171,7 @@ ActiveRecord::Schema.define(version: 20171204043533) do
   add_foreign_key "issues", "projects"
   add_foreign_key "issues", "users"
   add_foreign_key "opened_issues", "issues"
-  add_foreign_key "project_activities", "projects"
+  add_foreign_key "project_activities", "activity_list_projects"
   add_foreign_key "project_activities", "users"
   add_foreign_key "project_activities_issue_comments", "project_activities"
   add_foreign_key "project_activities_issues", "project_activities"
