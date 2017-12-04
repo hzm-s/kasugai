@@ -1,5 +1,5 @@
 class ActivityList::Project < ApplicationRecord
-  has_many :activities, class_name: 'ProjectActivity', foreign_key: :activity_list_project_id, dependent: :destroy
+  has_many :activities, -> { order(id: :desc) }, class_name: 'ProjectActivity', foreign_key: :activity_list_project_id, dependent: :destroy
 end
 
 __END__

@@ -1,7 +1,7 @@
 class ActivityList::Daily < ApplicationRecord
   has_many(:projects, class_name: 'ActivityList::Project', foreign_key: :activity_list_daily_id, dependent: :destroy) do
     def activities
-      flat_map(&:activities)
+      order(updated_at: :desc).flat_map(&:activities)
     end
   end
 
