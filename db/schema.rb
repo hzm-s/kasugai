@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20171204043533) do
     t.bigint "project_activity_id", null: false
     t.string "issue_id", null: false
     t.string "issue_title", null: false
+    t.string "content", null: false
     t.index ["project_activity_id"], name: "index_project_activities_issue_comments_on_project_activity_id"
   end
 

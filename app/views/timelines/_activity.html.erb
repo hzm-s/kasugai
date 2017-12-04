@@ -12,4 +12,5 @@
   <span class="tl-Item_Time">
     <%=l activity.created_at, format: :time %>
   </span>
+  <%= activity.present_optional_information(self) %>
 </div>

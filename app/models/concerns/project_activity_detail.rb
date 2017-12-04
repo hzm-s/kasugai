@@ -11,4 +11,10 @@ module ProjectActivityDetail
       ProjectActivity.record_with_detail!(project_member, activity, &block)
     end
   end
+
+  def present_target(*args)
+  end
+
+  def present_optional_information(*args)
+  end
 end

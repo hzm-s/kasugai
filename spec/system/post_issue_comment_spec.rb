@@ -21,6 +21,7 @@ describe 'コメントの投稿', type: :system do
     within_last_activity do |link|
       expect(page).to have_content(user.name)
       expect(page).to have_content("課題へコメントを投稿しました")
+      expect(page).to have_content(content)
       expect_link(link, content: issue.title, path: project_issue_path(project, issue))
     end
   end

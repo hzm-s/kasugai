@@ -11,7 +11,7 @@ class IssueCommentService < ApplicationService
     comment = issue.comments.build(user_id: project_member.user_id, content: params.content)
     transaction do
       comment.save!
-      ProjectActivities::IssueComment.record!(:posted, project_member, issue)
+      ProjectActivities::IssueComment.record!(:posted, project_member, issue, params.content)
     end
 
     @broadcaster.perform_later(comment)

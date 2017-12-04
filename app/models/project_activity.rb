@@ -5,7 +5,9 @@ class ProjectActivity < ApplicationRecord
   delegate :name, to: :project, prefix: true
   delegate :name, to: :user, prefix: true
   delegate :initials, to: :user, prefix: true
+
   delegate :present_target, to: :detail
+  delegate :present_optional_information, to: :detail
 
   has_one :issue, class_name: 'ProjectActivities::Issue', dependent: :destroy
   has_one :issue_comment, class_name: 'ProjectActivities::IssueComment', dependent: :destroy
