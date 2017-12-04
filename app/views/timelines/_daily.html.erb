@@ -2,14 +2,14 @@
   <div class="tl-Day_Head">
     <div class="tl-Date">
       <span class="tl-Date_Month">
-        10月
+        <%=l daily.date, format: :month %>
       </span>
       <div class="tl-Date_Day">
         <span class="tl-Date_DayNumber">
-          23
+          <%= daily.date.day %>
         </span>
         <span class="tl-Date_DayName">
-          水曜日
+          <%=l daily.date, format: :wday %>
         </span>
       </div>
     </div>

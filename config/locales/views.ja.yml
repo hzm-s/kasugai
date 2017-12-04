@@ -149,6 +149,8 @@ ja:
   timelines:
     show:
       title: タイムライン
+    daily:
+      month: '%{month}月'
     activity:
       actor: '%{name}さんが'
 
