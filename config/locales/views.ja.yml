@@ -149,6 +149,7 @@ ja:
   timelines:
     show:
       title: タイムライン
+      blank: まだプロジェクトに関する更新はありません
     daily:
       month: '%{month}月'
     activity:
