@@ -12,10 +12,18 @@ class ProjectActivities::IssueComment < ApplicationRecord
   end
 
   def present_target(presenter)
+    return presenter.present_as_text(issue_title) if issue_deleted?
     presenter.present_as_link(issue_title) { |p| p.project_issue_url(project_id: project_id, id: issue_id) }
   end
 
   def present_optional_information(presenter)
+    return if issue_deleted?
     presenter.add_issue_comment(content)
   end
+
+  private
+
+    def issue_deleted?
+      @is_issue_deleted ||= ::Issue.find_by(id: issue_id).nil?
+    end
 end
