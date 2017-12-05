@@ -17,14 +17,13 @@ class ProjectActivity < ApplicationRecord
   class << self
 
     def record_with_detail!(project_member, activity)
-      attrs = {
-        project_id: project_member.project_id,
-        user_id: project_member.user_id,
-        activity: activity
-      }
-      ProjectActivity.new(attrs) do |pa|
-        yield(pa)
-        pa.save!
+      transaction do
+        daily_list = ActivityList::Daily.find_or_create_by!(date: Time.current.to_date)
+        project_list = daily_list.project_list.find_or_create_by!(project_id: project_member.project_id)
+        project_list.activities.build(user_id: project_member.user_id, activity: activity) do |pa|
+          yield(pa)
+          pa.save!
+        end
       end
     end
   end
