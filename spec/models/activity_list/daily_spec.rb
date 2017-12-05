@@ -3,42 +3,88 @@ require 'rails_helper'
 RSpec.describe ActivityList::Daily, type: :model do
   describe 'for_user' do
     it do
-      user = sign_up
-      project1 = create_project(user, name: 'P1')
-      project2 = create_project(user, name: 'P2')
-      member1 = user.as_member_of(project1)
-      member2 = user.as_member_of(project2)
+      user_a = sign_up
+      user_b = sign_up
+
+      project1 = create_project(user_a, name: 'P1')
+      add_project_member(project1, user_b)
+      project2 = create_project(user_a, name: 'P2')
+      add_project_member(project2, user_b)
+
+      project3 = create_project(user_b, name: 'P3')
+
+      member1_a = user_a.as_member_of(project1)
+      member1_b = user_b.as_member_of(project1)
+      member2_a = user_a.as_member_of(project2)
+      member2_b = user_b.as_member_of(project2)
+      member3_b = user_b.as_member_of(project3)
 
       act_P1_0101_1, act_P2_0101_1, act_P1_0102_1, act_P1_0103_1, act_P2_0103_2 = nil
       Timecop.travel(Time.zone.parse('2017-01-01')) do
-        create_issue(member1, title: 'P1_I1')
+        create_issue(member1_a, title: 'P1_I1')
         act_P1_0101_1 = ProjectActivity.last
 
-        create_issue(member2, title: 'P2_I1')
+        create_issue(member2_b, title: 'P2_I1')
         act_P2_0101_1 = ProjectActivity.last
+
+        create_issue(member3_b, title: 'P3_I1')
       end
       Timecop.travel(Time.zone.parse('2017-01-02')) do
-        create_issue(member1, title: 'P1_I2')
+        create_issue(member1_b, title: 'P1_I2')
         act_P1_0102_1 = ProjectActivity.last
       end
       Timecop.travel(Time.zone.parse('2017-01-03')) do
-        create_issue(member1, title: 'P1_I3')
+        create_issue(member1_a, title: 'P1_I3')
         act_P1_0103_1 = ProjectActivity.last
 
-        create_issue(member2, title: 'P2_I1')
+        create_issue(member2_a, title: 'P2_I1')
         act_P2_0103_2 = ProjectActivity.last
       end
 
-      dailies = described_class.for_user(user.id)
-      activities = dailies.flat_map(&:activities)
+      dailies = described_class.for_user(user_a.id)
+      aggregate_failures do
+        expect(dailies.size).to eq(3)
 
-      expect(activities).to eq([
-        act_P2_0103_2,
-        act_P1_0103_1,
-        act_P1_0102_1,
-        act_P2_0101_1,
-        act_P1_0101_1
-      ])
+        dailies[0].tap do |daily|
+          expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-03')))
+          expect(daily.projects.size).to eq(2)
+
+          daily.projects[0].tap do |per_project|
+            expect(per_project.project).to eq(project2)
+            expect(per_project.activities).to eq([act_P2_0103_2])
+          end
+
+          daily.projects[1].tap do |per_project|
+            expect(per_project.project).to eq(project1)
+            expect(per_project.activities).to eq([act_P1_0103_1])
+          end
+        end
+
+        dailies[1].tap do |daily|
+          expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-02')))
+          expect(daily.projects.size).to eq(1)
+
+          daily.projects[0].tap do |per_project|
+            expect(per_project.project).to eq(project1)
+            expect(per_project.activities).to eq([act_P1_0102_1])
+          end
+        end
+
+        dailies[2].tap do |daily|
+          expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-01')))
+          expect(daily.projects.size).to eq(2)
+
+          daily.projects[0].tap do |per_project|
+            expect(per_project.project).to eq(project2)
+            expect(per_project.activities).to eq([act_P2_0101_1])
+          end
+
+          daily.projects[1].tap do |per_project|
+            expect(per_project.project).to eq(project1)
+            expect(per_project.activities).to eq([act_P1_0101_1])
+          end
+        end
+      end
     end
   end
 end
