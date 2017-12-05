@@ -1,5 +1,5 @@
 class ActivityList::Daily < ApplicationRecord
-  has_many :projects, -> { order(id: :desc) },
+  has_many :project_list, -> { order(id: :desc) },
     class_name: 'ActivityList::Project', foreign_key: :activity_list_daily_id,
     dependent: :destroy
 
@@ -7,7 +7,7 @@ class ActivityList::Daily < ApplicationRecord
 
     def for_user(user_id)
       project_ids = Project.project_ids_for_user(user_id)
-      includes(:projects)
+      includes(:project_list)
         .where(activity_list_projects: { project_id: project_ids })
         .order(id: :desc)
     end

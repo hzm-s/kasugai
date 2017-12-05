@@ -47,14 +47,14 @@ RSpec.describe ActivityList::Daily, type: :model do
 
         dailies[0].tap do |daily|
           expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-03')))
-          expect(daily.projects.size).to eq(2)
+          expect(daily.project_list.size).to eq(2)
 
-          daily.projects[0].tap do |per_project|
+          daily.project_list[0].tap do |per_project|
             expect(per_project.project).to eq(project2)
             expect(per_project.activities).to eq([act_P2_0103_2])
           end
 
-          daily.projects[1].tap do |per_project|
+          daily.project_list[1].tap do |per_project|
             expect(per_project.project).to eq(project1)
             expect(per_project.activities).to eq([act_P1_0103_1])
           end
@@ -62,9 +62,9 @@ RSpec.describe ActivityList::Daily, type: :model do
 
         dailies[1].tap do |daily|
           expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-02')))
-          expect(daily.projects.size).to eq(1)
+          expect(daily.project_list.size).to eq(1)
 
-          daily.projects[0].tap do |per_project|
+          daily.project_list[0].tap do |per_project|
             expect(per_project.project).to eq(project1)
             expect(per_project.activities).to eq([act_P1_0102_1])
           end
@@ -72,14 +72,14 @@ RSpec.describe ActivityList::Daily, type: :model do
 
         dailies[2].tap do |daily|
           expect(daily).to eq(ActivityList::Daily.find_by(date: Date.parse('2017-01-01')))
-          expect(daily.projects.size).to eq(2)
+          expect(daily.project_list.size).to eq(2)
 
-          daily.projects[0].tap do |per_project|
+          daily.project_list[0].tap do |per_project|
             expect(per_project.project).to eq(project2)
             expect(per_project.activities).to eq([act_P2_0101_1])
           end
 
-          daily.projects[1].tap do |per_project|
+          daily.project_list[1].tap do |per_project|
             expect(per_project.project).to eq(project1)
             expect(per_project.activities).to eq([act_P1_0101_1])
           end
