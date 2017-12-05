@@ -3,10 +3,10 @@ class ProjectActivities::Issue < ApplicationRecord
 
   def self.record!(activity, project_member, issue)
     transaction do
-      daily = ActivityList::Daily.find_or_create_by!(date: Time.current.to_date)
-      project = ActivityList::Project.find_or_create_by!(activity_list_daily_id: daily.id, project_id: project_member.project_id)
+      daily_list = ActivityList::Daily.find_or_create_by!(date: Time.current.to_date)
+      project_list = daily_list.projects.find_or_create_by(project_id: project_member.project_id)
       ProjectActivity.new(
-        activity_list_project_id: project.id,
+        activity_list_project_id: project_list.id,
         user_id: project_member.user_id,
         activity: "issues.#{activity}"
       ) do |pa|

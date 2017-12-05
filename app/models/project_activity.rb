@@ -1,7 +1,9 @@
 class ProjectActivity < ApplicationRecord
+  belongs_to :project_list, class_name: 'ActivityList::Project', foreign_key: 'activity_list_project_id'
   belongs_to :user
 
-  delegate :name, to: :project, prefix: true
+  delegate :project_name, to: :project_list
+
   delegate :name, to: :user, prefix: true
   delegate :initials, to: :user, prefix: true
 

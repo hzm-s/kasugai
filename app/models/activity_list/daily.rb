@@ -16,6 +16,10 @@ class ActivityList::Daily < ApplicationRecord
         .order(id: :desc)
     end
   end
+
+  def today?
+    @is_today ||= date.today?
+  end
 end
 
 __END__
