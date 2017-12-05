@@ -5,8 +5,8 @@
         <%=t '.title' %>
       </h3>
       <div class="tl-Page_Body">
-        <% if @dailies.any? -%>
-          <%= render partial: 'daily', collection: @dailies, cached: true %>
+        <% if @daily_list.any? -%>
+          <%= render partial: 'daily', collection: @daily_list, cached: true %>
         <% else -%>
           <div class="sw-Blank">
             <p class="sw-Blank_Message">
