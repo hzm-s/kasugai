@@ -1,5 +1,4 @@
 class ActivityList::Project < ApplicationRecord
-  belongs_to :daily_list, class_name: 'ActivityList::Daily', foreign_key: :activity_list_daily_id, touch: true
   belongs_to :project, class_name: '::Project', foreign_key: :project_id
 
   has_many :activities, -> { order(id: :desc) },
@@ -7,28 +6,13 @@ class ActivityList::Project < ApplicationRecord
     dependent: :destroy
 
   delegate :name, to: :project, prefix: true
-end
 
-__END__
-module ActivityList
-  class Project < Struct.new(:index, :project, :activities)
-    extend ActiveModel::Naming
-    include ActiveModel::Conversion
+  class << self
 
-    delegate :name, to: :project
-
-    def id
-      "#{index}_#{project_id}"
+    def for_user(user_id)
+      project_ids = Project.project_ids_for_user(user_id)
+      all = where(project_id: project_ids).order(date: :desc, updated_at: :desc)
+      ActivityList::Daily.parse(all)
     end
-
-    def cache_key
-      "#{self.class.to_s.underscore}/#{project_id}_#{activities.count}"
-    end
-
-    private
-
-      def project_id
-        @project_id ||= project.id
-      end
   end
 end

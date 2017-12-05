@@ -22,19 +22,11 @@ ActiveRecord::Schema.define(version: 20171204043533) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
-  create_table "activity_list_dailies", force: :cascade do |t|
-    t.date "date", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["date"], name: "index_activity_list_dailies_on_date"
-  end
-
   create_table "activity_list_projects", force: :cascade do |t|
-    t.bigint "activity_list_daily_id", null: false
+    t.date "date", null: false
     t.string "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["activity_list_daily_id"], name: "index_activity_list_projects_on_activity_list_daily_id"
     t.index ["project_id"], name: "index_activity_list_projects_on_project_id"
   end
 
@@ -160,7 +152,6 @@ ActiveRecord::Schema.define(version: 20171204043533) do
   end
 
   add_foreign_key "accounts", "users"
-  add_foreign_key "activity_list_projects", "activity_list_dailies"
   add_foreign_key "activity_list_projects", "projects"
   add_foreign_key "bookmarked_issues", "issues"
   add_foreign_key "closed_issues", "issues"
