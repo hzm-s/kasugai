@@ -1,5 +1,7 @@
 module ActivityList
   class Daily < Struct.new(:date, :project_list)
+    delegate :today?, to: :date
+
     class << self
 
       def parse(records)
