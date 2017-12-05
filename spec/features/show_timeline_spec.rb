@@ -26,16 +26,19 @@ describe 'タイムラインの表示' do
     aggregate_failures do
       sign_in(user_a) do
         visit timeline_path
+        expect(page).to have_content(project.name)
         expect(page).to have_content(issue.title)
       end
 
       sign_in(user_b) do
         visit timeline_path
+        expect(page).to have_content(project.name)
         expect(page).to have_content(issue.title)
       end
 
       sign_in(user_c) do
         visit timeline_path
+        expect(page).to_not have_content(project.name)
         expect(page).to_not have_content(issue.title)
       end
     end
