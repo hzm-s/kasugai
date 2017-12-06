@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ActivityList::Project, type: :model do
-  describe 'for_user' do
+  describe '.daily_list_for_user_without_page' do
     it do
       user_a = sign_up
       user_b = sign_up
@@ -41,7 +41,7 @@ RSpec.describe ActivityList::Project, type: :model do
         act_P2_0103_2 = ProjectActivity.last
       end
 
-      dailies = described_class.for_user(user_a.id)
+      dailies = described_class.daily_list_for_user(user_a.id)
       aggregate_failures do
         expect(dailies.size).to eq(3)
 
