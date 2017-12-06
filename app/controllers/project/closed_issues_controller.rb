@@ -16,7 +16,7 @@ class Project::ClosedIssuesController < Project::BaseController
 
   def create
     issue = Issue.find(params[:issue_id])
-    IssueService.close(issue)
+    IssueService.close(current_project_member, issue)
     redirect_to project_issues_url(current_project), notice: flash_message
   end
 
