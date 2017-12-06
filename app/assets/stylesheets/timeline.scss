@@ -133,9 +133,10 @@
 }
 
 .tl-Date_Today {
+  @include pill;
   display: inline-block;
   margin: .5rem auto 0;
-  color: lighten($orange, 10%);
   font-size: $font-size-sm;
-  font-weight: bold;
+  background-color: $orange;
+  color: $white;
 }
