@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_one :account, dependent: :destroy
 
+  has_many :project_members
+  has_many :project_activities
+
   delegate :email, to: :account
 
   class << self

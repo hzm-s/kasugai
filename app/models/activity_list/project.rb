@@ -9,14 +9,20 @@ class ActivityList::Project < ApplicationRecord
 
   class << self
 
-    def daily_list_for_user(user_id, page)
-      list = daily_list_for_user_without_page(user_id).page(page).per(3)
+    def daily_list_for_user(user_id, page = 1)
+      project_ids = Project.project_ids_for_user(user_id)
+      dates = date_scope(project_ids, page)
+      list = where(date: dates, project_id: project_ids).order(date: :desc, updated_at: :desc)
       ActivityList::Daily.parse(list)
     end
 
-    def daily_list_for_user_without_page(user_id)
-      project_ids = Project.project_ids_for_user(user_id)
-      where(project_id: project_ids).order(date: :desc, updated_at: :desc)
-    end
+    private
+
+      def date_scope(project_ids, page)
+        select(:date)
+          .where(project_id: project_ids)
+          .group(:date).order(date: :desc)
+          .page(page).per(3)
+      end
   end
 end

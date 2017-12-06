@@ -137,6 +137,7 @@
   display: inline-block;
   margin: .5rem auto 0;
   font-size: $font-size-sm;
-  background-color: $orange;
-  color: $white;
+  font-weight: bold;
+  background-color: rgba(255,255,255,.9);
+  color: $orange;
 }

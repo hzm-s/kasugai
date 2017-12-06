@@ -3,9 +3,8 @@ class ProfileService < ApplicationService
   def update(user, params)
     return failure(params: params) unless params.valid?
 
-    user.initials = params.initials
-    user.name = params.name
-    user.save!
+    user.update!(initials: params.initials, name: params.name)
+    UserUpdatePropagationJob.perform_later(user)
 
     success
   end
@@ -13,8 +12,8 @@ class ProfileService < ApplicationService
   def update_theme(user, theme)
     return failure unless UserTheme.exist?(theme)
 
-    user.theme = theme
-    user.save
+    user.update!(theme: theme)
+    UserUpdatePropagationJob.perform_later(user)
 
     success
   end
