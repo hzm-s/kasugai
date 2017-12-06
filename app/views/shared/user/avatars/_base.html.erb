@@ -1,1 +1,3 @@
-<%= render partial: 'shared/user/avatars/avatar', locals: { user: user, size_suffix: '' } %>
+<% cache ["avatar-base", user] do -%>
+  <%= render partial: 'shared/user/avatars/avatar', locals: { user: user, size_suffix: '' } %>
+<% end -%>

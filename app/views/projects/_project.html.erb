@@ -8,9 +8,11 @@
   <div class="prjl-Project_Tail">
     <div class="prjl-Project_Members">
       <% project.members.each do |member| %>
-        <div class="prjl-Project_Member app_member" data-user-name="<%= member.name %>">
-          <%= show_user_avatar(member, size: :sm) %>
-        </div>
+        <% cache [member.user, member] do -%>
+          <div class="prjl-Project_Member app_member" data-user-name="<%= member.name %>">
+            <%= show_user_avatar(member, size: :sm) %>
+          </div>
+        <% end -%>
       <% end -%>
     </div>
   </div>

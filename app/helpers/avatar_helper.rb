@@ -12,6 +12,6 @@ module AvatarHelper
       else
         "#{TEMPLATE_DIR}/base".freeze
       end
-    render(partial: template, locals: { user: user }, cached: true)
+    render(partial: template, locals: { user: user })
   end
 end

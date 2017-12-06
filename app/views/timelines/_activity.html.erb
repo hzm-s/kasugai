@@ -1,12 +1,10 @@
 <% cache [activity.user, activity] do -%>
   <div id="<%= app_dom_id(activity) %>" class="tl-Item">
     <div class="tl-Item_Primary">
-      <% cache activity.user do -%>
-        <%= show_user_avatar(activity.user, size: :sm) %>
-        <span class="tl-Item_Actor">
-          <%= t('.actor', name: activity.user_name) %>
-        </span>
-      <% end -%>
+      <%= show_user_avatar(activity.user, size: :sm) %>
+      <span class="tl-Item_Actor">
+        <%= t('.actor', name: activity.user_name) %>
+      </span>
       <span class="tl-Item_Activity">
         <%= t(activity.activity, scope: 'activities.projects') %>
       </span>
