@@ -19,7 +19,7 @@ describe IssueService do
     it do
       issue = create_issue(member, title: 'I')
 
-      expect { described_class.close(issue) }
+      expect { described_class.close(member, issue) }
         .to change { Issue.count }.by(0)
         .and change { OpenedIssue.count }.by(-1)
         .and change { OpenedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)
@@ -33,7 +33,7 @@ describe IssueService do
       issue = create_issue(member, title: 'I')
       close_issue(issue)
 
-      expect { described_class.reopen(issue) }
+      expect { described_class.reopen(member, issue) }
         .to change { Issue.count }.by(0)
         .and change { ClosedIssue.count }.by(-1)
         .and change { ClosedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)

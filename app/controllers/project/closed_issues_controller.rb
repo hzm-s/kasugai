@@ -22,7 +22,7 @@ class Project::ClosedIssuesController < Project::BaseController
 
   def destroy
     issue = Issue.find(params[:id])
-    IssueService.reopen(issue)
+    IssueService.reopen(current_project_member, issue)
     redirect_to project_issue_url(current_project, issue), notice: flash_message
   end
 

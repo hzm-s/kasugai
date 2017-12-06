@@ -6,5 +6,6 @@ ja:
         updated: 課題を編集しました
         deleted: 課題を削除しました
         closed: 課題を解決済みにしました
+        reopened: 課題の解決を取り消しました
       issue_comments:
         posted: 課題へコメントを投稿しました

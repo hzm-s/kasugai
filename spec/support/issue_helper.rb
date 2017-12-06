@@ -4,7 +4,8 @@ module IssueHelper
   end
 
   def close_issue(issue)
-    IssueService.close(issue)
+    project_member = issue.author.as_member_of(issue.project)
+    IssueService.close(project_member, issue)
   end
 
   def delete_issue(project_member, issue)
