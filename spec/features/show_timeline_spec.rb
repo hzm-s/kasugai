@@ -45,6 +45,36 @@ describe 'タイムラインの表示' do
   end
 
   it do
+    Timecop.travel(Date.parse('2017-01-01')) do
+      create_issue(member_a, title: 'I1')
+      create_issue(member_a, title: 'I2')
+      create_issue(member_a, title: 'I3')
+    end
+    Timecop.travel(Date.parse('2017-01-02')) do
+      create_issue(member_a, title: 'I4')
+      create_issue(member_a, title: 'I5')
+    end
+    Timecop.travel(Date.parse('2017-01-03')) do
+      create_issue(member_a, title: 'I6')
+      create_issue(member_a, title: 'I7')
+      create_issue(member_a, title: 'I8')
+    end
+    Timecop.travel(Date.parse('2017-01-04')) do
+      create_issue(member_a, title: 'I9')
+    end
+
+    sign_in(user_a)
+
+    aggregate_failures do
+      visit timeline_path
+      expect_contents(includes: %w(I9 I8 I7 I6 I5 I4), excludes: %w(I3 I2 I1))
+
+      visit timeline_path(page: 2)
+      expect_contents(includes: %w(I3 I2 I1), excludes: %w(I9 I8 I7 I6 I5 I4))
+    end
+  end
+
+  it do
     sign_in(user_a)
 
     aggregate_failures do
@@ -59,4 +89,15 @@ describe 'タイムラインの表示' do
       expect(page).to have_content('今日')
     end
   end
+
+  private
+
+    def expect_contents(includes:, excludes:)
+      includes.each do |i|
+        expect(page).to have_content(i)
+      end
+      excludes.each do |e|
+        expect(page).to_not have_content(e)
+      end
+    end
 end

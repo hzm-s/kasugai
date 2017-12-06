@@ -9,10 +9,14 @@ class ActivityList::Project < ApplicationRecord
 
   class << self
 
-    def for_user(user_id)
+    def daily_list_for_user(user_id, page)
+      list = daily_list_for_user_without_page(user_id).page(page).per(3)
+      ActivityList::Daily.parse(list)
+    end
+
+    def daily_list_for_user_without_page(user_id)
       project_ids = Project.project_ids_for_user(user_id)
-      all = where(project_id: project_ids).order(date: :desc, updated_at: :desc)
-      ActivityList::Daily.parse(all)
+      where(project_id: project_ids).order(date: :desc, updated_at: :desc)
     end
   end
 end
