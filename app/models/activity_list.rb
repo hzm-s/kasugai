@@ -1,4 +1,10 @@
 module ActivityList
+  def self.table_name_prefix
+    'activity_list_'
+  end
+end
+__END__
+module ActivityList
   class << self
 
     def group_by_date(all)

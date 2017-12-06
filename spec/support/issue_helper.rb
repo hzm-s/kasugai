@@ -3,12 +3,20 @@ module IssueHelper
     IssueService.create(project_member, IssueForm.new(attrs)).issue
   end
 
+  def close_issue(issue)
+    IssueService.close(issue)
+  end
+
+  def delete_issue(project_member, issue)
+    IssueService.delete(project_member, issue)
+  end
+
   def post_comment(project_member, issue, attrs)
     IssueCommentService.post(project_member, issue, IssueCommentForm.new(attrs)).comment
   end
 
-  def close_issue(issue)
-    IssueService.close(issue)
+  def delete_comment(comment)
+    IssueCommentService.delete(comment)
   end
 end
 

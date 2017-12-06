@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   has_many :members, class_name: 'ProjectMember', dependent: :destroy
   has_many :issues, dependent: :destroy
-  has_many :project_activities, dependent: :destroy
+  has_many :activities, class_name: 'ActivityList::Project', foreign_key: :project_id, dependent: :destroy
 
   class << self
 

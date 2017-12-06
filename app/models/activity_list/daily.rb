@@ -1,18 +1,14 @@
 module ActivityList
-  class Daily < Struct.new(:index, :date, :activities)
+  class Daily < Struct.new(:date, :project_list)
+    delegate :today?, to: :date
+
     class << self
 
-      def group_by_project(index, date, activities)
-        lists =
-          activities
-            .group_by { |e| e.project }
-            .map { |project, subset| ActivityList::Project.new(index, project, subset) }
-        new(index, date, lists)
+      def parse(records)
+        records
+          .group_by { |r| r.date }
+          .map { |date, subset| new(date, subset) }
       end
-    end
-
-    def persisted?
-      false
     end
   end
 end

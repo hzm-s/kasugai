@@ -2,13 +2,19 @@
   margin: 1rem 0;
   font-size: $font-size-lg;
   text-align: center;
+  font-weight: normal;
+  color: $body-color-sub;
+}
+
+.tl-Page_Body {
+  margin-top: 1.5rem;
 }
 
 .tl-Day {
   @extend .d-flex;
   margin-bottom: 1rem;
   padding-bottom: .5rem;
-  border-bottom: 1px solid $gray-300;
+  border-bottom: 1px solid $gray-200;
 
   &:last-child {
     border-bottom: 0;
@@ -16,7 +22,7 @@
 }
 
 .tl-Day_Head {
-  margin-right: 2rem;
+  margin-right: 1.5rem;
 }
 
 .tl-Day_Body {
@@ -26,7 +32,7 @@
 .tl-ItemGroup {
   background-color: $white;
   border-radius: .2rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   box-shadow: 0 0 5px $gray-500;
 }
 
@@ -47,17 +53,27 @@
 }
 
 .tl-Item {
-  @extend .d-flex, .align-items-center;
   @include nf;
-  margin-bottom: .75rem;
+  margin-bottom: 1rem;
 
   &:last-child {
     margin-bottom: 0;
   }
 }
 
+.tl-Item_Primary {
+  @extend .d-flex, .align-items-center;
+}
+
 .tl-Item_Actor {
-  margin-left: .25rem;
+  margin-left: .5rem;
+  font-weight: bold;
+  color: $gray-700;
+}
+
+.tl-Item_Activity {
+  font-weight: bold;
+  color: $gray-700;
 }
 
 .tl-Item_Time {
@@ -67,6 +83,15 @@
 
 .tl-Item_Link {
   margin: 0 .25rem;
+}
+
+.tl-Item_OptionalContent {
+  font-size: $font-size-sm;
+  margin: .25rem 0 1rem 1.75rem;
+}
+
+.tl-Day_Head {
+  text-align: center;
 }
 
 .tl-Date {
@@ -105,4 +130,13 @@
   display: block;
   line-height: 1rem;
   font-size: $font-size-xs;
+}
+
+.tl-Date_Today {
+  @include pill;
+  display: inline-block;
+  margin: .5rem auto 0;
+  font-size: $font-size-sm;
+  background-color: $orange;
+  color: $white;
 }

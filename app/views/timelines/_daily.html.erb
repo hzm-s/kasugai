@@ -13,8 +13,13 @@
         </span>
       </div>
     </div>
+    <% if daily.today? -%>
+      <span class="tl-Date_Today">
+        <%=t '.today' %>
+      </span>
+    <% end -%>
   </div>
   <div class="tl-Day_Body">
-    <%= render partial: 'project', collection: daily.activities %>
+    <%= render partial: 'per_project', collection: daily.project_list, cached: true %>
   </div>
 </div>

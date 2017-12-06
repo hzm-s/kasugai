@@ -5,7 +5,15 @@
         <%=t '.title' %>
       </h3>
       <div class="tl-Page_Body">
-        <%= render partial: 'daily', collection: @dailies %>
+        <% if @daily_list.any? -%>
+          <%= render partial: 'daily', collection: @daily_list %>
+        <% else -%>
+          <div class="sw-Blank">
+            <p class="sw-Blank_Message">
+              <%=t ('.blank') %>
+            </p>
+          </div>
+        <% end -%>
       </div>
     </div>
   </div>

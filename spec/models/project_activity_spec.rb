@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ProjectActivity, type: :model do
-  describe '.dailies_for_user' do
+  xdescribe '.dailies_for_user' do
     it do
       user = sign_up
       project1 = create_project(user, name: 'P1')
