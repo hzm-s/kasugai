@@ -39,17 +39,19 @@ class IssueService < ApplicationService
     OpenedIssue.change_priority_position!(issue, new_position)
   end
 
-  def close(issue)
+  def close(project_member, issue)
     transaction do
       OpenedIssue.delete!(issue)
       ClosedIssue.add!(issue)
+      ProjectActivities::Issue.record!(:closed, project_member, issue)
     end
   end
 
-  def reopen(issue)
+  def reopen(project_member, issue)
     transaction do
       ClosedIssue.delete!(issue)
       OpenedIssue.add!(issue)
+      ProjectActivities::Issue.record!(:reopened, project_member, issue)
     end
   end
 
