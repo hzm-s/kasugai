@@ -1,18 +1,17 @@
 module AvatarHelper
+  TEMPLATE_DIR = 'shared/user/avatars'.freeze
+
   def show_user_avatar(user, options = {})
     size = options.delete(:size)
-    extra_class = options.delete(:class)
-    _options = {
-      class: avatar_css_class(theme: user.theme, size: size) + " #{extra_class}"
-    }.merge(options)
-    content_tag(:div, user.initials, _options)
-  end
-
-  def avatar_css_class(theme:, size: nil)
-    size_suffix =
-      if size
-        "-#{size}"
+    template =
+      case size
+      when :sm
+        "#{TEMPLATE_DIR}/sm".freeze
+      when :lg
+        "#{TEMPLATE_DIR}/lg".freeze
+      else
+        "#{TEMPLATE_DIR}/base".freeze
       end
-    "usr-Avatar#{size_suffix} usr-Avatar-#{theme}"
+    render(partial: template, locals: { user: user }, cached: true)
   end
 end

@@ -8,7 +8,9 @@
   <div class="prjl-Project_Tail">
     <div class="prjl-Project_Members">
       <% project.members.each do |member| %>
-        <%= show_user_avatar(member, size: :sm, class: 'app_member', data: { user_name: member.name }) %>
+        <div class="prjl-Project_Member app_member" data-user-name="<%= member.name %>">
+          <%= show_user_avatar(member, size: :sm) %>
+        </div>
       <% end -%>
     </div>
   </div>
