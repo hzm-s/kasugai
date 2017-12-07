@@ -38,7 +38,7 @@ class Issue < ApplicationRecord
   end
 
   def closed?
-    closed.present?
+    @is_closed ||= closed.present?
   end
 
   def participants(actor)

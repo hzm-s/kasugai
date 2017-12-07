@@ -15,6 +15,14 @@ describe '課題の詳細' do
       expect(find('#app_issue_content').text).to eq(issue.content)
       expect(find('#app_issue_author').text).to eq(user.name)
       expect(find('#app_issue_created_at').text).to eq(I18n.l(issue.created_at.to_date))
+
+      expect(page).to_not have_css('#app_closed_issue')
+      within('#app_issue_detail') do
+        expect(page).to have_content('編集する', count: 2)
+      end
+
+      expect(page).to have_content('投稿する')
+      expect(page).to have_content('解決済みにする')
     end
   end
 end

@@ -8,7 +8,7 @@ describe '課題の解決済みを取り消し' do
     close_issue(issue)
 
     sign_in(user)
-    visit project_closed_issue_path(project, issue.id)
+    visit project_issue_path(project, issue.id)
 
     click_on 'この課題の解決を取り消す'
 

@@ -1,17 +1,13 @@
 class Project::ClosedIssuesController < Project::BaseController
   layout 'project'
 
-  before_action :ensure_signed_in, only: [:index, :show, :create, :destroy]
-  before_action :ensure_project_member, only: [:index, :show, :create, :destroy]
+  before_action :ensure_signed_in, only: [:index, :create, :destroy]
+  before_action :ensure_project_member, only: [:index, :create, :destroy]
 
   helper_method :current_issue
 
   def index
     @issues = ClosedIssue.for_project(current_project.id)
-  end
-
-  def show
-    @issue = current_issue
   end
 
   def create
