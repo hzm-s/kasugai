@@ -135,6 +135,7 @@ ja:
         join: プロジェクトに参加する
       list:
         title: プロジェクトのメンバー
+      member:
         leave: メンバーから外れる
         confirm_leave: プロジェクトのメンバーから外れてよろしいですか?
       invitation:
