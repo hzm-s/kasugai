@@ -7,6 +7,9 @@
       <div class="tl-Page_Body">
         <% if @daily_list.any? -%>
           <%= render partial: 'daily', collection: @daily_list, cached: true %>
+          <div class="tl-Pager">
+            <%#= paginate @daily_list %>
+          </div>
         <% else -%>
           <div class="sw-Blank">
             <p class="sw-Blank_Message">
