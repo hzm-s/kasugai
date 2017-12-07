@@ -1,6 +1,6 @@
 <div class="issl-Item">
   <div class="issl-Item_Body">
-    <%= link_to issue.title, project_closed_issue_url(current_project, issue.issue_id), class: 'issl-Item_Content app_issue_title' %>
+    <%= link_to issue.title, project_issue_url(current_project, issue.issue_id), class: 'issl-Item_Content app_issue_title' %>
     <div class="issl-Item_Info">
       <span class="issl-Item_ClosedOn app_issue_closed_on">
         <%=l issue.created_at.to_date %>

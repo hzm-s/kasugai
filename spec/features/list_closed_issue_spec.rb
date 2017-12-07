@@ -32,6 +32,11 @@ describe '解決した課題の一覧' do
     end
 
     it do
+      click_on closed_a1.title
+      expect(page).to have_content('解決済み')
+    end
+
+    it do
       issues = all('.app_issue_title').map(&:text)
       expect(issues).to eq([closed_a2.title, closed_a1.title])
     end
