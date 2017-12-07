@@ -4,7 +4,7 @@ class Timeline < SimpleDelegator
     days = nil
     daily_list =
       ActivityList::Project.daily_list_for_user(user_id) do |all_days|
-        days = all_days.page(page).per(2)
+        days = all_days.page(page).per(3)
       end
     new(days, daily_list)
   end

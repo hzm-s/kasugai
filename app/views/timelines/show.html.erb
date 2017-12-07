@@ -8,8 +8,14 @@
         <% if @timeline.any? -%>
           <%= render partial: 'daily', collection: @timeline, cached: true %>
           <div class="tl-Pager">
-            <%= link_to_prev_page @timeline.pages, 'Prev' %>
-            <%= link_to_next_page @timeline.pages, 'Next' %>
+            <div class="row">
+              <div class="col-lg-11">
+                <%= link_to_prev_page @timeline.pages, t('.prev_page'), class: 'tl-Pager_Prev' %>
+              </div>
+              <div class="col-lg-11 tl-Pager_NextWrapper">
+                <%= link_to_next_page @timeline.pages, t('.next_page'), class: 'tl-Pager_Next' %>
+              </div>
+            </div>
           </div>
         <% else -%>
           <div class="sw-Blank">
