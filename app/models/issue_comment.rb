@@ -1,5 +1,5 @@
 class IssueComment < ApplicationRecord
-  belongs_to :issue
+  belongs_to :issue, touch: true
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   delegate :name, to: :author, prefix: true
