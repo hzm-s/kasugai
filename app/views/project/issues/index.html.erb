@@ -9,17 +9,7 @@
       </div>
       <div class="row">
         <div class="col-sm-22 col-lg-20 offset-lg-1">
-          <% if @issues.any? %>
-            <div class="issl-List js-sortable-list">
-              <%= render partial: 'project/issues/summary', collection: @issues %>
-            </div>
-          <% else -%>
-            <div class="sw-Blank">
-              <p class="sw-Blank_Message">
-                <%=t ('.blank') %>
-              </p>
-            </div>
-          <% end -%>
+          <%= render partial: 'list', locals: { issues: @issues } %>
         </div>
       </div>
     </div>

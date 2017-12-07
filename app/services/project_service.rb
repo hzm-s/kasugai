@@ -3,12 +3,16 @@ class ProjectService < ApplicationService
   def create(user, params)
     return failure(params: params) unless params.valid?
 
-    project =
-      Project.new(name: params.name, description: params.description) do |p|
-        p.id = SecureRandom.hex(8)
-        p.members.build(user_id: user.id)
-        p.save!
-      end
+    project = Project.new(
+      id: SecureRandom.hex(8),
+      name: params.name,
+      description: params.description
+    )
+
+    transaction do
+      project.save!
+      project.members.create!(user_id: user.id)
+    end
 
     success(project: project)
   end

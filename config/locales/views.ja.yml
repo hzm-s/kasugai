@@ -75,8 +75,10 @@ ja:
     issues:
       index:
         new: 新しい課題を作成する
-        blank: まだ課題はありません
         closed: '%{count}件の解決した課題'
+
+      list:
+        blank: まだ課題はありません
 
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
