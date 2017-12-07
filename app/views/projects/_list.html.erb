@@ -1,0 +1,3 @@
+<% cache [current_user, projects] do -%>
+  <%= render partial: 'project', collection: projects, cached: true %>
+<% end -%>

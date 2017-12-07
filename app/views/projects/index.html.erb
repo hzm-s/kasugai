@@ -14,7 +14,7 @@
     <div class="col-sm-22 col-lg-18 mx-auto">
       <div class="prjl-List">
         <% if @projects.any? %>
-          <%= render @projects %>
+          <%= render partial: 'list', locals: { projects: @projects } %>
         <% else -%>
           <div class="sw-Blank">
             <p class="sw-Blank_Message">
