@@ -5,8 +5,18 @@
         <%=t '.title' %>
       </h3>
       <div class="tl-Page_Body">
-        <% if @daily_list.any? -%>
-          <%= render partial: 'daily', collection: @daily_list, cached: true %>
+        <% if @timeline.any? -%>
+          <%= render partial: 'daily', collection: @timeline, cached: true %>
+          <div class="tl-Pager">
+            <div class="row">
+              <div class="col-lg-11">
+                <%= link_to_prev_page @timeline.pages, t('.prev_page'), class: 'tl-Pager_Prev' %>
+              </div>
+              <div class="col-lg-11 tl-Pager_NextWrapper">
+                <%= link_to_next_page @timeline.pages, t('.next_page'), class: 'tl-Pager_Next' %>
+              </div>
+            </div>
+          </div>
         <% else -%>
           <div class="sw-Blank">
             <p class="sw-Blank_Message">

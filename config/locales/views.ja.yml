@@ -153,6 +153,8 @@ ja:
     show:
       title: あなたが参加しているプロジェクトに関する更新
       blank: まだプロジェクトに関する更新はありません
+      next_page: 次の3日分
+      prev_page: 前の3日分
     daily:
       month: '%{month}月'
       today: 今日
