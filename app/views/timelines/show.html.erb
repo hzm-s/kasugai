@@ -5,10 +5,11 @@
         <%=t '.title' %>
       </h3>
       <div class="tl-Page_Body">
-        <% if @daily_list.any? -%>
-          <%= render partial: 'daily', collection: @daily_list, cached: true %>
+        <% if @timeline.any? -%>
+          <%= render partial: 'daily', collection: @timeline, cached: true %>
           <div class="tl-Pager">
-            <%#= paginate @daily_list %>
+            <%= link_to_prev_page @timeline.pages, 'Prev' %>
+            <%= link_to_next_page @timeline.pages, 'Next' %>
           </div>
         <% else -%>
           <div class="sw-Blank">

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ActivityList::Project, type: :model do
-  describe '.daily_list_for_user_without_page' do
+  describe '.daily_list_for_user' do
     it do
       user_a = sign_up
       user_b = sign_up

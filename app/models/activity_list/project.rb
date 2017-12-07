@@ -9,20 +9,27 @@ class ActivityList::Project < ApplicationRecord
 
   class << self
 
-    def daily_list_for_user(user_id, page = 1)
+    def daily_list_for_user(user_id)
       project_ids = Project.project_ids_for_user(user_id)
-      dates = date_scope(project_ids, page)
-      list = where(date: dates, project_id: project_ids).order(date: :desc, updated_at: :desc)
-      ActivityList::Daily.parse(list)
+      all_days = days_for_projects(project_ids)
+
+      days =
+        if block_given?
+          yield(all_days)
+        else
+          all_days
+        end
+
+      daily_list_by_day_and_project(days, project_ids)
     end
 
-    private
+    def days_for_projects(project_ids)
+      select(:date).where(project_id: project_ids).group(:date).order(date: :desc)
+    end
 
-      def date_scope(project_ids, page)
-        select(:date)
-          .where(project_id: project_ids)
-          .group(:date).order(date: :desc)
-          .page(page).per(3)
-      end
+    def daily_list_by_day_and_project(days, project_ids)
+      project_list = where(date: days, project_id: project_ids).order(date: :desc, updated_at: :desc)
+      ActivityList::Daily.parse(project_list)
+    end
   end
 end
