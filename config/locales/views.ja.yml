@@ -81,10 +81,13 @@ ja:
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
 
-      show:
-        creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
+      comment_list:
         comments:
           title: コメント
+
+      detail:
+        closed: 解決済み
+        creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
 
       comment_count:
         comments: '%{count}コメント'
@@ -103,26 +106,26 @@ ja:
       unbookmarked:
         bookmark: ブックマークする
 
-      terminate:
-        help_close: 課題リストに表示されなくなります
-        close: この課題を解決済みにする
-        confirm_close: この課題を解決済みにしますか?
-        help_delete: 削除すると元に戻せません
-        delete: この課題を削除する
-        confirm_delete: この課題を削除しますか?
-        help_reopen: 解決を取り消します
-        reopen: この課題の解決を取り消す
-        confirm_reopen: この課題の解決を取り消しますか?
+      close:
+        help: 課題リストに表示されなくなります
+        submit: この課題を解決済みにする
+        confirm: この課題を解決済みにしますか?
+
+      delete:
+        help: 削除すると元に戻せません
+        submit: この課題を削除する
+        confirm: この課題を削除しますか?
+
+      reopen:
+        help: 解決を取り消します
+        submit: この課題の解決を取り消す
+        confirm: この課題の解決を取り消しますか?
 
     bookmarked_issues:
       index:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
-
-    closed_issues:
-      show:
-        closed: 解決済み
 
     members:
       new:

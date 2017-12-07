@@ -1,0 +1,9 @@
+<div class="dsc-Terminate_Option">
+  <p class="iss-Terminate_Description">
+    <%=t '.help' %>
+  </p>
+  <%= form_with url: project_closed_issues_url(project) do |f| %>
+    <%= hidden_field_tag :issue_id, issue.id %>
+    <%= f.button t('.submit'), data: { confirm: t('.confirm', title: issue.title) }, class: 'iss-CloseLink' %>
+  <% end -%>
+</div>

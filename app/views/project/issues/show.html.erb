@@ -3,47 +3,14 @@
   <div class="col-sm-22 col-lg-19 mx-auto">
     <div class="dsc-Body">
       <div class="dsc-Body_Issue">
-        <div class="iss-Detail">
-          <div class="iss-Detail_Header">
-            <%= show_user_avatar(@issue.author, size: :sm) %>
-            <div class="iss-Detail_Creation">
-              <%=t '.creation_html', author: @issue.author_name, date: l(@issue.created_at.to_date) %>
-            </div>
-            <div class="iss-Detail_Bookmark">
-              <%= render partial: 'bookmark', locals: { issue: @issue } %>
-            </div>
-          </div>
-          <div class="iss-Detail_Body">
-            <%= render partial: 'title', locals: { issue: @issue, form: @issue_form, open: false } %>
-            <%= render partial: 'content', locals: { issue: @issue, form: @issue_form, open: false } %>
-          </div>
-        </div>
+        <%= render partial: 'detail', locals: { issue: @issue, form: @issue_form } %>
       </div>
       <div class="row">
         <div class="col-sm-22 col-lg-18 mx-auto">
-          <div class="dsc-Body_CommentWrapper" data-channel="issue-comments" data-issue-id="<%= current_issue.id %>">
-            <h3 class="dsc-Comment_Title">
-              <%=t '.comments.title' %>
-            </h3>
-            <%= render_async issue_comments_url(@issue), event_name: 'issue-comments-loaded', 'data-turbolinks-track': 'reload' do %>
-              <%= loading_partial %>
-            <% end -%>
-            <div id="anchor-latest-comment"></div>
-            <%= render partial: 'issue/comments/form', locals: { form: @comment_form } %>
-          </div>
+          <%= render partial: 'comment_list', locals: { issue: @issue, form: @comment_form } %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render layout: 'terminate' do -%>
-  <div class="dsc-Terminate_Option">
-    <p class="iss-Terminate_Description">
-      <%=t '.help_close' %>
-    </p>
-    <%= form_with url: project_closed_issues_url(current_project) do |f| %>
-      <%= hidden_field_tag :issue_id, current_issue.id %>
-      <%= f.button t('.close'), data: { confirm: t('.confirm_close', title: current_issue.title) }, class: 'iss-CloseLink' %>
-    <% end -%>
-  </div>
-<% end -%>
+<%= render partial: 'actions', locals: { project: current_project, issue: @issue } %>

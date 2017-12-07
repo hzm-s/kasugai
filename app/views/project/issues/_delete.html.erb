@@ -1,0 +1,6 @@
+<div class="dsc-Terminate_Option">
+  <p class="iss-Terminate_Description">
+    <%=t '.help' %>
+  </p>
+  <%= link_to t('.submit'), project_issue_path(project, issue), method: :delete, data: { confirm: t('.confirm') }, class: 'iss-DeleteLink' %>
+</div>

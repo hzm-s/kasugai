@@ -10,7 +10,9 @@
           <%= simple_format(issue.content) %>
         </div>
       <% end -%>
-      <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-content-editor', class: 'iss-Detail_EditLink' %>
+      <% unless issue.closed? -%>
+        <%= ie.link_to_toggle t('navs.edit'), id: 'js-open-issue-content-editor', class: 'iss-Detail_EditLink' %>
+      <% end -%>
     </div>
   <% end -%>
   <%= ie.form class: 'iss-Detail_ContentEdit' do -%>
