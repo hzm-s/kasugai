@@ -1,4 +1,8 @@
-<% breadcrumb :show_issue, current_project, @issue %>
+<% if @issue.closed? -%>
+  <% breadcrumb :show_closed_issue, current_project, @issue %>
+<% else -%>
+  <% breadcrumb :show_issue, current_project, @issue %>
+<% end -%>
 <div class="row">
   <div class="col-sm-22 col-lg-19 mx-auto">
     <div class="dsc-Body">

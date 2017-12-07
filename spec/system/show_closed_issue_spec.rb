@@ -12,6 +12,7 @@ describe '解決した課題の詳細' do
     visit project_issue_path(project, issue.id)
 
     aggregate_failures do
+      expect(page).to have_content('解決した課題リスト')
       expect(page).to have_content('解決済み')
       expect(page).to have_content('解決を取り消す')
       expect(page).to_not have_content('編集する')
