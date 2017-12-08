@@ -12,6 +12,7 @@ class ProjectService < ApplicationService
     transaction do
       project.save!
       project.members.create!(user_id: user.id)
+      project.create_issue_list!
     end
 
     success(project: project)

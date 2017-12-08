@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_many :members, -> { order(:id) }, class_name: 'ProjectMember', dependent: :destroy
+  has_one :issue_list, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :activities, class_name: 'ActivityList::Project', foreign_key: :project_id, dependent: :destroy
 
