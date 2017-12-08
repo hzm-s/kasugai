@@ -6,7 +6,7 @@ class Project::MembersController < Project::BaseController
   before_action :ensure_not_project_member, only: [:new, :create]
 
   def index
-    @members = current_project.members
+    @members = ProjectMember.for_project(current_project.id)
   end
 
   def new
