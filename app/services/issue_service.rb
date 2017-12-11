@@ -24,6 +24,7 @@ class IssueService < ApplicationService
 
     transaction do
       issue.update!(title: params.title, content: params.content)
+      IssueUpdatePropagationJob.perform_later(issue)
       ProjectActivities::Issue.record!(:updated, project_member, issue.reload)
     end
 

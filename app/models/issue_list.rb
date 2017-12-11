@@ -3,6 +3,8 @@ class IssueList < ApplicationRecord
   has_many :opened_issues, -> { rank(:priority_order) }, dependent: :destroy
   has_many :issues, through: :opened_issues
 
+  delegate :any?, to: :opened_issues
+
   def add(issue)
     self.opened_issues.build(issue: issue)
   end

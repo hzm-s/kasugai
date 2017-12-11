@@ -3,6 +3,8 @@ class ClosedIssueList < ApplicationRecord
   has_many :closed_issues, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :issues, through: :closed_issues
 
+  delegate :any?, to: :closed_issues
+
   def count
     closed_issues.count
   end

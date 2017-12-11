@@ -72,13 +72,16 @@ ja:
       confirm_delete: 'プロジェクト「%{name}」を削除してよろしいですか?'
 
   project:
+
     issues:
       index:
         new: 新しい課題を作成する
-        closed: '%{count}件の解決した課題'
 
       list:
         blank: まだ課題はありません
+
+      closed_list_link:
+        closed: '%{count}件の解決した課題'
 
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
@@ -128,6 +131,10 @@ ja:
         title: ブックマークした課題
       list:
         blank: ブックマークしている課題はありません
+
+    closed_issues:
+      issue:
+        confirm_delete: '課題「%{title}」を削除してよろしいですか?'
 
     members:
       new:

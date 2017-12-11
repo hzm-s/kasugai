@@ -11,6 +11,7 @@ class IssueCommentService < ApplicationService
     comment = issue.comments.build(user_id: project_member.user_id, content: params.content)
     transaction do
       comment.save!
+      IssueUpdatePropagationJob.perform_later(issue)
       ProjectActivities::IssueComment.record!(:posted, project_member, issue, params.content)
     end
 
@@ -29,6 +30,9 @@ class IssueCommentService < ApplicationService
   end
 
   def delete(comment)
-    comment.destroy!
+    transaction do
+      comment.destroy!
+      IssueUpdatePropagationJob.perform_later(comment.issue)
+    end
   end
 end

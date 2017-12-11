@@ -1,0 +1,11 @@
+<% cache list do -%>
+  <% if list.any? -%>
+    <div class="row">
+      <div class="col-sm-22 col-lg-20 mx-auto">
+        <div class="issl-Nav_Closed">
+          <%= link_to t('.closed', count: list.count), project_closed_issues_url(current_project), class: 'issl-Nav_ClosedLink' %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+<% end -%>

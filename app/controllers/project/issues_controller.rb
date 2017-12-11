@@ -8,7 +8,7 @@ class Project::IssuesController < Project::BaseController
 
   def index
     @issue_list = current_project.issue_list
-    @closed_issues_count = current_project.closed_issue_list.count
+    @closed_issue_list = current_project.closed_issue_list
   end
 
   def show

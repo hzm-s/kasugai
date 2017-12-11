@@ -1,11 +1,13 @@
-<% if issues.any? %>
-  <div class="issl-List js-sortable-list">
-    <%= render partial: 'summary', collection: issues, cached: true %>
-  </div>
-<% else -%>
-  <div class="sw-Blank">
-    <p class="sw-Blank_Message">
-      <%=t ('.blank') %>
-    </p>
-  </div>
+<% cache list do -%>
+  <% if list.any? %>
+    <div class="issl-List js-sortable-list">
+      <%= render partial: 'summary', collection: list.issues, cached: true %>
+    </div>
+  <% else -%>
+    <div class="sw-Blank">
+      <p class="sw-Blank_Message">
+        <%=t ('.blank') %>
+      </p>
+    </div>
+  <% end -%>
 <% end -%>
