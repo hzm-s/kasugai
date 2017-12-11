@@ -23,6 +23,7 @@ describe BookmarkedIssueService do
       expect { described_class.remove(member, issue) }
         .to change { BookmarkedIssue.count }.by(-1)
         .and change { BookmarkedIssue.find_by(opened_issue_id: issue.opened_id).present? }.from(true).to(false)
+        .and change { OpenedIssue.count }.by(0)
         .and change { Issue.count }.by(0)
     end
   end
