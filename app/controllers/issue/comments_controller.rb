@@ -50,7 +50,7 @@ class Issue::CommentsController < Project::BaseController
     end
 
     def current_project
-      @current_project ||= current_issue.project
+      @current_project ||= IssueList.find_by_issue_id(current_issue.id).project
     end
 
     def current_issue
