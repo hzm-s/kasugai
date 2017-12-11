@@ -39,7 +39,8 @@ class IssueService < ApplicationService
   end
 
   def change_priority(issue, new_position)
-    OpenedIssue.change_priority_position!(issue, new_position)
+    list = issue.project.issue_list
+    list.change_priority_position!(issue, new_position)
   end
 
   def close(project_member, issue)
