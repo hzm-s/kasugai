@@ -5,7 +5,7 @@ describe '課題の解決済みを取り消し' do
     user = sign_up
     project = create_project(user, name: 'P')
     issue = create_issue(user.as_member_of(project), title: 'I')
-    close_issue(issue)
+    close_issue(user.as_member_of(project), issue)
 
     sign_in(user)
     visit project_issue_path(project, issue.id)

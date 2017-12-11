@@ -30,16 +30,34 @@ ActiveRecord::Schema.define(version: 20171207084310) do
     t.index ["project_id"], name: "index_activity_list_projects_on_project_id"
   end
 
+  create_table "bookmarked_issue_lists", force: :cascade do |t|
+    t.string "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_bookmarked_issue_lists_on_project_id"
+  end
+
   create_table "bookmarked_issues", force: :cascade do |t|
+    t.bigint "bookmarked_issue_list_id"
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
-    t.index ["issue_id"], name: "index_bookmarked_issues_on_issue_id", unique: true
+    t.index ["bookmarked_issue_list_id", "issue_id"], name: "index_bookmarked_issues_on_list_id_and_id", unique: true
+    t.index ["bookmarked_issue_list_id"], name: "index_bookmarked_issues_on_bookmarked_issue_list_id"
+  end
+
+  create_table "closed_issue_lists", force: :cascade do |t|
+    t.string "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_closed_issue_lists_on_project_id"
   end
 
   create_table "closed_issues", force: :cascade do |t|
+    t.bigint "closed_issue_list_id", null: false
     t.string "issue_id", null: false
     t.datetime "created_at", null: false
-    t.index ["issue_id"], name: "index_closed_issues_on_issue_id", unique: true
+    t.index ["closed_issue_list_id", "issue_id"], name: "index_closed_issues_on_list_id_and_id", unique: true
+    t.index ["closed_issue_list_id"], name: "index_closed_issues_on_closed_issue_list_id"
   end
 
   create_table "issue_appearances", force: :cascade do |t|
@@ -58,20 +76,32 @@ ActiveRecord::Schema.define(version: 20171207084310) do
     t.index ["user_id"], name: "index_issue_comments_on_user_id"
   end
 
+  create_table "issue_lists", force: :cascade do |t|
+    t.string "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_issue_lists_on_project_id"
+  end
+
   create_table "issues", id: :string, force: :cascade do |t|
     t.string "project_id", null: false
     t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "content"
     t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_issues_on_project_id"
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
   create_table "opened_issues", force: :cascade do |t|
-    t.string "project_id", null: false
+    t.bigint "issue_list_id", null: false
     t.string "issue_id", null: false
     t.integer "priority_order"
-    t.index ["issue_id"], name: "index_opened_issues_on_issue_id", unique: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_list_id", "issue_id"], name: "index_opened_issues_on_issue_list_id_and_issue_id", unique: true
+    t.index ["issue_list_id"], name: "index_opened_issues_on_issue_list_id"
   end
 
   create_table "project_activities", force: :cascade do |t|
@@ -156,14 +186,20 @@ ActiveRecord::Schema.define(version: 20171207084310) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "activity_list_projects", "projects"
+  add_foreign_key "bookmarked_issue_lists", "projects"
+  add_foreign_key "bookmarked_issues", "bookmarked_issue_lists"
   add_foreign_key "bookmarked_issues", "issues"
+  add_foreign_key "closed_issue_lists", "projects"
+  add_foreign_key "closed_issues", "closed_issue_lists"
   add_foreign_key "closed_issues", "issues"
   add_foreign_key "issue_appearances", "issues"
   add_foreign_key "issue_appearances", "project_members"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
+  add_foreign_key "issue_lists", "projects"
   add_foreign_key "issues", "projects"
   add_foreign_key "issues", "users"
+  add_foreign_key "opened_issues", "issue_lists"
   add_foreign_key "opened_issues", "issues"
   add_foreign_key "project_activities", "activity_list_projects"
   add_foreign_key "project_activities", "users"

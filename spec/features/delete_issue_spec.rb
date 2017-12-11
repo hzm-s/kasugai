@@ -38,4 +38,24 @@ describe '課題の削除' do
       expect(page).to_not have_content(issue.title)
     end
   end
+
+  context '解決した課題' do
+    before do
+      close_issue(user.as_member_of(project), issue)
+    end
+
+    it do
+      visit project_closed_issues_path(project)
+      within("#app_issue_#{issue.id}") do
+        click_on '削除する'
+      end
+
+      aggregate_failures do
+        expect(page).to have_content('課題を削除しました')
+
+        visit project_closed_issues_path(project)
+        expect(page).to_not have_content(issue.title)
+      end
+    end
+  end
 end

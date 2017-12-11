@@ -1,0 +1,2 @@
+class BookmarkedIssueList < ApplicationRecord
+end

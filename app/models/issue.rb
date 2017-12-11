@@ -4,7 +4,7 @@ class Issue < ApplicationRecord
 
   has_one :opened, class_name: 'OpenedIssue', dependent: :destroy
   has_one :closed, class_name: 'ClosedIssue', dependent: :destroy
-  has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
+  has_one :bookmarked, class_name: 'BookmarkedIssue', dependent: :destroy
 
   has_many :comments, -> { order(:id) }, class_name: 'IssueComment', foreign_key: :issue_id, dependent: :destroy
   has_many :issue_appearances, -> { includes(:project_member) }, dependent: :destroy

@@ -11,6 +11,10 @@ class ProjectMember < ApplicationRecord
 
   class << self
 
+    def for_project(project_id)
+      where(project_id: project_id).order(:id)
+    end
+
     def find_by_user_and_project(user_id, project_id)
       includes(user: :account)
         .find_by(user_id: user_id, project_id: project_id)

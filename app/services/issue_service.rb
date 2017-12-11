@@ -8,9 +8,11 @@ class IssueService < ApplicationService
     return failure(params: params) unless params.valid?
 
     issue = IssueFactory.create(project_member, params)
+    issue_list = project_member.project.issue_list
+
     transaction do
       issue.save!
-      OpenedIssue.add!(issue)
+      issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 
@@ -22,6 +24,7 @@ class IssueService < ApplicationService
 
     transaction do
       issue.update!(title: params.title, content: params.content)
+      IssueUpdatePropagationJob.perform_later(issue)
       ProjectActivities::Issue.record!(:updated, project_member, issue.reload)
     end
 
@@ -36,21 +39,28 @@ class IssueService < ApplicationService
   end
 
   def change_priority(issue, new_position)
-    OpenedIssue.change_priority_position!(issue, new_position)
+    list = issue.project.issue_list
+    list.change_priority_position!(issue, new_position)
   end
 
   def close(project_member, issue)
+    issue_list = project_member.project.issue_list
+    closed_issue_list = project_member.project.closed_issue_list
+
     transaction do
-      OpenedIssue.delete!(issue)
-      ClosedIssue.add!(issue)
+      issue_list.remove!(issue)
+      closed_issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:closed, project_member, issue)
     end
   end
 
   def reopen(project_member, issue)
+    issue_list = project_member.project.issue_list
+    closed_issue_list = project_member.project.closed_issue_list
+
     transaction do
-      ClosedIssue.delete!(issue)
-      OpenedIssue.add!(issue)
+      closed_issue_list.remove!(issue)
+      issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:reopened, project_member, issue)
     end
   end
