@@ -42,27 +42,6 @@ describe IssueService do
     end
   end
 
-  describe '#bookmark' do
-    it do
-      issue = create_issue(member, title: 'I')
-
-      expect { described_class.bookmark(issue) }
-        .to change { BookmarkedIssue.count }.by(1)
-        .and change { BookmarkedIssue.find_by(issue_id: issue.id).present? }.from(false).to(true)
-    end
-  end
-
-  describe '#unbookmark' do
-    it do
-      issue = create_issue(member, title: 'I')
-      described_class.bookmark(issue)
-
-      expect { described_class.unbookmark(issue) }
-        .to change { BookmarkedIssue.count }.by(-1)
-        .and change { BookmarkedIssue.find_by(issue_id: issue.id).present? }.from(true).to(false)
-    end
-  end
-
   describe '#change_priority' do
     it do
       issue_a = create_issue(member, title: 'A')

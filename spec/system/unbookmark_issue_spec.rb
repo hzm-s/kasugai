@@ -4,12 +4,13 @@ describe '課題のブックマークを削除', type: :system do
   it do
     user = sign_up
     project = create_project(user, name: 'Project')
-    issue_a = create_issue(user.as_member_of(project), title: '課題A')
-    issue_b = create_issue(user.as_member_of(project), title: '課題B')
-    issue_c = create_issue(user.as_member_of(project), title: '課題C')
-    IssueService.bookmark(issue_a)
-    IssueService.bookmark(issue_b)
-    IssueService.bookmark(issue_c)
+    member = user.as_member_of(project)
+    issue_a = create_issue(member, title: '課題A')
+    issue_b = create_issue(member, title: '課題B')
+    issue_c = create_issue(member, title: '課題C')
+    bookmark_issue(member, issue_a)
+    bookmark_issue(member, issue_b)
+    bookmark_issue(member, issue_c)
 
     sign_in(user)
 

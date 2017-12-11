@@ -17,14 +17,15 @@ describe ProjectService do
 
   describe '.delete' do
     let(:project) { create_project(user, name: 'P') }
-    let(:issue) { create_issue(user.as_member_of(project), title: 'I') }
-    let(:comment) { post_comment(user.as_member_of(project), issue, content: 'C') }
+    let(:member) { user.as_member_of(project) }
+    let(:issue) { create_issue(member, title: 'I') }
+    let(:comment) { post_comment(member, issue, content: 'C') }
 
     before do
       user
       project
       issue
-      IssueService.bookmark(issue)
+      bookmark_issue(member, issue)
       comment
     end
 

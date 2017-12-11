@@ -64,12 +64,4 @@ class IssueService < ApplicationService
       ProjectActivities::Issue.record!(:reopened, project_member, issue)
     end
   end
-
-  def bookmark(issue)
-    BookmarkedIssue.add!(issue)
-  end
-
-  def unbookmark(issue)
-    BookmarkedIssue.delete!(issue)
-  end
 end

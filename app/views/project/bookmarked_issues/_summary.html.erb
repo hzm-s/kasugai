@@ -1,6 +1,6 @@
 <div id="<%= app_dom_id(issue) %>" class="issl-BookmarkedItem">
   <div class="issl-BookmarkedItem_Body">
-    <%= link_to issue.title, project_issue_url(current_project, issue), class: 'issl-BookmarkedItem_Content' %>
+    <%= link_to issue.title, project_issue_url(current_project, issue), class: 'issl-BookmarkedItem_Content app_issue_title' %>
     <div class="issl-Item_Info">
       <%= render partial: 'project/issues/comment_count', locals: { issue: issue } %>
       <%= render partial: 'project/issues/bookmarked', locals: { issue: issue } %>
