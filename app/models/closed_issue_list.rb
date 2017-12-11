@@ -1,6 +1,6 @@
 class ClosedIssueList < ApplicationRecord
   belongs_to :project
-  has_many :closed_issues, dependent: :destroy
+  has_many :closed_issues, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :issues, through: :closed_issues
 
   def count
