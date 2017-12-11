@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 20171207084310) do
 
   create_table "bookmarked_issues", force: :cascade do |t|
     t.bigint "bookmarked_issue_list_id"
-    t.string "issue_id", null: false
+    t.bigint "opened_issue_id", null: false
     t.datetime "created_at", null: false
-    t.index ["bookmarked_issue_list_id", "issue_id"], name: "index_bookmarked_issues_on_list_id_and_id", unique: true
+    t.index ["bookmarked_issue_list_id", "opened_issue_id"], name: "index_bookmarked_issues_on_list_id_and_opened_id", unique: true
     t.index ["bookmarked_issue_list_id"], name: "index_bookmarked_issues_on_bookmarked_issue_list_id"
+    t.index ["opened_issue_id"], name: "index_bookmarked_issues_on_opened_issue_id"
   end
 
   create_table "closed_issue_lists", force: :cascade do |t|
@@ -188,7 +189,7 @@ ActiveRecord::Schema.define(version: 20171207084310) do
   add_foreign_key "activity_list_projects", "projects"
   add_foreign_key "bookmarked_issue_lists", "projects"
   add_foreign_key "bookmarked_issues", "bookmarked_issue_lists"
-  add_foreign_key "bookmarked_issues", "issues"
+  add_foreign_key "bookmarked_issues", "opened_issues"
   add_foreign_key "closed_issue_lists", "projects"
   add_foreign_key "closed_issues", "closed_issue_lists"
   add_foreign_key "closed_issues", "issues"

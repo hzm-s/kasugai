@@ -1,13 +1,18 @@
-<% if @bookmarked_issues.any? -%>
-  <div class="prj-BookmarkedIssues_Body">
-    <% @bookmarked_issues.each do |i| -%>
-      <%= render partial: 'summary', locals: { issue: i } %>
+<% cache list do -%>
+  <div class="prj-BookmarkedIssues" id="app_bookmarked_issues">
+    <h3 class="prj-BookmarkedIssues_Title">
+      <%=t '.title' %>
+    </h3>
+    <% if list.any? -%>
+      <div class="prj-BookmarkedIssues_Body">
+        <%= render partial: 'project/bookmarked_issues/item', collection: list.issues, cached: true %>
+      </div>
+    <% else -%>
+      <div class="sw-Blank">
+        <p class="sw-Blank_Message">
+          <%=t ('.blank') %>
+        </p>
+      </div>
     <% end -%>
-  </div>
-<% else -%>
-  <div class="sw-Blank">
-    <p class="sw-Blank_Message">
-      <%=t ('.blank') %>
-    </p>
   </div>
 <% end -%>

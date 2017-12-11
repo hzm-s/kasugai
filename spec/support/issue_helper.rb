@@ -11,6 +11,10 @@ module IssueHelper
     IssueService.delete(project_member, issue)
   end
 
+  def bookmark_issue(project_member, issue)
+    BookmarkedIssueService.add(project_member, issue)
+  end
+
   def post_comment(project_member, issue, attrs)
     IssueCommentService.post(project_member, issue, IssueCommentForm.new(attrs)).comment
   end

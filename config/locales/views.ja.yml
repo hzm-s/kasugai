@@ -127,9 +127,8 @@ ja:
         confirm: この課題の解決を取り消しますか?
 
     bookmarked_issues:
-      index:
-        title: ブックマークした課題
       list:
+        title: ブックマークした課題
         blank: ブックマークしている課題はありません
 
     closed_issues:

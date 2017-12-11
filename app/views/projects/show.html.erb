@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <div class="col-sm-22 col-lg-18 mx-auto">
-      <%= render 'project/bookmarked_issues/index', project: @project %>
+      <%= render partial: 'project/bookmarked_issues/list', locals: { list: @project.bookmarked_issue_list } %>
     </div>
   </div>
 </div>

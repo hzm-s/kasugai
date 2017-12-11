@@ -3,17 +3,17 @@ class Project::BookmarkedIssuesController < Project::BaseController
   before_action :ensure_project_member, only: [:index, :create, :destroy]
 
   def index
-    @bookmarked_issues = Issue.bookmarked(current_project.id)
+    @list = current_project.bookmarked_issue_list
     render partial: 'list'
   end
 
   def create
     @issue = Issue.find(params[:issue_id])
-    IssueService.bookmark(@issue)
+    BookmarkedIssueService.add(current_project_member, @issue)
   end
 
   def destroy
     @issue = Issue.find(params[:id])
-    IssueService.unbookmark(@issue)
+    BookmarkedIssueService.remove(current_project_member, @issue)
   end
 end

@@ -74,44 +74,16 @@
 }
 
 .issl-BookmarkedItem {
-  @extend .d-flex, .align-items-center;
-
   padding: .75rem .5rem;
   border-bottom: 1px solid $gray-300;
 
   &:last-child {
     border-bottom: none;
   }
-}
 
-.issl-BookmarkedItem_Body {
-  @extend .d-flex, .align-items-center;
-  flex-grow: 1;
-}
-
-.issl-BookmarkedItem_Content {
-  @include xunderline($gray-800, $body-color);
-  @include nf;
-  font-weight: bold;
-}
-
-.issl-BookmarkedItem_Bookmark {
-  @extend .ml-auto;
-}
-
-.issl-BookmarkedItem_CommentCount {
-  display: block;
-  width: 11%;
-  text-align: right;
-  font-size: $font-size-sm;
-}
-
-.issl-BookmarkedItem_UpdatedAt {
-  display: block;
-  width: 15%;
-  text-align: right;
-  font-size: $font-size-sm;
-  color: $body-color-sub;
+  .issl-Item_Body {
+    padding-right: 0;
+  }
 }
 
 .issl-Nav_Closed {
