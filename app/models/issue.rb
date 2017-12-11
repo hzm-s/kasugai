@@ -17,27 +17,6 @@ class Issue < ApplicationRecord
   delegate :id, to: :closed, prefix: true
   delegate :name, to: :project, prefix: true
 
-  class << self
-
-    #TODO: remove
-    def for_project(project_id)
-      joins(:opened)
-        .where(project_id: project_id)
-        .order('opened_issues.priority_order, issues.created_at')
-    end
-
-    #TODO: remove
-    def bookmarked(project_id)
-      joins(:bookmarked)
-        .merge(for_project(project_id))
-    end
-
-    #TODO: remove
-    def find_closed(issue_id)
-      joins(:closed).find(issue_id)
-    end
-  end
-
   def closed?
     @is_closed ||= closed.present?
   end

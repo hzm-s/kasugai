@@ -50,7 +50,7 @@ describe IssueService do
       close_issue(member, issue_a)
 
       described_class.change_priority(issue_b, 1)
-      ordered_issues = Issue.for_project(project.id).map(&:title)
+      ordered_issues = project.issue_list.issues.map(&:title)
       expect(ordered_issues).to eq(%w(C B))
     end
   end
