@@ -1,0 +1,14 @@
+<div id="<%= app_dom_id(item) %>" class="issl-Item" data-sort-url="<%= issue_priority_url(item) %>">
+  <i class="issl-Item_Handle js-sortable-handle"></i>
+  <%= render partial: 'summary', locals: { summary: item } %>
+  <div class="issl-Item_Tail">
+    <ul class="sw-LinkList">
+      <li>
+        <%= link_to t('navs.edit'), edit_project_issue_url(current_project, item), class: 'sw-Link' %>
+      </li>
+      <li>
+        <%= link_to t('navs.delete'), project_issue_url(current_project, item), method: :delete, class: 'sw-Link', data: { confirm: t('.confirm_delete', title: item.title) } %>
+      </li>
+    </ul>
+  </div>
+</div>

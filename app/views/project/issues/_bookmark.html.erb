@@ -1,5 +1,5 @@
 <% if issue.bookmarked? -%>
-  <%= render partial: 'bookmarked', locals: { issue: issue } %>
+  <%= render partial: 'project/issues/bookmarked', locals: { issue: issue } %>
 <% else -%>
-  <%= render partial: 'unbookmarked', locals: { issue: issue } %>
+  <%= render partial: 'project/issues/unbookmarked', locals: { issue: issue } %>
 <% end -%>

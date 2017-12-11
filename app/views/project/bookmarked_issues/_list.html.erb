@@ -5,7 +5,7 @@
     </h3>
     <% if list.any? -%>
       <div class="prj-BookmarkedIssues_Body">
-        <%= render partial: 'project/bookmarked_issues/summary', collection: list.issues, cached: true %>
+        <%= render partial: 'project/bookmarked_issues/item', collection: list.issues, cached: true %>
       </div>
     <% else -%>
       <div class="sw-Blank">
