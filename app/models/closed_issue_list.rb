@@ -5,4 +5,8 @@ class ClosedIssueList < ApplicationRecord
   def count
     closed_issues.count
   end
+
+  def add(issue)
+    self.closed_issues.build(issue: issue)
+  end
 end

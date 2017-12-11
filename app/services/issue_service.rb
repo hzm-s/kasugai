@@ -43,9 +43,16 @@ class IssueService < ApplicationService
   end
 
   def close(project_member, issue)
+    project = project_member.project
+    issue_list = project.issue_list
+    closed_issue_list = project.closed_issue_list
+
+    closed_issue_list.add(issue)
+
     transaction do
-      OpenedIssue.delete!(issue)
-      ClosedIssue.add!(issue)
+      issue_list.remove!(issue)
+      issue_list.save!
+      closed_issue_list.save!
       ProjectActivities::Issue.record!(:closed, project_member, issue)
     end
   end

@@ -13,4 +13,8 @@ class IssueList < ApplicationRecord
   def add(issue)
     self.opened_issues.build(issue: issue)
   end
+
+  def remove!(issue)
+    self.issues.destroy(issue)
+  end
 end

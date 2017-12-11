@@ -1,4 +1,5 @@
 class ClosedIssue < ApplicationRecord
+  belongs_to :closed_issue_list
   belongs_to :issue
 
   delegate :title, to: :issue
