@@ -8,9 +8,12 @@ class IssueService < ApplicationService
     return failure(params: params) unless params.valid?
 
     issue = IssueFactory.create(project_member, params)
+    list = project_member.project.issue_list
+
     transaction do
       issue.save!
-      OpenedIssue.add!(issue)
+      list.add(issue)
+      list.save!
       ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 

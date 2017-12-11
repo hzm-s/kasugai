@@ -6,9 +6,11 @@ module ProjectFactory
       name: params.name,
       description: params.description
     }
-
     Project.new(attrs) do |p|
       p.members.build(user_id: user.id)
+      p.build_issue_list
+      p.build_bookmarked_issue_list
+      p.build_closed_issue_list
     end
   end
 end
