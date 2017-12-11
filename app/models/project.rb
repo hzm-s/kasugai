@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   has_many :members, class_name: 'ProjectMember', dependent: :destroy
 
+  has_many :issues
   has_one :issue_list, dependent: :destroy
   has_one :closed_issue_list, dependent: :destroy
   has_one :bookmarked_issue_list, dependent: :destroy

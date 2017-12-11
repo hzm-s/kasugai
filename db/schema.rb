@@ -84,11 +84,13 @@ ActiveRecord::Schema.define(version: 20171207084310) do
   end
 
   create_table "issues", id: :string, force: :cascade do |t|
+    t.string "project_id", null: false
     t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_issues_on_project_id"
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 20171207084310) do
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users"
   add_foreign_key "issue_lists", "projects"
+  add_foreign_key "issues", "projects"
   add_foreign_key "issues", "users"
   add_foreign_key "opened_issues", "issue_lists"
   add_foreign_key "opened_issues", "issues"

@@ -1,4 +1,5 @@
 class Issue < ApplicationRecord
+  belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   has_one :opened, class_name: 'OpenedIssue', dependent: :destroy
