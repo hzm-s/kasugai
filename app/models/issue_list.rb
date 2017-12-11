@@ -1,0 +1,2 @@
+class IssueList < ApplicationRecord
+end
