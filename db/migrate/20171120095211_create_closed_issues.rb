@@ -1,8 +1,9 @@
 class CreateClosedIssues < ActiveRecord::Migration[5.1]
   def change
     create_table :closed_issues do |t|
-      t.references :closed_issue_list, null: false, index: true, foreign_key: true
-      t.string :issue_id, null: false, unique: true
+      t.references :closed_issue_list, null: false, foreign_key: true
+      t.string :issue_id, null: false
+
       t.datetime :created_at, null: false
     end
 

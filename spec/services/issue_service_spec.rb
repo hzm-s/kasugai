@@ -31,7 +31,7 @@ describe IssueService do
   describe '#reopen' do
     it do
       issue = create_issue(member, title: 'I')
-      close_issue(issue)
+      close_issue(member, issue)
 
       expect { described_class.reopen(member, issue) }
         .to change { Issue.count }.by(0)
@@ -68,7 +68,7 @@ describe IssueService do
       issue_a = create_issue(member, title: 'A')
       issue_b = create_issue(member, title: 'B')
       issue_c = create_issue(member, title: 'C')
-      close_issue(issue_a)
+      close_issue(member, issue_a)
 
       described_class.change_priority(issue_b, 1)
       ordered_issues = Issue.for_project(project.id).map(&:title)

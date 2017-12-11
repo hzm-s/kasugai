@@ -15,7 +15,7 @@ describe ProjectService do
     end
   end
 
-  xdescribe '.delete' do
+  describe '.delete' do
     let(:project) { create_project(user, name: 'P') }
     let(:issue) { create_issue(user.as_member_of(project), title: 'I') }
     let(:comment) { post_comment(user.as_member_of(project), issue, content: 'C') }
@@ -35,8 +35,9 @@ describe ProjectService do
         expect(Project.find_by(id: project.id)).to be_nil
         expect(ProjectMember.find_by(user_id: user.id, project_id: project.id)).to be_nil
         expect(IssueList.find_by(project_id: project.id)).to be_nil
+        expect(ClosedIssueList.find_by(project_id: project.id)).to be_nil
+        expect(BookmarkedIssueList.find_by(project_id: project.id)).to be_nil
         expect(Issue.find_by(id: issue.id)).to be_nil
-        expect(BookmarkedIssue.find_by(issue_id: issue.id)).to be_nil
         expect(IssueComment.find_by(id: comment.id)).to be_nil
         expect(User.find_by(id: user.id)).to_not be_nil
       end
@@ -47,8 +48,9 @@ describe ProjectService do
         .to change { Project.count }.by(-1)
         .and change { ProjectMember.count }.by(-1)
         .and change { IssueList.count }.by(-1)
+        .and change { ClosedIssueList.count }.by(-1)
+        .and change { BookmarkedIssueList.count }.by(-1)
         .and change { Issue.count }.by(-1)
-        .and change { BookmarkedIssue.count }.by(-1)
         .and change { IssueComment.count }.by(-1)
         .and change { User.count }.by(0)
     end

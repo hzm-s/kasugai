@@ -7,7 +7,7 @@ class Project::ClosedIssuesController < Project::BaseController
   helper_method :current_issue
 
   def index
-    @issues = ClosedIssue.for_project(current_project.id)
+    @issues = current_project.closed_issue_list.issues
   end
 
   def create

@@ -4,9 +4,10 @@ describe '解決した課題の詳細' do
   it do
     user = sign_up
     project = create_project(user, name: 'P')
-    issue = create_issue(user.as_member_of(project), title: 'I')
-    post_comment(user.as_member_of(project), issue, content: 'C')
-    close_issue(issue)
+    member = user.as_member_of(project)
+    issue = create_issue(member, title: 'I')
+    post_comment(member, issue, content: 'C')
+    close_issue(member, issue)
 
     sign_in(user)
     visit project_issue_path(project, issue.id)

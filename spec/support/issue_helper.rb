@@ -3,8 +3,7 @@ module IssueHelper
     IssueService.create(project_member, IssueForm.new(attrs)).issue
   end
 
-  def close_issue(issue)
-    project_member = issue.author.as_member_of(issue.project)
+  def close_issue(project_member, issue)
     IssueService.close(project_member, issue)
   end
 

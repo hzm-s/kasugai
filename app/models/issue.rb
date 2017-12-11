@@ -1,6 +1,7 @@
 class Issue < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
+  has_one :opened, class_name: 'OpenedIssue', dependent: :destroy
   has_one :closed, class_name: 'ClosedIssue', dependent: :destroy
   has_one :bookmarked, dependent: :destroy, class_name: 'BookmarkedIssue'
 

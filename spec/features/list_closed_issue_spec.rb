@@ -11,12 +11,12 @@ describe '解決した課題の一覧' do
 
     before do
       Timecop.freeze(Time.zone.parse('2017-01-23')) do
-        close_issue(closed_a1)
+        close_issue(member_a, closed_a1)
       end
       Timecop.freeze(Time.zone.parse('2017-01-25')) do
-        close_issue(closed_a2)
+        close_issue(member_a, closed_a2)
       end
-      close_issue(closed_b)
+      close_issue(member_b, closed_b)
 
       sign_in(user_a)
       visit project_closed_issues_path(project_a)
