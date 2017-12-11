@@ -9,7 +9,6 @@ module ProjectFactory
 
     Project.new(attrs) do |p|
       p.members.build(user_id: user.id)
-      p.build_issue_list
     end
   end
 end
