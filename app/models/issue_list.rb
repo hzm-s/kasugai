@@ -8,8 +8,7 @@ class IssueList < ApplicationRecord
   end
 
   def remove!(issue)
-    #TODO
-    self.opened_issues.find_by(issue_id: issue.id).destroy!
+    find_item(issue.id).destroy!
   end
 
   def change_priority_position!(issue, new_position)

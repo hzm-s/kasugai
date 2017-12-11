@@ -8,12 +8,11 @@ class IssueService < ApplicationService
     return failure(params: params) unless params.valid?
 
     issue = IssueFactory.create(project_member, params)
-    list = project_member.project.issue_list
+    issue_list = project_member.project.issue_list
 
     transaction do
       issue.save!
-      list.add(issue)
-      list.save!
+      issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:created, project_member, issue)
     end
 
@@ -44,24 +43,23 @@ class IssueService < ApplicationService
   end
 
   def close(project_member, issue)
-    project = project_member.project
-    issue_list = project.issue_list
-    closed_issue_list = project.closed_issue_list
-
-    closed_issue_list.add(issue)
+    issue_list = project_member.project.issue_list
+    closed_issue_list = project_member.project.closed_issue_list
 
     transaction do
       issue_list.remove!(issue)
-      issue_list.save!
-      closed_issue_list.save!
+      closed_issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:closed, project_member, issue)
     end
   end
 
   def reopen(project_member, issue)
+    issue_list = project_member.project.issue_list
+    closed_issue_list = project_member.project.closed_issue_list
+
     transaction do
-      ClosedIssue.delete!(issue)
-      OpenedIssue.add!(issue)
+      closed_issue_list.remove!(issue)
+      issue_list.add(issue).save!
       ProjectActivities::Issue.record!(:reopened, project_member, issue)
     end
   end
