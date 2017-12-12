@@ -1,21 +1,23 @@
-<div class="iss-Detail" id="app_issue_detail">
-  <div class="iss-Detail_Header">
-    <%= show_user_avatar(issue.author, size: :sm) %>
-    <div class="iss-Detail_Creation">
-      <%=t '.creation_html', author: issue.author_name, date: l(issue.created_at.to_date) %>
-    </div>
-    <% if issue.closed? -%>
-      <span class="iss-Detail_ClosedLabel" id="app_closed_issue">
-        <%=t '.closed' %>
-      </span>
-    <% else -%>
-      <div class="iss-Detail_Bookmark">
-        <%= render partial: 'bookmark', locals: { issue: issue } %>
+<% cache ['detail', issue] do -%>
+  <div class="iss-Detail" id="app_issue_detail">
+    <div class="iss-Detail_Header">
+      <%= show_user_avatar(issue.author, size: :sm) %>
+      <div class="iss-Detail_Creation">
+        <%=t '.creation_html', author: issue.author_name, date: l(issue.created_at.to_date) %>
       </div>
-    <% end -%>
+      <% if issue.closed? -%>
+        <span class="iss-Detail_ClosedLabel" id="app_closed_issue">
+          <%=t '.closed' %>
+        </span>
+      <% else -%>
+        <div class="iss-Detail_Bookmark">
+          <%= render partial: 'bookmark', locals: { issue: issue } %>
+        </div>
+      <% end -%>
+    </div>
+    <div class="iss-Detail_Body">
+      <%= render partial: 'title', locals: { issue: issue, form: form, open: false } %>
+      <%= render partial: 'content', locals: { issue: issue, form: form, open: false } %>
+    </div>
   </div>
-  <div class="iss-Detail_Body">
-    <%= render partial: 'title', locals: { issue: issue, form: form, open: false } %>
-    <%= render partial: 'content', locals: { issue: issue, form: form, open: false } %>
-  </div>
-</div>
+<% end -%>
