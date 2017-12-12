@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-22 col-lg-19 mx-auto">
+    <div class="dsc-Body">
+      <div class="dsc-Body_Issue">
+        <%= render partial: 'detail', locals: { issue: @issue, form: @issue_form } %>
+      </div>
+      <div class="row">
+        <div class="col-sm-22 col-lg-18 mx-auto">
+          <%= render partial: 'issue/comments/container', locals: { issue: @issue, form: @comment_form } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'actions', locals: { project: current_project, issue: @issue } %>
