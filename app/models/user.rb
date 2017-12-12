@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :project_members
   has_many :project_activities
+  has_many :issue_comments
 
   delegate :email, to: :account
 

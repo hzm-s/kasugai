@@ -1,0 +1,9 @@
+<div class="dsc-Body_CommentWrapper" data-channel="issue-comments" data-issue-id="<%= issue.id %>">
+  <h3 class="dsc-Comment_Title">
+    <%=t '.title' %>
+  </h3>
+  <%= render partial: 'issue/comments/list', locals: { comments: issue.comments } %>
+  <% unless issue.closed? -%>
+    <%= render partial: 'issue/comments/form', locals: { form: form } %>
+  <% end -%>
+</div>
