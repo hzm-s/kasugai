@@ -1,0 +1,11 @@
+<% cache issue do -%>
+  <div class="dsc-Body_CommentWrapper">
+    <h3 class="dsc-Comment_Title">
+      <%=t '.title' %>
+    </h3>
+    <div class="dsc-Comment_List" id="js-issue-comments">
+      <%= render partial: 'issue/comments/others_comment', collection: issue.comments, as: :comment %>
+    </div>
+    <div id="anchor-latest-comment"></div>
+  </div>
+<% end -%>

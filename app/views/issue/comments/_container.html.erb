@@ -1,0 +1,5 @@
+<% if issue.closed? -%>
+  <%= render partial: 'issue/comments/closed_container', locals: { issue: issue } %>
+<% else -%>
+  <%= render partial: 'issue/comments/opened_container', locals: { issue: issue, form: form } %>
+<% end -%>

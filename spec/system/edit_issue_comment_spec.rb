@@ -17,9 +17,11 @@ describe '課題コメントの編集', type: :system do
       click_on '編集する'
       fill_in 'form[content]', with: 'Issue Comment New'
       click_on '保存する'
+
+      expect(page).to have_content('Issue Comment New')
+      expect(page).to have_content('編集する')
+      expect(page).to have_content('削除する')
     end
-    find('#js-issue-comments')
-    expect(page).to have_content('Issue Comment New')
   end
 
   it do

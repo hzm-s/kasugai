@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '課題タイトルの編集' do
   let(:user) { sign_up }
   let(:project) { create_project(user, name: 'Project') }
-  let(:issue) { create_issue(user.as_member_of(project), title: 'Issue Old') }
+  let(:issue) { create_issue(user.as_member_of(project), title: 'Issue Old', content: 'Issue Content') }
 
   before do
     sign_in(user)
@@ -16,7 +16,10 @@ describe '課題タイトルの編集' do
     click_on '保存する'
 
     find('#js-open-issue-title-editor')
-    expect(find('#app_issue_title').text).to eq('Issue New')
+    aggregate_failures do
+      expect(find('#app_issue_title').text).to eq('Issue New')
+      expect(page).to have_content(issue.content)
+    end
   end
 
   it do

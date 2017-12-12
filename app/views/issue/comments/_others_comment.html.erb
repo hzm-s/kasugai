@@ -1,1 +1,3 @@
-<%= render partial: 'issue/comments/comment', locals: { comment: comment } %>
+<% cache ['others', comment] do -%>
+  <%= render partial: 'issue/comments/comment', locals: { comment: comment } %>
+<% end -%>
