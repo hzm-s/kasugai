@@ -12,6 +12,7 @@
   <%= ie.form class: 'iss-Detail_TitleEdit' do -%>
     <%= render 'inline_edit_form', ie: ie, form: form do |f| %>
       <%= hidden_field_tag 'form[field]', :title %>
+      <%= f.hidden_field :content %>
       <div class="form-group">
         <%= f.text_field :title, class: 'form-control' %>
       </div>
