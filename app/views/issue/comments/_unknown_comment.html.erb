@@ -1,4 +1,4 @@
-<% if comment.author == current_user -%>
+<% if comment.author?(current_user) -%>
   <%= render partial: 'issue/comments/my_comment', locals: { comment: comment } %>
 <% else -%>
   <%= render partial: 'issue/comments/others_comment', locals: { comment: comment } %>

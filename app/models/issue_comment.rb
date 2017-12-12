@@ -16,4 +16,8 @@ class IssueComment < ApplicationRecord
   def author_project_member
     author.as_member_of(issue.project)
   end
+
+  def author?(user)
+    author_id == user.id
+  end
 end
