@@ -86,10 +86,6 @@ ja:
       summary:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
 
-      comment_list:
-        comments:
-          title: コメント
-
       detail:
         closed: 解決済み
         creation_html: "<span id='app_issue_author'>%{author}</span>が<span id='app_issue_created_at'>%{date}</span>に作成"
@@ -155,6 +151,10 @@ ja:
 
   issue:
     comments:
+      list:
+        comments:
+          title: コメント
+
       comment:
         creation_html: "<span class='app_issue_comment_author'>%{author}</span>が<span class='app_issue_comment_created_at'>%{time}</span>に投稿"
 

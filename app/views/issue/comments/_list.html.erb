@@ -2,9 +2,9 @@
   <h3 class="dsc-Comment_Title">
     <%=t '.comments.title' %>
   </h3>
-  <%= render_async issue_comments_url(issue), event_name: 'issue-comments-loaded', 'data-turbolinks-track': 'reload' do %>
-    <%= loading_partial %>
-  <% end -%>
+  <div class="dsc-Comment_List" id="js-issue-comments">
+    <%= render partial: 'issue/comments/unknown_comment', collection: issue.comments, as: :comment %>
+  </div>
   <div id="anchor-latest-comment"></div>
   <% unless issue.closed? -%>
     <%= render partial: 'issue/comments/form', locals: { form: form } %>
