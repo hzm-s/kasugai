@@ -4,9 +4,7 @@
     <div class="issl-Body">
       <div class="row">
         <div class="col-sm-22 col-lg-20 offset-lg-1">
-          <div class="issl-ClosedList">
-            <%= render partial: 'issue', collection: @issues %>
-          </div>
+          <%= render partial: 'list', locals: { list: @list } %>
         </div>
       </div>
     </div>
