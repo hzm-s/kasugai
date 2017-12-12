@@ -61,6 +61,7 @@ class IssueService < ApplicationService
     transaction do
       closed_issue_list.remove!(issue)
       issue_list.add(issue).save!
+      issue.touch
       ProjectActivities::Issue.record!(:reopened, project_member, issue)
     end
   end
