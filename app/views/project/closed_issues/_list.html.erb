@@ -1,0 +1,13 @@
+<% cache list do -%>
+  <div class="issl-ClosedList">
+    <% if list.any? -%>
+      <%= render partial: 'issue', collection: list.issues, cached: true %>
+    <% else -%>
+      <div class="sw-Blank">
+        <p class="sw-Blank_Message">
+          <%=t ('.blank') %>
+        </p>
+      </div>
+    <% end -%>
+  </div>
+<% end -%>

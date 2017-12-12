@@ -132,6 +132,9 @@ ja:
         blank: ブックマークしている課題はありません
 
     closed_issues:
+      list:
+        blank: 解決した課題はありません
+
       issue:
         confirm_delete: '課題「%{title}」を削除してよろしいですか?'
 
