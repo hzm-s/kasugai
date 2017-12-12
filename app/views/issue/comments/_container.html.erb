@@ -2,8 +2,10 @@
   <h3 class="dsc-Comment_Title">
     <%=t '.title' %>
   </h3>
-  <%= render partial: 'issue/comments/list', locals: { comments: issue.comments } %>
-  <% unless issue.closed? -%>
+  <% if issue.closed? -%>
+    <%= render partial: 'issue/comments/archived_list', locals: { comments: issue.comments } %>
+  <% else -%>
+    <%= render partial: 'issue/comments/list', locals: { comments: issue.comments } %>
     <%= render partial: 'issue/comments/form', locals: { form: form } %>
   <% end -%>
 </div>
