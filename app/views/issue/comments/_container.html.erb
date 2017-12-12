@@ -1,11 +1,5 @@
-<div class="dsc-Body_CommentWrapper" data-channel="issue-comments" data-issue-id="<%= issue.id %>">
-  <h3 class="dsc-Comment_Title">
-    <%=t '.title' %>
-  </h3>
-  <% if issue.closed? -%>
-    <%= render partial: 'issue/comments/archived_list', locals: { comments: issue.comments } %>
-  <% else -%>
-    <%= render partial: 'issue/comments/list', locals: { comments: issue.comments } %>
-    <%= render partial: 'issue/comments/form', locals: { form: form } %>
-  <% end -%>
-</div>
+<% if issue.closed? -%>
+  <%= render partial: 'issue/comments/closed_container', locals: { issue: issue } %>
+<% else -%>
+  <%= render partial: 'issue/comments/opened_container', locals: { issue: issue, form: form } %>
+<% end -%>

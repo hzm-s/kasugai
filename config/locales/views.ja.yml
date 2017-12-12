@@ -151,7 +151,11 @@ ja:
 
   issue:
     comments:
-      container:
+
+      opened_container:
+        title: コメント
+
+      closed_container:
         title: コメント
 
       comment:
