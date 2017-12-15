@@ -70,6 +70,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'popper_js', '~> 1.12.3'
 gem 'hashigami_rails', github: 'haazime/hashigami_rails'
+gem 'oblate', github: 'haazime/oblate'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-Sortable'

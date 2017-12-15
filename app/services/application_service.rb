@@ -1,4 +1,4 @@
-require 'action_service'
+require 'oblate'
 
-class ApplicationService < ActionService::Base
+class ApplicationService < Oblate::Service
 end

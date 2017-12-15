@@ -4,6 +4,12 @@ GIT
   specs:
     hashigami_rails (0.1.0)
 
+GIT
+  remote: https://github.com/haazime/oblate.git
+  revision: 67c3fbe1e9b9ac7835150f9de62160bcb08bfafe
+  specs:
+    oblate (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -274,6 +280,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
+  oblate!
   pg (~> 0.18)
   popper_js (~> 1.12.3)
   puma (~> 3.7)
