@@ -1,4 +1,10 @@
-require 'action_service'
+require 'oblate'
 
-class ApplicationService < ActionService::Base
+class ApplicationService < Oblate::Service
+
+  def transaction
+    ActiveRecord::Base.transaction do
+      yield
+    end
+  end
 end
