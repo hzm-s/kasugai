@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/haazime/oblate.git
-  revision: 6e6aa15cb28d8c45cfb32ca706af220bf8cd8557
+  revision: 67c3fbe1e9b9ac7835150f9de62160bcb08bfafe
   specs:
     oblate (0.1.0)
 
