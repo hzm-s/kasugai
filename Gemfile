@@ -64,6 +64,7 @@ gem 'render_async'
 gem 'gretel'
 gem 'ranked-model'
 gem 'kaminari'
+gem 'sidekiq'
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
