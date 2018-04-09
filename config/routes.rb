@@ -31,4 +31,8 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'profile#edit', as: :edit_profile
   patch '/profile', to: 'profile#update', as: :profile
   patch '/profile/theme', to: 'profile/theme#update', as: :profile_theme
+
+  if Rails.env.development?
+    resources :backdoors, only: [:index, :create]
+  end
 end
