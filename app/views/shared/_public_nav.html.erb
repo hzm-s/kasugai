@@ -8,6 +8,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
+      <% if Rails.env.development? -%>
+        <li class="nav-item">
+          <%= link_to t('navs.backdoors'), backdoors_url, class: 'nav-Global_Link' %>
+        </li>
+      <% end -%>
       <li class="nav-item">
         <%= link_to t('navs.sign_in'), new_sign_in_url, class: 'nav-Global_Link' %>
       </li>

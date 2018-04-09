@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-22 col-lg-12 mx-auto">
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t 'navs.backdoors' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body-left">
+        <ul class="list-group list-group-flush">
+          <% @backdoors.each do |door| %>
+            <li class="list-group-item">
+              <%= link_to door.user_name, sign_in_url(token: door.sign_in_token) %>
+            </li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+    <div class="rcpt-Main">
+      <div class="rcpt-Main_Header">
+        <h1 class="rcpt-Main_Title">
+          <%=t 'navs.sign_up' %>
+        </h1>
+      </div>
+      <div class="rcpt-Main_Body-left">
+        <input type="text" class="form-control" value="SignUp.create!(name: '', email: '').complete">
+      </div>
+    </div>
+  </div>
+</div>
