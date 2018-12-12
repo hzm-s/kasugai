@@ -1,4 +1,6 @@
-# README
+# Kasugai
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/4785a1a247bf6c142a62/maintainability)](https://codeclimate.com/github/haazime/kasugai/maintainability)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
